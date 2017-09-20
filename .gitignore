@@ -7,30 +7,30 @@ build/
 DerivedData/
 
 ## Various settings
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata/
+src/*.pbxuser
+src/!default.pbxuser
+src/*.mode1v3
+src/!default.mode1v3
+src/*.mode2v3
+src/!default.mode2v3
+src/*.perspectivev3
+src/!default.perspectivev3
+src/xcuserdata/
 
 ## Other
-*.moved-aside
-*.xccheckout
-*.xcscmblueprint
+src/*.moved-aside
+src/*.xccheckout
+src/*.xcscmblueprint
 
 ## Obj-C/Swift specific
-*.hmap
-*.ipa
-*.dSYM.zip
-*.dSYM
+src/*.hmap
+src/*.ipa
+src/*.dSYM.zip
+src/*.dSYM
 
 ## Playgrounds
-timeline.xctimeline
-playground.xcworkspace
+src/timeline.xctimeline
+src/playground.xcworkspace
 
 # Swift Package Manager
 #
@@ -38,7 +38,7 @@ playground.xcworkspace
 # Packages/
 # Package.pins
 # Package.resolved
-.build/
+src/.build/
 
 # CocoaPods
 #
@@ -47,4 +47,4 @@ playground.xcworkspace
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 
-Pods/
+src/Pods/
