@@ -1,0 +1,8 @@
+language: swift
+
+osx_image: xcode9
+
+script:
+  - xcodebuild -scheme 'Know Your Family' -workspace SwiftExample.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6S,OS=9.1' build test
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t 79b112c7-0e23-4e9a-b21d-d8f0c683952a
