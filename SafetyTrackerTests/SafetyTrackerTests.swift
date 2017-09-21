@@ -1,15 +1,15 @@
 //
-//  Know_Your_FamilyTests.swift
-//  Know Your FamilyTests
+//  SafetyTrackerTests.swift
+//  SafetyTrackerTests
 //
-//  Created by Nathan Tannar on 9/19/17.
+//  Created by Nathan Tannar on 9/20/17.
 //  Copyright © 2017 Nathan Tannar. All rights reserved.
 //
 
 import XCTest
-@testable import Know_Your_Family
+@testable import SafetyTracker
 
-class Know_Your_FamilyTests: XCTestCase {
+class SafetyTrackerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

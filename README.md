@@ -1,14 +1,10 @@
-# Know Your Family
+# Safety Tracker
 
 > Term project for Group #7 (Team NeuroSoftware) in CMPT 275: Software Engineering I
 
 ## Description
 
-It can be scary learning that one of your loved ones has been diagnosed with Alzheimers. You may begin to worry that their long term memory will begin to fail and they will forget who you are. Our goal is to prevent or at the very least prolong exactly that from happing.
 
-With *Know Your Family* we aim to help train ones short term memeory by providing a daily memory match game that matches family members photos with their names. Once complete, the user will be able to access a timeline of media such as text, photos and videos that their family members can send to them. After all, sometimes the best medicine is happiness and who doesn't like seeing content from their child or grandchild.
-
-Additionally, the user can: see a family tree view showing all of their family members, recieve alerts from their family members on when they plan on visiting.
 
 ## Requirements
 
@@ -18,7 +14,7 @@ Additionally, the user can: see a family tree view showing all of their family m
 
 ## Assignment Documentation
 
-[Assignment 1](./docs/)
+[Assignment 1](./docs/Assignment_1.pdf)
 
 ## Meeting Minutes
 
@@ -48,7 +44,11 @@ Weekly meetings on Tuesdays from 4:30-5:30 in the ASB atrium
 #### Philip Leblanc
 > pleblanc@sfu.ca
 > 
-> I am a fourth-year computer engineering student with experience with c++, javascript,python. Previously had a co-op at Simba technologies/ Magnitude Software on the Buildand Test Automation Team. Had me working on an internal webpage using Angular.js andpython but I am more comfortable with VS c++ through courses at sfu. Outside of school, Ienjoy soccer, hiking, and skiing.
+> I am a fourth-year computer engineering student with experience with c++, javascript,
+python. Previously had a co-op at Simba technologies/ Magnitude Software on the Build
+and Test Automation Team. Had me working on an internal webpage using Angular.js and
+python but I am more comfortable with VS c++ through courses at sfu. Outside of school, I
+enjoy soccer, hiking, and skiing.
 
 ### QA:
 

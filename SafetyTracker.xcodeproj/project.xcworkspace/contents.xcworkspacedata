@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Know Your Family.xcodeproj">
+      location = "self:SafetyTracker.xcodeproj">
    </FileRef>
 </Workspace>
