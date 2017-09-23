@@ -28,9 +28,9 @@
 		38C1209B1F736FAC00A4A9A4 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		38C1209C1F736FAC00A4A9A4 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		38C1209D1F736FAC00A4A9A4 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
-		38F7C2521F736D92006C995A /* SafetyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafetyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38F7C2521F736D92006C995A /* SafetyBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafetyBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7C2551F736D92006C995A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		38F7C2631F736D92006C995A /* SafetyTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafetyTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		38F7C2631F736D92006C995A /* SafetyBeaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafetyBeaconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7C2671F736D92006C995A /* SafetyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyTrackerTests.swift; sourceTree = "<group>"; };
 		38F7C2691F736D93006C995A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38F7C2781F736E36006C995A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 		38F7C2491F736D92006C995A = {
 			isa = PBXGroup;
 			children = (
-				38F7C2541F736D92006C995A /* SafetyTracker */,
-				38F7C2661F736D92006C995A /* SafetyTrackerTests */,
+				38F7C2541F736D92006C995A /* SafetyBeacon */,
+				38F7C2661F736D92006C995A /* SafetyBeaconTests */,
 				38F7C2531F736D92006C995A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,13 +99,13 @@
 		38F7C2531F736D92006C995A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				38F7C2521F736D92006C995A /* SafetyTracker.app */,
-				38F7C2631F736D92006C995A /* SafetyTrackerTests.xctest */,
+				38F7C2521F736D92006C995A /* SafetyBeacon.app */,
+				38F7C2631F736D92006C995A /* SafetyBeaconTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		38F7C2541F736D92006C995A /* SafetyTracker */ = {
+		38F7C2541F736D92006C995A /* SafetyBeacon */ = {
 			isa = PBXGroup;
 			children = (
 				38F7C2551F736D92006C995A /* AppDelegate.swift */,
@@ -116,16 +116,16 @@
 				38F7C2761F736E36006C995A /* Supporting Files */,
 				38F7C27A1F736E37006C995A /* Assets */,
 			);
-			path = SafetyTracker;
+			path = SafetyBeacon;
 			sourceTree = "<group>";
 		};
-		38F7C2661F736D92006C995A /* SafetyTrackerTests */ = {
+		38F7C2661F736D92006C995A /* SafetyBeaconTests */ = {
 			isa = PBXGroup;
 			children = (
 				38F7C2671F736D92006C995A /* SafetyTrackerTests.swift */,
 				38F7C2691F736D93006C995A /* Info.plist */,
 			);
-			path = SafetyTrackerTests;
+			path = SafetyBeaconTests;
 			sourceTree = "<group>";
 		};
 		38F7C2761F736E36006C995A /* Supporting Files */ = {
@@ -148,9 +148,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		38F7C2511F736D92006C995A /* SafetyTracker */ = {
+		38F7C2511F736D92006C995A /* SafetyBeacon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 38F7C26C1F736D93006C995A /* Build configuration list for PBXNativeTarget "SafetyTracker" */;
+			buildConfigurationList = 38F7C26C1F736D93006C995A /* Build configuration list for PBXNativeTarget "SafetyBeacon" */;
 			buildPhases = (
 				38F7C24E1F736D92006C995A /* Sources */,
 				38F7C24F1F736D92006C995A /* Frameworks */,
@@ -160,14 +160,14 @@
 			);
 			dependencies = (
 			);
-			name = SafetyTracker;
+			name = SafetyBeacon;
 			productName = SafetyTracker;
-			productReference = 38F7C2521F736D92006C995A /* SafetyTracker.app */;
+			productReference = 38F7C2521F736D92006C995A /* SafetyBeacon.app */;
 			productType = "com.apple.product-type.application";
 		};
-		38F7C2621F736D92006C995A /* SafetyTrackerTests */ = {
+		38F7C2621F736D92006C995A /* SafetyBeaconTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 38F7C26F1F736D93006C995A /* Build configuration list for PBXNativeTarget "SafetyTrackerTests" */;
+			buildConfigurationList = 38F7C26F1F736D93006C995A /* Build configuration list for PBXNativeTarget "SafetyBeaconTests" */;
 			buildPhases = (
 				38F7C25F1F736D92006C995A /* Sources */,
 				38F7C2601F736D92006C995A /* Frameworks */,
@@ -178,9 +178,9 @@
 			dependencies = (
 				38F7C2651F736D92006C995A /* PBXTargetDependency */,
 			);
-			name = SafetyTrackerTests;
+			name = SafetyBeaconTests;
 			productName = SafetyTrackerTests;
-			productReference = 38F7C2631F736D92006C995A /* SafetyTrackerTests.xctest */;
+			productReference = 38F7C2631F736D92006C995A /* SafetyBeaconTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -204,7 +204,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 38F7C24D1F736D92006C995A /* Build configuration list for PBXProject "SafetyTracker" */;
+			buildConfigurationList = 38F7C24D1F736D92006C995A /* Build configuration list for PBXProject "SafetyBeacon" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,8 +217,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				38F7C2511F736D92006C995A /* SafetyTracker */,
-				38F7C2621F736D92006C995A /* SafetyTrackerTests */,
+				38F7C2511F736D92006C995A /* SafetyBeacon */,
+				38F7C2621F736D92006C995A /* SafetyBeaconTests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,7 +265,7 @@
 /* Begin PBXTargetDependency section */
 		38F7C2651F736D92006C995A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 38F7C2511F736D92006C995A /* SafetyTracker */;
+			target = 38F7C2511F736D92006C995A /* SafetyBeacon */;
 			targetProxy = 38F7C2641F736D92006C995A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -432,7 +432,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafetyTracker.app/SafetyTracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafetyBeacon.app/SafetyBeacon";
 			};
 			name = Debug;
 		};
@@ -449,14 +449,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafetyTracker.app/SafetyTracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafetyBeacon.app/SafetyBeacon";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		38F7C24D1F736D92006C995A /* Build configuration list for PBXProject "SafetyTracker" */ = {
+		38F7C24D1F736D92006C995A /* Build configuration list for PBXProject "SafetyBeacon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				38F7C26A1F736D93006C995A /* Debug */,
@@ -465,7 +465,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		38F7C26C1F736D93006C995A /* Build configuration list for PBXNativeTarget "SafetyTracker" */ = {
+		38F7C26C1F736D93006C995A /* Build configuration list for PBXNativeTarget "SafetyBeacon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				38F7C26D1F736D93006C995A /* Debug */,
@@ -474,7 +474,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		38F7C26F1F736D93006C995A /* Build configuration list for PBXNativeTarget "SafetyTrackerTests" */ = {
+		38F7C26F1F736D93006C995A /* Build configuration list for PBXNativeTarget "SafetyBeaconTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				38F7C2701F736D93006C995A /* Debug */,

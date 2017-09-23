@@ -1,3 +1,5 @@
+<img src="./SafetyBeacon/Assets/SafetyBeaconLogo.png" width="300"></img>
+
 # Safety Beacon
 
 > Term project for Group #7 (Team NeuroSoftware) in CMPT 275: Software Engineering I
@@ -59,6 +61,8 @@ Weekly meetings on Tuesdays from 4:30-5:30 in the ASB atrium
 
 ####  Jason Tsang
 > jrtsang@sfu.ca
+> 
+> I am a 4th year Computer Engineering student with an industry background primarily infirmware. In addition to firmware, I have experience working with automation, regressiontesting and build and CI. I have been exposed to the Apple development environmentbefore, having created a status-bar application for macOS.
 
 #### Philip Leblanc
 > pleblanc@sfu.ca
@@ -73,6 +77,8 @@ enjoy soccer, hiking, and skiing.
 
 #### Josh Shercliffe
 > jshercli@sfu.ca
+> 
+> I am a SFU student pursuing a degree in computer engineering. I am competent in computer hardware, and have built several personal computers. I have worked in IT at ICBC, as well as taken several computing courses at SFU such as CMPT 128, 225, and ENSC 251.
 
 #### Kim Youjung
 > youjungk@sfu.ca
