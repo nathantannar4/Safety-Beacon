@@ -6,7 +6,7 @@
 
 ## Description
 
-Alzheimer’s is a disease that effects not only the patient but everyone who is close to them. You may find yourself worried that your family members might one day forget where they live and wonder off. Or maybe you are worried that they are taking too many trips to the pharmacy buying over the counter drugs or the casino spending their money and not remembering how much they lost. While you may not always be able to be by their side, with *Safety Beacon* you can rest easy knowing you have a direct link to their current and previous whereabouts.
+Alzheimer’s is a disease that effects not only the patient but everyone who is close to them. You may find yourself worried that your family members might one day forget where they live and wonder off. In fact, 6/10 people will wonder off and get lost! [[1]](http://www.alz.org/care/alzheimers-dementia-wandering.asp) Or maybe you are worried that they are taking too many trips to the pharmacy buying over the counter drugs or the casino spending their money and not remembering how much they lost. While you may not always be able to be by their side, with *Safety Beacon* you can rest easy knowing you have a direct link to their current and previous whereabouts. [[2]](http://www.alz.org/alzheimers_disease_10_signs_of_alzheimers.asp)
 
 ### Features
 
@@ -26,15 +26,7 @@ While also providing convenience features to the PARIENT like:
 - An Augmented Reality overlay of their navigation; *making it easier to follow directions*
 - View the shared calendar created by the CARETAKER; *with notifictions*
 
-
-
-## Requirements
-
-- iOS 9.0+
-- Swift 4
-- Xcode 8.0+
-
-## Assignment Documentation
+## Documentation
 
 [Assignment 1](./docs/Assignment_1.pdf)
 
@@ -84,5 +76,11 @@ enjoy soccer, hiking, and skiing.
 > youjungk@sfu.ca
 > 
 > My name is Youjung Kim, I am a senior student in Computer Engineering. So far in my academic career, I have completed 5 co-op terms at 2 different companies as a R/D associate and software tester. I am currently finishing my last terms at SFU as I am seeking post graduate opportunities.
+
+## Works Cited
+
+[1] A. Association, "Alzheimer's Association," 2017. [Online]. Available: http://www.alz.org/care/alzheimers-dementia-wandering.asp.[2] A. Association, "Alzheimer's Association," 2009. [Online]. Available: http://www.alz.org/alzheimers_disease_10_signs_of_alzheimers.asp.
+
+
 
 
