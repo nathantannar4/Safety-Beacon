@@ -57,7 +57,7 @@ Weekly meetings on Tuesdays from 4:30-5:30 in the ASB atrium
 > I am a 4th year Computer Engineering student with an industry background primarily infirmware. In addition to firmware, I have experience working with automation, regressiontesting and build and CI. I have been exposed to the Apple development environmentbefore, having created a status-bar application for macOS.
 
 #### Philip Leblanc
-> pleblanc@sfu.ca
+> paleblan@sfu.ca
 > 
 > I am a fourth-year computer engineering student with experience with c++, javascript,
 python. Previously had a co-op at Simba technologies/ Magnitude Software on the Build
