@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+//        let config = ParseClientConfiguration(block: { (ParseMutableClientConfiguration) -> Void in
+//            ParseMutableClientConfiguration.applicationId = X_Parse_Application_ID
+//            ParseMutableClientConfiguration.clientKey = X_Parse_Master_Key
+//            ParseMutableClientConfiguration.server = X_Parse_Server_URL
+//        });
+//        Parse.enableLocalDatastore()
+//        Parse.initialize(with: config)
+//        #if DEBUG
+//            Parse.setLogLevel(.debug)
+//        #endif
+        
+        // Register for Push Notifications
+//        let center = UNUserNotificationCenter.current()
+//        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+//        }
+//        application.registerForRemoteNotifications()
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIViewController()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3892E9BC1F78539F002E3AC2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9BB1F78539F002E3AC2 /* Secrets.swift */; };
 		38F7C2561F736D92006C995A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C2551F736D92006C995A /* AppDelegate.swift */; };
 		38F7C2681F736D92006C995A /* SafetyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C2671F736D92006C995A /* SafetyTrackerTests.swift */; };
 		38F7C27E1F736EC0006C995A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F7C2771F736E36006C995A /* LaunchScreen.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3892E9BB1F78539F002E3AC2 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		38C1209B1F736FAC00A4A9A4 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		38C1209C1F736FAC00A4A9A4 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		38C1209D1F736FAC00A4A9A4 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				38F7C2771F736E36006C995A /* LaunchScreen.storyboard */,
+				3892E9BB1F78539F002E3AC2 /* Secrets.swift */,
 				38F7C2791F736E36006C995A /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -404,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38F7C2561F736D92006C995A /* AppDelegate.swift in Sources */,
+				3892E9BC1F78539F002E3AC2 /* Secrets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

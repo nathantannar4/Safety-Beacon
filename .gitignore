@@ -6,31 +6,34 @@
 build/
 DerivedData/
 
+## Secrets
+SafetyBeacon/Supporting\ Files/Secrets.swift
+
 ## Various settings
-src/*.pbxuser
-src/!default.pbxuser
-src/*.mode1v3
-src/!default.mode1v3
-src/*.mode2v3
-src/!default.mode2v3
-src/*.perspectivev3
-src/!default.perspectivev3
-src/xcuserdata/
+SafetyBeacon/*.pbxuser
+SafetyBeacon/!default.pbxuser
+SafetyBeacon/*.mode1v3
+SafetyBeacon/!default.mode1v3
+SafetyBeacon/*.mode2v3
+SafetyBeacon/!default.mode2v3
+SafetyBeacon/*.perspectivev3
+SafetyBeacon/!default.perspectivev3
+SafetyBeacon/xcuserdata/
 
 ## Other
-src/*.moved-aside
-src/*.xccheckout
-src/*.xcscmblueprint
+SafetyBeacon/*.moved-aside
+SafetyBeacon/*.xccheckout
+SafetyBeacon/*.xcscmblueprint
 
 ## Obj-C/Swift specific
-src/*.hmap
-src/*.ipa
-src/*.dSYM.zip
-src/*.dSYM
+SafetyBeacon/*.hmap
+SafetyBeacon/*.ipa
+SafetyBeacon/*.dSYM.zip
+SafetyBeacon/*.dSYM
 
 ## Playgrounds
-src/timeline.xctimeline
-src/playground.xcworkspace
+SafetyBeacon/timeline.xctimeline
+SafetyBeacon/playground.xcworkspace
 
 # Swift Package Manager
 #
@@ -38,7 +41,7 @@ src/playground.xcworkspace
 # Packages/
 # Package.pins
 # Package.resolved
-src/.build/
+SafetyBeacon/.build/
 
 # CocoaPods
 #
@@ -47,4 +50,4 @@ src/.build/
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 
-src/Pods/
+Pods/
