@@ -148,12 +148,8 @@ public extension UIView {
     }
     
     func constraint(withIdentifier identifier: String) -> NSLayoutConstraint? {
-        for constraint in self.constraints {
-            if constraint.identifier == identifier {
-                return constraint
-            }
-        }
-        return nil
+        let constraint = self.constraint.filter { $0.identifier == identifier } ?? nil
+        return constraint
     }
     
     func constrainWidthToItem(_ item: UIView) {

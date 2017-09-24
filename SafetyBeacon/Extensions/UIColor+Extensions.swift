@@ -31,22 +31,21 @@ public extension UIColor {
     // Convenience Initilizers
     //**************************************/
     
-    
     /// Takes a 6 character HEX string and initializes a corresponding UIColor. Initializes as UIColor.white
     /// any discrepancies are found. (A # character will be automatically removed if added)
     ///
     /// - Parameter hex: 6 HEX color code
     public convenience init(hex: String) {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
-        if (cString.hasPrefix("#")) {
+        if cString.hasPrefix("#") {
             cString.remove(at: cString.startIndex)
         }
         
-        if ((cString.characters.count) != 6) {
+        if (cString.characters.count) != 6 {
             self.init(red: 0, green: 0, blue: 0, alpha: 1)
         } else {
-            var rgbValue:UInt32 = 0
+            var rgbValue: UInt32 = 0
             Scanner(string: cString).scanHexInt32(&rgbValue)
             
             self.init(
@@ -58,12 +57,11 @@ public extension UIColor {
         }
     }
     
-    
     /// Initializes a UIColor for its corresponding rgba UInt
     ///
     /// - Parameter rgba: UInt
-    public convenience init(rgba: UInt){
-        let sRgba = min(rgba,0xFFFFFFFF)
+    public convenience init(rgba: UInt) {
+        let sRgba = min(rgba, 0xFFFFFFFF)
         let red: CGFloat = CGFloat((sRgba & 0xFF000000) >> 24) / 255.0
         let green: CGFloat = CGFloat((sRgba & 0x00FF0000) >> 16) / 255.0
         let blue: CGFloat = CGFloat((sRgba & 0x0000FF00) >> 8) / 255.0
@@ -71,11 +69,6 @@ public extension UIColor {
         
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-    
-    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat){
-        self.init(red: r / 255, green: g / 255, blue: b / 255, alpha: 1)
-    }
-    
     
     //**************************************/
     // Functions
@@ -89,19 +82,18 @@ public extension UIColor {
         return self.adjust(by: -1 * abs(percentage)) ?? .black
     }
     
-    
     /// Performs an equivalent to the .map({}) function, adjusting the current r, g, b value by the percentage
     ///
     /// - Parameter percentage: CGFloat
     /// - Returns: UIColor or nil if there was an error
     func adjust(by percentage: CGFloat = 30.0) -> UIColor? {
-        var r:CGFloat=0, g:CGFloat=0, b:CGFloat=0, a:CGFloat=0;
-        if (self.getRed(&r, green: &g, blue: &b, alpha: &a)){
+        var r: CGFloat=0, g: CGFloat=0, b: CGFloat=0, a: CGFloat=0
+        if (self.getRed(&r, green: &g, blue: &b, alpha: &a)) {
             return UIColor(red: min(r + percentage/100, 1.0),
                            green: min(g + percentage/100, 1.0),
                            blue: min(b + percentage/100, 1.0),
                            alpha: a)
-        } else{
+        } else {
             return nil
         }
     }
@@ -123,7 +115,7 @@ public extension UIColor {
     //**************************************/
     
     var RGBA: [CGFloat] {
-        var RGBA: [CGFloat] = [0,0,0,0]
+        var RGBA: [CGFloat] = [0, 0, 0, 0]
         self.getRed(&RGBA[0], green: &RGBA[1], blue: &RGBA[2], alpha: &RGBA[3])
         return RGBA
     }
@@ -132,8 +124,8 @@ public extension UIColor {
         
         let RGBA = self.RGBA
         
-        func lumHelper(c: CGFloat) -> CGFloat {
-            return (c < 0.03928) ? (c/12.92): pow((c+0.055)/1.055, 2.4)
+        func lumHelper(val: CGFloat) -> CGFloat {
+            return (val < 0.03928) ? (val/12.92): pow((val+0.055)/1.055, 2.4)
         }
         
         return 0.2126 * lumHelper(c: RGBA[0]) + 0.7152 * lumHelper(c: RGBA[1]) + 0.0722 * lumHelper(c: RGBA[2])
@@ -155,11 +147,8 @@ public extension UIColor {
         return isBlack || isWhite
     }
     
-    
     /// Apples default tint color
     static var lightBlue: UIColor {
-        get {
-            return UIColor(hex: "007AFF")
-        }
+        return UIColor(hex: "007AFF")
     }
 }

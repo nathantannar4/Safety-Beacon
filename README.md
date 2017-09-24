@@ -10,7 +10,9 @@ Alzheimer’s is a disease that effects not only the patient but everyone who is
 
 ### Features
 
-Safety Beacon allows a CARETAKER to access:
+We define the CARETAKER as the user responsible for managing one or more PATIENT's, the user with Alzhimer's.
+
+The CARETAKER can access:
 
 - Real-Time Location Access; *in case they go missing*
 - Geo-Fence Enter/Exit Updates; *to make sure they arrive home safely*
@@ -19,7 +21,7 @@ Safety Beacon allows a CARETAKER to access:
 - A saved list of important locations; *to add map markers like home or the grocery store*
 - A shared calendar; *to remind the PATIENT to fill a perscription or attend their doctor's appointment*
 
-While also providing convenience features to the PARIENT like:
+The PATIENT can access:
 
 - A simple map view with easy navigation to the list of important locations; *because Google Maps complicated if you forget where you need to go*
 - A "panic" button that will guide them home if they are ever lost and alert the CARETAKER
@@ -47,7 +49,7 @@ Weekly meetings on Tuesdays from 4:30-5:30 in the ASB atrium
 #### Nathan Tannar
 > ntannar@sfu.ca
 > 
-> Mobile development is my jam. I did a one year Co Op with SAP where I worked on remote System Support and iOS development. I have experience with Swift from some personal projects I work on. With that I have learned how to setup a backend system for mobile apps that support a wide arrangement of cloud services including push notifications.
+> Mobile development is my jam. I did a one year of Co Op with SAP where I worked on remote System Support and iOS development. I have experience with Swift from some personal projects I work on. With that I have learned how to setup a backend system for mobile apps that support a wide arrangement of cloud services including push notifications.
 
 ### Developers: 
 
@@ -65,7 +67,7 @@ and Test Automation Team. Had me working on an internal webpage using Angular.js
 python but I am more comfortable with VS c++ through courses at sfu. Outside of school, I
 enjoy soccer, hiking, and skiing.
 
-### QA:
+### QA Developers:
 
 #### Josh Shercliffe
 > jshercli@sfu.ca

@@ -30,33 +30,26 @@ import SystemConfiguration
 
 public extension UIApplication {
   
-    
     /// The top most window in UIApplication.shared.windows that is presenting a view
     static var presentedWindow: UIWindow? {
-        get {
-            for window in UIApplication.shared.windows.reversed() {
-                if window.windowLevel == UIWindowLevelNormal && !window.isHidden && window.frame != CGRect.zero {
-                    return window
-                }
+        for window in UIApplication.shared.windows.reversed() {
+            if window.windowLevel == UIWindowLevelNormal && !window.isHidden && window.frame != CGRect.zero {
+                return window
             }
-            return nil
         }
+        return nil
     }
-    
     
     /// The top most presented view controller of the UIApplications presentedWindow
     static var presentedController: UIViewController? {
-        get {
-            if var topController = UIApplication.presentedWindow?.rootViewController {
-                while let presentedViewController = topController.presentedViewController {
-                    topController = presentedViewController
-                }
-                
-                return topController
+        if var topController = UIApplication.presentedWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
             }
-            return nil
-
+            
+            return topController
         }
+        return nil
     }
     
     /// Checks whether the network is reachable.
@@ -66,22 +59,20 @@ public extension UIApplication {
     ///
     /// - Returns: The reachability of the network, either true or false.
     static var isConnectedToNetwork: Bool {
-        get {
-            var zeroAddress = sockaddr_in()
-            zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
-            zeroAddress.sin_family = sa_family_t(AF_INET)
-            let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
-                $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
-                    SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
-                }
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
             }
-            var flags : SCNetworkReachabilityFlags = []
-            if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
-                return false
-            }
-            let isReachable = flags.contains(.reachable)
-            let needsConnection = flags.contains(.connectionRequired)
-            return (isReachable && !needsConnection)
         }
+        var flags: SCNetworkReachabilityFlags = []
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        return (isReachable && !needsConnection)
     }
 }
