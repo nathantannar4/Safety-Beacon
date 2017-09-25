@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
 //        let config = ParseClientConfiguration(block: { (ParseMutableClientConfiguration) -> Void in
-//            ParseMutableClientConfiguration.applicationId = X_Parse_Application_ID
-//            ParseMutableClientConfiguration.clientKey = X_Parse_Master_Key
-//            ParseMutableClientConfiguration.server = X_Parse_Server_URL
+//            ParseMutableClientConfiguration.applicationId = XParseApplicationID
+//            ParseMutableClientConfiguration.clientKey = XParseMasterKey
+//            ParseMutableClientConfiguration.server = XParseServerURL
 //        });
 //        Parse.enableLocalDatastore()
 //        Parse.initialize(with: config)

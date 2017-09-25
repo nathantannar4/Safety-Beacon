@@ -10,7 +10,7 @@ Alzheimer’s is a disease that effects not only the patient but everyone who is
 
 ### Features
 
-We define the CARETAKER as the user responsible for managing one or more PATIENT's, the user with Alzhimer's.
+We define the CARETAKER as the user responsible for managing one or more PATIENT's, the user with Alzheimer’s.
 
 The CARETAKER can access:
 
@@ -19,18 +19,18 @@ The CARETAKER can access:
 - Location History Trace; *to see where they went*
 - A daily safety report
 - A saved list of important locations; *to add map markers like home or the grocery store*
-- A shared calendar; *to remind the PATIENT to fill a perscription or attend their doctor's appointment*
+- A shared calendar; *to remind the PATIENT to fill a prescription or attend their doctor's appointment*
 
 The PATIENT can access:
 
 - A simple map view with easy navigation to the list of important locations; *because Google Maps complicated if you forget where you need to go*
 - A "panic" button that will guide them home if they are ever lost and alert the CARETAKER
 - An Augmented Reality overlay of their navigation; *making it easier to follow directions*
-- View the shared calendar created by the CARETAKER; *with notifictions*
+- View the shared calendar created by the CARETAKER; *with notifications*
 
 ## Documentation
 
-[Assignment 1](./docs/Assignment_1.pdf)
+[Assignment 1](./docs/Group-07-ProjectPlan.pdf)
 
 ## Meeting Minutes
 
