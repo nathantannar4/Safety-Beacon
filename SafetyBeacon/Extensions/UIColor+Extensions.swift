@@ -25,6 +25,8 @@
 //  Created by Nathan Tannar on 2/12/17.
 //
 
+import UIKit
+
 public extension UIColor {
     
     //**************************************/
@@ -115,9 +117,10 @@ public extension UIColor {
     //**************************************/
     
     var RGBA: [CGFloat] {
-        var RGBA: [CGFloat] = [0, 0, 0, 0]
-        self.getRed(&RGBA[0], green: &RGBA[1], blue: &RGBA[2], alpha: &RGBA[3])
-        return RGBA
+//        var RGBA: [CGFloat] = [0, 0, 0, 0]
+//        self.getRed(&RGBA[0], green: &RGBA[1], blue: &RGBA[2], alpha: &RGBA[3])
+//        return RGBA
+        return self.cgColor.components ?? [0, 0, 0, 0]
     }
     
     var luminance: CGFloat {
@@ -128,7 +131,7 @@ public extension UIColor {
             return (val < 0.03928) ? (val/12.92): pow((val+0.055)/1.055, 2.4)
         }
         
-        return 0.2126 * lumHelper(c: RGBA[0]) + 0.7152 * lumHelper(c: RGBA[1]) + 0.0722 * lumHelper(c: RGBA[2])
+        return 0.2126 * lumHelper(val: RGBA[0]) + 0.7152 * lumHelper(val: RGBA[1]) + 0.0722 * lumHelper(val: RGBA[2])
     }
     
     var isDark: Bool {

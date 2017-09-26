@@ -7,7 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3847EEA81F79DD6000305761 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEA71F79DD6000305761 /* MapViewController.swift */; };
+		3847EEAA1F79DFAF00305761 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEA91F79DFAF00305761 /* BookmarksViewController.swift */; };
+		3847EEAC1F79E00400305761 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEAB1F79E00400305761 /* NotificationsViewController.swift */; };
+		3847EEAE1F79E02E00305761 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEAD1F79E02E00305761 /* ReportViewController.swift */; };
+		3847EEB01F79E08700305761 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEAF1F79E08700305761 /* LocationViewController.swift */; };
+		3847EEB21F79E0A900305761 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEB11F79E0A900305761 /* UserViewController.swift */; };
+		3847EEB41F79E12C00305761 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEB31F79E12C00305761 /* Location.swift */; };
+		385BA3301F79BD38004B9061 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385BA32F1F79BD38004B9061 /* LoginViewController.swift */; };
+		385BA3311F79BE2A004B9061 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1209D1F736FAC00A4A9A4 /* UIView+AutoLayout.swift */; };
+		385BA3321F79BE2C004B9061 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1209C1F736FAC00A4A9A4 /* UIColor+Extensions.swift */; };
+		385BA3331F79BE2E004B9061 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1209B1F736FAC00A4A9A4 /* UIApplication+Extensions.swift */; };
+		385BA33F1F79C2A5004B9061 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385BA33E1F79C2A5004B9061 /* User.swift */; };
 		3892E9BC1F78539F002E3AC2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9BB1F78539F002E3AC2 /* Secrets.swift */; };
+		3892E9C21F79B460002E3AC2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9C11F79B460002E3AC2 /* LocationManager.swift */; };
+		3892E9C41F79B5ED002E3AC2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9C31F79B5ED002E3AC2 /* Log.swift */; };
 		38F7C2561F736D92006C995A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C2551F736D92006C995A /* AppDelegate.swift */; };
 		38F7C2681F736D92006C995A /* SafetyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C2671F736D92006C995A /* SafetyTrackerTests.swift */; };
 		38F7C27E1F736EC0006C995A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F7C2771F736E36006C995A /* LaunchScreen.storyboard */; };
@@ -27,7 +41,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3847EEA71F79DD6000305761 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3847EEA91F79DFAF00305761 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		3847EEAB1F79E00400305761 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		3847EEAD1F79E02E00305761 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		3847EEAF1F79E08700305761 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		3847EEB11F79E0A900305761 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		3847EEB31F79E12C00305761 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		385BA32F1F79BD38004B9061 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		385BA33E1F79C2A5004B9061 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3892E9BB1F78539F002E3AC2 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3892E9C11F79B460002E3AC2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3892E9C31F79B5ED002E3AC2 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		38C1209B1F736FAC00A4A9A4 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		38C1209C1F736FAC00A4A9A4 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		38C1209D1F736FAC00A4A9A4 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
@@ -91,6 +116,13 @@
 		38C1209E1F736FAC00A4A9A4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				385BA32F1F79BD38004B9061 /* LoginViewController.swift */,
+				3847EEA71F79DD6000305761 /* MapViewController.swift */,
+				3847EEA91F79DFAF00305761 /* BookmarksViewController.swift */,
+				3847EEAB1F79E00400305761 /* NotificationsViewController.swift */,
+				3847EEAD1F79E02E00305761 /* ReportViewController.swift */,
+				3847EEAF1F79E08700305761 /* LocationViewController.swift */,
+				3847EEB11F79E0A900305761 /* UserViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -98,6 +130,9 @@
 		38C1209F1F736FAC00A4A9A4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3892E9C11F79B460002E3AC2 /* LocationManager.swift */,
+				385BA33E1F79C2A5004B9061 /* User.swift */,
+				3847EEB31F79E12C00305761 /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,6 +192,7 @@
 			children = (
 				38F7C2771F736E36006C995A /* LaunchScreen.storyboard */,
 				3892E9BB1F78539F002E3AC2 /* Secrets.swift */,
+				3892E9C31F79B5ED002E3AC2 /* Log.swift */,
 				38F7C2791F736E36006C995A /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -406,8 +442,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				385BA3331F79BE2E004B9061 /* UIApplication+Extensions.swift in Sources */,
+				3847EEB21F79E0A900305761 /* UserViewController.swift in Sources */,
+				3847EEB41F79E12C00305761 /* Location.swift in Sources */,
+				3847EEAE1F79E02E00305761 /* ReportViewController.swift in Sources */,
 				38F7C2561F736D92006C995A /* AppDelegate.swift in Sources */,
+				385BA3321F79BE2C004B9061 /* UIColor+Extensions.swift in Sources */,
+				3847EEAC1F79E00400305761 /* NotificationsViewController.swift in Sources */,
+				3847EEA81F79DD6000305761 /* MapViewController.swift in Sources */,
+				385BA3311F79BE2A004B9061 /* UIView+AutoLayout.swift in Sources */,
+				3847EEB01F79E08700305761 /* LocationViewController.swift in Sources */,
 				3892E9BC1F78539F002E3AC2 /* Secrets.swift in Sources */,
+				3847EEAA1F79DFAF00305761 /* BookmarksViewController.swift in Sources */,
+				3892E9C41F79B5ED002E3AC2 /* Log.swift in Sources */,
+				385BA3301F79BD38004B9061 /* LoginViewController.swift in Sources */,
+				3892E9C21F79B460002E3AC2 /* LocationManager.swift in Sources */,
+				385BA33F1F79C2A5004B9061 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

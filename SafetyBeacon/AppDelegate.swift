@@ -17,26 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-//        let config = ParseClientConfiguration(block: { (ParseMutableClientConfiguration) -> Void in
-//            ParseMutableClientConfiguration.applicationId = XParseApplicationID
-//            ParseMutableClientConfiguration.clientKey = XParseMasterKey
-//            ParseMutableClientConfiguration.server = XParseServerURL
-//        });
-//        Parse.enableLocalDatastore()
-//        Parse.initialize(with: config)
-//        #if DEBUG
-//            Parse.setLogLevel(.debug)
-//        #endif
+        // Establish a connection to the backend
+        let config = ParseClientConfiguration(block: { (mutableClientConfig) -> Void in
+            mutableClientConfig.applicationId = self.XParseApplicationID
+            mutableClientConfig.clientKey = self.XParseMasterKey
+            mutableClientConfig.server = self.XParseServerURL
+        })
+        Parse.enableLocalDatastore()
+        Parse.initialize(with: config)
+        #if DEBUG
+            Parse.setLogLevel(.debug)
+            Log.setTraceLevel(to: .debug)
+        #endif
         
         // Register for Push Notifications
-//        let center = UNUserNotificationCenter.current()
-//        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-//        }
-//        application.registerForRemoteNotifications()
-
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, _) in
+            Log.write(.status, "Push Notifications are " + (granted ? "granted" : "NOT granted"))
+        }
+        application.registerForRemoteNotifications()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UIViewController()
+        window?.rootViewController = LoginViewController()
         window?.makeKeyAndVisible()
+        
         return true
     }
 

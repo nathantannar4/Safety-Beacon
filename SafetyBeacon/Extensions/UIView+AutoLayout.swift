@@ -23,7 +23,6 @@
 //  SOFTWARE.
 //
 //  Created by Nathan Tannar on 2/12/17.
-//  Modified from Brian Voong <bhlvoong@gmail.com>
 //
 
 import UIKit
@@ -148,8 +147,8 @@ public extension UIView {
     }
     
     func constraint(withIdentifier identifier: String) -> NSLayoutConstraint? {
-        let constraint = self.constraint.filter { $0.identifier == identifier } ?? nil
-        return constraint
+        let constraints = self.constraints.filter { $0.identifier == identifier }
+        return constraints.first
     }
     
     func constrainWidthToItem(_ item: UIView) {
