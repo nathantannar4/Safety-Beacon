@@ -10,6 +10,7 @@ target 'SafetyBeacon' do
   # Pods for SafetyBeacon
   pod 'Parse'
   pod 'SwiftLint'
+  pod 'NTComponents
 
   target 'SafetyBeaconTests' do
     inherit! :search_paths
