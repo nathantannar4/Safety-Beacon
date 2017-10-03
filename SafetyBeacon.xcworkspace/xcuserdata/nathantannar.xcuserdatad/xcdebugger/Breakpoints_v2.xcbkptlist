@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SafetyBeacon/Controllers/LoginViewController.swift"
-            timestampString = "528073803.335153"
+            timestampString = "528697662.885909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "caretakerLogin()"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "loginLogic(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SafetyBeacon/Controllers/LoginViewController.swift"
+            timestampString = "528697662.886737"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "loginLogic(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

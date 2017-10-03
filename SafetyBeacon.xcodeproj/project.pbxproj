@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3810DA4C1F832A5300B5180E /* AugmentedMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810DA4B1F832A5300B5180E /* AugmentedMapViewController.swift */; };
+		3810DA4E1F832AAC00B5180E /* SafeZonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810DA4D1F832AAC00B5180E /* SafeZonesViewController.swift */; };
 		3847EEA81F79DD6000305761 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEA71F79DD6000305761 /* MapViewController.swift */; };
 		3847EEAA1F79DFAF00305761 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEA91F79DFAF00305761 /* BookmarksViewController.swift */; };
 		3847EEAC1F79E00400305761 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEAB1F79E00400305761 /* NotificationsViewController.swift */; };
@@ -27,7 +29,6 @@
 		38F7C27E1F736EC0006C995A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F7C2771F736E36006C995A /* LaunchScreen.storyboard */; };
 		38F7C2801F736EC5006C995A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F7C27B1F736E37006C995A /* Assets.xcassets */; };
 		785FFDF79C7B992CF2941605 /* Pods_SafetyBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9324C7D4A6FA4E0E95079A40 /* Pods_SafetyBeacon.framework */; };
-		DB7566763D09EFE0CB0AA667 /* Pods_SafetyBeaconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB55ED398553A1D330243CC /* Pods_SafetyBeaconTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3810DA4B1F832A5300B5180E /* AugmentedMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedMapViewController.swift; sourceTree = "<group>"; };
+		3810DA4D1F832AAC00B5180E /* SafeZonesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeZonesViewController.swift; sourceTree = "<group>"; };
 		3847EEA71F79DD6000305761 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3847EEA91F79DFAF00305761 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		3847EEAB1F79E00400305761 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -67,8 +70,6 @@
 		5D5100163DA4D68C4A0E9F36 /* Pods-SafetyBeacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBeacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon.release.xcconfig"; sourceTree = "<group>"; };
 		7CB55ED398553A1D330243CC /* Pods_SafetyBeaconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBeaconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9324C7D4A6FA4E0E95079A40 /* Pods_SafetyBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9940B973799FC6C15E11B17C /* Pods-SafetyBeaconTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBeaconTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafetyBeaconTests/Pods-SafetyBeaconTests.release.xcconfig"; sourceTree = "<group>"; };
-		D73A108C8BE53E7A75D56A31 /* Pods-SafetyBeaconTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBeaconTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafetyBeaconTests/Pods-SafetyBeaconTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F38440B137C4743245CE70BD /* Pods-SafetyBeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBeacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB7566763D09EFE0CB0AA667 /* Pods_SafetyBeaconTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +97,6 @@
 			children = (
 				F38440B137C4743245CE70BD /* Pods-SafetyBeacon.debug.xcconfig */,
 				5D5100163DA4D68C4A0E9F36 /* Pods-SafetyBeacon.release.xcconfig */,
-				D73A108C8BE53E7A75D56A31 /* Pods-SafetyBeaconTests.debug.xcconfig */,
-				9940B973799FC6C15E11B17C /* Pods-SafetyBeaconTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -118,9 +116,11 @@
 			children = (
 				385BA32F1F79BD38004B9061 /* LoginViewController.swift */,
 				3847EEA71F79DD6000305761 /* MapViewController.swift */,
-				3847EEA91F79DFAF00305761 /* BookmarksViewController.swift */,
+				3810DA4B1F832A5300B5180E /* AugmentedMapViewController.swift */,
 				3847EEAB1F79E00400305761 /* NotificationsViewController.swift */,
 				3847EEAD1F79E02E00305761 /* ReportViewController.swift */,
+				3847EEA91F79DFAF00305761 /* BookmarksViewController.swift */,
+				3810DA4D1F832AAC00B5180E /* SafeZonesViewController.swift */,
 				3847EEAF1F79E08700305761 /* LocationViewController.swift */,
 				3847EEB11F79E0A900305761 /* UserViewController.swift */,
 			);
@@ -243,12 +243,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38F7C26F1F736D93006C995A /* Build configuration list for PBXNativeTarget "SafetyBeaconTests" */;
 			buildPhases = (
-				FF7F178657390E2AA9D582D3 /* [CP] Check Pods Manifest.lock */,
 				38F7C25F1F736D92006C995A /* Sources */,
 				38F7C2601F736D92006C995A /* Frameworks */,
 				38F7C2611F736D92006C995A /* Resources */,
-				CEB307CA5D40E04B5FCAE291 /* [CP] Embed Pods Frameworks */,
-				8091350B82C93B75FBBD7508 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -360,31 +357,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/NTComponents/NTComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NTComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8091350B82C93B75FBBD7508 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SafetyBeaconTests/Pods-SafetyBeaconTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B72BDD2C414195C29A8F4C47 /* [CP] Copy Pods Resources */ = {
@@ -402,39 +386,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CEB307CA5D40E04B5FCAE291 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SafetyBeaconTests/Pods-SafetyBeaconTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FF7F178657390E2AA9D582D3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SafetyBeaconTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -445,9 +396,11 @@
 				385BA3331F79BE2E004B9061 /* UIApplication+Extensions.swift in Sources */,
 				3847EEB21F79E0A900305761 /* UserViewController.swift in Sources */,
 				3847EEB41F79E12C00305761 /* Location.swift in Sources */,
+				3810DA4E1F832AAC00B5180E /* SafeZonesViewController.swift in Sources */,
 				3847EEAE1F79E02E00305761 /* ReportViewController.swift in Sources */,
 				38F7C2561F736D92006C995A /* AppDelegate.swift in Sources */,
 				385BA3321F79BE2C004B9061 /* UIColor+Extensions.swift in Sources */,
+				3810DA4C1F832A5300B5180E /* AugmentedMapViewController.swift in Sources */,
 				3847EEAC1F79E00400305761 /* NotificationsViewController.swift in Sources */,
 				3847EEA81F79DD6000305761 /* MapViewController.swift in Sources */,
 				385BA3311F79BE2A004B9061 /* UIView+AutoLayout.swift in Sources */,
@@ -632,7 +585,6 @@
 		};
 		38F7C2701F736D93006C995A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D73A108C8BE53E7A75D56A31 /* Pods-SafetyBeaconTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -650,7 +602,6 @@
 		};
 		38F7C2711F736D93006C995A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9940B973799FC6C15E11B17C /* Pods-SafetyBeaconTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

@@ -10,9 +10,7 @@ import CoreLocation
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
-    static var shared: LocationManager {
-        return LocationManager()
-    }
+    static var shared = LocationManager()
     
     // MARK: - Properties
     
@@ -62,15 +60,15 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     // MARK: - Private Functions
     
-    private func beginTracking() {
-        DispatchQueue.global(qos: .background).async {
+    func beginTracking() {
+        DispatchQueue.main.async {
             self.coreLocationManager.startUpdatingLocation()
             self.coreLocationManager.startMonitoringVisits()
         }
     }
     
-    private func endTracking() {
-        DispatchQueue.global(qos: .background).async {
+    func endTracking() {
+        DispatchQueue.main.async {
             self.coreLocationManager.stopUpdatingLocation()
             self.coreLocationManager.stopMonitoringVisits()
         }

@@ -54,9 +54,26 @@ class User: NSObject {
     ///   - email: Email Credentials
     ///   - password: Password Credentials
     ///   - completion: A completion block with a result indicating if the login was successful
-    class func loginInBackground(email: String, password: String, completion: ((Bool)->Void)?) {
+    class func loginInBackground(email: String, password: String, completion: ((Bool) -> Void)?) {
         PFUser.logInWithUsername(inBackground: email, password: password) { (user, error) in
             guard let user = user else {
+                Log.write(.error, error.debugDescription)
+                completion?(false)
+                return
+            }
+            currentUser = User(fromPFUser: user)
+            completion?(true)
+        }
+    }
+    
+    class func registerInBackground(email: String, password: String, completion: ((Bool) -> Void)?) {
+        
+        let user = PFUser()
+        user.email = email
+        user.username = email
+        user.password = password
+        user.signUpInBackground { (success, error) in
+            guard success else {
                 Log.write(.error, error.debugDescription)
                 completion?(false)
                 return

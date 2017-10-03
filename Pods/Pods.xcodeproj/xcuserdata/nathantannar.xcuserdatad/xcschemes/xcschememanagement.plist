@@ -11,21 +11,21 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Parse.xcscheme</key>
+		<key>NTComponents.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>Pods-SafetyBeacon.xcscheme</key>
+		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>Pods-SafetyBeaconTests.xcscheme</key>
+		<key>Pods-SafetyBeacon.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

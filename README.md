@@ -13,8 +13,19 @@ Alzheimer’s is a disease that effects not only the patient but everyone who is
 We define the CARETAKER as the user responsible for managing one or more PATIENT's, the user with Alzheimer’s.
 
 The PATIENT can access:
-- A simple map view with easy navigation to the list of important locations; because Google Maps complicated if you forget where you need to go- An Augmented Reality overlay of their walking navigation; making it easier to follow directions by viewing the live overlay through the display- An emergency button available to the patient that will automatically guide the patient home in the case of getting lostThe CARETAKER can access:
-- Real-Time Location Access; in case they go missing- Designation of “safe-zones” defined by the caregiver, in which the caregiver will be alerted when the patient enters or leaves these zones (such as the patient leaving or entering their home- Push navigation instructions to patient- Location History Trace; to see where they went- Set a saved list of important locations; to add map makers like “home” or “grocery store”- Generate daily report of patient location history
+
+- A simple map view with easy navigation to the list of important locations; because Google Maps complicated if you forget where you need to go
+- An Augmented Reality overlay of their walking navigation; making it easier to follow directions by viewing the live overlay through the display
+- An emergency button available to the patient that will automatically guide the patient home in the case of getting lost
+
+The CARETAKER can access:
+
+- Real-Time Location Access; in case they go missing
+- Designation of “safe-zones” defined by the caregiver, in which the caregiver will be alerted when the patient enters or leaves these zones (such as the patient leaving or entering their home
+- Push navigation instructions to patient
+- Location History Trace; to see where they went
+- Set a saved list of important locations; to add map makers like “home” or “grocery store”
+- Generate daily report of patient location history
 
 ## Documentation
 
@@ -29,6 +40,7 @@ Weekly meetings on Tuesdays from 4:30-5:30 in the ASB atrium
 | Sept 17     | [View](./docs/Meeting_Minutes_1.pdf)    |
 | Sept 19     | [View](./docs/Meeting_Minutes_2.pdf)    |
 | Sept 23     | [View](./docs/Meeting_Minutes_3.pdf)    |
+| Oct 3     | [View](./docs/Meeting_Minutes_4.pdf)    |
 
 ## Team
 
@@ -44,7 +56,10 @@ Weekly meetings on Tuesdays from 4:30-5:30 in the ASB atrium
 ####  Jason Tsang
 > jrtsang@sfu.ca
 > 
-> I am a 4th year Computer Engineering student with an industry background primarily infirmware. In addition to firmware, I have experience working with automation, regressiontesting and build and CI. I have been exposed to the Apple development environmentbefore, having created a status-bar application for macOS.
+> I am a 4th year Computer Engineering student with an industry background primarily in
+firmware. In addition to firmware, I have experience working with automation, regression
+testing and build and CI. I have been exposed to the Apple development environment
+before, having created a status-bar application for macOS.
 
 #### Philip Leblanc
 > paleblan@sfu.ca
@@ -69,7 +84,9 @@ enjoy soccer, hiking, and skiing.
 
 ## Works Cited
 
-[1] A. Association, "Alzheimer's Association," 2017. [Online]. Available: http://www.alz.org/care/alzheimers-dementia-wandering.asp.[2] A. Association, "Alzheimer's Association," 2009. [Online]. Available: http://www.alz.org/alzheimers_disease_10_signs_of_alzheimers.asp.
+[1] A. Association, "Alzheimer's Association," 2017. [Online]. Available: http://www.alz.org/care/alzheimers-dementia-wandering.asp.
+
+[2] A. Association, "Alzheimer's Association," 2009. [Online]. Available: http://www.alz.org/alzheimers_disease_10_signs_of_alzheimers.asp.
 
 
 
