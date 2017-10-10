@@ -29,7 +29,11 @@ The CARETAKER can access:
 
 ## Documentation
 
-[Assignment 1](./docs/Group-07-ProjectPlan.pdf)
+[Project Plan](./docs/Group-07-ProjectPlan.pdf)
+[Design Document](./docs/Group-07-Design.pdf)
+[Requirements Document](./docs/Group-07-Requirements.pdf)
+[QA Document](./docs/Group-07-QApdf)
+[User Manual](./docs/Group-07-UserManual.pdf)
 
 ## Meeting Minutes
 

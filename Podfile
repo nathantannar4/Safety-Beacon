@@ -11,6 +11,8 @@ target 'SafetyBeacon' do
   pod 'Parse'
   pod 'SwiftLint'
   pod 'ARCL'
+  pod 'Mapbox-iOS-SDK'
+  pod 'MapboxCoreNavigation'
   pod 'NTComponents'
 
 end
