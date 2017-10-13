@@ -11,8 +11,9 @@ target 'SafetyBeacon' do
   pod 'Parse'
   pod 'SwiftLint'
   pod 'ARCL'
-  pod 'Mapbox-iOS-SDK'
-  pod 'MapboxCoreNavigation'
+  pod 'Polyline', '~> 4.0'
+  pod 'Mapbox-iOS-SDK', '~> 3.6'
+  pod 'MapboxCoreNavigation', :git => 'https://github.com/mapbox/mapbox-navigation-ios', :branch => 'swift4'
   pod 'NTComponents'
 
 end

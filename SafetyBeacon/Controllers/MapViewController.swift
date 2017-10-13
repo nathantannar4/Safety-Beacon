@@ -7,22 +7,21 @@
 //
 
 import UIKit
-import MapKit
+import NTComponents
+import Mapbox
 
 class MapViewController: UIViewController {
     
     // MARK: - Properties
     
-    lazy var mapView: MKMapView = { [weak self] in
-        let mapView = MKMapView()
+    lazy var mapView: MGLMapView = { [weak self] in
+        let url = URL(string: "mapbox://styles/mapbox/streets-v10")
+        let mapView = MGLMapView(frame: view.bounds, styleURL: url)
         mapView.delegate = self
-        mapView.showsCompass = true
         mapView.showsUserLocation = true
-        mapView.isScrollEnabled = true
-        mapView.isZoomEnabled = true
-        mapView.isPitchEnabled = true
         return mapView
     }()
+    
     
     // MARK: - View Life Cycle
 
@@ -31,17 +30,34 @@ class MapViewController: UIViewController {
         
         LocationManager.shared.beginTracking()
         
+        title = "Map"
         view.backgroundColor = .white
         setupSubviews()
         setupConstraints()
+        
+        // Declare the marker `hello` and set its coordinates, title, and subtitle.
+//        let hello = MGLPointAnnotation()
+//        hello.coordinate = CLLocationCoordinate2D(latitude: 40.7326808, longitude: -73.9843407)
+//        hello.title = "Hello world!"
+//        hello.subtitle = "Welcome to my marker"
+//
+//        // Add marker `hello` to the map.
+//        mapView.addAnnotation(hello)
     }
     
-    private func setupSubviews() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard let location = LocationManager.shared.currentLocation else { return }
+        mapView.setCenter(location, zoomLevel: 12, animated: true)
+    }
+    
+    open func setupSubviews() {
         
         view.addSubview(mapView)
     }
     
-    private func setupConstraints() {
+    open func setupConstraints() {
         
         mapView.constrainToSuperview()
     }
@@ -49,7 +65,15 @@ class MapViewController: UIViewController {
     // MARK: - User Actions
 }
 
-extension MapViewController: MKMapViewDelegate {
+extension MapViewController: MGLMapViewDelegate {
     
+    // Use the default marker. See also: our view annotation or custom marker examples.
+    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+        return nil
+    }
     
+    // Allow callout view to appear when an annotation is tapped.
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
+    }
 }

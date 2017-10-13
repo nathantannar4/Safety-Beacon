@@ -17,29 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SafetyBeaconLogo" translatesAutoresizingMaskIntoConstraints="NO" id="rFa-kN-Dfn">
-                                <rect key="frame" x="73" y="62" width="229" height="246"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safety Beacon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nB1-d8-3rL">
                                 <rect key="frame" x="56" y="316" width="263" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="Gzb-YZ-paT"/>
+                                    <constraint firstAttribute="height" constant="42" id="LHf-W8-OpB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.95273298025131226" green="0.95693832635879517" blue="0.95679467916488647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SafetyBeaconCircleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="rFa-kN-Dfn">
+                                <rect key="frame" x="87" y="94" width="200" height="200"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rFa-kN-Dfn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Esz-Bo-lXn"/>
-                            <constraint firstItem="nB1-d8-3rL" firstAttribute="top" secondItem="rFa-kN-Dfn" secondAttribute="bottom" constant="8" symbolic="YES" id="GO6-9L-tu5"/>
-                            <constraint firstItem="rFa-kN-Dfn" firstAttribute="centerX" secondItem="nB1-d8-3rL" secondAttribute="centerX" id="GjE-aa-6za"/>
-                            <constraint firstItem="rFa-kN-Dfn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="73" id="M8l-fc-aCf"/>
-                            <constraint firstItem="rFa-kN-Dfn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="Puc-ZS-QUU"/>
-                            <constraint firstItem="nB1-d8-3rL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="gt7-mh-kXm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nB1-d8-3rL" secondAttribute="bottom" constant="309" id="xP2-om-HKa"/>
+                            <constraint firstItem="rFa-kN-Dfn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1Qg-ax-Ho0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nB1-d8-3rL" secondAttribute="bottom" constant="309" id="Bf3-XE-qb9"/>
+                            <constraint firstItem="nB1-d8-3rL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="CbI-MK-zkp"/>
+                            <constraint firstItem="nB1-d8-3rL" firstAttribute="top" secondItem="rFa-kN-Dfn" secondAttribute="bottom" constant="22" id="IHa-ar-tan"/>
+                            <constraint firstItem="rFa-kN-Dfn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="kJu-E0-NZZ"/>
+                            <constraint firstItem="rFa-kN-Dfn" firstAttribute="centerX" secondItem="nB1-d8-3rL" secondAttribute="centerX" id="lRr-jz-Cz3"/>
+                            <constraint firstItem="rFa-kN-Dfn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="74" id="tIs-UT-5bf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -50,6 +50,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SafetyBeaconLogo" width="1175" height="1175"/>
+        <image name="SafetyBeaconCircleLogo" width="569" height="572"/>
     </resources>
 </document>

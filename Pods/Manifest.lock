@@ -1,24 +1,54 @@
 PODS:
   - ARCL (1.0.1)
   - Bolts/Tasks (1.8.4)
+  - Mapbox-iOS-SDK (3.6.4)
+  - MapboxCoreNavigation (0.8.2):
+    - MapboxDirections.swift (~> 0.10.5)
+    - MapboxMobileEvents (~> 0.2)
+    - OSRMTextInstructions (~> 0.3)
+  - MapboxDirections.swift (0.10.6):
+    - Polyline (= 4.1.1)
+  - MapboxMobileEvents (0.2.10)
   - NTComponents (1.0.0)
+  - OSRMTextInstructions (0.4.0):
+    - MapboxDirections.swift (~> 0.10)
   - Parse (1.15.3):
     - Bolts/Tasks (~> 1.8)
-  - SwiftLint (0.22.0)
+  - Polyline (4.1.1)
+  - SwiftLint (0.23.1)
 
 DEPENDENCIES:
   - ARCL
+  - Mapbox-iOS-SDK (~> 3.6)
+  - MapboxCoreNavigation (from `https://github.com/mapbox/mapbox-navigation-ios`, branch `swift4`)
   - NTComponents
   - Parse
+  - Polyline (~> 4.0)
   - SwiftLint
+
+EXTERNAL SOURCES:
+  MapboxCoreNavigation:
+    :branch: swift4
+    :git: https://github.com/mapbox/mapbox-navigation-ios
+
+CHECKOUT OPTIONS:
+  MapboxCoreNavigation:
+    :commit: 7d7ba69dee886d77ee0a9d4c339ae98a027a276c
+    :git: https://github.com/mapbox/mapbox-navigation-ios
 
 SPEC CHECKSUMS:
   ARCL: 193b108d6fd5277ce742be3af92ccf81bbdd2f3b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Mapbox-iOS-SDK: 47847dd44285477e0dfffd0130f65c8a52823ada
+  MapboxCoreNavigation: eaf2fa430dcf6b1f147c759aa42f9dc31d22e5e9
+  MapboxDirections.swift: fbe95bd11c66339c1ef8b96301464f326394ac0d
+  MapboxMobileEvents: 9e48b59d0eed04508595dcb04a77b7632e1c3054
   NTComponents: 98a9e0958818b087e87b8e3c94cbdbcc70941072
+  OSRMTextInstructions: d8aa1d21310fd31bf256cf245b11b9a8e6413d63
   Parse: cdc0f1f975ee8be0409e66f21b05df4ae067047c
-  SwiftLint: 1134786caedd2caab0560d2f36b76414a5a56808
+  Polyline: 381d1e699fd12508f97cfc468478dfbab67edf1f
+  SwiftLint: 1b670ce79284c76520f84060e87d645078fd32fa
 
-PODFILE CHECKSUM: a327c2d69a43c81b0973c7dfeba66f7d26e87442
+PODFILE CHECKSUM: 90fe1f33313f48a080e85ecbe0d07de9c0fac242
 
 COCOAPODS: 1.3.1

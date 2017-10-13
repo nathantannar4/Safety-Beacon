@@ -82,4 +82,16 @@ class User: NSObject {
             completion?(true)
         }
     }
+    
+    class func logoutInBackground(_ completion: ((Bool) -> Void)?) {
+        PFUser.logOutInBackground { (error) in
+            guard error == nil else {
+                Log.write(.error, error.debugDescription)
+                completion?(false)
+                return
+            }
+            currentUser = nil
+            completion?(true)
+        }
+    }
 }

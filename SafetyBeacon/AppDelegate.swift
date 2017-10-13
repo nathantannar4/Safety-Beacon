@@ -11,6 +11,8 @@ import Parse
 import UserNotifications
 import NTComponents
 
+var appController = NTDrawerController()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,15 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let green = UIColor(r: 133, g: 204, b: 173)
-        let yellow = UIColor(r: 253, g: 226, b: 128)
-        let blue = UIColor(r: 130, g: 200, b: 235)
-        let red = UIColor(r: 252, g: 18, b: 30)
-        Color.Default.setPrimary(to: blue)
-        Color.Default.setSecondary(to: .white)
-        Color.Default.setTertiary(to: yellow)
-        Color.Default.Tint.View = green
-        Color.Default.Text.Title = .white
+        Color.Default.setPrimary(to: .logoOffwhite)
+        Color.Default.setSecondary(to: .logoBlue)
+        Color.Default.setTertiary(to: .logoYellow)
+        Color.Default.Tint.View = .logoGreen
         
         Font.Default.Title = Font.Roboto.Medium.withSize(15)
         Font.Default.Subtitle = Font.Roboto.Regular
@@ -36,8 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Font.Default.Headline = Font.Roboto.Medium.withSize(15)
         Font.Default.Callout = Font.Roboto.Medium.withSize(15)
         Font.Default.Footnote = Font.Roboto.Regular.withSize(12)
-        
-        UIApplication.shared.statusBarStyle = .lightContent
         
         // Establish a connection to the backend
         let config = ParseClientConfiguration(block: { (mutableClientConfig) -> Void in
@@ -60,11 +55,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        if User.current() == nil {
-            window?.rootViewController = LoginViewController()
+        if User.current() != nil {
+            let viewControllers = [MapViewController()]
+            let tabBarController = NTScrollableTabBarController(viewControllers: viewControllers)
+            appController.setViewController(ContentController(rootViewController: tabBarController), forSide: .center)
         } else {
-            window?.rootViewController = NTDrawerController(centerViewController: NTNavigationController(rootViewController: MapViewController()))
+            appController.setViewController(LoginViewController(), forSide: .center)
         }
+        window?.rootViewController = appController
         window?.makeKeyAndVisible()
         
         return true
