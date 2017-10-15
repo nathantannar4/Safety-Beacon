@@ -1,4 +1,4 @@
-<img src="./SafetyBeacon/Assets/SafetyBeaconLogo.png" width="300"></img>
+<img src="./SafetyBeacon/Assets/Logo.png" width="300"></img>
 
 # Safety Beacon
 
@@ -30,9 +30,13 @@ The CARETAKER can access:
 ## Documentation
 
 [Project Plan](./docs/Group-07-ProjectPlan.pdf)
+
 [Design Document](./docs/Group-07-Design.pdf)
+
 [Requirements Document](./docs/Group-07-Requirements.pdf)
+
 [QA Document](./docs/Group-07-QApdf)
+
 [User Manual](./docs/Group-07-UserManual.pdf)
 
 ## Meeting Minutes
