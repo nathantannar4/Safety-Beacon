@@ -15,5 +15,7 @@ target 'SafetyBeacon' do
   pod 'Mapbox-iOS-SDK', '~> 3.6'
   pod 'MapboxCoreNavigation', :git => 'https://github.com/mapbox/mapbox-navigation-ios', :branch => 'swift4'
   pod 'NTComponents'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 end

@@ -21,7 +21,7 @@ The PATIENT can access:
 The CARETAKER can access:
 
 - Real-Time Location Access; in case they go missing
-- Designation of “safe-zones” defined by the caregiver, in which the caregiver will be alerted when the patient enters or leaves these zones (such as the patient leaving or entering their home
+- Designation of “safe-zones” defined by the caretaker, in which the caretaker will be alerted when the patient enters or leaves these zones (such as the patient leaving or entering their home
 - Push navigation instructions to patient
 - Location History Trace; to see where they went
 - Set a saved list of important locations; to add map makers like “home” or “grocery store”
@@ -48,7 +48,9 @@ Weekly meetings on Tuesdays from 4:30-5:30 in the ASB atrium
 | Sept 17     | [View](./docs/Meeting_Minutes_1.pdf)    |
 | Sept 19     | [View](./docs/Meeting_Minutes_2.pdf)    |
 | Sept 23     | [View](./docs/Meeting_Minutes_3.pdf)    |
-| Oct 3     | [View](./docs/Meeting_Minutes_4.pdf)    |
+| Oct 3       | [View](./docs/Meeting_Minutes_4.pdf)    |
+| Oct 10      | [View](./docs/Meeting_Minutes_4.pdf)    |
+| Oct 17      | [View](./docs/Meeting_Minutes_4.pdf)    |
 
 ## Team
 

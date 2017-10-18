@@ -10,6 +10,8 @@ import UIKit
 import Parse
 import UserNotifications
 import NTComponents
+import Fabric
+import Crashlytics
 
 var appController = NTDrawerController()
 
@@ -47,6 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Log.setTraceLevel(to: .debug)
         #endif
         
+        // Fabric Setup
+        Fabric.with([Crashlytics.self, Answers.self])
+        
         // Register for Push Notifications
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound]) { (granted, _) in
@@ -56,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         if User.current() != nil {
-            let viewControllers = [MapViewController()]
+            let viewControllers = [MapViewController(), BookmarksViewController()]
             let tabBarController = NTScrollableTabBarController(viewControllers: viewControllers)
             appController.setViewController(ContentController(rootViewController: tabBarController), forSide: .center)
         } else {

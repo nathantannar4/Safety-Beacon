@@ -238,6 +238,7 @@
 				806B2B4472570DC3FD6248F2 /* [CP] Embed Pods Frameworks */,
 				B72BDD2C414195C29A8F4C47 /* [CP] Copy Pods Resources */,
 				3892E9B91F784F8A002E3AC2 /* SwiftLint */,
+				38F30C941F9591A400F5CFB6 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -357,6 +358,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		38F30C941F9591A400F5CFB6 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 6601a9daf93e6ae4295ec2c007b03b243b506b53 57937a4c5fa0d5fdb1e070b87dece554496c31480a38e01b8435948017c06144";
 		};
 		806B2B4472570DC3FD6248F2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
