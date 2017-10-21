@@ -35,7 +35,7 @@ The CARETAKER can access:
 
 [Requirements Document](./docs/Group-07-Requirements.pdf)
 
-[QA Document](./docs/Group-07-QApdf)
+[QA Document](./docs/Group-07-QA.pdf)
 
 [User Manual](./docs/Group-07-UserManual.pdf)
 
