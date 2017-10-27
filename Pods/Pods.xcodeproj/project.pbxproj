@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -906,7 +906,7 @@
 		099004C2883E3869E46AC65A3ABB30F7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		09A238EC40FCD69A14BF757083A0F1D7 /* CircularTransitionAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CircularTransitionAnimator.swift; path = NTComponents/Miscellaneous/Transitions/CircularTransitionAnimator.swift; sourceTree = "<group>"; };
 		09A9AE8B70C56361BEB4891BEF02DD54 /* Pods-SafetyBeacon-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SafetyBeacon-acknowledgements.markdown"; sourceTree = "<group>"; };
-		09C9A5FF24539CF3A1E4CB32A83ED5AE /* OSRMTextInstructions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = OSRMTextInstructions.modulemap; sourceTree = "<group>"; };
+		09C9A5FF24539CF3A1E4CB32A83ED5AE /* OSRMTextInstructions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = OSRMTextInstructions.modulemap; sourceTree = "<group>"; };
 		0A897310BD9FDF4674DAB060C7C2A112 /* PFObjectFileCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectFileCoder.m; path = Parse/Internal/Object/Coder/File/PFObjectFileCoder.m; sourceTree = "<group>"; };
 		0AAD090147C3F7AB4C250945918355CF /* PFAnonymousUtils_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnonymousUtils_Private.h; path = Parse/Internal/User/AuthenticationProviders/Providers/Anonymous/PFAnonymousUtils_Private.h; sourceTree = "<group>"; };
 		0AE50F8B41B790A45ACABA4639859B7A /* PFSQLiteDatabaseController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSQLiteDatabaseController.h; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseController.h; sourceTree = "<group>"; };
@@ -919,16 +919,16 @@
 		0D700AA76F053BCECCAA96614D1B857A /* PFEventuallyPin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFEventuallyPin.h; path = Parse/Internal/PFEventuallyPin.h; sourceTree = "<group>"; };
 		0D9C37778795C7573465B112ADEACB9A /* PFMutableUserState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMutableUserState.h; path = Parse/Internal/User/State/PFMutableUserState.h; sourceTree = "<group>"; };
 		0E97F83FD5973E4686CBFDDCEB981107 /* MBRouteOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBRouteOptions.h; path = MapboxDirections/MBRouteOptions.h; sourceTree = "<group>"; };
-		0F42E0D9A107D08DCC1F97CF00A32C22 /* Roboto-Black.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Black.ttf"; path = "NTComponents/Assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		0F42E0D9A107D08DCC1F97CF00A32C22 /* Roboto-Black.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "NTComponents/Assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
 		10073646A55697A72A2FCAB33FC90E62 /* TSKPinningValidatorCallback.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TSKPinningValidatorCallback.h; path = vendor/TrustKit/TSKPinningValidatorCallback.h; sourceTree = "<group>"; };
 		10A5C3EDF4B15F880C31FE19983B40D3 /* PFPushManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPushManager.h; path = Parse/Internal/Push/Manager/PFPushManager.h; sourceTree = "<group>"; };
 		10C7B1F841754A2556FBE88A90ACC6A8 /* MMECLLocationManagerWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMECLLocationManagerWrapper.m; path = MapboxMobileEvents/MMECLLocationManagerWrapper.m; sourceTree = "<group>"; };
-		11E607180D523773D7573B2EC2AE4231 /* OSRMTextInstructions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OSRMTextInstructions.framework; path = OSRMTextInstructions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11E607180D523773D7573B2EC2AE4231 /* OSRMTextInstructions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OSRMTextInstructions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E74D67AC7E5B5D30736F7747ABB21A /* PFMutableUserState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableUserState.m; path = Parse/Internal/User/State/PFMutableUserState.m; sourceTree = "<group>"; };
 		126B30ABE248D9A56F131A07C7CD5115 /* PFPurchase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPurchase.h; path = Parse/PFPurchase.h; sourceTree = "<group>"; };
 		1293D1FFAC8F5EBBFBBF65CA5AAEF58B /* PFObjectConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectConstants.m; path = Parse/Internal/Object/Constants/PFObjectConstants.m; sourceTree = "<group>"; };
 		12C9C2A1F887EED5B51BA8A7C667438E /* BFTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTask.h; path = Bolts/Common/BFTask.h; sourceTree = "<group>"; };
-		130D1C34595910E399C2901103CDAD40 /* Turf.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Turf.modulemap; sourceTree = "<group>"; };
+		130D1C34595910E399C2901103CDAD40 /* Turf.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Turf.modulemap; sourceTree = "<group>"; };
 		132D0677936F9AAA772B2396D3BF6647 /* ParseManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseManager.h; path = Parse/Internal/ParseManager.h; sourceTree = "<group>"; };
 		147B9AC33E83904F72B4365572A85DDE /* MMEUIApplicationWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMEUIApplicationWrapper.h; path = MapboxMobileEvents/MMEUIApplicationWrapper.h; sourceTree = "<group>"; };
 		149384DC8FC042F3CC58A9F7EAE055FB /* Polyline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Polyline.h; path = Polyline/Polyline.h; sourceTree = "<group>"; };
@@ -945,7 +945,7 @@
 		17A8AC3F90465B2811054CDDBDD6E72C /* CLLocation+MMEMobileEvents.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CLLocation+MMEMobileEvents.m"; path = "MapboxMobileEvents/CLLocation+MMEMobileEvents.m"; sourceTree = "<group>"; };
 		17C69944209E69A0A702B88A94A8617B /* Icon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = NTComponents/Styling/Icon.swift; sourceTree = "<group>"; };
 		17F3B17E7214EACE2B4AB42B121C1C7B /* PFDefaultACLController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDefaultACLController.h; path = Parse/Internal/ACL/DefaultACLController/PFDefaultACLController.h; sourceTree = "<group>"; };
-		198C8FDFADB599E4152263A9357C183A /* Turf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Turf.framework; path = Turf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		198C8FDFADB599E4152263A9357C183A /* Turf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Turf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D42C6BFC667E84993AEC243E11B0EC /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = de.lproj/Instructions.plist; sourceTree = "<group>"; };
 		19F4E80AE86065C22E962221C74B4C05 /* PFBaseState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFBaseState.h; path = Parse/Internal/PFBaseState.h; sourceTree = "<group>"; };
 		1A9E010778D7965365FEA6A5D7ED6BC4 /* PFWeakValue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFWeakValue.m; path = Parse/Internal/PFWeakValue.m; sourceTree = "<group>"; };
@@ -953,7 +953,7 @@
 		1BF3CFE18DAF0D1278075B4CCB90F0A7 /* PFACLState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFACLState.m; path = Parse/Internal/ACL/State/PFACLState.m; sourceTree = "<group>"; };
 		1C47BCAAE0643669797763BE228ED9F7 /* PFSQLiteStatement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSQLiteStatement.m; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteStatement.m; sourceTree = "<group>"; };
 		1CC7C32E1D3C1096538FEBC0D3B57398 /* PFConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFConstants.m; path = Parse/PFConstants.m; sourceTree = "<group>"; };
-		1CDB4504F30DB1D33C6377559635EE23 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-LightItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		1CDB4504F30DB1D33C6377559635EE23 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-LightItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
 		1CF6AE33706EAFC792446203B158BAD0 /* PFInstallation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFInstallation.m; path = Parse/PFInstallation.m; sourceTree = "<group>"; };
 		1D3636AF531117D2D92A5E3983946D8B /* MMECommonEventData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMECommonEventData.m; path = MapboxMobileEvents/MMECommonEventData.m; sourceTree = "<group>"; };
 		1D3EF9E0E6B1CF53277B767E54043592 /* PFMultiProcessFileLockController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMultiProcessFileLockController.h; path = Parse/Internal/MultiProcessLock/PFMultiProcessFileLockController.h; sourceTree = "<group>"; };
@@ -961,8 +961,8 @@
 		1E9C6CE4BBBB793CABAD8EA8B1B1B44F /* MMEAPIClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMEAPIClient.h; path = MapboxMobileEvents/MMEAPIClient.h; sourceTree = "<group>"; };
 		1EFA4AB4C062DB725ACE026D486E7EDF /* PFPurchase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPurchase.m; path = Parse/PFPurchase.m; sourceTree = "<group>"; };
 		1F46BB725923CDD278D14738E395535F /* PFQueryConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryConstants.m; path = Parse/Internal/Query/PFQueryConstants.m; sourceTree = "<group>"; };
-		1F5824AAE8441907A3E98CDFE29D2537 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Regular.ttf"; path = "NTComponents/Assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		1FF7DB982956579D1705B5E22BA57C58 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = Parse/Resources/en.lproj; sourceTree = "<group>"; };
+		1F5824AAE8441907A3E98CDFE29D2537 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "NTComponents/Assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		1FF7DB982956579D1705B5E22BA57C58 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = Parse/Resources/en.lproj; sourceTree = "<group>"; };
 		20C5DD688DE7CEACAD25713DAF86B90F /* AcknowList-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AcknowList-dummy.m"; sourceTree = "<group>"; };
 		20FD93BE0B986EF150003EBFA68A4FC8 /* PFMutableFileState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableFileState.m; path = Parse/Internal/File/State/PFMutableFileState.m; sourceTree = "<group>"; };
 		210BCC37DE6B67253A5FD7B8C027BDE3 /* PFObjectFilePersistenceController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectFilePersistenceController.m; path = Parse/Internal/Object/FilePersistence/PFObjectFilePersistenceController.m; sourceTree = "<group>"; };
@@ -997,7 +997,7 @@
 		2792F7CF8B27D0284763E027151585C4 /* PFAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAlertView.m; path = Parse/Internal/PFAlertView.m; sourceTree = "<group>"; };
 		27CECFD7502C78842BC3F34C4F1AE968 /* NTCollectionViewDefaultCells.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTCollectionViewDefaultCells.swift; path = "NTComponents/UI Kit/Collection/Cells/NTCollectionViewDefaultCells.swift"; sourceTree = "<group>"; };
 		27E5909C578F637CFBAD2DC21BA16FBF /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = MapboxCoreNavigation/Constants.swift; sourceTree = "<group>"; };
-		2824B1059590D400ADE9417E3A234BA5 /* MapboxMobileEvents.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MapboxMobileEvents.modulemap; sourceTree = "<group>"; };
+		2824B1059590D400ADE9417E3A234BA5 /* MapboxMobileEvents.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MapboxMobileEvents.modulemap; sourceTree = "<group>"; };
 		284F10F12B41B35A613CB50BB3E63826 /* MBRouteController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBRouteController.h; path = MapboxCoreNavigation/MBRouteController.h; sourceTree = "<group>"; };
 		285A65B40A101866AD4A1BEE7B75603F /* PFCommandCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCommandCache.m; path = Parse/Internal/PFCommandCache.m; sourceTree = "<group>"; };
 		286CBF44A1BC853EC935708BCCF9327F /* CoreLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreLocation.swift; path = Turf/CoreLocation.swift; sourceTree = "<group>"; };
@@ -1026,12 +1026,12 @@
 		2DE597CCA357D28375CAAEFE4D2376A7 /* BundleAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BundleAdditions.swift; path = MapboxCoreNavigation/BundleAdditions.swift; sourceTree = "<group>"; };
 		2E1579CC2552F531F363F91E1F34A30F /* PFACL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFACL.m; path = Parse/PFACL.m; sourceTree = "<group>"; };
 		2E1B0127E49FF44A31338491F2DAB45A /* RippleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RippleView.swift; path = NTComponents/Miscellaneous/RippleView.swift; sourceTree = "<group>"; };
-		2E5FB737114EEB8E5272F7AA0C0BBD0A /* Roboto-Thin.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Thin.ttf"; path = "NTComponents/Assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		2E5FB737114EEB8E5272F7AA0C0BBD0A /* Roboto-Thin.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Thin.ttf"; path = "NTComponents/Assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		2ECD6378FD1EDF0BE634694C37357DBB /* NTDrawerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTDrawerController.swift; path = "NTComponents/UI Kit/Navigation/NTDrawerController.swift"; sourceTree = "<group>"; };
 		2F783DA863CC2E9604F338F723D3729A /* PFSQLiteDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSQLiteDatabase.m; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabase.m; sourceTree = "<group>"; };
-		2FE36AD92AB7FDC5F8BCBBEACA6BFAF3 /* NTComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NTComponents.framework; path = NTComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FEE2E74A91741C469BC8434DEDFFC6B /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-ThinItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
-		3000A763C9920E7145FFE70D8C568AB8 /* MaterialIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = MaterialIcons.ttf; path = NTComponents/Assets/fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
+		2FE36AD92AB7FDC5F8BCBBEACA6BFAF3 /* NTComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NTComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FEE2E74A91741C469BC8434DEDFFC6B /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-ThinItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		3000A763C9920E7145FFE70D8C568AB8 /* MaterialIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = MaterialIcons.ttf; path = NTComponents/Assets/fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
 		300F52BA9E4183E136D7365DA3AD68EF /* MMECommonEventData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMECommonEventData.h; path = MapboxMobileEvents/MMECommonEventData.h; sourceTree = "<group>"; };
 		30487D540910483E365CD4B5A9AF0854 /* TrustKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TrustKit.h; path = vendor/TrustKit/TrustKit.h; sourceTree = "<group>"; };
 		30B8266CB4349435A51B08516D6F871C /* PFMutablePushState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutablePushState.m; path = Parse/Internal/Push/State/PFMutablePushState.m; sourceTree = "<group>"; };
@@ -1075,7 +1075,7 @@
 		3E085F8F0F3072E69B06C18D4E25228D /* PFURLConstructor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLConstructor.m; path = Parse/Internal/HTTPRequest/PFURLConstructor.m; sourceTree = "<group>"; };
 		3F9351FF2C6D22654853D6F2FDC7F1C1 /* PFConfig_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConfig_Private.h; path = Parse/Internal/Config/PFConfig_Private.h; sourceTree = "<group>"; };
 		3F9B03F7E6EADB9093EB09C32B97CC81 /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = "zh-Hans.lproj/Instructions.plist"; sourceTree = "<group>"; };
-		3FFD4F3410F4DA79C830C3FF18AC6278 /* ARCL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ARCL.framework; path = ARCL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FFD4F3410F4DA79C830C3FF18AC6278 /* ARCL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARCL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		403DC9998FCCBE8046C4637DBDEB2F97 /* PFCommandCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandCache.h; path = Parse/Internal/PFCommandCache.h; sourceTree = "<group>"; };
 		406D36E4F84B93A4312CC61A1437C9E8 /* PFAnonymousUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnonymousUtils.h; path = Parse/PFAnonymousUtils.h; sourceTree = "<group>"; };
 		40D467CBFED4D4513AD89D564E500A9E /* RouteProgress.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouteProgress.swift; path = MapboxCoreNavigation/RouteProgress.swift; sourceTree = "<group>"; };
@@ -1118,7 +1118,7 @@
 		4A208901FEFF294010399D9E5F0CA706 /* PFWeakValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFWeakValue.h; path = Parse/Internal/PFWeakValue.h; sourceTree = "<group>"; };
 		4A21793DCB95F6FA78488736CE789327 /* NTCollectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTCollectionViewController.swift; path = "NTComponents/UI Kit/Collection/NTCollectionViewController.swift"; sourceTree = "<group>"; };
 		4A8DBEEBB699D7C9AEB3D8746186CE0B /* NTMapAnnotationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTMapAnnotationView.swift; path = "NTComponents/UI Kit/Map/NTMapAnnotationView.swift"; sourceTree = "<group>"; };
-		4AB1B68E4D07683927B0CC818BB7FDB3 /* AcknowList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AcknowList.modulemap; sourceTree = "<group>"; };
+		4AB1B68E4D07683927B0CC818BB7FDB3 /* AcknowList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AcknowList.modulemap; sourceTree = "<group>"; };
 		4AC7BB5E1F7AC39A6EE7E331A3D6D937 /* PFUserController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserController.h; path = Parse/Internal/User/Controller/PFUserController.h; sourceTree = "<group>"; };
 		4B165247E531473D73A776669564B3CC /* CLSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSLogging.h; path = iOS/Crashlytics.framework/Headers/CLSLogging.h; sourceTree = "<group>"; };
 		4C0028282A92327AFDC8DC414242036B /* PFObjectSubclassInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectSubclassInfo.m; path = Parse/Internal/Object/Subclassing/PFObjectSubclassInfo.m; sourceTree = "<group>"; };
@@ -1151,7 +1151,7 @@
 		5215F0939AF56CAD87BE3EA669CE6D7C /* PFAnonymousUtils+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFAnonymousUtils+Deprecated.h"; path = "Parse/PFAnonymousUtils+Deprecated.h"; sourceTree = "<group>"; };
 		521954359F387B37B89FBBB08FE51504 /* PFThreadsafety.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFThreadsafety.m; path = Parse/Internal/ThreadSafety/PFThreadsafety.m; sourceTree = "<group>"; };
 		522736AB39B8D917AA678D85192F2A74 /* PFCachedQueryController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCachedQueryController.m; path = Parse/Internal/Query/Controller/PFCachedQueryController.m; sourceTree = "<group>"; };
-		5290FBE8A8477D314B7CDD5CCFC8CE1C /* Roboto-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Bold.ttf"; path = "NTComponents/Assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		5290FBE8A8477D314B7CDD5CCFC8CE1C /* Roboto-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "NTComponents/Assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		5296F75B97FF7AE2864C94A97C6C2845 /* PFFilePersistenceGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFilePersistenceGroup.h; path = Parse/Internal/Persistence/Group/PFFilePersistenceGroup.h; sourceTree = "<group>"; };
 		52F02F45BDBA50662CF057B44D0783AB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5399867A44487A0B65A2FA064F8F20D4 /* MultiThreading.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiThreading.swift; path = NTComponents/Extensions/MultiThreading.swift; sourceTree = "<group>"; };
@@ -1175,7 +1175,7 @@
 		5A4208CC92218225E50B5D6EB26654C3 /* PFBase64Encoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFBase64Encoder.m; path = Parse/Internal/PFBase64Encoder.m; sourceTree = "<group>"; };
 		5A4AB75107517913DE75AA8E96C72343 /* PFRESTPushCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTPushCommand.h; path = Parse/Internal/Commands/PFRESTPushCommand.h; sourceTree = "<group>"; };
 		5A735317D19AAD6BF10E6DF63D342F78 /* MapboxMobileEvents-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapboxMobileEvents-umbrella.h"; sourceTree = "<group>"; };
-		5B34D7CE36DB4E31478DEA4A32533108 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-MediumItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		5B34D7CE36DB4E31478DEA4A32533108 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-MediumItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
 		5B452FB280104FDB9049842ADFEFD9E3 /* PFPushPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPushPrivate.h; path = Parse/Internal/Push/PFPushPrivate.h; sourceTree = "<group>"; };
 		5BA8FBB64A712F5EA3C700B832DA3A3A /* PFDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDecoder.h; path = Parse/PFDecoder.h; sourceTree = "<group>"; };
 		5BAD7FE663ECB8187BECEEAF4C98F264 /* MMEUniqueIdentifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMEUniqueIdentifier.m; path = MapboxMobileEvents/MMEUniqueIdentifier.m; sourceTree = "<group>"; };
@@ -1209,7 +1209,7 @@
 		655E9E61C28E6D4357C8EA3FBC3EC1D3 /* Polyline-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Polyline-dummy.m"; sourceTree = "<group>"; };
 		65DE71083A9CA2100F49A39501B06E59 /* TSKTrustKitConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TSKTrustKitConfig.m; path = vendor/TrustKit/TSKTrustKitConfig.m; sourceTree = "<group>"; };
 		66599EAA6FC8A4A04F8A2844C8EF360F /* PFPush+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFPush+Synchronous.h"; path = "Parse/PFPush+Synchronous.h"; sourceTree = "<group>"; };
-		672635EFE65DBE6C17138F65DF924189 /* ARCL.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ARCL.modulemap; sourceTree = "<group>"; };
+		672635EFE65DBE6C17138F65DF924189 /* ARCL.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ARCL.modulemap; sourceTree = "<group>"; };
 		672D938E164C6DD0C5E88ED903F8B2EE /* MapboxDirections.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MapboxDirections.swift-dummy.m"; sourceTree = "<group>"; };
 		6776B98DD2C8A48BC59D0DF9740A33D9 /* TSKReportsRateLimiter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TSKReportsRateLimiter.m; path = vendor/TrustKit/Reporting/TSKReportsRateLimiter.m; sourceTree = "<group>"; };
 		67B74E0183AC6C76D47A83C422CAAC2E /* PFPush.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPush.h; path = Parse/PFPush.h; sourceTree = "<group>"; };
@@ -1217,7 +1217,7 @@
 		67DFE307B49CE59D9AFBF318A23CD856 /* PFObject+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFObject+Deprecated.h"; path = "Parse/PFObject+Deprecated.h"; sourceTree = "<group>"; };
 		67EC7CC9D96D2612BF656BCA614A12F4 /* MBLaneIndication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBLaneIndication.h; path = MapboxDirections/MBLaneIndication.h; sourceTree = "<group>"; };
 		681F64C57C5A7A14D20C6406E866F672 /* NTNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTNavigationController.swift; path = "NTComponents/UI Kit/Navigation/NTNavigationController.swift"; sourceTree = "<group>"; };
-		683E62558F0F4C11ED25F24E39019B75 /* Roboto-Light.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Light.ttf"; path = "NTComponents/Assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		683E62558F0F4C11ED25F24E39019B75 /* Roboto-Light.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "NTComponents/Assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
 		6870A74FC6BBE9CD7EB30635239ADF20 /* LocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = "ARKit+CoreLocation/Source/LocationManager.swift"; sourceTree = "<group>"; };
 		68A6D4C38C4F54F307A5B5DB8C25940F /* PFKeychainStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFKeychainStore.h; path = Parse/Internal/PFKeychainStore.h; sourceTree = "<group>"; };
 		6917E2E04BD971C93BCA5F0FA81B837B /* AcknowViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcknowViewController.swift; path = Source/AcknowViewController.swift; sourceTree = "<group>"; };
@@ -1234,7 +1234,7 @@
 		6C0100DB8561FBC089D767847D32421C /* PFPin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPin.m; path = Parse/Internal/LocalDataStore/Pin/PFPin.m; sourceTree = "<group>"; };
 		6C1BDE8DD5F1BE2B37A3A7E39BC84E50 /* PFQueryPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQueryPrivate.h; path = Parse/Internal/Query/PFQueryPrivate.h; sourceTree = "<group>"; };
 		6C1E0A37AA58A111C86623EB40CF22F4 /* PFQueryController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQueryController.h; path = Parse/Internal/Query/Controller/PFQueryController.h; sourceTree = "<group>"; };
-		6C64CC259658166CD7AB38AFE185237A /* MapboxCoreNavigation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MapboxCoreNavigation.modulemap; sourceTree = "<group>"; };
+		6C64CC259658166CD7AB38AFE185237A /* MapboxCoreNavigation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MapboxCoreNavigation.modulemap; sourceTree = "<group>"; };
 		6C9E05005E874ACB50C7E48EB754244A /* MBWaypoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBWaypoint.swift; path = MapboxDirections/MBWaypoint.swift; sourceTree = "<group>"; };
 		6CF7255F4C0F66A2178E1B1D6692C3F3 /* OSRMTextInstructions-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OSRMTextInstructions-dummy.m"; sourceTree = "<group>"; };
 		6D1CD3C364720D5795906CEBA1149D71 /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = pl.lproj/Instructions.plist; sourceTree = "<group>"; };
@@ -1256,11 +1256,11 @@
 		7032996168173DFFBDAABFBF52E5CBB6 /* PFFile+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFFile+Deprecated.h"; path = "Parse/PFFile+Deprecated.h"; sourceTree = "<group>"; };
 		7036FEEA6E696BA8423CA8133C490017 /* Date.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Date.swift; path = NTComponents/Extensions/Date.swift; sourceTree = "<group>"; };
 		7068C9C21F277888479D62D95262301C /* PFGeoPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFGeoPoint.h; path = Parse/PFGeoPoint.h; sourceTree = "<group>"; };
-		70D24B3050B57FE2142E3087F8CAE1A5 /* Pods-SafetyBeacon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SafetyBeacon.modulemap"; sourceTree = "<group>"; };
+		70D24B3050B57FE2142E3087F8CAE1A5 /* Pods-SafetyBeacon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SafetyBeacon.modulemap"; sourceTree = "<group>"; };
 		7146A038389D2E890185666B1C440D8A /* MBCongestion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBCongestion.swift; path = MapboxDirections/MBCongestion.swift; sourceTree = "<group>"; };
 		722D4D48E45A5A366A0FD5B3439C0AA3 /* PFObjectUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectUtilities.h; path = Parse/Internal/Object/Utilities/PFObjectUtilities.h; sourceTree = "<group>"; };
 		729C0ACD5040DD13027765A295122121 /* UIButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIButton.swift; path = NTComponents/Extensions/UIButton.swift; sourceTree = "<group>"; };
-		742E2CBA3D61B74EAD57EE1B754C7CEA /* Roboto-Italic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Italic.ttf"; path = "NTComponents/Assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		742E2CBA3D61B74EAD57EE1B754C7CEA /* Roboto-Italic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Italic.ttf"; path = "NTComponents/Assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		7524FEFC491DF421FDC02957FB9DAC61 /* FAType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FAType.swift; path = NTComponents/Styling/FAType.swift; sourceTree = "<group>"; };
 		759A2F3F79F6229BB8BDDDB99061E280 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75E9F15BC0BA087B33D7336AC2C400D8 /* PFSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSession.h; path = Parse/PFSession.h; sourceTree = "<group>"; };
@@ -1283,7 +1283,7 @@
 		7BA2B5790BFA97FACAE68BF29FCE5731 /* NTCarouselView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTCarouselView.swift; path = "NTComponents/UI Kit/Views/NTCarouselView.swift"; sourceTree = "<group>"; };
 		7C2D08CBB7ACD983CE19A521D1B87A83 /* PFFieldOperationDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFieldOperationDecoder.h; path = Parse/Internal/FieldOperation/PFFieldOperationDecoder.h; sourceTree = "<group>"; };
 		7C3BEDB48541C9EF6B2923420E608538 /* TSKPinningValidatorResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TSKPinningValidatorResult.h; path = vendor/TrustKit/TSKPinningValidatorResult.h; sourceTree = "<group>"; };
-		7E829A0B2FF84A45D7552E85BF8E6BEF /* Pods_SafetyBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SafetyBeacon.framework; path = "Pods-SafetyBeacon.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E829A0B2FF84A45D7552E85BF8E6BEF /* Pods_SafetyBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E87F8FDE1BD3DBF48FFA9D8849A68D9 /* PFRESTObjectBatchCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTObjectBatchCommand.h; path = Parse/Internal/Commands/PFRESTObjectBatchCommand.h; sourceTree = "<group>"; };
 		7E94CA057FDE9462651DF0163D021130 /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxMobileEvents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC99DCAACBE3D5F08835992DD687690 /* NTComponents-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NTComponents-prefix.pch"; sourceTree = "<group>"; };
@@ -1305,7 +1305,7 @@
 		829352413E20562DEF5A120819533B25 /* Parse.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Parse.xcconfig; sourceTree = "<group>"; };
 		82B800CDC49DCDCB66C77171A2FD4D14 /* BFCancellationToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationToken.h; path = Bolts/Common/BFCancellationToken.h; sourceTree = "<group>"; };
 		83029BBF8BCAB322673019DC135DEE19 /* PFPropertyInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPropertyInfo.m; path = Parse/Internal/PropertyInfo/PFPropertyInfo.m; sourceTree = "<group>"; };
-		833767656D840B799119ACADF5CDE005 /* Polyline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Polyline.framework; path = Polyline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		833767656D840B799119ACADF5CDE005 /* Polyline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Polyline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EB987537C543E9F8EB9E30E451CD09 /* OSRMTextInstructions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OSRMTextInstructions.swift; path = OSRMTextInstructions/OSRMTextInstructions.swift; sourceTree = "<group>"; };
 		84D22D3098E37E7211203D3A27EE7012 /* PFCommandRunning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandRunning.h; path = Parse/Internal/Commands/CommandRunner/PFCommandRunning.h; sourceTree = "<group>"; };
 		852F58BC5EDAA9A7366EF089CCBD68EC /* MMECategoryLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMECategoryLoader.h; path = MapboxMobileEvents/MMECategoryLoader.h; sourceTree = "<group>"; };
@@ -1331,7 +1331,7 @@
 		8BC426B401113A62A8D2A0100CB8DD13 /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
 		8BFA9899789EC93DE5EB449A2CBFCB94 /* PFAnalyticsUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAnalyticsUtilities.m; path = Parse/Internal/Analytics/Utilities/PFAnalyticsUtilities.m; sourceTree = "<group>"; };
 		8C366C45450494307489DA2ECDECCE33 /* PFCloud.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCloud.h; path = Parse/PFCloud.h; sourceTree = "<group>"; };
-		8C522E91F6042D63B561C93BB118E7D9 /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MapboxMobileEvents.framework; path = MapboxMobileEvents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C522E91F6042D63B561C93BB118E7D9 /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxMobileEvents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D16D2146A04CC92F98BF3A8298A05D1 /* PFRESTCommand_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTCommand_Private.h; path = Parse/Internal/Commands/PFRESTCommand_Private.h; sourceTree = "<group>"; };
 		8D5D57A3A8698E3AB95A2F44D09BFD37 /* PFInstallationConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInstallationConstants.h; path = Parse/Internal/Installation/Constants/PFInstallationConstants.h; sourceTree = "<group>"; };
 		8E10F7AC6B9DD3671F306B7BDB2ED280 /* PFRelationPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRelationPrivate.h; path = Parse/Internal/Relation/PFRelationPrivate.h; sourceTree = "<group>"; };
@@ -1356,10 +1356,10 @@
 		934606CD0C5FD35C9849A55AFF6DE8B0 /* ssl_pin_verifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ssl_pin_verifier.h; path = vendor/TrustKit/Pinning/ssl_pin_verifier.h; sourceTree = "<group>"; };
 		934F3FDAE98053AD410D4E1F185E1DFD /* NTFormControlCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTFormControlCell.swift; path = "NTComponents/UI Kit/Form/Cells/NTFormControlCell.swift"; sourceTree = "<group>"; };
 		9351E495BC4C98A156C7C3C0CEDDAE68 /* NTFormImageSelectorCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTFormImageSelectorCell.swift; path = "NTComponents/UI Kit/Form/Cells/NTFormImageSelectorCell.swift"; sourceTree = "<group>"; };
-		9383232F05CDC2B02C20948FA205A935 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Medium.ttf"; path = "NTComponents/Assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9383232F05CDC2B02C20948FA205A935 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "NTComponents/Assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93FDB1FFD28BE52E9BE85CD35C20EAB2 /* MapboxCoreNavigation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MapboxCoreNavigation.h; path = MapboxCoreNavigation/MapboxCoreNavigation.h; sourceTree = "<group>"; };
-		9480F85636A03FFA743D98EC0C052532 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.ttf; path = NTComponents/Assets/fonts/FontAwesome.ttf; sourceTree = "<group>"; };
+		9480F85636A03FFA743D98EC0C052532 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesome.ttf; path = NTComponents/Assets/fonts/FontAwesome.ttf; sourceTree = "<group>"; };
 		94CF290416CBB61FC414FDDA1471D9E1 /* PFFileStagingController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileStagingController.m; path = Parse/Internal/File/Controller/PFFileStagingController.m; sourceTree = "<group>"; };
 		94E8F68701149864B767DA5131E0AA2D /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = dynamic/Mapbox.framework; sourceTree = "<group>"; };
 		95410C294FBE55AA9BF17AFDA601C259 /* PFDateFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDateFormatter.h; path = Parse/Internal/PFDateFormatter.h; sourceTree = "<group>"; };
@@ -1399,8 +1399,8 @@
 		A234D54F2E05C12A26BF23C228AAF438 /* PFRESTConfigCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTConfigCommand.h; path = Parse/Internal/Commands/PFRESTConfigCommand.h; sourceTree = "<group>"; };
 		A24A29227CE2273AC24D8AF48D238C14 /* Bolts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bolts-prefix.pch"; sourceTree = "<group>"; };
 		A2AA734D8B25BBD24B2ED7ED456843EF /* CLLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLLocation.swift; path = MapboxCoreNavigation/CLLocation.swift; sourceTree = "<group>"; };
-		A2B53294663882A2B1D41E0AC3CC8910 /* Parse.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Parse.modulemap; sourceTree = "<group>"; };
-		A3207569E4845C25D3EBC8D93B7CFF3C /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-BoldItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A2B53294663882A2B1D41E0AC3CC8910 /* Parse.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Parse.modulemap; sourceTree = "<group>"; };
+		A3207569E4845C25D3EBC8D93B7CFF3C /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-BoldItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		A361C9CB8AEDB83B1BF6AD7D5541E257 /* Parse-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Parse-dummy.m"; sourceTree = "<group>"; };
 		A379FC55E5AB0C910FA190F05A35EC25 /* PFCommandRunning.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCommandRunning.m; path = Parse/Internal/Commands/CommandRunner/PFCommandRunning.m; sourceTree = "<group>"; };
 		A48ADAAA55A323DC9B45D4CCB1F84AC2 /* PFPaymentTransactionObserver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPaymentTransactionObserver.h; path = Parse/Internal/Purchase/PaymentTransactionObserver/PFPaymentTransactionObserver.h; sourceTree = "<group>"; };
@@ -1446,7 +1446,7 @@
 		B0E71016AC21E292B9A1D29861E49096 /* AcknowList-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AcknowList-prefix.pch"; sourceTree = "<group>"; };
 		B0F6E68EB7B277C8886C784C0E5A2E95 /* PFInstallationConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFInstallationConstants.m; path = Parse/Internal/Installation/Constants/PFInstallationConstants.m; sourceTree = "<group>"; };
 		B1466E9A0F28543BA511F3F373BF964F /* PFURLSessionJSONDataTaskDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSessionJSONDataTaskDelegate.h; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionJSONDataTaskDelegate.h; sourceTree = "<group>"; };
-		B1B130D68671F65B357004BE08FA9883 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Bolts.framework; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1B130D68671F65B357004BE08FA9883 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F846B6EEF3B58CC5C52CBB89B2AFA0 /* Color.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Color.swift; path = NTComponents/Styling/Color.swift; sourceTree = "<group>"; };
 		B1F984FAA4278CFBC31976A124827D6E /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SCNNode+Extensions.swift"; path = "ARKit+CoreLocation/Source/SCNNode+Extensions.swift"; sourceTree = "<group>"; };
 		B2657F2868860E649A4A39383099E4F6 /* MMENSURLSessionWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMENSURLSessionWrapper.m; path = MapboxMobileEvents/MMENSURLSessionWrapper.m; sourceTree = "<group>"; };
@@ -1458,7 +1458,7 @@
 		B509139526174464BC4ECDD44C7C9CE4 /* PFRESTCloudCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTCloudCommand.h; path = Parse/Internal/Commands/PFRESTCloudCommand.h; sourceTree = "<group>"; };
 		B51E3E9E59E6FA4F4BF8E8555E4690B4 /* AcknowList.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AcknowList.xcconfig; sourceTree = "<group>"; };
 		B55EE6880C4B53A1D3AED3D61235576F /* PFFileDataStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileDataStream.m; path = Parse/Internal/File/FileDataStream/PFFileDataStream.m; sourceTree = "<group>"; };
-		B56FB134803BEB0FA58EC1432266E163 /* BebasNeue.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = BebasNeue.otf; path = NTComponents/Assets/fonts/BebasNeue.otf; sourceTree = "<group>"; };
+		B56FB134803BEB0FA58EC1432266E163 /* BebasNeue.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = BebasNeue.otf; path = NTComponents/Assets/fonts/BebasNeue.otf; sourceTree = "<group>"; };
 		B58211B3707456DD0857B6EA5C46E7A0 /* NTFormTagInputCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTFormTagInputCell.swift; path = "NTComponents/UI Kit/Form/Cells/NTFormTagInputCell.swift"; sourceTree = "<group>"; };
 		B5FE099D4BE575E9CE5A1B733BD82E86 /* MMETrustKitWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMETrustKitWrapper.m; path = MapboxMobileEvents/MMETrustKitWrapper.m; sourceTree = "<group>"; };
 		B6B161F42BC85576A1255C3C3F22D25B /* MMECLLocationManagerWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMECLLocationManagerWrapper.h; path = MapboxMobileEvents/MMECLLocationManagerWrapper.h; sourceTree = "<group>"; };
@@ -1481,7 +1481,7 @@
 		BC92330B6F26E8E4EEC635D922FE1D11 /* PFReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFReachability.h; path = Parse/Internal/PFReachability.h; sourceTree = "<group>"; };
 		BCFB499B5B56F9B445C76C17D8B79C88 /* PFACLState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFACLState.h; path = Parse/Internal/ACL/State/PFACLState.h; sourceTree = "<group>"; };
 		BD27F2B27AA38715C268CED1E9272648 /* PFProductsRequestHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFProductsRequestHandler.m; path = Parse/Internal/Product/ProductsRequestHandler/PFProductsRequestHandler.m; sourceTree = "<group>"; };
-		BD6F4D35E035E51E5AD4F3D3FF24201C /* MapboxDirections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MapboxDirections.framework; path = MapboxDirections.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD6F4D35E035E51E5AD4F3D3FF24201C /* MapboxDirections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxDirections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD744FAB0D464CD8C3992B8C7EE5377A /* NTEULAController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTEULAController.swift; path = "NTComponents/UI Kit/Other/NTEULAController.swift"; sourceTree = "<group>"; };
 		BDCB102F70A3C7EEDAD375DFD2AE4441 /* PFQueryState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryState.m; path = Parse/Internal/Query/State/PFQueryState.m; sourceTree = "<group>"; };
 		BDD07701C37EC5CC17D43E35D08CD7C9 /* PFMulticastDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMulticastDelegate.h; path = Parse/Internal/PFMulticastDelegate.h; sourceTree = "<group>"; };
@@ -1490,7 +1490,7 @@
 		BFA0E87B922960DE9E15972D1C716E1F /* PFOfflineObjectController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFOfflineObjectController.h; path = Parse/Internal/Object/Controller/OfflineController/PFOfflineObjectController.h; sourceTree = "<group>"; };
 		BFA55C9AF4966BE0B0033CD74D3DBD02 /* NTComponents-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NTComponents-umbrella.h"; sourceTree = "<group>"; };
 		BFFB8006698FD37E60CE7CB653117E72 /* vendor_identifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = vendor_identifier.m; path = vendor/TrustKit/Reporting/vendor_identifier.m; sourceTree = "<group>"; };
-		C01106471162D60A9378B1F47CF2D6E2 /* Bolts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Bolts.modulemap; sourceTree = "<group>"; };
+		C01106471162D60A9378B1F47CF2D6E2 /* Bolts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Bolts.modulemap; sourceTree = "<group>"; };
 		C01A090D2D1424C2AC5BA959029C4454 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0594245354EA8989461C02319DE285E /* PFFileState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileState.m; path = Parse/Internal/File/State/PFFileState.m; sourceTree = "<group>"; };
 		C08246476A05F768F335E06E42314C38 /* BFTask+Private.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "BFTask+Private.m"; path = "Parse/Internal/BFTask+Private.m"; sourceTree = "<group>"; };
@@ -1540,7 +1540,7 @@
 		CEA5DCBB09D36AA2A36A4D401F933F53 /* NTTabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTTabBarItem.swift; path = "NTComponents/UI Kit/TabBar/NTTabBarItem.swift"; sourceTree = "<group>"; };
 		CEC52ED890B49E09C770D8661BDFED42 /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = "es-ES.lproj/Instructions.plist"; sourceTree = "<group>"; };
 		CEFFDA503E687E97C507C0A7BE6F4F66 /* PFPropertyInfo_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPropertyInfo_Private.h; path = Parse/Internal/PropertyInfo/PFPropertyInfo_Private.h; sourceTree = "<group>"; };
-		CF2E813864C636B94E1AED458F70C7A7 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-BlackItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		CF2E813864C636B94E1AED458F70C7A7 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-BlackItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
 		D00A01CE071366FE5B7077A01D216AF3 /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = es.lproj/Instructions.plist; sourceTree = "<group>"; };
 		D01A46808DD3AD87DD8A8C69CCCEF92E /* PFFileUploadResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileUploadResult.m; path = Parse/Internal/File/Controller/PFFileUploadResult.m; sourceTree = "<group>"; };
 		D0514770989F97F38F38798799A5AA1D /* ParseClientConfiguration_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseClientConfiguration_Private.h; path = Parse/Internal/ParseClientConfiguration_Private.h; sourceTree = "<group>"; };
@@ -1577,7 +1577,7 @@
 		DB55DE3B1CF2C41F6781155FEDA8178D /* PFFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFile.h; path = Parse/PFFile.h; sourceTree = "<group>"; };
 		DBFAA390A81607EB9585C03C50681F13 /* PFFieldOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFieldOperation.h; path = Parse/Internal/FieldOperation/PFFieldOperation.h; sourceTree = "<group>"; };
 		DC23E7D6B26C4DBCB9BF7F360898F5A9 /* Pods-SafetyBeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SafetyBeacon.debug.xcconfig"; sourceTree = "<group>"; };
-		DC71B79AC8D07A736D464E99047D4C80 /* Polyline.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Polyline.modulemap; sourceTree = "<group>"; };
+		DC71B79AC8D07A736D464E99047D4C80 /* Polyline.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Polyline.modulemap; sourceTree = "<group>"; };
 		DD157DA35D0664B4EE9BA249DC62921D /* PFFile+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFFile+Synchronous.h"; path = "Parse/PFFile+Synchronous.h"; sourceTree = "<group>"; };
 		DDCBD06EA0C9F5C07DBBEEE248B13274 /* PFURLSessionUploadTaskDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLSessionUploadTaskDelegate.m; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionUploadTaskDelegate.m; sourceTree = "<group>"; };
 		DE76AA625311F0E0135C7D19D885C99F /* GMDType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GMDType.swift; path = NTComponents/Styling/GMDType.swift; sourceTree = "<group>"; };
@@ -1590,7 +1590,7 @@
 		E0868E53CB89F974FBE9C1407F94DB7D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0A49F6974F7C1DBB449702151334908 /* NTCollectionUserHeaderCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTCollectionUserHeaderCell.swift; path = "NTComponents/UI Kit/Collection/Cells/NTCollectionUserHeaderCell.swift"; sourceTree = "<group>"; };
 		E0AC31340748D8F3502192488C5AE4EF /* CLLocation+MMEMobileEvents.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CLLocation+MMEMobileEvents.h"; path = "MapboxMobileEvents/CLLocation+MMEMobileEvents.h"; sourceTree = "<group>"; };
-		E0E3380D12112620E1629C8B5D272048 /* MapboxCoreNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MapboxCoreNavigation.framework; path = MapboxCoreNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0E3380D12112620E1629C8B5D272048 /* MapboxCoreNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxCoreNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D6BD7B2A2AF850FEED84F9D9BBB79A /* PFURLSessionJSONDataTaskDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLSessionJSONDataTaskDelegate.m; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionJSONDataTaskDelegate.m; sourceTree = "<group>"; };
 		E1E1674B7694B149D084246CCA8B6904 /* PFURLSessionDataTaskDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSessionDataTaskDelegate.h; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionDataTaskDelegate.h; sourceTree = "<group>"; };
 		E1EB75EAD730E8778A7E6F1CAED77216 /* PFSQLiteDatabaseResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSQLiteDatabaseResult.h; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseResult.h; sourceTree = "<group>"; };
@@ -1602,9 +1602,9 @@
 		E3467BEB16DCBDEDC87C3F6B775E687A /* PFURLSessionCommandRunner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSessionCommandRunner.h; path = Parse/Internal/Commands/CommandRunner/URLSession/PFURLSessionCommandRunner.h; sourceTree = "<group>"; };
 		E3AD7AD22B7E54979BAA485FD5867897 /* PFCloud+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFCloud+Deprecated.h"; path = "Parse/PFCloud+Deprecated.h"; sourceTree = "<group>"; };
 		E3B963B8E094F310F6F55F73A0934BDB /* PFFileState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFileState.h; path = Parse/Internal/File/State/PFFileState.h; sourceTree = "<group>"; };
-		E3D4F3AE26A4C8B6308B12A64EFF1E53 /* MapboxDirections.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MapboxDirections.swift.modulemap; sourceTree = "<group>"; };
+		E3D4F3AE26A4C8B6308B12A64EFF1E53 /* MapboxDirections.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MapboxDirections.swift.modulemap; sourceTree = "<group>"; };
 		E4702D2C0E00BA3DDC344429CB06B6EF /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/ARKit.framework; sourceTree = DEVELOPER_DIR; };
-		E4CC66F8AE3839974A18BC839E4F3B58 /* AcknowList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AcknowList.framework; path = AcknowList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4CC66F8AE3839974A18BC839E4F3B58 /* AcknowList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AcknowList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4DB03B660B12D0D2ABE2A0F1C1B93B2 /* MMEEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMEEvent.m; path = MapboxMobileEvents/MMEEvent.m; sourceTree = "<group>"; };
 		E4F158666AFA42021F6BC2589D0218F4 /* PFObjectState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectState.m; path = Parse/Internal/Object/State/PFObjectState.m; sourceTree = "<group>"; };
 		E55C6B65C84D7C612A3A6A4362B94AE5 /* PFQueryUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryUtilities.m; path = Parse/Internal/Query/Utilities/PFQueryUtilities.m; sourceTree = "<group>"; };
@@ -1678,12 +1678,12 @@
 		FB360A78ED71C604BE932988208B9B6F /* PFErrorUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFErrorUtilities.h; path = Parse/Internal/PFErrorUtilities.h; sourceTree = "<group>"; };
 		FB912B6B8CD0E5D6EDC1F44DFBCE5C94 /* MapboxMobileEvents.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MapboxMobileEvents.xcconfig; sourceTree = "<group>"; };
 		FBE340B2894B10BA0B665A1C9DBB106C /* PFPush.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPush.m; path = Parse/PFPush.m; sourceTree = "<group>"; };
-		FC260065269D18D54C3145E38597C167 /* NTComponents.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = NTComponents.modulemap; sourceTree = "<group>"; };
+		FC260065269D18D54C3145E38597C167 /* NTComponents.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = NTComponents.modulemap; sourceTree = "<group>"; };
 		FC26706D325BC52B94F4ABB27A60195B /* MBRoadClasses.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBRoadClasses.swift; path = MapboxDirections/MBRoadClasses.swift; sourceTree = "<group>"; };
 		FD6FB6C1D8382C398513D9AD06765E0F /* MMECategoryLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMECategoryLoader.m; path = MapboxMobileEvents/MMECategoryLoader.m; sourceTree = "<group>"; };
 		FD78C574F6C75976D4A3A9DAFA5B0C60 /* MBRouteOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBRouteOptions.swift; path = MapboxDirections/MBRouteOptions.swift; sourceTree = "<group>"; };
 		FDB08EC24174D28CB8B0836129CD850F /* RouteController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RouteController.swift; path = MapboxCoreNavigation/RouteController.swift; sourceTree = "<group>"; };
-		FE98DF813CF2433E8B29499A8CB828D7 /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Parse.framework; path = Parse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE98DF813CF2433E8B29499A8CB828D7 /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Parse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF4E8C3C228B55C2C709A13D02A3F118 /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = uk.lproj/Instructions.plist; sourceTree = "<group>"; };
 		FF5C1BDA704B89F07A8FBD1D32416DCF /* PFDateFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFDateFormatter.m; path = Parse/Internal/PFDateFormatter.m; sourceTree = "<group>"; };
 		FFCED050943CF9D6CC7EA3F80AA1AD27 /* MMEEventsManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MMEEventsManager.swift; path = MapboxCoreNavigation/MMEEventsManager.swift; sourceTree = "<group>"; };
@@ -1819,7 +1819,6 @@
 			children = (
 				AA062D9FE2C47CA6CC446A8E246678EC /* Frameworks */,
 			);
-			name = "Mapbox-iOS-SDK";
 			path = "Mapbox-iOS-SDK";
 			sourceTree = "<group>";
 		};
@@ -1844,7 +1843,6 @@
 				30FC58E089B2EAFC4E64E69C47BB0961 /* Polyline.swift */,
 				76215FE24E384551AF4FBD48628D52A1 /* Support Files */,
 			);
-			name = Polyline;
 			path = Polyline;
 			sourceTree = "<group>";
 		};
@@ -1889,7 +1887,6 @@
 				6C9E05005E874ACB50C7E48EB754244A /* MBWaypoint.swift */,
 				87355F69A179A7E47A36ECCC9C600723 /* Support Files */,
 			);
-			name = MapboxDirections.swift;
 			path = MapboxDirections.swift;
 			sourceTree = "<group>";
 		};
@@ -1947,7 +1944,6 @@
 				B6D89D5C9B15F16D92D86ADDD57F87C8 /* Crashlytics.h */,
 				ADCE8CCD650DC2783650DB563D6B16C7 /* Frameworks */,
 			);
-			name = Crashlytics;
 			path = Crashlytics;
 			sourceTree = "<group>";
 		};
@@ -2333,7 +2329,6 @@
 				CED9DAD23CC2E0B6A6EB785B5BC92B24 /* Resources */,
 				2C302E2FB5EB577C74E3C950D0A2E692 /* Support Files */,
 			);
-			name = Parse;
 			path = Parse;
 			sourceTree = "<group>";
 		};
@@ -2417,7 +2412,6 @@
 				6D98A3AF74DBE5BDA23BCA1746AE3978 /* Resources */,
 				C470DA22A5635FA75D4805E99ABB576B /* Support Files */,
 			);
-			name = MapboxMobileEvents;
 			path = MapboxMobileEvents;
 			sourceTree = "<group>";
 		};
@@ -2428,7 +2422,6 @@
 				6E256D1D52B482AB31FC1D3B9E28CF47 /* Fabric.h */,
 				BA5E4EC4C8C486AD18BD2F1A639A1168 /* Frameworks */,
 			);
-			name = Fabric;
 			path = Fabric;
 			sourceTree = "<group>";
 		};
@@ -2566,7 +2559,6 @@
 				4EA9D33C086B59EF8D9DEC833D8BBD2D /* Turf.swift */,
 				0D5363D36DD0C59ABDB89033173E612A /* Support Files */,
 			);
-			name = Turf;
 			path = Turf;
 			sourceTree = "<group>";
 		};
@@ -2657,7 +2649,6 @@
 				0770A21F5116C77C15670E4B98BBB685 /* VisualInstructionFormatter.swift */,
 				5A2BD2BD421AF2B94C298810C5F1B96C /* Support Files */,
 			);
-			name = MapboxCoreNavigation;
 			path = MapboxCoreNavigation;
 			sourceTree = "<group>";
 		};
@@ -2698,7 +2689,6 @@
 				4E3B0CD79B09242A47A7E9A81240E395 /* SCNVector3+Extensions.swift */,
 				32EDDFCE8F789C17ABE90824082EB98F /* Support Files */,
 			);
-			name = ARCL;
 			path = ARCL;
 			sourceTree = "<group>";
 		};
@@ -2840,7 +2830,6 @@
 				A9D4FA326A813F953EFCB8A6E9AC9163 /* Resources */,
 				EED50AA85DC3555C2AB7603D1A5582DD /* Support Files */,
 			);
-			name = NTComponents;
 			path = NTComponents;
 			sourceTree = "<group>";
 		};
@@ -2855,7 +2844,6 @@
 				9A82EFF784FC566629496234A5897429 /* Resources */,
 				F5B0398D10E5896DADE94BDC0C776302 /* Support Files */,
 			);
-			name = AcknowList;
 			path = AcknowList;
 			sourceTree = "<group>";
 		};
@@ -2891,7 +2879,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -2915,7 +2902,6 @@
 				2A883B70BAE922D817247BA81698F595 /* Support Files */,
 				7206F7A6A6819CBE87FAF28165860AC5 /* Tasks */,
 			);
-			name = Bolts;
 			path = Bolts;
 			sourceTree = "<group>";
 		};
@@ -2937,7 +2923,6 @@
 				FB9D7D24310F2DD7EB03DE4CD7820DEC /* Resources */,
 				68FAFE4E114AAC41F9E5FE4A129FB823 /* Support Files */,
 			);
-			name = OSRMTextInstructions;
 			path = OSRMTextInstructions;
 			sourceTree = "<group>";
 		};
@@ -3580,7 +3565,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0900;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -4354,6 +4339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -4401,6 +4387,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
@@ -4631,6 +4618,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

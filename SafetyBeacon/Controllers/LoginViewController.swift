@@ -44,7 +44,9 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
         } else if sender.loginMethod == .custom {
             User.loginInBackground(email: "caretaker@safetybeacon.ca", password: "password123") { (success) in
                 if success {
-                    LoginViewController.loginSuccessful()
+                    self.dismiss(animated: false, completion: {
+                        LoginViewController.loginSuccessful()
+                    })
                 }
             }
         }
@@ -56,7 +58,9 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
         User.loginInBackground(email: email, password: password) { (success) in
             controller.showActivityIndicator = false
             if success {
-                LoginViewController.loginSuccessful()
+                self.dismiss(animated: false, completion: {
+                    LoginViewController.loginSuccessful()
+                })
             }
         }
     }
@@ -67,7 +71,9 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
         User.registerInBackground(email: email, password: password) { (success) in
             controller.showActivityIndicator = false
             if success {
-                LoginViewController.loginSuccessful()
+                self.dismiss(animated: false, completion: {
+                    LoginViewController.loginSuccessful()
+                })
             }
         }
     }
