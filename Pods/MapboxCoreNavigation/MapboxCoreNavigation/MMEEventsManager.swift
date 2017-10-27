@@ -303,7 +303,7 @@ class FixedLengthQueue<T> {
     private var objects = Array<T>()
     private var length: Int
     
-    @objc public init(length: Int) {
+    public init(length: Int) {
         self.length = length
     }
     

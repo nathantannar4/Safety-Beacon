@@ -41,17 +41,17 @@ public class DistanceFormatter: LengthFormatter {
      
      - parameter approximate: approximates the distances.
      */
-    @objc public init(approximate: Bool = false) {
+    public init(approximate: Bool = false) {
         self.approx = approximate
         super.init()
     }
     
-    @objc public required init?(coder decoder: NSCoder) {
+    public required init?(coder decoder: NSCoder) {
         approx = decoder.decodeBool(forKey: "approximate")
         super.init(coder: decoder)
     }
     
-    @objc public override func encode(with aCoder: NSCoder) {
+    public override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
         aCoder.encode(approx, forKey: "approximate")
     }
@@ -66,7 +66,9 @@ public class DistanceFormatter: LengthFormatter {
     
     func roundingIncrement(for distance: CLLocationDistance, unit: LengthFormatter.Unit) -> Double {
         if usesMetric {
-            if distance < 100 {
+            if distance < 25 {
+                return 5
+            } else if distance < 100 {
                 return 25
             } else if distance < 1_000 {
                 return 50
@@ -90,7 +92,7 @@ public class DistanceFormatter: LengthFormatter {
      
      The user’s `Locale` is used here to set the units.
     */
-    @objc public func string(from distance: CLLocationDistance) -> String {
+    public func string(from distance: CLLocationDistance) -> String {
         // British roads are measured in miles, yards, and feet. Simulate this idiosyncrasy using the U.S. locale.
         let localeIdentifier = numberFormatter.locale.identifier
         if localeIdentifier == "en-GB" || localeIdentifier == "en_GB" {
@@ -112,7 +114,7 @@ public class DistanceFormatter: LengthFormatter {
         return formattedDistance(distance, modify: &unit)
     }
     
-    @objc public override func string(fromMeters numberInMeters: Double) -> String {
+    public override func string(fromMeters numberInMeters: Double) -> String {
         return self.string(from: numberInMeters)
     }
     

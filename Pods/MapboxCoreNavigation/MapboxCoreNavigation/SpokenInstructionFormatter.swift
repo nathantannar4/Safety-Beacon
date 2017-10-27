@@ -11,7 +11,7 @@ public class SpokenInstructionFormatter: NSObject {
     let routeStepFormatter = RouteStepFormatter()
     let maneuverVoiceDistanceFormatter = SpokenDistanceFormatter(approximate: true)
     
-    @objc public override init() {
+    public override init() {
         maneuverVoiceDistanceFormatter.unitStyle = .long
         maneuverVoiceDistanceFormatter.numberFormatter.locale = .nationalizedCurrent
     }
@@ -21,7 +21,7 @@ public class SpokenInstructionFormatter: NSObject {
      
      If `markUpWithSSML` is true, the string will contain [SSML](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference). Your speech synthesizer should accept this type of string. See `PolleyVoiceController`.
     */
-    @objc public func string(routeProgress: RouteProgress, userDistance: CLLocationDistance, markUpWithSSML: Bool) -> String {
+    public func string(routeProgress: RouteProgress, userDistance: CLLocationDistance, markUpWithSSML: Bool) -> String {
         let alertLevel = routeProgress.currentLegProgress.alertUserLevel
         
         let escapeIfNecessary = {(distance: String) -> String in
@@ -74,7 +74,7 @@ public class SpokenInstructionFormatter: NSObject {
         // since the user will be approaching the maneuver location.
         let isStartingDeparture = routeProgress.currentLegProgress.currentStep.maneuverType == .depart && (alertLevel == .depart || alertLevel == .low)
         if let currentInstruction = currentInstruction, isStartingDeparture {
-            if routeProgress.currentLegProgress.currentStep.distance > RouteControllerMinDistanceForContinueInstruction {
+            if routeProgress.currentLegProgress.currentStep.distance > RouteControllerMinimumDistanceForContinueInstruction {
                 text = currentInstruction
             } else if upcomingStepDuration > linkedInstructionMultiplier {
                 // If the upcoming step is an .exitRoundabout or .exitRotary, don't link the instruction
@@ -98,7 +98,7 @@ public class SpokenInstructionFormatter: NSObject {
             } else {
                 text = upComingInstruction
             }
-        } else if routeProgress.currentLegProgress.currentStep.distance > RouteControllerMinDistanceForContinueInstruction && routeProgress.currentLegProgress.alertUserLevel == .low {
+        } else if routeProgress.currentLegProgress.currentStep.distance > RouteControllerMinimumDistanceForContinueInstruction && routeProgress.currentLegProgress.alertUserLevel == .low {
             if isStartingDeparture && upcomingStepDuration < linkedInstructionMultiplier {
                 let phrase = escapeIfNecessary(routeStepFormatter.instructions.phrase(named: .twoInstructionsWithDistance))
                 text = phrase.replacingTokens { (tokenType) -> String in

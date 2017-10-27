@@ -5,7 +5,7 @@ import UIKit
 extension UIWindow {
     
     /// Returns a screenshot of the current window
-    @objc public func capture() -> UIImage? {
+    public func capture() -> UIImage? {
         
         UIGraphicsBeginImageContextWithOptions(frame.size, isOpaque, UIScreen.main.scale)
         

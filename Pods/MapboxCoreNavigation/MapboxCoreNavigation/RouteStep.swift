@@ -1,5 +1,6 @@
 import MapboxDirections
 import OSRMTextInstructions
+import Turf
 
 extension RouteStep {
     static func ==(left: RouteStep, right: RouteStep) -> Bool {
@@ -39,7 +40,7 @@ extension RouteStep {
      - parameter markedUpWithSSML: True to wrap the name and route number in SSML tags that cause them to be read as addresses.
      - returns: A string describing the step’s road, or `nil` if the step lacks the information needed to describe the step.
      */
-    @objc public func roadDescription(markedUpWithSSML: Bool) -> String? {
+    public func roadDescription(markedUpWithSSML: Bool) -> String? {
         let addressSSML = { (text: String?) -> String? in
             guard let text = text else {
                 return nil
@@ -72,4 +73,16 @@ extension RouteStep {
         return nil
     }
 
+}
+
+extension CLLocation {
+    /**
+     Returns a Boolean value indicating whether the receiver is within a given distance of a route step, inclusive.
+     */
+    func isWithin(_ maximumDistance: CLLocationDistance, of routeStep: RouteStep) -> Bool {
+        guard let closestCoordinate = Polyline(routeStep.coordinates!).closestCoordinate(to: coordinate) else {
+            return false
+        }
+        return closestCoordinate.distance < maximumDistance
+    }
 }
