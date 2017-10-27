@@ -1,14 +1,16 @@
 PODS:
+  - AcknowList (1.4)
   - ARCL (1.0.1)
   - Bolts/Tasks (1.8.4)
   - Crashlytics (3.9.0):
     - Fabric (~> 1.7.0)
-  - Fabric (1.7.0)
+  - Fabric (1.7.1)
   - Mapbox-iOS-SDK (3.6.4)
-  - MapboxCoreNavigation (0.8.2):
+  - MapboxCoreNavigation (0.9.0):
     - MapboxDirections.swift (~> 0.10.5)
     - MapboxMobileEvents (~> 0.2)
     - OSRMTextInstructions (~> 0.3)
+    - Turf (~> 0.0.3)
   - MapboxDirections.swift (0.10.6):
     - Polyline (= 4.1.1)
   - MapboxMobileEvents (0.2.10)
@@ -19,35 +21,28 @@ PODS:
     - Bolts/Tasks (~> 1.8)
   - Polyline (4.1.1)
   - SwiftLint (0.23.1)
+  - Turf (0.0.3)
 
 DEPENDENCIES:
+  - AcknowList
   - ARCL
   - Crashlytics
   - Fabric
-  - Mapbox-iOS-SDK (~> 3.6)
-  - MapboxCoreNavigation (from `https://github.com/mapbox/mapbox-navigation-ios`, branch `swift4`)
+  - Mapbox-iOS-SDK
+  - MapboxCoreNavigation
   - NTComponents
   - Parse
-  - Polyline (~> 4.0)
+  - Polyline
   - SwiftLint
 
-EXTERNAL SOURCES:
-  MapboxCoreNavigation:
-    :branch: swift4
-    :git: https://github.com/mapbox/mapbox-navigation-ios
-
-CHECKOUT OPTIONS:
-  MapboxCoreNavigation:
-    :commit: 7d7ba69dee886d77ee0a9d4c339ae98a027a276c
-    :git: https://github.com/mapbox/mapbox-navigation-ios
-
 SPEC CHECKSUMS:
+  AcknowList: 1fae3fa62f256ddd1001adf20ba5c52743515ac7
   ARCL: 193b108d6fd5277ce742be3af92ccf81bbdd2f3b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
-  Fabric: e6be012366472553807dada21243c5ab8d904151
+  Fabric: c7cfc652f036180a72fe2539646c8a624420419d
   Mapbox-iOS-SDK: 47847dd44285477e0dfffd0130f65c8a52823ada
-  MapboxCoreNavigation: eaf2fa430dcf6b1f147c759aa42f9dc31d22e5e9
+  MapboxCoreNavigation: 9cd3a9f11230414091acb822158a245137105b97
   MapboxDirections.swift: fbe95bd11c66339c1ef8b96301464f326394ac0d
   MapboxMobileEvents: 9e48b59d0eed04508595dcb04a77b7632e1c3054
   NTComponents: 98a9e0958818b087e87b8e3c94cbdbcc70941072
@@ -55,7 +50,8 @@ SPEC CHECKSUMS:
   Parse: cdc0f1f975ee8be0409e66f21b05df4ae067047c
   Polyline: 381d1e699fd12508f97cfc468478dfbab67edf1f
   SwiftLint: 1b670ce79284c76520f84060e87d645078fd32fa
+  Turf: 2089d59d12488de9cfa656634cce2c4e2dcbc691
 
-PODFILE CHECKSUM: 0d47e975de8ef46c0c098108873cc83b142b3479
+PODFILE CHECKSUM: 66d9706169a646930e8b3fb39b48b2e098d7d753
 
 COCOAPODS: 1.3.1

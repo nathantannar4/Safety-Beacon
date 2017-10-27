@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Font.Default.Caption = Font.Roboto.Medium.withSize(12)
         Font.Default.Subhead = Font.Roboto.Regular.withSize(14)
         Font.Default.Headline = Font.Roboto.Medium.withSize(15)
-        Font.Default.Callout = Font.Roboto.Medium.withSize(15)
+        Font.Default.Callout = Font.Roboto.Regular.withSize(12)
         Font.Default.Footnote = Font.Roboto.Regular.withSize(12)
         
         // Establish a connection to the backend

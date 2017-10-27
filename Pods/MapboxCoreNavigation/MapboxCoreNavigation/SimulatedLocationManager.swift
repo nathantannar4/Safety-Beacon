@@ -1,5 +1,6 @@
 import Foundation
 import MapboxDirections
+import Turf
 
 fileprivate let maximumSpeed: CLLocationSpeed = 30 // ~108 kmh
 fileprivate let minimumSpeed: CLLocationSpeed = 6 // ~21 kmh
@@ -47,17 +48,20 @@ public class SimulatedLocationManager: NavigationLocationManager {
         }
     }
     
+    var routeProgress: RouteProgress?
+    
     /**
      Initalizes a new `SimulatedLocationManager` with the given route.
      
      - parameter route: The initial route.
      - returns: A `SimulatedLocationManager`
      */
-    @objc public init(route: Route) {
+    public init(route: Route) {
         super.init()
         self.route = route
         reset()
-        NotificationCenter.default.addObserver(self, selector: #selector(didReroute(notification:)), name: RouteControllerDidReroute, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReroute(_:)), name: RouteControllerDidReroute, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(progressDidChange(_:)), name: RouteControllerProgressDidChange, object: nil)
     }
     
     private func reset() {
@@ -73,7 +77,11 @@ public class SimulatedLocationManager: NavigationLocationManager {
         }
     }
     
-    @objc private func didReroute(notification: Notification) {
+    @objc private func progressDidChange(_ notification: Notification) {
+        routeProgress = notification.userInfo![RouteControllerAlertLevelDidChangeNotificationRouteProgressKey] as? RouteProgress
+    }
+    
+    @objc private func didReroute(_ notification: Notification) {
         guard let routeController = notification.object as? RouteController else {
             return
         }
@@ -83,6 +91,7 @@ public class SimulatedLocationManager: NavigationLocationManager {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: RouteControllerDidReroute, object: nil)
+        NotificationCenter.default.removeObserver(self, name: RouteControllerProgressDidChange, object: nil)
     }
     
     override public func startUpdatingLocation() {
@@ -96,22 +105,34 @@ public class SimulatedLocationManager: NavigationLocationManager {
     @objc fileprivate func tick() {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(tick), object: nil)
         
-        guard let newCoordinate = coordinate(at: currentDistance, fromStartOf: routeLine) else {
+        let polyline = Polyline(routeLine)
+        
+        guard let newCoordinate = polyline.coordinateFromStart(distance: currentDistance) else {
             return
         }
         
         // Closest coordinate ahead
-        guard let lookAheadCoordinate = coordinate(at: currentDistance + 10, fromStartOf: routeLine) else { return }
-        guard let closestCoordinate = closestCoordinate(on: routeLine, to: newCoordinate) else { return }
+        guard let lookAheadCoordinate = polyline.coordinateFromStart(distance: currentDistance + 10) else { return }
+        guard let closestCoordinate = polyline.closestCoordinate(to: newCoordinate) else { return }
         
         let closestLocation = locations[closestCoordinate.index]
         let distanceToClosest = closestLocation.distance(from: CLLocation(newCoordinate))
         
         let distance = min(max(distanceToClosest, 10), safeDistance)
-        let coordinatesNearby = polyline(along: routeLine, within: 100, of: newCoordinate)
+        let coordinatesNearby = polyline.trimmed(from: newCoordinate, distance: 100).coordinates
         
+        // Simulate speed based on expected segment travel time
+        if let expectedSegmentTravelTimes = routeProgress?.currentLeg.expectedSegmentTravelTimes,
+            let coordinates = routeProgress?.route.coordinates,
+            let closestCoordinateOnRoute = Polyline(routeProgress!.route.coordinates!).closestCoordinate(to: newCoordinate),
+            let nextCoordinateOnRoute = coordinates.after(element: coordinates[closestCoordinateOnRoute.index]),
+            let time = expectedSegmentTravelTimes.optional[closestCoordinateOnRoute.index] {
+            
+            let distance = coordinates[closestCoordinateOnRoute.index].distance(to: nextCoordinateOnRoute)
+            currentSpeed = distance / time
+        }
         // More than 10 nearby coordinates indicates that we are in a roundabout or similar complex shape.
-        if coordinatesNearby.count >= 10
+        else if coordinatesNearby.count >= 10
         {
             currentSpeed = minimumSpeed
         }
@@ -130,7 +151,7 @@ public class SimulatedLocationManager: NavigationLocationManager {
                                      altitude: 0,
                                      horizontalAccuracy: horizontalAccuracy,
                                      verticalAccuracy: verticalAccuracy,
-                                     course: wrap(floor(newCoordinate.direction(to: lookAheadCoordinate)), min: 0, max: 360),
+                                     course: newCoordinate.direction(to: lookAheadCoordinate).wrap(min: 0, max: 360),
                                      speed: currentSpeed,
                                      timestamp: Date())
         currentLocation = location
@@ -154,6 +175,28 @@ extension CLLocation {
     }
 }
 
+extension Array where Element : Hashable {
+    fileprivate struct OptionalSubscript {
+        var elements: [Element]
+        subscript (index: Int)  -> Element? {
+            return index < elements.count ? elements[index] : nil
+        }
+    }
+    
+    fileprivate var optional: OptionalSubscript {
+        get { return OptionalSubscript(elements: self) }
+    }
+}
+
+extension Array where Element : Equatable {
+    fileprivate func after(element: Element) -> Element? {
+        if let index = self.index(of: element), index + 1 <= self.count {
+            return index + 1 == self.count ? self[0] : self[index + 1]
+        }
+        return nil
+    }
+}
+
 extension Array where Element == CLLocationCoordinate2D {
     
     // Calculate turn penalty for each coordinate.
@@ -162,8 +205,8 @@ extension Array where Element == CLLocationCoordinate2D {
         
         for (coordinate, nextCoordinate) in zip(prefix(upTo: endIndex - 1), suffix(from: 1)) {
             let currentCoordinate = locations.isEmpty ? first! : coordinate
-            let course: CLLocationDirection = wrap(floor(coordinate.direction(to: nextCoordinate)), min: 0, max: 360)
-            let turnPenalty: Double = floor(differenceBetweenAngles(currentCoordinate.direction(to: coordinate), coordinate.direction(to: nextCoordinate)))
+            let course = coordinate.direction(to: nextCoordinate).wrap(min: 0, max: 360)
+            let turnPenalty = currentCoordinate.direction(to: coordinate).differenceBetween(coordinate.direction(to: nextCoordinate))
             let location = SimulatedLocation(coordinate: coordinate,
                                              altitude: 0,
                                              horizontalAccuracy: horizontalAccuracy,

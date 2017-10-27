@@ -80,7 +80,7 @@ public var RouteControllerMaximumDistanceBeforeRecalculating: CLLocationDistance
 /**
  Accepted deviation excluding horizontal accuracy before the user is considered to be off route.
  */
-public var RouteControllerUserLocationSnappingDistance: CLLocationDistance = 20
+public var RouteControllerUserLocationSnappingDistance: CLLocationDistance = 15
 
 /**
  Threshold user must be in within to count as completing a step. One of two heuristics used to know when a user completes a step, see `RouteControllerManeuverZoneRadius`.
@@ -103,11 +103,6 @@ public var RouteControllerHighAlertInterval: TimeInterval = 15
  Radius in meters the user must enter to count as completing a step. One of two heuristics used to know when a user completes a step, see `RouteControllerMaximumAllowedDegreeOffsetForTurnCompletion`.
  */
 public var RouteControllerManeuverZoneRadius: CLLocationDistance = 40
-
-/**
- Maximum number of seconds the user can travel away from the start of the route before rerouting occurs
- */
-public var MaxSecondsSpentTravelingAwayFromStartOfRoute: TimeInterval = 3
 
 /**
  Remaing distance on a motorway at which the `AlertLevel.high` `AlertLevel` will be given. This overrides `RouteControllerHighAlertInterval` only when the current step is a motorway. Default value is a half mile.
@@ -147,11 +142,21 @@ let RouteControllerLinkedInstructionBufferMultiplier: Double = 1.2
 let milesToMeters = 1609.34
 
 /**
- The mimimum speed value before the user is snapped to the route. This is used to overcome inaccurate course values when a user's speed is low.
+ The minimum speed value before the user's actual location can be considered over the snapped location.
  */
-public var RouteControllerMinimumSpeedThresholdForSnappingUserToRoute: CLLocationSpeed = 2
+public var RouteControllerMinimumSpeedForLocationSnapping: CLLocationSpeed = 3
 
 /**
  The minimum distance threshold used for giving a "Continue" type instructions.
  */
-public var RouteControllerMinDistanceForContinueInstruction: CLLocationDistance = 2_000
+public var RouteControllerMinimumDistanceForContinueInstruction: CLLocationDistance = 2_000
+
+/**
+ The minimum distance in the opposite direction of travel that triggers rerouting.
+ */
+public var RouteControllerMinimumBacktrackingDistanceForRerouting: CLLocationDistance = 50
+
+/**
+ Minimum number of consecutive location updates moving backwards before the user is rerouted.
+ */
+public var RouteControllerMinimumNumberLocationUpdatesBackwards = 3

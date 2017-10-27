@@ -15,7 +15,7 @@ open class NavigationRouteOptions: RouteOptions {
      - SeeAlso:
      [RouteOptions](https://www.mapbox.com/mapbox-navigation-ios/directions/0.10.1/Classes/RouteOptions.html)
      */
-    @objc public override init(waypoints: [Waypoint], profileIdentifier: MBDirectionsProfileIdentifier? = .automobileAvoidingTraffic) {
+    public override init(waypoints: [Waypoint], profileIdentifier: MBDirectionsProfileIdentifier? = .automobileAvoidingTraffic) {
         super.init(waypoints: waypoints.map {
             $0.coordinateAccuracy = -1
             return $0
@@ -33,7 +33,7 @@ open class NavigationRouteOptions: RouteOptions {
      - SeeAlso:
      [RouteOptions](https://www.mapbox.com/mapbox-navigation-ios/directions/0.10.1/Classes/RouteOptions.html)
      */
-    @objc public convenience init(locations: [CLLocation], profileIdentifier: MBDirectionsProfileIdentifier? = .automobileAvoidingTraffic) {
+    public convenience init(locations: [CLLocation], profileIdentifier: MBDirectionsProfileIdentifier? = .automobileAvoidingTraffic) {
         self.init(waypoints: locations.map { Waypoint(location: $0) }, profileIdentifier: profileIdentifier)
     }
     
@@ -44,11 +44,11 @@ open class NavigationRouteOptions: RouteOptions {
      - SeeAlso:
      [RouteOptions](https://www.mapbox.com/mapbox-navigation-ios/directions/0.10.1/Classes/RouteOptions.html)
      */
-    @objc public convenience init(coordinates: [CLLocationCoordinate2D], profileIdentifier: MBDirectionsProfileIdentifier? = .automobileAvoidingTraffic) {
+    public convenience init(coordinates: [CLLocationCoordinate2D], profileIdentifier: MBDirectionsProfileIdentifier? = .automobileAvoidingTraffic) {
         self.init(waypoints: coordinates.map { Waypoint(coordinate: $0) }, profileIdentifier: profileIdentifier)
     }
     
-    @objc public required init?(coder decoder: NSCoder) {
+    public required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
     }
 }

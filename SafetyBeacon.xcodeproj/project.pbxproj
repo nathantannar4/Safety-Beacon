@@ -19,6 +19,7 @@
 		385BA3321F79BE2C004B9061 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1209C1F736FAC00A4A9A4 /* UIColor+Extensions.swift */; };
 		385BA3331F79BE2E004B9061 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1209B1F736FAC00A4A9A4 /* UIApplication+Extensions.swift */; };
 		385BA33F1F79C2A5004B9061 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385BA33E1F79C2A5004B9061 /* User.swift */; };
+		3869F55B1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3869F55A1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist */; };
 		3892E9BC1F78539F002E3AC2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9BB1F78539F002E3AC2 /* Secrets.swift */; };
 		3892E9C21F79B460002E3AC2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9C11F79B460002E3AC2 /* LocationManager.swift */; };
 		3892E9C41F79B5ED002E3AC2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9C31F79B5ED002E3AC2 /* Log.swift */; };
@@ -56,6 +57,7 @@
 		3847EEB11F79E0A900305761 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		385BA32F1F79BD38004B9061 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		385BA33E1F79C2A5004B9061 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3869F55A1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-SafetyBeacon-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		3892E9BB1F78539F002E3AC2 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3892E9C11F79B460002E3AC2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3892E9C31F79B5ED002E3AC2 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				3892E9C31F79B5ED002E3AC2 /* Log.swift */,
 				38B7DE801F9091AB0023E495 /* Style.swift */,
 				38F7C2791F736E36006C995A /* Info.plist */,
+				3869F55A1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				38F7C2801F736EC5006C995A /* Assets.xcassets in Resources */,
 				38F7C27E1F736EC0006C995A /* LaunchScreen.storyboard in Resources */,
+				3869F55B1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +391,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
+				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
@@ -397,10 +402,12 @@
 				"${BUILT_PRODUCTS_DIR}/OSRMTextInstructions/OSRMTextInstructions.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
+				"${BUILT_PRODUCTS_DIR}/Turf/Turf.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
@@ -411,6 +418,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OSRMTextInstructions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Turf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
