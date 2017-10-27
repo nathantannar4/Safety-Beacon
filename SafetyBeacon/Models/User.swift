@@ -10,7 +10,13 @@ import Parse
 
 class User: NSObject {
     
-    private static var currentUser: User?
+    private static var currentUser: User? {
+        didSet {
+            // Loads the linked user
+            currentUser?.caretaker?.fetchInBackground()
+            currentUser?.patient?.fetchInBackground()
+        }
+    }
     
     // MARK: - Properties
     
@@ -18,6 +24,47 @@ class User: NSObject {
     
     override var description: String {
         return object.description
+    }
+    
+    var id: String? {
+        return object.objectId
+    }
+    
+    var username: String? {
+        return object.username
+    }
+    
+    var email: String? {
+        return object.email
+    }
+    
+    var fullname: String? {
+        get {
+            return object[PF_USER_FULLNAME] as? String
+        }
+        set {
+            return object[PF_USER_FULLNAME] = newValue
+        }
+    }
+    
+    var caretaker: PFObject? {
+        return object[PF_USER_CARETAKER] as? PFObject
+    }
+    
+    var patient: PFObject? {
+        return object[PF_USER_PATIENT] as? PFObject
+    }
+    
+    var isCaretaker: Bool {
+        return caretaker != nil
+    }
+    
+    var isPatient: Bool {
+        return patient != nil
+    }
+    
+    var image: PFFile? {
+        return object[PF_USER_PICTURE] as? PFFile
     }
     
     // MARK: - Initialization
