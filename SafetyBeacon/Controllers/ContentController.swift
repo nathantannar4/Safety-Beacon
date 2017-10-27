@@ -16,6 +16,8 @@ class ContentController: NTNavigationController {
         let settingsButton = NTButton()
         settingsButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
         settingsButton.image = #imageLiteral(resourceName: "icons8-settings")
+        settingsButton.backgroundColor = .clear
+        settingsButton.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         rootViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
         
         let titleLabel = NTLabel()

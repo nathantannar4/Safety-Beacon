@@ -23,6 +23,7 @@
 		3869F55D1FA2BA0D00DC3CDC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F55C1FA2BA0C00DC3CDC /* Constants.swift */; };
 		3869F55F1FA2BA1200DC3CDC /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F55E1FA2BA1200DC3CDC /* PushNotification.swift */; };
 		3869F5611FA2C00F00DC3CDC /* AccountSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F5601FA2C00F00DC3CDC /* AccountSetupViewController.swift */; };
+		3869F5631FA2D0F600DC3CDC /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F5621FA2D0F000DC3CDC /* ProgressHUD.swift */; };
 		3892E9BC1F78539F002E3AC2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9BB1F78539F002E3AC2 /* Secrets.swift */; };
 		3892E9C21F79B460002E3AC2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9C11F79B460002E3AC2 /* LocationManager.swift */; };
 		3892E9C41F79B5ED002E3AC2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9C31F79B5ED002E3AC2 /* Log.swift */; };
@@ -64,6 +65,7 @@
 		3869F55C1FA2BA0C00DC3CDC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3869F55E1FA2BA1200DC3CDC /* PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
 		3869F5601FA2C00F00DC3CDC /* AccountSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupViewController.swift; sourceTree = "<group>"; };
+		3869F5621FA2D0F000DC3CDC /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		3892E9BB1F78539F002E3AC2 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3892E9C11F79B460002E3AC2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3892E9C31F79B5ED002E3AC2 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		38F7C2761F736E36006C995A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3869F5621FA2D0F000DC3CDC /* ProgressHUD.swift */,
 				38F7C2771F736E36006C995A /* LaunchScreen.storyboard */,
 				3892E9BB1F78539F002E3AC2 /* Secrets.swift */,
 				3892E9C31F79B5ED002E3AC2 /* Log.swift */,
@@ -479,6 +482,7 @@
 				3892E9C41F79B5ED002E3AC2 /* Log.swift in Sources */,
 				385BA3301F79BD38004B9061 /* LoginViewController.swift in Sources */,
 				3894C6D61F9E692E00EEE034 /* EditBookmarksViewController.swift in Sources */,
+				3869F5631FA2D0F600DC3CDC /* ProgressHUD.swift in Sources */,
 				3892E9C21F79B460002E3AC2 /* LocationManager.swift in Sources */,
 				385BA33F1F79C2A5004B9061 /* User.swift in Sources */,
 				3869F55D1FA2BA0D00DC3CDC /* Constants.swift in Sources */,
