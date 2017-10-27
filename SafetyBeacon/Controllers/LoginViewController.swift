@@ -44,7 +44,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
         } else if sender.loginMethod == .custom {
             User.loginInBackground(email: "caretaker@safetybeacon.ca", password: "password123") { (success) in
                 if success {
-                    self.loginSuccessful()
+                    LoginViewController.loginSuccessful()
                 }
             }
         }
@@ -56,7 +56,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
         User.loginInBackground(email: email, password: password) { (success) in
             controller.showActivityIndicator = false
             if success {
-                self.loginSuccessful()
+                LoginViewController.loginSuccessful()
             }
         }
     }
@@ -67,15 +67,36 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
         User.registerInBackground(email: email, password: password) { (success) in
             controller.showActivityIndicator = false
             if success {
-                self.loginSuccessful()
+                LoginViewController.loginSuccessful()
             }
         }
     }
     
-    func loginSuccessful() {
+    class func loginSuccessful() {
         
-        let viewControllers = [MapViewController()]
-        let tabBarController = NTScrollableTabBarController(viewControllers: viewControllers)
-        appController.setViewController(ContentController(rootViewController: tabBarController), forSide: .center)
+        guard let currentUser = User.current() else { return }
+        
+        if currentUser.requiresSetup {
+            
+            // Setup still required
+            appController.setViewController(ContentController(rootViewController: AccountSetupViewController()), forSide: .center)
+            
+        } else {
+            if currentUser.isCaretaker {
+                
+                // Caretaker Views
+                
+                let viewControllers = [ReportViewController(), BookmarksViewController(), SafeZonesViewController(), HistoryViewController()]
+                let tabBarController = NTScrollableTabBarController(viewControllers: viewControllers)
+                appController.setViewController(ContentController(rootViewController: tabBarController), forSide: .center)
+            } else if currentUser.isPatient {
+                
+                // Patient Views
+                
+                let viewControllers = [MapViewController()]
+                let tabBarController = NTScrollableTabBarController(viewControllers: viewControllers)
+                appController.setViewController(ContentController(rootViewController: tabBarController), forSide: .center)
+            }
+        }
     }
 }

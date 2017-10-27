@@ -47,12 +47,12 @@ class User: NSObject {
         }
     }
     
-    var caretaker: PFObject? {
-        return object[PF_USER_CARETAKER] as? PFObject
+    var caretaker: PFUser? {
+        return object[PF_USER_CARETAKER] as? PFUser
     }
     
-    var patient: PFObject? {
-        return object[PF_USER_PATIENT] as? PFObject
+    var patient: PFUser? {
+        return object[PF_USER_PATIENT] as? PFUser
     }
     
     var isCaretaker: Bool {
@@ -61,6 +61,10 @@ class User: NSObject {
     
     var isPatient: Bool {
         return patient != nil
+    }
+    
+    var requiresSetup: Bool {
+        return !isPatient && !isCaretaker
     }
     
     var image: PFFile? {

@@ -15,7 +15,7 @@ class PushNotication {
         UIApplication.shared.applicationIconBadgeNumber = 0
         let installation = PFInstallation.current()!
         installation[PF_INSTALLATION_USER] = PFUser.current()
-        installation.saveInBackground(block: { (success, error) in
+        installation.saveInBackground(block: { (_, error) in
             if error != nil {
                 print("parsePushUserAssign save error.")
             }
@@ -26,7 +26,7 @@ class PushNotication {
         UIApplication.shared.applicationIconBadgeNumber = 0
         let installation = PFInstallation.current()!
         installation.remove(forKey: PF_INSTALLATION_USER)
-        installation.saveInBackground { (succeeded: Bool, error: Error?) -> Void in
+        installation.saveInBackground { (_, error: Error?) -> Void in
             if error != nil {
                 print("parsePushUserResign save error")
             }
@@ -42,7 +42,7 @@ class PushNotication {
             let sendToID = userIDs[...index]
             if PFUser.current()!.objectId! != sendToID {
                 print("Will send PUSH to \(sendToID)")
-                PFCloud.callFunction(inBackground: "pushToUser", withParameters: ["user": sendToID, "message": text], block: { (object, error) in
+                PFCloud.callFunction(inBackground: "pushToUser", withParameters: ["user": sendToID, "message": text], block: { (_, error) in
                     if error == nil {
                         print("##### PUSH OK")
                     } else {
@@ -50,7 +50,7 @@ class PushNotication {
                     }
                 })
             }
-            userIDs = String(userIDs[index...]) // TODO
+            userIDs = String(userIDs[index...])
         }
     }
 }

@@ -16,12 +16,11 @@ class ContentController: NTNavigationController {
         let settingsButton = NTButton()
         settingsButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
         settingsButton.image = #imageLiteral(resourceName: "icons8-settings")
-        settingsButton.backgroundColor = .clear
         rootViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
         
         let titleLabel = NTLabel()
         titleLabel.text = "Safety Beacon"
-        titleLabel.font = Font.Default.Title.withSize(20)
+        titleLabel.font = Font.Default.Title.withSize(22)
         rootViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
     }
     

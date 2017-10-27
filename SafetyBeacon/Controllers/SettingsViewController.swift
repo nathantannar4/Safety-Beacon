@@ -43,13 +43,26 @@ class SettingsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = NTTableViewHeaderFooterView()
-        header.backgroundColor = .groupTableViewBackground
         if section == 0 {
             header.textLabel.text = "Your Account"
         } else if section == 1 {
-            header.textLabel.text = "Connected Accounts"
+            header.textLabel.text = "Linked Account"
         }
         return header
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 2 {
+            let footer = NTTableViewHeaderFooterView()
+            footer.textLabel.textAlignment = .center
+            footer.textLabel.text = "Safety Beacon Version " + (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? String())
+            return footer
+        }
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return section == 2 ? 28 : 0
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -57,10 +70,7 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section <= 1 {
-            return 80
-        }
-        return UITableViewAutomaticDimension
+        return indexPath.section <= 1 ? 80 : UITableViewAutomaticDimension
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -75,19 +85,29 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let currentUser = User.current() else { return NTTableViewCell() }
+        
         switch indexPath.section {
         case 0:
             let cell = NTTableViewCell(style: .subtitle, reuseIdentifier: nil)
-            cell.textLabel?.text = "CURRENT USER NAME"
-            cell.detailTextLabel?.text = "ACCOUNT TYPE"
-            cell.imageView?.image = #imageLiteral(resourceName: "ic_PatientMale")
+            
+            cell.textLabel?.text = User.current()?.email
+            if !currentUser.requiresSetup {
+                cell.detailTextLabel?.text = User.current()?.isCaretaker ?? true ? "Caretaker" : "Paient"
+                cell.imageView?.image = User.current()?.isCaretaker ?? false ? #imageLiteral(resourceName: "ic_heart") : #imageLiteral(resourceName: "ic_BothPatients")
+            }
             cell.selectionStyle = .none
             return cell
         case 1:
             let cell = NTTableViewCell(style: .subtitle, reuseIdentifier: nil)
-            cell.textLabel?.text = "PAIRED CURRENT USER NAME"
-            cell.detailTextLabel?.text = "ACCOUNT TYPE"
-            cell.imageView?.image = #imageLiteral(resourceName: "ic_PatientFemale")
+            if currentUser.requiresSetup {
+                cell.textLabel?.text = "No user linked"
+            } else {
+                cell.textLabel?.text = User.current()?.isCaretaker ?? false ? User.current()?.patient?.email : User.current()?.caretaker?.email
+                cell.detailTextLabel?.text = User.current()?.isPatient ?? false ? "Caretaker" : "Paient"
+                cell.imageView?.image = User.current()?.isPatient ?? false ? #imageLiteral(resourceName: "ic_heart") : #imageLiteral(resourceName: "ic_BothPatients")
+            }
             cell.selectionStyle = .none
             return cell
         case 2:

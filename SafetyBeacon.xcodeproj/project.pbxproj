@@ -20,6 +20,9 @@
 		385BA3331F79BE2E004B9061 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1209B1F736FAC00A4A9A4 /* UIApplication+Extensions.swift */; };
 		385BA33F1F79C2A5004B9061 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385BA33E1F79C2A5004B9061 /* User.swift */; };
 		3869F55B1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3869F55A1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist */; };
+		3869F55D1FA2BA0D00DC3CDC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F55C1FA2BA0C00DC3CDC /* Constants.swift */; };
+		3869F55F1FA2BA1200DC3CDC /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F55E1FA2BA1200DC3CDC /* PushNotification.swift */; };
+		3869F5611FA2C00F00DC3CDC /* AccountSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869F5601FA2C00F00DC3CDC /* AccountSetupViewController.swift */; };
 		3892E9BC1F78539F002E3AC2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9BB1F78539F002E3AC2 /* Secrets.swift */; };
 		3892E9C21F79B460002E3AC2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9C11F79B460002E3AC2 /* LocationManager.swift */; };
 		3892E9C41F79B5ED002E3AC2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892E9C31F79B5ED002E3AC2 /* Log.swift */; };
@@ -58,6 +61,9 @@
 		385BA32F1F79BD38004B9061 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		385BA33E1F79C2A5004B9061 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3869F55A1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-SafetyBeacon-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
+		3869F55C1FA2BA0C00DC3CDC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3869F55E1FA2BA1200DC3CDC /* PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
+		3869F5601FA2C00F00DC3CDC /* AccountSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupViewController.swift; sourceTree = "<group>"; };
 		3892E9BB1F78539F002E3AC2 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3892E9C11F79B460002E3AC2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3892E9C31F79B5ED002E3AC2 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 			children = (
 				389E62F81F90992C005B39DA /* ContentController.swift */,
 				385BA32F1F79BD38004B9061 /* LoginViewController.swift */,
+				3869F5601FA2C00F00DC3CDC /* AccountSetupViewController.swift */,
 				3847EEA71F79DD6000305761 /* MapViewController.swift */,
 				3810DA4B1F832A5300B5180E /* NavigationViewController.swift */,
 				3847EEAD1F79E02E00305761 /* ReportViewController.swift */,
@@ -210,6 +217,8 @@
 				3892E9BB1F78539F002E3AC2 /* Secrets.swift */,
 				3892E9C31F79B5ED002E3AC2 /* Log.swift */,
 				38B7DE801F9091AB0023E495 /* Style.swift */,
+				3869F55E1FA2BA1200DC3CDC /* PushNotification.swift */,
+				3869F55C1FA2BA0C00DC3CDC /* Constants.swift */,
 				38F7C2791F736E36006C995A /* Info.plist */,
 				3869F55A1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist */,
 			);
@@ -449,6 +458,7 @@
 			files = (
 				385BA3331F79BE2E004B9061 /* UIApplication+Extensions.swift in Sources */,
 				38B7DE811F9091AB0023E495 /* Style.swift in Sources */,
+				3869F55F1FA2BA1200DC3CDC /* PushNotification.swift in Sources */,
 				3894C6D21F9E681A00EEE034 /* Bookmark.swift in Sources */,
 				3894C6D01F9E680A00EEE034 /* SafeZone.swift in Sources */,
 				389E62FB1F909A41005B39DA /* SettingsViewController.swift in Sources */,
@@ -464,12 +474,14 @@
 				385BA3311F79BE2A004B9061 /* UIView+AutoLayout.swift in Sources */,
 				3847EEB01F79E08700305761 /* HistoryViewController.swift in Sources */,
 				3892E9BC1F78539F002E3AC2 /* Secrets.swift in Sources */,
+				3869F5611FA2C00F00DC3CDC /* AccountSetupViewController.swift in Sources */,
 				3847EEAA1F79DFAF00305761 /* BookmarksViewController.swift in Sources */,
 				3892E9C41F79B5ED002E3AC2 /* Log.swift in Sources */,
 				385BA3301F79BD38004B9061 /* LoginViewController.swift in Sources */,
 				3894C6D61F9E692E00EEE034 /* EditBookmarksViewController.swift in Sources */,
 				3892E9C21F79B460002E3AC2 /* LocationManager.swift in Sources */,
 				385BA33F1F79C2A5004B9061 /* User.swift in Sources */,
+				3869F55D1FA2BA0D00DC3CDC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

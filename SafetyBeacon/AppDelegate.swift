@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Font.Default.Caption = Font.Roboto.Medium.withSize(12)
         Font.Default.Subhead = Font.Roboto.Regular.withSize(14)
         Font.Default.Headline = Font.Roboto.Medium.withSize(15)
-        Font.Default.Callout = Font.Roboto.Regular.withSize(12)
-        Font.Default.Footnote = Font.Roboto.Regular.withSize(12)
+        Font.Default.Callout = Font.Roboto.Regular.withSize(13)
+        Font.Default.Footnote = Font.Roboto.Light.withSize(12)
         
         // Establish a connection to the backend
         let config = ParseClientConfiguration(block: { (mutableClientConfig) -> Void in
@@ -61,9 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         if User.current() != nil {
-            let viewControllers = [MapViewController(), BookmarksViewController()]
-            let tabBarController = NTScrollableTabBarController(viewControllers: viewControllers)
-            appController.setViewController(ContentController(rootViewController: tabBarController), forSide: .center)
+            LoginViewController.loginSuccessful()
         } else {
             appController.setViewController(LoginViewController(), forSide: .center)
         }
