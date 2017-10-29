@@ -27,12 +27,12 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        LocationManager.shared.beginTracking()
+        LocationManager.shared.beginTracking()
         
         title = "Map"
         view.backgroundColor = .white
-//        setupSubviews()
-//        setupConstraints()
+        setupSubviews()
+        setupConstraints()
         
         // Declare the marker `hello` and set its coordinates, title, and subtitle.
 //        let hello = MGLPointAnnotation()

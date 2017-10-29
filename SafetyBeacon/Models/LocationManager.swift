@@ -7,11 +7,13 @@
 //
 
 import CoreLocation
+import Parse
+import NTComponents
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
     static var shared = LocationManager()
-    
+    var counter = 0
     // MARK: - Properties
     
     var currentLocation: CLLocationCoordinate2D? {
@@ -100,8 +102,39 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         Log.write(.status, "locationManagerDidExitRegion: \(region)")
     }
     
+//    let zone = PFObject(className: "SafeZones")
+//    zone["long"] = 121276.1212
+//    zone.saveInBackground { (success, error) in
+//    guard success else {
+//    //print error
+//    return
+//    }
+//    // success
+//    }
+
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if counter % 300 == 0 {
+            guard let long = locations.first?.coordinate.longitude, let lat = locations.first?.coordinate.latitude, let user = User.current(), user.isPatient else {
+                Log.write(.warning, "Failed to write the patient's current location")
+                return
+            }
+            let location_history = PFObject(className: "History")
+            location_history["long"] = long
+            location_history["lat"] = lat
+            location_history["patient"] = user.object
+            
+            location_history.saveInBackground(block: {(success, error) in
+                guard success else {
+                    NTPing(type: .isSuccess, title: "Unable to save location to the database").show(duration: 5)
+                    Log.write(.error, error.debugDescription)
+                    return
+                }
+            })
+            counter = 1
+        }
         Log.write(.status, "locationManagerDidUpdateLocations: \(locations)")
+        counter+=1
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
