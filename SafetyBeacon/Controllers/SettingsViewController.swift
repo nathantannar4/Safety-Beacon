@@ -92,7 +92,7 @@ class SettingsViewController: UITableViewController {
         case 0:
             let cell = NTTableViewCell(style: .subtitle, reuseIdentifier: nil)
             
-            cell.textLabel?.text = User.current()?.email
+            cell.textLabel?.text = User.current()?.username
             if !currentUser.requiresSetup {
                 cell.detailTextLabel?.text = User.current()?.isCaretaker ?? true ? "Caretaker" : "Paient"
                 cell.imageView?.image = User.current()?.isCaretaker ?? false ? #imageLiteral(resourceName: "ic_heart") : #imageLiteral(resourceName: "ic_BothPatients")
@@ -104,7 +104,7 @@ class SettingsViewController: UITableViewController {
             if currentUser.requiresSetup {
                 cell.textLabel?.text = "No user linked"
             } else {
-                cell.textLabel?.text = User.current()?.isCaretaker ?? false ? User.current()?.patient?.email : User.current()?.caretaker?.email
+                cell.textLabel?.text = User.current()?.isCaretaker ?? false ? User.current()?.patient?.username : User.current()?.caretaker?.username
                 cell.detailTextLabel?.text = User.current()?.isPatient ?? false ? "Caretaker" : "Paient"
                 cell.imageView?.image = User.current()?.isPatient ?? false ? #imageLiteral(resourceName: "ic_heart") : #imageLiteral(resourceName: "ic_BothPatients")
             }
