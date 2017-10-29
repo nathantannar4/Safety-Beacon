@@ -17,7 +17,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
         
         logo = UIImage(named: "SafetyBeaconCircleLogo")
         logoView.layer.cornerRadius = 150 / 2
-        loginMethods = [.email, .custom]
+        loginMethods = [.email]
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -26,29 +26,12 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
         LocationManager.shared.requestAlwaysAuthorization()
     }
     
-    override func createLoginButton(forMethod method: NTLoginMethod) -> NTLoginButton {
-        if method == .custom {
-            let button = createLoginButton(color: Color.Default.Background.Button, title: "Caretaker Login", logo: nil)
-            button.loginMethod = method
-            return button
-        }
-        return super.createLoginButton(forMethod: method)
-    }
-    
     override func loginLogic(sender: NTLoginButton) {
         
         if sender.loginMethod == .email {
             let vc = NTEmailAuthViewController()
             vc.delegate = self
             present(vc, animated: true, completion: nil)
-        } else if sender.loginMethod == .custom {
-            User.loginInBackground(email: "caretaker@safetybeacon.ca", password: "password123") { (success) in
-                if success {
-                    self.dismiss(animated: false, completion: {
-                        LoginViewController.loginSuccessful()
-                    })
-                }
-            }
         }
     }
     
@@ -95,6 +78,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
                 let viewControllers = [ReportViewController(), BookmarksViewController(), SafeZonesViewController(), HistoryViewController()]
                 let tabBarController = NTScrollableTabBarController(viewControllers: viewControllers)
                 appController.setViewController(ContentController(rootViewController: tabBarController), forSide: .center)
+
             } else if currentUser.isPatient {
                 
                 // Patient Views

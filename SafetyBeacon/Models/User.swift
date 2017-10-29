@@ -56,11 +56,11 @@ class User: NSObject {
     }
     
     var isCaretaker: Bool {
-        return caretaker != nil
+        return caretaker == nil
     }
     
     var isPatient: Bool {
-        return patient != nil
+        return patient == nil
     }
     
     var requiresSetup: Bool {
