@@ -26,11 +26,21 @@ class BookmarksViewController: UITableViewController {
         title = "Bookmarks"
     }
     
-    func refreshSafeZones() {
+    func refreshBookmarks() {
         
-        // query db
-        tableView.reloadData()
-        
+        //query db
+        guard let user = User.current(), let patient = user.patient else { return }
+        let query = PFQuery(className: "Bookmarks")
+        query.whereKey("patient", equalTo: patient)
+        query.findObjectsInBackground { (objects, error) in
+            guard let objects = objects else {
+                NTPing(type: .isDanger, title: "Patient currently set bookmarks").show(duration: 5)
+                Log.write(.error, error.debugDescription)
+                return
+            }
+            self.bookmarks = objects
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - UITableViewDataSource
@@ -100,12 +110,12 @@ class BookmarksViewController: UITableViewController {
 //                self.bookmarks.remove(at: indexPath.row)
 //                tableView.deleteRows(at: [indexPath], with: .fade)
 //            })
-//            return
 //        }
+//        return
 //    }
     
     // MARK: - User Actions
-    func getCoordinates(address: String, completion: @escaping (CLLocationCoordinate2D?)->Void) {
+    func getCoordinates(address: String, completion: @escaping (CLLocationCoordinate2D?) -> Void) {
         CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
             
             if error != nil {
@@ -134,19 +144,17 @@ class BookmarksViewController: UITableViewController {
         let alertController = UIAlertController(title: "Add Bookmark", message: "Input Bookmark name and address below:", preferredStyle: UIAlertControllerStyle.alert)
         
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (alertAction: UIAlertAction!) -> Void in
-            let nameField = alertController.textFields![0] as UITextField
-            let streetField = alertController.textFields![1] as UITextField
-            let cityField = alertController.textFields![2] as UITextField
-            let provinceField = alertController.textFields![3] as UITextField
-            let postalField = alertController.textFields![4] as UITextField
-
-            print("\(nameField.text ?? "Nothing entered")")
-            print("\(streetField.text ?? "Noting entered")")
-            print("\(cityField.text ?? "Noting entered")")
-            print("\(provinceField.text ?? "Noting entered")")
-            print("\(postalField.text ?? "Noting entered")")
             
-            let address = "\(streetField.text ?? "Null"), \(cityField.text ?? "Null"), \(provinceField.text ?? "Null"), \(postalField.text ?? "Null")"
+            guard let nameField = alertController.textFields?[0].text,
+                  let streetField = alertController.textFields?[1].text,
+                  let cityField = alertController.textFields![2].text,
+                  let provinceField = alertController.textFields![3].text,
+                  let postalField = alertController.textFields![4].text
+            else{
+                return
+            }
+            
+            let address = "\(streetField), \(cityField), \(provinceField), \(postalField)"
             print ("\(address)")
             
             self.getCoordinates(address: address, completion: { (coordinate) in
@@ -154,7 +162,7 @@ class BookmarksViewController: UITableViewController {
                     // handle error
                     return
                 }
-                self.saveBookmark(name: nameField.text!, addressLatitude: coordinate.latitude, addressLongitude: coordinate.longitude)
+                self.saveBookmark(name: nameField, addressLatitude: coordinate.latitude, addressLongitude: coordinate.longitude)
             })
         }
 //        addAction.isEnabled = false
@@ -165,7 +173,8 @@ class BookmarksViewController: UITableViewController {
         alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory" }
         alertController.addTextField { postalField in postalField.placeholder = "Postal Code" }
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         alertController.addAction(addAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
@@ -188,6 +197,7 @@ class BookmarksViewController: UITableViewController {
                 return
             }
             NTPing(type: .isSuccess, title: "Bookmark successfully saved").show(duration: 3)
+            self.refreshBookmarks()
         }
     }
 }
