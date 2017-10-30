@@ -10,6 +10,7 @@ import UIKit
 import NTComponents
 import Parse
 import CoreLocation
+import AddressBookUI
 
 class SafeZonesViewController: UITableViewController {
     
@@ -105,36 +106,59 @@ class SafeZonesViewController: UITableViewController {
     @objc
     func addSafeZone() {
         let alertController = UIAlertController(title: "Add SafeZone", message: "Input Safe Zone Information Below", preferredStyle: UIAlertControllerStyle.alert)
-        
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (alertAction: UIAlertAction) -> Void in
-            guard let nameText = alertController.textFields?[0].text, let addressText = alertController.textFields?[1].text, let radiusText = alertController.textFields?[2].text else{
+            guard let nameField = alertController.textFields?[0].text, let streetField = alertController.textFields?[1].text, let cityField = alertController.textFields?[2].text, let provinceField = alertController.textFields?[3].text, let postalField = alertController.textFields?[4].text, let radiusField = alertController.textFields?[5].text else{
                 return
             }
-            guard let radius = Double(radiusText) else { return }
-            self.saveSafeZone(safeZoneName: nameText, safeZoneAddress: addressText, safeZoneRadius: radius)
+            guard let radius = Double(radiusField) else { return }
+            let address = "\(streetField ?? "Null"), \(cityField ?? "Null"), \(provinceField ?? "Null"), \(postalField ?? "Null")"
+            print ("\(address)")
+            self.getCoordinates(address: address, completion: { (coordinate) in
+                guard let coordinate = coordinate else {
+                    // handle error
+                    return
+                }
+                self.saveSafeZone(safeZoneName: nameField, safeZoneAddress: address, safeZoneRadius: radius, safeZoneLatitude: coordinate.latitude, safeZoneLongitude: coordinate.longitude)
+            })
         }
-        alertController.addTextField { nameText in
-            nameText.placeholder = "Name"
-        }
-        alertController.addTextField { addressText in
-            addressText.placeholder = "Address"
-      }
-//        alertController.addTextField { cityText in
-//            cityText.placeholder = "City"
-//        }
-//        alertController.addTextField { postalCodeText in
-//            postalCodeText.placeholder = "Postal Code"
-//        }
-        alertController.addTextField { radiusText in
-            radiusText.placeholder = "Radius"
-        }
+        alertController.addTextField { nameField in nameField.placeholder = "Safe Zone Name" }
+        alertController.addTextField { streetField in streetField.placeholder = "Street Address" }
+        alertController.addTextField { cityField in cityField.placeholder = "City" }
+        alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory" }
+        alertController.addTextField { postalField in postalField.placeholder = "Postal Code" }
+        alertController.addTextField { postalField in postalField.placeholder = "Safe Zone Radius" }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
         alertController.addAction(addAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
         
     }
-    func saveSafeZone(safeZoneName: String, safeZoneAddress: String, safeZoneRadius: Double) {
+    func getCoordinates(address: String, completion: @escaping (CLLocationCoordinate2D?)->Void) {
+        CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
+            
+            if error != nil {
+                print(error as Any)
+                return
+            }
+            if placemarks?.count != nil {
+                let placemark = placemarks?[0]
+                let location = placemark?.location
+                let coordinate = location?.coordinate
+                print("\nlat: \(coordinate!.latitude), long: \(coordinate!.longitude)")
+                if placemark?.areasOfInterest?.count != nil {
+                    let areaOfInterest = placemark!.areasOfInterest![0]
+                    print(areaOfInterest)
+                    completion(coordinate)
+                } else {
+                    print("No area of interest found.")
+                    completion(nil)
+                }
+            }
+            
+        })
+    }
+    func saveSafeZone(safeZoneName: String, safeZoneAddress: String, safeZoneRadius: Double, safeZoneLatitude : Double, safeZoneLongitude: Double) {
         
         guard let currentUser = User.current(), currentUser.isCaretaker, let patient = currentUser.patient else { return }
         
