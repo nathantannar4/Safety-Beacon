@@ -77,8 +77,8 @@ class BookmarksViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
-        if indexPath.section == 0  {
-            cell.textLabel?.text = "+"
+        if (indexPath.section == 0) {
+            cell.textLabel?.text = "Enter Address"
             cell.accessoryType = .disclosureIndicator
             return cell
         }
@@ -92,7 +92,7 @@ class BookmarksViewController: UITableViewController {
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
+        if (indexPath.section == 0) {
             addBookmark()
         }
     }
@@ -150,7 +150,7 @@ class BookmarksViewController: UITableViewController {
                   let cityField = alertController.textFields![2].text,
                   let provinceField = alertController.textFields![3].text,
                   let postalField = alertController.textFields![4].text
-            else{
+            else {
                 return
             }
             
