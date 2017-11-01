@@ -111,18 +111,21 @@ class BookmarksViewController: UITableViewController {
         return indexPath.section != 0
     }
     
-//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        let action = UITableViewRowAction(style: UITableViewRowActionStyle.destructive, title: "Delete") { (action, indexPath) in
-//            self.bookmarks[indexPath.row].deleteInBackground(block: { (success, error) in
-//                guard success else {
-//                    return
-//                }
-//                self.bookmarks.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-//            })
-//        }
-//        return
-//    }
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: UITableViewRowActionStyle.destructive, title: "Delete") { (rowAction, indexPath) in
+            self.bookmarks[indexPath.row].deleteInBackground(block: { (success, error) in
+                guard success else {
+                    return
+                }
+                self.bookmarks.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            })
+        }
+        let edit = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (rowAction, indexPath) in
+            // Functions here
+        }
+        return [delete, edit]
+    }
     
     // MARK: - User Actions
     func getCoordinates(address: String, completion: @escaping (CLLocationCoordinate2D?) -> Void) {
