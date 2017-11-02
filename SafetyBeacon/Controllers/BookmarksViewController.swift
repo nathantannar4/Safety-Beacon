@@ -2,15 +2,14 @@
 //  BookmarksViewController.swift
 //  SafetyBeacon
 //
-//  Created by Nathan Tannar on 9/25/17.
-//  Last modified by Jason Tsang on 10/29/2017
+//  Created by Nathan Tannar on 9/25/17
+//  Implemented by Jason Tsang on 10/29/2017
 //  Copyright © 2017 Nathan Tannar. All rights reserved.
 //
 
+import AddressBookUI
 import Contacts
 import CoreLocation
-import AddressBookUI
-import Foundation
 import NTComponents
 import Parse
 import UIKit
@@ -96,17 +95,6 @@ class BookmarksViewController: UITableViewController {
         // Existing Bookmarks
         cell.textLabel?.text = bookmarks[indexPath.row]["name"] as? String
         cell.detailTextLabel?.text = bookmarks[indexPath.row]["address"] as? String
-//        // Getting bookmark address from coordinates
-//        let latitude = bookmarks[indexPath.row]["lat"] as? Double
-//        let longitude = bookmarks[indexPath.row]["long"] as? Double
-//        self.getAddress(latitude: latitude!, longitude: longitude!, completion: { (address) in
-//            guard let address = address else {
-//                print("\n Failed to getAddress() - lat: \(String(describing: latitude)), long: \(String(describing: longitude))")
-//                return
-//            }
-//            // Bookmark address
-//            cell.detailTextLabel?.text = address
-//        })
         return cell
     }
     
@@ -138,77 +126,72 @@ class BookmarksViewController: UITableViewController {
                 NTPing(type: .isSuccess, title: "Bookmark successfully deleted").show(duration: 3)
             })
         }
+        
         let edit = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (_, indexPath) in
             let alertController = UIAlertController(title: "Edit Bookmark", message: "Change Bookmark name and address:", preferredStyle: UIAlertControllerStyle.alert)
             
-            // Get orignal bookmark
-            let originalName: String = (self.bookmarks[indexPath.row]["name"] as? String)!
+            // Get original bookmark
+            let originalName = self.bookmarks[indexPath.row]["name"] as? String
             let concatenatedAddress = self.bookmarks[indexPath.row]["address"] as? String
-            var concatenatedAddressArr = concatenatedAddress?.components(separatedBy: ",")
+            var concatenatedAddressArr = concatenatedAddress?.components(separatedBy: ", ")
             let originalStreet = concatenatedAddressArr![0] as String
             let originalCity = concatenatedAddressArr![1] as String
             let originalProvince = concatenatedAddressArr![2] as String
             let originalPostal = concatenatedAddressArr![3] as String
             
-            // Put originals as text input placeholders
-            alertController.addTextField { nameField in nameField.placeholder = originalName }
-            alertController.addTextField { streetField in streetField.placeholder = originalStreet }
-            alertController.addTextField { cityField in cityField.placeholder = originalCity }
-            alertController.addTextField { provinceField in provinceField.placeholder = originalProvince }
-            alertController.addTextField { postalField in postalField.placeholder = originalPostal }
+            // Text input placeholders
+            alertController.addTextField { nameField in nameField.placeholder = "Bookmark Name" }
+            alertController.addTextField { streetField in streetField.placeholder = "Street Address" }
+            alertController.addTextField { cityField in cityField.placeholder = "City" }
+            alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory" }
+            alertController.addTextField { postalField in postalField.placeholder = "Postal Code" }
+            // Put original row content as text input
+            alertController.textFields![0].text = originalName
+            alertController.textFields![1].text = originalStreet
+            alertController.textFields![2].text = originalCity
+            alertController.textFields![3].text = originalProvince
+            alertController.textFields![4].text = originalPostal
             
             // Change button
             let changeAction = UIAlertAction(title: "Change", style: UIAlertActionStyle.default) { (_: UIAlertAction!) -> Void in
-                let nameField = alertController.textFields![0] as UITextField
-                let streetField = alertController.textFields![1] as UITextField
-                let cityField = alertController.textFields![2] as UITextField
-                let provinceField = alertController.textFields![3] as UITextField
-                let postalField = alertController.textFields![4] as UITextField
-            
-                var newName = originalName
-                var newStreet = originalStreet
-                var newCity = originalCity
-                var newProvince = originalProvince
-                var newPostal = originalPostal
-                
-                // Update fields if changed
-                if nameField.text != "" {
-                    newName = nameField.text!
-                }
-                if streetField.text != "" {
-                    newStreet = streetField.text!
-                }
-                if cityField.text != "" {
-                    newCity = cityField.text!
-                }
-                if provinceField.text != "" {
-                    newProvince = provinceField.text!
-                }
-                if postalField.text != "" {
-                    newPostal = postalField.text!
-                }
-                    
-                let newAddress = "\(newStreet),\(newCity),\(newProvince),\(newPostal)"
-                
-                // Convert address to coordinates
-                self.getCoordinates(address: newAddress, completion: { (coordinate) in
-                    guard let coordinate = coordinate else {
-                        print("\n Failed to getCoordinates() - \(newAddress)")
-                        NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
+                guard let nameField = alertController.textFields![0].text, !nameField.isEmpty,
+                    let streetField = alertController.textFields![1].text, !streetField.isEmpty,
+                    let cityField = alertController.textFields![2].text, !cityField.isEmpty,
+                    let provinceField = alertController.textFields![3].text, !provinceField.isEmpty,
+                    let postalField = alertController.textFields![4].text, !postalField.isEmpty
+                    else {
+                        let invalidAlert = UIAlertController(title: "Invalid Bookmark", message: "All fields must be entered.", preferredStyle: .alert)
+                        invalidAlert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Default action"), style: .`default`, handler: { _ in
+                            NSLog("The \"Invalid Bookmark\" alert occured.")
+                        }))
+                        self.present(invalidAlert, animated: true, completion: nil)
                         return
-                    }
-                    self.bookmarks[indexPath.row].deleteInBackground { (success, error) in
-                        guard success else {
-                            Log.write(.error, error.debugDescription)
-                            NTPing(type: .isDanger, title: error?.localizedDescription).show(duration: 3)
+                }
+
+                // Update only address fields changed
+                if originalStreet != streetField || originalCity != cityField || originalProvince != provinceField || originalPostal != postalField {
+                    let newAddress = "\(streetField), \(cityField), \(provinceField), \(postalField)"
+                    // Convert address to coordinates
+                    self.getCoordinates(address: newAddress, completion: { (coordinate) in
+                        guard let coordinate = coordinate else {
+                            print("\n Failed to getCoordinates() - \(newAddress)")
+                            NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
                             return
                         }
-                        self.bookmarks.remove(at: indexPath.row)
-                        tableView.deleteRows(at: [indexPath], with: .fade)
-                        // Save to database
-                        self.saveBookmark(name: newName, addressConcatinated: newAddress, addressLatitude: coordinate.latitude, addressLongitude: coordinate.longitude)
-                    }
-                })
+                        self.bookmarks[indexPath.row]["lat"] = coordinate.latitude
+                        self.bookmarks[indexPath.row]["long"] = coordinate.longitude
+                    })
+                    self.bookmarks[indexPath.row]["address"] = newAddress
+                }
+                // Update if name changed
+                if originalName != nameField {
+                    self.bookmarks[indexPath.row]["name"] = nameField
+                }
+                
+                // Save bookmark at same row
+                self.bookmarks[indexPath.row].saveInBackground()
+                self.refreshBookmarks()
+                NTPing(type: .isSuccess, title: "Bookmark successfully updated").show(duration: 3)
             }
             
             // Cancel button
@@ -278,7 +261,7 @@ class BookmarksViewController: UITableViewController {
         })
     }
     
-    // Save bookmark to database (name, coordinates)
+    // Save bookmark to database
     func saveBookmark(name: String, addressConcatinated: String, addressLatitude: Double, addressLongitude: Double) {
         // Check that Caretaker is accessing this menu, not Patient
         guard let currentUser = User.current(), currentUser.isCaretaker, let patient = currentUser.patient else { return }
@@ -295,8 +278,8 @@ class BookmarksViewController: UITableViewController {
                 NTPing(type: .isDanger, title: error?.localizedDescription).show(duration: 3)
                 return
             }
-            NTPing(type: .isSuccess, title: "Bookmark successfully saved").show(duration: 3)
             self.refreshBookmarks()
+            NTPing(type: .isSuccess, title: "Bookmark successfully saved").show(duration: 3)
         }
     }
     
@@ -306,17 +289,30 @@ class BookmarksViewController: UITableViewController {
     func addBookmark() {
         let alertController = UIAlertController(title: "Add Bookmark", message: "Input Bookmark name and address:", preferredStyle: UIAlertControllerStyle.alert)
 
+        // Text input placeholders
+        alertController.addTextField { nameField in nameField.placeholder = "Bookmark Name" }
+        alertController.addTextField { streetField in streetField.placeholder = "Street Address" }
+        alertController.addTextField { cityField in cityField.placeholder = "City" }
+        alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory" }
+        alertController.addTextField { postalField in postalField.placeholder = "Postal Code" }
+        
         // Add button
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (_: UIAlertAction!) -> Void in
-            guard let nameField = alertController.textFields?[0].text,
-                  let streetField = alertController.textFields?[1].text,
-                  let cityField = alertController.textFields![2].text,
-                  let provinceField = alertController.textFields![3].text,
-                  let postalField = alertController.textFields![4].text
+            guard let nameField = alertController.textFields?[0].text, !nameField.isEmpty,
+                  let streetField = alertController.textFields?[1].text, !streetField.isEmpty,
+                  let cityField = alertController.textFields?[2].text, !cityField.isEmpty,
+                  let provinceField = alertController.textFields?[3].text, !provinceField.isEmpty,
+                  let postalField = alertController.textFields?[4].text, !postalField.isEmpty
             else {
+                let invalidAlert = UIAlertController(title: "Invalid Bookmark", message: "All fields must be entered.", preferredStyle: .alert)
+                invalidAlert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Default action"), style: .`default`, handler: { _ in
+                    NSLog("The \"Invalid Bookmark\" alert occured.")
+                }))
+                self.present(invalidAlert, animated: true, completion: nil)
                 return
             }
-            let address = "\(streetField),\(cityField),\(provinceField),\(postalField)"
+            
+            let address = "\(streetField), \(cityField), \(provinceField), \(postalField)"
             
             // Convert address to coordinates
             self.getCoordinates(address: address, completion: { (coordinate) in
@@ -329,14 +325,6 @@ class BookmarksViewController: UITableViewController {
                 self.saveBookmark(name: nameField, addressConcatinated: address, addressLatitude: coordinate.latitude, addressLongitude: coordinate.longitude)
             })
         }
-//        addAction.isEnabled = false
-    
-        // Text input placeholders
-        alertController.addTextField { nameField in nameField.placeholder = "Bookmark Name" }
-        alertController.addTextField { streetField in streetField.placeholder = "Street Address" }
-        alertController.addTextField { cityField in cityField.placeholder = "City" }
-        alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory" }
-        alertController.addTextField { postalField in postalField.placeholder = "Postal Code" }
 
         // Cancel button
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
