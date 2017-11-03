@@ -14,11 +14,15 @@ import NTComponents
 import Parse
 import UIKit
 
-class BookmarksViewController: UITableViewController {
+class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // MARK: - Properties
     
     var bookmarks = [PFObject]()
+    
+    var provinceOption = ["BC", "AB", "SK", "MB", "ON"]
+    let thePicker = UIPickerView()
+    var pickerTextField: String = ""
     
     // MARK: - View Life Cycle
     
@@ -27,6 +31,24 @@ class BookmarksViewController: UITableViewController {
         super.viewDidLoad()
         title = "Bookmarks"
         self.refreshBookmarks()
+    
+        thePicker.delegate = self
+    }
+ 
+    // MARK: - UIPickerView
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return provinceOption.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return provinceOption[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerTextField = provinceOption[row]
+        print("\(pickerTextField)")
     }
     
     // Updating bookmarks from database
@@ -46,7 +68,7 @@ class BookmarksViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
+
     // MARK: - UITableViewDataSource
     
     // Sections within Bookmarks View
@@ -293,7 +315,9 @@ class BookmarksViewController: UITableViewController {
         alertController.addTextField { nameField in nameField.placeholder = "Bookmark Name" }
         alertController.addTextField { streetField in streetField.placeholder = "Street Address" }
         alertController.addTextField { cityField in cityField.placeholder = "City" }
-        alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory" }
+        alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory"
+            provinceField.inputView = self.thePicker
+        }
         alertController.addTextField { postalField in postalField.placeholder = "Postal Code" }
         
         // Add button
@@ -301,7 +325,7 @@ class BookmarksViewController: UITableViewController {
             guard let nameField = alertController.textFields?[0].text, !nameField.isEmpty,
                   let streetField = alertController.textFields?[1].text, !streetField.isEmpty,
                   let cityField = alertController.textFields?[2].text, !cityField.isEmpty,
-                  let provinceField = alertController.textFields?[3].text, !provinceField.isEmpty,
+//                  let provinceField = alertController.textFields?[3].text = self.pickerTextField,
                   let postalField = alertController.textFields?[4].text, !postalField.isEmpty
             else {
                 let invalidAlert = UIAlertController(title: "Invalid Bookmark", message: "All fields must be entered.", preferredStyle: .alert)
@@ -312,7 +336,10 @@ class BookmarksViewController: UITableViewController {
                 return
             }
             
-            let address = "\(streetField), \(cityField), \(provinceField), \(postalField)"
+            // How do I get textFields[3].text to update to what was in the pickerTextField (i.e. show what was chosen from the picker)
+            alertController.textFields?[3].text = self.pickerTextField
+            
+            let address = "\(streetField), \(cityField), \(self.pickerTextField), \(postalField)"
             
             // Convert address to coordinates
             self.getCoordinates(address: address, completion: { (coordinate) in
