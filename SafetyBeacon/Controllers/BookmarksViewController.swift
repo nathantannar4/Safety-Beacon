@@ -14,15 +14,14 @@ import NTComponents
 import Parse
 import UIKit
 
-class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     // MARK: - Properties
-    
     var bookmarks = [PFObject]()
     
-    var provinceOption = ["BC", "AB", "SK", "MB", "ON"]
-    let thePicker = UIPickerView()
-    var pickerTextField: String = ""
+    let provinceList = ["Select Province/ Territory", "BC", "AB", "SK", "MB", "ON", "QC", "NB", "NS", "PE", "NL", "NT", "YT", "NU"]
+    let provincePicker = UIPickerView()
+    var provincePickerInput: UITextField?
     
     // MARK: - View Life Cycle
     
@@ -32,23 +31,35 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
         title = "Bookmarks"
         self.refreshBookmarks()
     
-        thePicker.delegate = self
+        provincePicker.delegate = self
     }
  
-    // MARK: - UIPickerView
+    // MARK: - UIPickerViewDelegate
     
+    // Sections within picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    // Picker rows
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return provinceOption.count
+        return provinceList.count
     }
+    // Picker text return
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return provinceOption[row]
+        return provinceList[row]
     }
+    // Selecting row options
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerTextField = provinceOption[row]
-        print("\(pickerTextField)")
+        if row != 0 {
+            provincePickerInput?.text = provinceList[row]
+        }
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let count = textField.text?.count ?? 0
+        return count < 6
     }
     
     // Updating bookmarks from database
@@ -75,7 +86,6 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
     // Section titles
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = NTTableViewHeaderFooterView()
@@ -150,7 +160,7 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
         }
         
         let edit = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (_, indexPath) in
-            let alertController = UIAlertController(title: "Edit Bookmark", message: "Change Bookmark name and address:", preferredStyle: UIAlertControllerStyle.alert)
+            let alertController = UIAlertController(title: "Edit Bookmark", message: "Change Bookmark name or address:", preferredStyle: UIAlertControllerStyle.alert)
             
             // Get original bookmark
             let originalName = self.bookmarks[indexPath.row]["name"] as? String
@@ -162,17 +172,25 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
             let originalPostal = concatenatedAddressArr![3] as String
             
             // Text input placeholders
-            alertController.addTextField { nameField in nameField.placeholder = "Bookmark Name" }
-            alertController.addTextField { streetField in streetField.placeholder = "Street Address" }
-            alertController.addTextField { cityField in cityField.placeholder = "City" }
-            alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory" }
-            alertController.addTextField { postalField in postalField.placeholder = "Postal Code" }
-            // Put original row content as text input
-            alertController.textFields![0].text = originalName
-            alertController.textFields![1].text = originalStreet
-            alertController.textFields![2].text = originalCity
-            alertController.textFields![3].text = originalProvince
-            alertController.textFields![4].text = originalPostal
+            alertController.addTextField { nameField in nameField.placeholder = "Bookmark Name"
+                nameField.text = originalName
+            }
+            alertController.addTextField { streetField in streetField.placeholder = "Street Address"
+                streetField.text = originalStreet
+            }
+            alertController.addTextField { cityField in cityField.placeholder = "City"
+                cityField.text = originalCity
+            }
+            alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory"
+                provinceField.placeholder = "Province/ Territory"
+                self.provincePickerInput = provinceField
+                provinceField.inputView = self.provincePicker
+                provinceField.text = originalProvince
+            }
+            alertController.addTextField { postalField in postalField.placeholder = "Postal Code (no space)"
+                postalField.delegate = self
+                postalField.text = originalPostal
+            }
             
             // Change button
             let changeAction = UIAlertAction(title: "Change", style: UIAlertActionStyle.default) { (_: UIAlertAction!) -> Void in
@@ -315,17 +333,22 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
         alertController.addTextField { nameField in nameField.placeholder = "Bookmark Name" }
         alertController.addTextField { streetField in streetField.placeholder = "Street Address" }
         alertController.addTextField { cityField in cityField.placeholder = "City" }
-        alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory"
-            provinceField.inputView = self.thePicker
+        alertController.addTextField { provinceField in
+            provinceField.placeholder = "Province/ Territory"
+            self.provincePickerInput = provinceField
+            provinceField.inputView = self.provincePicker
         }
-        alertController.addTextField { postalField in postalField.placeholder = "Postal Code" }
+        alertController.addTextField { postalField in
+            postalField.placeholder = "Postal Code (no space)"
+            postalField.delegate = self
+        }
         
         // Add button
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (_: UIAlertAction!) -> Void in
             guard let nameField = alertController.textFields?[0].text, !nameField.isEmpty,
                   let streetField = alertController.textFields?[1].text, !streetField.isEmpty,
                   let cityField = alertController.textFields?[2].text, !cityField.isEmpty,
-//                  let provinceField = alertController.textFields?[3].text = self.pickerTextField,
+                  let provinceField = alertController.textFields?[3].text, !provinceField.isEmpty,
                   let postalField = alertController.textFields?[4].text, !postalField.isEmpty
             else {
                 let invalidAlert = UIAlertController(title: "Invalid Bookmark", message: "All fields must be entered.", preferredStyle: .alert)
@@ -336,10 +359,7 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
                 return
             }
             
-            // How do I get textFields[3].text to update to what was in the pickerTextField (i.e. show what was chosen from the picker)
-            alertController.textFields?[3].text = self.pickerTextField
-            
-            let address = "\(streetField), \(cityField), \(self.pickerTextField), \(postalField)"
+            let address = "\(streetField), \(cityField), \(provinceField), \(postalField)"
             
             // Convert address to coordinates
             self.getCoordinates(address: address, completion: { (coordinate) in
