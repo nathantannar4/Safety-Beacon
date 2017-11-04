@@ -34,9 +34,10 @@ class SettingsViewController: UITableViewController {
         let button = NTButton()
         button.title = "Logout"
         button.layer.cornerRadius = 8
+        button.titleFont = Font.Default.Subtitle.withSize(15)
         parent.navigationBar.addSubview(button)
         button.addTarget(self, action: #selector(logout), for: .touchUpInside)
-        button.addConstraints(parent.navigationBar.topAnchor, left: nil, bottom: parent.navigationBar.bottomAnchor, right: parent.navigationBar.rightAnchor, topConstant: 40, leftConstant: 0, bottomConstant: 10, rightConstant: 16, widthConstant: 100, heightConstant: 0)
+        button.addConstraints(parent.navigationBar.topAnchor, left: nil, bottom: parent.navigationBar.bottomAnchor, right: parent.navigationBar.rightAnchor, topConstant: 40, leftConstant: 0, bottomConstant: 8, rightConstant: 16, widthConstant: 100, heightConstant: 0)
     }
     
     // MARK: - UITableViewDataSource
@@ -158,13 +159,10 @@ class SettingsViewController: UITableViewController {
         let alert = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { _ in
-            User.logoutInBackground { (success) in
-                if success {
-                    self.dismiss(animated: false, completion: {
-                        appController.setViewController(LoginViewController(), forSide: .center)
-                    })
-                }
-            }
+            User.logoutInBackground(nil)
+            self.dismiss(animated: false, completion: {
+                appController.setViewController(LoginViewController(), forSide: .center)
+            })
         }))
         alert.view.tintColor = .logoBlue
         present(alert, animated: true, completion: nil)
