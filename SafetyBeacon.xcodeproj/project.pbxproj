@@ -43,6 +43,7 @@
 		38F7C27E1F736EC0006C995A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F7C2771F736E36006C995A /* LaunchScreen.storyboard */; };
 		38F7C2801F736EC5006C995A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F7C27B1F736E37006C995A /* Assets.xcassets */; };
 		785FFDF79C7B992CF2941605 /* Pods_SafetyBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9324C7D4A6FA4E0E95079A40 /* Pods_SafetyBeacon.framework */; };
+		96255D061FAE78990072F482 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96255D051FAE78990072F482 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		5D5100163DA4D68C4A0E9F36 /* Pods-SafetyBeacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBeacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon.release.xcconfig"; sourceTree = "<group>"; };
 		7CB55ED398553A1D330243CC /* Pods_SafetyBeaconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBeaconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9324C7D4A6FA4E0E95079A40 /* Pods_SafetyBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96255D051FAE78990072F482 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		F38440B137C4743245CE70BD /* Pods-SafetyBeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBeacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 				3847EEAF1F79E08700305761 /* HistoryViewController.swift */,
 				3847EEB11F79E0A900305761 /* UserViewController.swift */,
 				389E62FA1F909A41005B39DA /* SettingsViewController.swift */,
+				96255D051FAE78990072F482 /* LocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				38F7C2561F736D92006C995A /* AppDelegate.swift in Sources */,
 				385BA3321F79BE2C004B9061 /* UIColor+Extensions.swift in Sources */,
 				3810DA4C1F832A5300B5180E /* NavigationViewController.swift in Sources */,
+				96255D061FAE78990072F482 /* LocationViewController.swift in Sources */,
 				3847EEA81F79DD6000305761 /* MapViewController.swift in Sources */,
 				389E62F91F90992C005B39DA /* ContentController.swift in Sources */,
 				3894C6D41F9E691700EEE034 /* EditSafeZonesViewController.swift in Sources */,
@@ -656,7 +660,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9EUCWD26TP;
+				DEVELOPMENT_TEAM = 9CPK2F7ZFE;
 				INFOPLIST_FILE = "$(SRCROOT)/SafetyBeacon/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.SafetyBeacon;
@@ -672,7 +676,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9EUCWD26TP;
+				DEVELOPMENT_TEAM = 9CPK2F7ZFE;
 				INFOPLIST_FILE = "$(SRCROOT)/SafetyBeacon/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.SafetyBeacon;
