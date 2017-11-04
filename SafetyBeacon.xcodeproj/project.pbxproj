@@ -34,6 +34,10 @@
 		389E62F91F90992C005B39DA /* ContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E62F81F90992C005B39DA /* ContentController.swift */; };
 		389E62FB1F909A41005B39DA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E62FA1F909A41005B39DA /* SettingsViewController.swift */; };
 		38B7DE811F9091AB0023E495 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B7DE801F9091AB0023E495 /* Style.swift */; };
+		38C890D51FAE6C2900723F0D /* DynamicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C890D11FAE6C2800723F0D /* DynamicTabBarController.swift */; };
+		38C890D61FAE6C2900723F0D /* DynamicTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C890D21FAE6C2800723F0D /* DynamicTabBar.swift */; };
+		38C890D71FAE6C2900723F0D /* NSConstraintLayoutSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C890D31FAE6C2900723F0D /* NSConstraintLayoutSet.swift */; };
+		38C890D81FAE6C2900723F0D /* DynamicTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C890D41FAE6C2900723F0D /* DynamicTabBarItem.swift */; };
 		38F7C2561F736D92006C995A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C2551F736D92006C995A /* AppDelegate.swift */; };
 		38F7C2681F736D92006C995A /* SafetyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C2671F736D92006C995A /* SafetyTrackerTests.swift */; };
 		38F7C27E1F736EC0006C995A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F7C2771F736E36006C995A /* LaunchScreen.storyboard */; };
@@ -79,6 +83,10 @@
 		38C1209B1F736FAC00A4A9A4 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		38C1209C1F736FAC00A4A9A4 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		38C1209D1F736FAC00A4A9A4 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		38C890D11FAE6C2800723F0D /* DynamicTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarController.swift; sourceTree = "<group>"; };
+		38C890D21FAE6C2800723F0D /* DynamicTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBar.swift; sourceTree = "<group>"; };
+		38C890D31FAE6C2900723F0D /* NSConstraintLayoutSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSConstraintLayoutSet.swift; sourceTree = "<group>"; };
+		38C890D41FAE6C2900723F0D /* DynamicTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarItem.swift; sourceTree = "<group>"; };
 		38F7C2521F736D92006C995A /* SafetyBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafetyBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7C2551F736D92006C995A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38F7C2631F736D92006C995A /* SafetyBeaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafetyBeaconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +142,7 @@
 		38C1209E1F736FAC00A4A9A4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				38C890D91FAE6C2F00723F0D /* DynamicTabBarController */,
 				389E62F81F90992C005B39DA /* ContentController.swift */,
 				385BA32F1F79BD38004B9061 /* LoginViewController.swift */,
 				3869F5601FA2C00F00DC3CDC /* AccountSetupViewController.swift */,
@@ -167,6 +176,17 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		38C890D91FAE6C2F00723F0D /* DynamicTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				38C890D21FAE6C2800723F0D /* DynamicTabBar.swift */,
+				38C890D11FAE6C2800723F0D /* DynamicTabBarController.swift */,
+				38C890D41FAE6C2900723F0D /* DynamicTabBarItem.swift */,
+				38C890D31FAE6C2900723F0D /* NSConstraintLayoutSet.swift */,
+			);
+			path = DynamicTabBarController;
 			sourceTree = "<group>";
 		};
 		38F7C2491F736D92006C995A = {
@@ -461,13 +481,16 @@
 			files = (
 				385BA3331F79BE2E004B9061 /* UIApplication+Extensions.swift in Sources */,
 				38B7DE811F9091AB0023E495 /* Style.swift in Sources */,
+				38C890D71FAE6C2900723F0D /* NSConstraintLayoutSet.swift in Sources */,
 				3869F55F1FA2BA1200DC3CDC /* PushNotification.swift in Sources */,
+				38C890D81FAE6C2900723F0D /* DynamicTabBarItem.swift in Sources */,
 				3894C6D21F9E681A00EEE034 /* Bookmark.swift in Sources */,
 				3894C6D01F9E680A00EEE034 /* SafeZone.swift in Sources */,
 				389E62FB1F909A41005B39DA /* SettingsViewController.swift in Sources */,
 				3847EEB21F79E0A900305761 /* UserViewController.swift in Sources */,
 				3810DA4E1F832AAC00B5180E /* SafeZonesViewController.swift in Sources */,
 				3847EEAE1F79E02E00305761 /* ReportViewController.swift in Sources */,
+				38C890D51FAE6C2900723F0D /* DynamicTabBarController.swift in Sources */,
 				38F7C2561F736D92006C995A /* AppDelegate.swift in Sources */,
 				385BA3321F79BE2C004B9061 /* UIColor+Extensions.swift in Sources */,
 				3810DA4C1F832A5300B5180E /* NavigationViewController.swift in Sources */,
@@ -484,6 +507,7 @@
 				3894C6D61F9E692E00EEE034 /* EditBookmarksViewController.swift in Sources */,
 				3869F5631FA2D0F600DC3CDC /* ProgressHUD.swift in Sources */,
 				3892E9C21F79B460002E3AC2 /* LocationManager.swift in Sources */,
+				38C890D61FAE6C2900723F0D /* DynamicTabBar.swift in Sources */,
 				385BA33F1F79C2A5004B9061 /* User.swift in Sources */,
 				3869F55D1FA2BA0D00DC3CDC /* Constants.swift in Sources */,
 			);

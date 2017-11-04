@@ -64,7 +64,7 @@ class User: NSObject {
     }
     
     var requiresSetup: Bool {
-        return !isPatient && !isCaretaker
+        return isPatient && isCaretaker
     }
     
     var image: PFFile? {
