@@ -23,26 +23,8 @@ class HistoryViewController: MapViewController {
         
         refreshLocations()
         
-        // Declare the marker `hello` and set its coordinates, title, and subtitle.
-        //        let hello = MGLPointAnnotation()
-        //        hello.coordinate = CLLocationCoordinate2D(latitude: 40.7326808, longitude: -73.9843407)
-        //        hello.title = "Hello world!"
-        //        hello.subtitle = "Welcome to my marker"
-        //
-        //        // Add marker `hello` to the map.
-        //        mapView.addAnnotation(hello)
-        
     }
     
-//    for object in objects {
-//    var lastActive = object["lastActive"]
-//    if lastActive != nil {
-//    let dateFormatter = NSDateFormatter()
-//    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'"
-//    let date = dateFormatter.stringFromDate(lastActive as NSDate)
-//    println(date)
-//    }
-//    }
     func refreshLocations() {
         
         guard let patient = User.current()?.patient else { return }
@@ -61,20 +43,15 @@ class HistoryViewController: MapViewController {
                     Log.write(.warning, "Unable to retrieve the location information")
                     return
                 }
-//                var createdAt = location["createdAt"]
-//                if createdAt != nil {
-//                    let dateFormatter = DateFormatter()
-//                    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'"
-//                    let date = dateFormatter.stringFromDate(createdAt as? Date)
-//                }
+
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'"
                 let date = dateFormatter.string(from: createdAt)
                 
-                let temp = MGLPointAnnotation()
-                temp.coordinate = CLLocationCoordinate2DMake(lat, long)
-                temp.title = date
-                self.mapView.addAnnotation(temp)
+                let location_info = MGLPointAnnotation()
+                location_info.coordinate = CLLocationCoordinate2DMake(lat, long)
+                location_info.title = date
+                self.mapView.addAnnotation(location_info)
             }
         })
     }
