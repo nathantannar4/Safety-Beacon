@@ -211,7 +211,10 @@ open class DynamicTabBarController: UIViewController {
     
     fileprivate func setupPageViewController() {
         setupChildViewController(pageViewController)
-        viewControllers.forEach { setupChildViewController($0) }
+        viewControllers.forEach {
+            $0.loadViewIfNeeded()
+            setupChildViewController($0)
+        }
         pageViewController.setViewControllers([viewControllers[0]], direction: .forward, animated: false, completion: nil)
         pageScrollView?.isScrollEnabled = viewControllers.count > 1
         tabBar.moveCurrentBarView(to: currentIndex, animated: false, shouldScroll: true)

@@ -76,7 +76,14 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
                 // Caretaker Views
                 
                 let viewControllers = [ReportViewController(), BookmarksViewController(), SafeZonesViewController(), HistoryViewController()]
-                let tabBarController = NTScrollableTabBarController(viewControllers: viewControllers)
+                let tabBarController = DynamicTabBarController(viewControllers: viewControllers)
+                tabBarController.isScrollEnabled = false
+                tabBarController.tabBar.activeTintColor = .logoBlue
+                tabBarController.tabBar.backgroundColor = Color.Default.Background.NavigationBar
+                tabBarController.tabBarPosition = .top
+                tabBarController.tabBar.scrollIndicatorPosition = .bottom
+                tabBarController.tabBar.setDefaultShadow()
+                tabBarController.updateTabBarHeight(to: 30, animated: false)
                 appController.setViewController(ContentController(rootViewController: tabBarController), forSide: .center)
 
             } else if currentUser.isPatient {
@@ -84,7 +91,14 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
                 // Patient Views
                 
                 let viewControllers = [MapViewController()]
-                let tabBarController = NTScrollableTabBarController(viewControllers: viewControllers)
+                let tabBarController = DynamicTabBarController(viewControllers: viewControllers)
+                tabBarController.isScrollEnabled = false
+                tabBarController.tabBar.activeTintColor = .logoBlue
+                tabBarController.tabBar.backgroundColor = Color.Default.Background.NavigationBar
+                tabBarController.tabBarPosition = .top
+                tabBarController.tabBar.scrollIndicatorPosition = .bottom
+                tabBarController.tabBar.setDefaultShadow()
+                tabBarController.updateTabBarHeight(to: 30, animated: false)
                 appController.setViewController(ContentController(rootViewController: tabBarController), forSide: .center)
             }
         }
