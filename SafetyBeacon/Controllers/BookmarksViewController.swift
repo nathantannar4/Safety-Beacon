@@ -13,6 +13,8 @@ import CoreLocation
 import NTComponents
 import Parse
 import UIKit
+import Mapbox
+
 
 class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
@@ -32,6 +34,7 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
         self.refreshBookmarks()
     
         provincePicker.delegate = self
+        tableView.tableFooterView = UIView()
     }
  
     // MARK: - UIPickerViewDelegate
@@ -137,6 +140,29 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
         if indexPath.section == 0 {
             addBookmark()
         }
+        if indexPath.section == 1 {
+            let location = LocationViewController()
+            location.title = bookmarks[indexPath.row]["name"] as? String
+            let address = bookmarks[indexPath.row]["address"] as? String
+            var concatenatedAddressArr = address?.components(separatedBy: ", ")
+            let originalStreet = concatenatedAddressArr![0] as String
+            
+            self.getCoordinates(address: address!, completion: { (coordinate) in
+                guard let coordinate = coordinate else {
+                    NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
+                    return
+                }
+                let navigation = NTNavigationController(rootViewController: location)
+                self.present(navigation, animated: true, completion: {
+                    location.mapView.setCenter(coordinate, zoomLevel: 12, animated: true)
+                    let locationMarker = MGLPointAnnotation()
+                    locationMarker.coordinate = coordinate
+                    locationMarker.title = originalStreet
+                    location.mapView.addAnnotation(locationMarker)
+                })
+            })
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // Modifiable rows (not first section)
@@ -241,6 +267,7 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
             alertController.addAction(cancelAction)
             self.present(alertController, animated: true, completion: nil)
         }
+        edit.backgroundColor = .logoBlue
         return [delete, edit]
     }
     
