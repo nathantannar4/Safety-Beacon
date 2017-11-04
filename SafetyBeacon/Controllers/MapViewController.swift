@@ -9,6 +9,9 @@
 import UIKit
 import NTComponents
 import Mapbox
+import MapboxDirections
+import MapboxCoreNavigation
+//import MapboxNavigation
 
 class MapViewController: UIViewController {
     
@@ -22,6 +25,8 @@ class MapViewController: UIViewController {
         return mapView
     }()
     
+    var directionsRoute: Route?
+    
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -31,8 +36,8 @@ class MapViewController: UIViewController {
         
         title = "Map"
         view.backgroundColor = .white
-//        setupSubviews()
-//        setupConstraints()
+        setupSubviews()
+        setupConstraints()
         
         // Declare the marker `hello` and set its coordinates, title, and subtitle.
 //        let hello = MGLPointAnnotation()
@@ -59,9 +64,55 @@ class MapViewController: UIViewController {
     open func setupConstraints() {
         
         mapView.constrainToSuperview()
+        
+        let button = UIButton()
+        view.addSubview(button)
+        button.backgroundColor = .logoYellow
+        button.setTitle("Go Home", for: .normal)
+        button.addTarget(self, action: #selector(calculateRouteHome), for: .touchUpInside)
+        button.layer.cornerRadius = 30
+        button.addConstraints(nil, left: nil, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 32, rightConstant: 32, widthConstant: 100, heightConstant: 60)
     }
     
     // MARK: - User Actions
+    @objc
+    func calculateRouteHome(sender: UIButton!) {
+        let home = CLLocationCoordinate2D(latitude: 37.77, longitude: -122.43) // TODO: - use actual home address
+        //use mapbox to trace the path to home from current location
+        let origin = Waypoint(coordinate: (mapView.userLocation!.coordinate), name: "Current Location")
+        let destination = Waypoint(coordinate: home, name: "Home")
+        
+        let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .walking)
+        
+        let annotation = MGLPointAnnotation()
+        annotation.coordinate = home
+        annotation.title = "Start navigation"
+        mapView.addAnnotation(annotation)
+        
+        _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
+            guard let route = routes?.first else { return }
+            self.directionsRoute = route
+            self.drawRoute(route: self.directionsRoute!)
+        }
+    }
+    
+    func drawRoute(route: Route) {
+        guard route.coordinateCount > 0 else { return }
+        // Convert the route’s coordinates into a polyline.
+        var routeCoordinates = route.coordinates!
+        let polyline = MGLPolylineFeature(coordinates: &routeCoordinates, count: route.coordinateCount)
+        
+        // If there's already a route line on the map, reset its shape to the new route
+        if let source = mapView.style?.source(withIdentifier: "route-source") as? MGLShapeSource {
+            source.shape = polyline
+        } else {
+            let source = MGLShapeSource(identifier: "route-source", features: [polyline], options: nil)
+            let lineStyle = MGLLineStyleLayer(identifier: "route-style", source: source)
+            
+            mapView.style?.addSource(source)
+            mapView.style?.addLayer(lineStyle)
+        }
+    }
 }
 
 extension MapViewController: MGLMapViewDelegate {
