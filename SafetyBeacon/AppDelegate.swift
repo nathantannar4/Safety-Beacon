@@ -2,8 +2,19 @@
 //  AppDelegate.swift
 //  SafetyTracker
 //
-//  Created by Nathan Tannar on 9/20/17.
-//  Copyright © 2017 Nathan Tannar. All rights reserved.
+//  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
+//
+//  Created by:
+//      Nathan Tannar
+//           - ntannar@sfu.ca
+//      Jason Tsang
+//          - jrtsang@sfu.ca
+//      Philip Leblanc
+//          - paleblan@sfu.ca
+//      Josh Shercliffe
+//          - jshercli@sfu.ca
+//      Kim Youjung
+//          - youjungk@sfu.ca
 //
 
 import UIKit

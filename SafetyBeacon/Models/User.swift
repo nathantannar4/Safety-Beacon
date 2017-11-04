@@ -26,31 +26,27 @@ class User: NSObject {
         return object.description
     }
     
+    /// Unique ID of the user
     var id: String? {
         return object.objectId
     }
     
+    /// Users username/email
     var username: String? {
         return object.username
     }
     
+    /// Users email
     var email: String? {
         return object.email
     }
     
-    var fullname: String? {
-        get {
-            return object[PF_USER_FULLNAME] as? String
-        }
-        set {
-            return object[PF_USER_FULLNAME] = newValue
-        }
-    }
-    
+    /// A reference to their caretaker
     var caretaker: PFUser? {
         return object[PF_USER_CARETAKER] as? PFUser
     }
     
+    /// A reference to their patient
     var patient: PFUser? {
         return object[PF_USER_PATIENT] as? PFUser
     }
@@ -63,12 +59,9 @@ class User: NSObject {
         return patient == nil
     }
     
+    /// If user account requires a link to a patient/caretaker
     var requiresSetup: Bool {
         return isPatient && isCaretaker
-    }
-    
-    var image: PFFile? {
-        return object[PF_USER_PICTURE] as? PFFile
     }
     
     // MARK: - Initialization
@@ -117,6 +110,12 @@ class User: NSObject {
         }
     }
     
+    /// Registers a user and sets them as the current user
+    ///
+    /// - Parameters:
+    ///   - email: Email Credentials
+    ///   - password: Password Credentials
+    ///   - completion: A completion block with a result indicating if the register was successful
     class func registerInBackground(email: String, password: String, completion: ((Bool) -> Void)?) {
         
         let user = PFUser()
@@ -134,6 +133,9 @@ class User: NSObject {
         }
     }
     
+    /// Logs the user out in the background
+    ///
+    /// - Parameter completion: A completion block with a boolean success parameter
     class func logoutInBackground(_ completion: ((Bool) -> Void)?) {
         PFUser.logOutInBackground { (error) in
             guard error == nil else {
