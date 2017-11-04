@@ -90,7 +90,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
                 
                 // Patient Views
                 
-                let viewControllers = [MapViewController()]
+                let viewControllers = [NavigationViewController()]
                 let tabBarController = DynamicTabBarController(viewControllers: viewControllers)
                 tabBarController.isScrollEnabled = false
                 tabBarController.tabBar.activeTintColor = .logoBlue
