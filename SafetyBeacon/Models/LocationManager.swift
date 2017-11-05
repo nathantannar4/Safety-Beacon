@@ -112,10 +112,10 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 //    // success
 //    }
 
-
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let user = User.current(), user.isPatient else {return}
         if counter % 300 == 0 {
-            guard let long = locations.first?.coordinate.longitude, let lat = locations.first?.coordinate.latitude, let user = User.current(), user.isPatient else {
+            guard let long = locations.first?.coordinate.longitude, let lat = locations.first?.coordinate.latitude else {
                 Log.write(.warning, "Failed to write the patient's current location")
                 return
             }
@@ -123,7 +123,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             location_history["long"] = long
             location_history["lat"] = lat
             location_history["patient"] = user.object
-            
             location_history.saveInBackground(block: {(success, error) in
                 guard success else {
                     NTPing(type: .isSuccess, title: "Unable to save location to the database").show(duration: 5)
@@ -133,7 +132,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             })
             counter = 1
         }
-        Log.write(.status, "locationManagerDidUpdateLocations: \(locations)")
+        Log.write(.status, "\(counter)locationManagerDidUpdateLocations: \(locations)")
         counter+=1
     }
     

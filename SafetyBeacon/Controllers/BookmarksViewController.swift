@@ -130,7 +130,4 @@ class BookmarksViewController: UITableViewController {
             NTPing(type: .isSuccess, title: "Bookmark successfully saved").show(duration: 3)
         }
     }
-
-    
-    
 }

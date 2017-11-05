@@ -27,8 +27,6 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        LocationManager.shared.beginTracking()
-        
         title = "Map"
         view.backgroundColor = .white
         setupSubviews()
@@ -47,6 +45,7 @@ class MapViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        LocationManager.shared.beginTracking()
         guard let location = LocationManager.shared.currentLocation else { return }
         mapView.setCenter(location, zoomLevel: 12, animated: true)
     }
