@@ -9,7 +9,6 @@ target 'SafetyBeacon' do
 
   # Pods for SafetyBeacon
   pod 'Parse'
-  pod 'SwiftLint'
   pod 'ARCL'
   pod 'Polyline'
   pod 'Mapbox-iOS-SDK'

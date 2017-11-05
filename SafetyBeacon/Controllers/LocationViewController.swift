@@ -2,8 +2,11 @@
 //  LocationViewController.swift
 //  SafetyBeacon
 //
-//  Created by Jason Tsang on 2017-11-04.
-//  Copyright © 2017 Nathan Tannar. All rights reserved.
+//  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
+//
+//  Edited by:
+//      Jason Tsang
+//          - jrtsang@sfu.ca
 //
 
 import UIKit

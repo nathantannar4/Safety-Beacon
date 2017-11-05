@@ -37,7 +37,7 @@ class PushNotication {
         
         var userIDs = groupId
     
-        while userIDs.characters.count >= 10 {
+        while userIDs.count >= 10 {
             let index = userIDs.index(userIDs.startIndex, offsetBy: 10)
             let sendToID = userIDs[...index]
             if PFUser.current()!.objectId! != sendToID {

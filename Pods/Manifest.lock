@@ -2,9 +2,9 @@ PODS:
   - AcknowList (1.4)
   - ARCL (1.0.1)
   - Bolts/Tasks (1.8.4)
-  - Crashlytics (3.9.0):
-    - Fabric (~> 1.7.0)
-  - Fabric (1.7.1)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - Fabric (1.7.2)
   - Mapbox-iOS-SDK (3.6.4)
   - MapboxCoreNavigation (0.9.0):
     - MapboxDirections.swift (~> 0.10.5)
@@ -20,8 +20,7 @@ PODS:
   - Parse (1.15.3):
     - Bolts/Tasks (~> 1.8)
   - Polyline (4.1.1)
-  - SwiftLint (0.23.1)
-  - Turf (0.0.3)
+  - Turf (0.0.4)
 
 DEPENDENCIES:
   - AcknowList
@@ -33,14 +32,13 @@ DEPENDENCIES:
   - NTComponents
   - Parse
   - Polyline
-  - SwiftLint
 
 SPEC CHECKSUMS:
   AcknowList: 1fae3fa62f256ddd1001adf20ba5c52743515ac7
   ARCL: 193b108d6fd5277ce742be3af92ccf81bbdd2f3b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
-  Fabric: c7cfc652f036180a72fe2539646c8a624420419d
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   Mapbox-iOS-SDK: 47847dd44285477e0dfffd0130f65c8a52823ada
   MapboxCoreNavigation: 9cd3a9f11230414091acb822158a245137105b97
   MapboxDirections.swift: fbe95bd11c66339c1ef8b96301464f326394ac0d
@@ -49,9 +47,8 @@ SPEC CHECKSUMS:
   OSRMTextInstructions: d8aa1d21310fd31bf256cf245b11b9a8e6413d63
   Parse: cdc0f1f975ee8be0409e66f21b05df4ae067047c
   Polyline: 381d1e699fd12508f97cfc468478dfbab67edf1f
-  SwiftLint: 1b670ce79284c76520f84060e87d645078fd32fa
-  Turf: 2089d59d12488de9cfa656634cce2c4e2dcbc691
+  Turf: 6c169618fa671e3f8a7b764b5b3332053ad6110e
 
-PODFILE CHECKSUM: 66d9706169a646930e8b3fb39b48b2e098d7d753
+PODFILE CHECKSUM: e930777ae06cf5f21e82cf0cab1f4c5ea0383db1
 
 COCOAPODS: 1.3.1

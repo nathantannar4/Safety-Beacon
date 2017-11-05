@@ -2,9 +2,11 @@
 //  SafeZonesViewController.swift
 //  SafetyBeacon
 //
-//  Created by Nathan Tannar on 9/25/17
-//  Implemented by Jason Tsang on 10/29/2017
-//  Copyright © 2017 Nathan Tannar. All rights reserved.
+//  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
+//
+//  Edited by:
+//      Josh Shercliffe
+//          - jshercli@sfu.ca
 //
 
 import AddressBookUI

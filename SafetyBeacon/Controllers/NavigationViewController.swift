@@ -2,8 +2,13 @@
 //  NavigationViewController.swift
 //  SafetyBeacon
 //
-//  Created by Nathan Tannar on 10/2/17.
-//  Copyright © 2017 Nathan Tannar. All rights reserved.
+//  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
+//
+//  Edited by:
+//      Nathan Tannar
+//           - ntannar@sfu.ca
+//      Philip Leblanc
+//          - paleblan@sfu.ca
 //
 
 import UIKit

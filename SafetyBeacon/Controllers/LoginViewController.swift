@@ -2,8 +2,11 @@
 //  LoginViewController.swift
 //  SafetyBeacon
 //
-//  Copyright © 2017 Nathan Tannar.
-//  Created by Nathan Tannar on 9/25/17.
+//  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
+//
+//  Edited by:
+//      Nathan Tannar
+//           - ntannar@sfu.ca
 //
 
 import UIKit
