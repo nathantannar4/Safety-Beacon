@@ -64,9 +64,12 @@ class NavigationViewController: MapViewController {
 
     // MARK: - User Actions
     @objc
-    func calculateRouteHome(sender: UIButton!) {
+    func calculateRouteHome() {
+        
         var directionsRoute: Route?
-        let home = CLLocationCoordinate2D(latitude: 49.11340930, longitude: -122.89621281) // TODO: - use actual home address
+        
+        // TODO: - use actual home address
+        let home = CLLocationCoordinate2D(latitude: 49.11340930, longitude: -122.89621281)
         //use mapbox to trace the path to home from current location
         guard let currentLocation = LocationManager.shared.currentLocation else { return }
         let origin = Waypoint(coordinate: currentLocation, name: "Current Location")

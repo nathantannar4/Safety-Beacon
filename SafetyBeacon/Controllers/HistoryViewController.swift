@@ -81,6 +81,34 @@ class HistoryViewController: MapViewController {
         fromButton.anchorWidthToItem(toButton)
     }
     
+    func refreshLocations() {
+        
+        guard let patient = User.current()?.patient else { return }
+        
+        let query = PFQuery(className: "History")
+        query.whereKey("patient", equalTo: patient)
+        query.whereKey("createdAt", lessThan: upperDate)
+        query.whereKey("createdAt", greaterThan: lowerDate)
+        query.findObjectsInBackground(block: {(objects, error) in
+            guard let objects = objects else {
+                return
+            }
+            self.mapView.annotations?.forEach { self.mapView.removeAnnotation($0) }
+            for location in objects {
+                guard let long = location["long"] as? Double, let lat = location["lat"] as? Double, let createdAt = location.createdAt else {
+                    Log.write(.warning, "Unable to retrieve the location information")
+                    return
+                }
+                let annotation = MGLPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2DMake(lat, long)
+                annotation.title = createdAt.string(dateStyle: .medium, timeStyle: .short)
+                self.mapView.addAnnotation(annotation)
+            }
+        })
+    }
+    
+    // MARK: - User Actions
+    
     @objc
     func editFilter(_ sender: NTButton) {
         
@@ -101,36 +129,4 @@ class HistoryViewController: MapViewController {
             self.refreshLocations()
         }
     }
-    
-    func refreshLocations() {
-        
-        guard let patient = User.current()?.patient else { return }
-        
-        let query = PFQuery(className: "History")
-        query.whereKey("patient", equalTo: patient)
-        query.whereKey("createdAt", lessThan: upperDate)
-        query.whereKey("createdAt", greaterThan: lowerDate)
-        query.findObjectsInBackground(block: {(objects, error) in
-            guard let objects = objects else {
-                return
-            }
-            self.mapView.annotations?.forEach { self.mapView.removeAnnotation($0) }
-            for location in objects {
-                // add to map
-                guard let long = location["long"] as? Double, let lat = location["lat"] as? Double, let createdAt = location.createdAt else {
-                    Log.write(.warning, "Unable to retrieve the location information")
-                    return
-                }
-
-                let date = createdAt.string(dateStyle: .medium, timeStyle: .short)
-                
-                let location_info = MGLPointAnnotation()
-                location_info.coordinate = CLLocationCoordinate2DMake(lat, long)
-                location_info.title = date
-                self.mapView.addAnnotation(location_info)
-            }
-        })
-    }
-    
-    // MARK: - User Actions
 }

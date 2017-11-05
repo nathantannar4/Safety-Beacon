@@ -17,12 +17,13 @@ import Parse
 import UIKit
 import Mapbox
 
-class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class BookmarksViewController: UITableViewController {
 
     // MARK: - Properties
     var bookmarks = [PFObject]()
     
     let provinceList = ["Select Province/ Territory", "BC", "AB", "SK", "MB", "ON", "QC", "NB", "NS", "PE", "NL", "NT", "YT", "NU"]
+    
     let provincePicker = UIPickerView()
     var provincePickerInput: UITextField?
     
@@ -41,34 +42,6 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
         rc.addTarget(self, action: #selector(refreshBookmarks), for: .valueChanged)
         tableView.refreshControl = rc
     }
- 
-    // MARK: - UIPickerViewDelegate
-    
-    // Sections within picker
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    // Picker rows
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return provinceList.count
-    }
-    // Picker text return
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return provinceList[row]
-    }
-    // Selecting row options
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if row != 0 {
-            provincePickerInput?.text = provinceList[row]
-        }
-    }
-    
-    // MARK: - UITextFieldDelegate
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let count = textField.text?.count ?? 0
-        return count < 6
-    }
     
     // Updating bookmarks from database
     @objc
@@ -81,7 +54,6 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
         query.findObjectsInBackground { (objects, error) in
             self.tableView.refreshControl?.endRefreshing()
             guard let objects = objects else {
-                NTPing(type: .isDanger, title: "Patient currently set bookmarks").show(duration: 5)
                 Log.write(.error, error.debugDescription)
                 return
             }
@@ -96,6 +68,7 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
+    
     // Section titles
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = NTTableViewHeaderFooterView()
@@ -120,7 +93,7 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
         return 44
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section <= 1 ? 80 : UITableViewAutomaticDimension
+        return indexPath.section <= 1 ? 44 : UITableViewAutomaticDimension
     }
     
     // Populating row content
@@ -295,12 +268,6 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
                 let placemark = placemarks?[0]
                 let location = placemark?.location
                 let coordinate = location?.coordinate
-//                if placemark?.areasOfInterest?.count != nil {
-//                    let areaOfInterest = placemark!.areasOfInterest![0]
-//                    print(areaOfInterest)
-//                } else {
-//                    print("No area of interest found.")
-//                }
                 completion(coordinate)
             } else {
                 completion(nil)
@@ -326,12 +293,6 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
                     return
                 }
                 let address = "\(streetField),\(cityField),\(provinceField),\(postalField)"
-//                if placemark.areasOfInterest?.count != nil {
-//                    let areaOfInterest = placemark.areasOfInterest?[0]
-//                    print(areaOfInterest!)
-//                } else {
-//                    print("No area of interest found.")
-//                }
                 completion(address)
             } else {
                 completion(nil)
@@ -417,5 +378,39 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
         alertController.addAction(addAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - UIPickerViewDataSource/UIPickerViewDelegate
+extension BookmarksViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    // Sections within picker
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // Picker rows
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return provinceList.count
+    }
+    
+    // Picker text return
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return provinceList[row]
+    }
+    
+    // Selecting row options
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        provincePickerInput?.text = row != 0 ? provinceList[row] : String()
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension BookmarksViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let count = textField.text?.count ?? 0
+        return count < 6
     }
 }

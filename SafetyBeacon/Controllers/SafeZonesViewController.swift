@@ -16,7 +16,7 @@ import NTComponents
 import Parse
 import UIKit
 
-class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class SafeZonesViewController: UITableViewController {
     
     // MARK: - Properties
     var safeZones = [PFObject]()
@@ -41,33 +41,6 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         tableView.refreshControl = rc
     }
     
-    // MARK: - UIPickerView
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    // Picker rows
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return provinceList.count
-    }
-    // Picker text return
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return provinceList[row]
-    }
-    // Selecting row options
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if row != 0 {
-            provincePickerInput?.text = provinceList[row]
-        }
-    }
-    
-    // MARK: - UITextFieldDelegate
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let count = textField.text?.count ?? 0
-        return count < 6
-    }
-    
     // Updating Safe Zones from database
     @objc
     func refreshSafeZones() {
@@ -90,11 +63,10 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
     
     // MARK: - UITableViewDataSource
     
-    // Sections within Bookmarks View
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    // Section titles
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = NTTableViewHeaderFooterView()
         if section == 0 {
@@ -105,7 +77,6 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         return header
     }
     
-    // Section rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -118,21 +89,19 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         return 44
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section <= 1 ? 80 : UITableViewAutomaticDimension
+        return indexPath.section <= 1 ? 44 : UITableViewAutomaticDimension
     }
     
     // Populating row content
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
-        // Add Bookmarks
         if indexPath.section == 0 {
             cell.textLabel?.text = "Enter new Safe Zone"
             cell.accessoryType = .disclosureIndicator
             return cell
         }
         
-        // Existing Bookmarks
         cell.textLabel?.text = safeZones[indexPath.row]["name"] as? String
         cell.detailTextLabel?.text = safeZones[indexPath.row]["address"] as? String
         return cell
@@ -275,12 +244,6 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
                 let placemark = placemarks?[0]
                 let location = placemark?.location
                 let coordinate = location?.coordinate
-                //                if placemark?.areasOfInterest?.count != nil {
-                //                    let areaOfInterest = placemark!.areasOfInterest![0]
-                //                    print(areaOfInterest)
-                //                } else {
-                //                    print("No area of interest found.")
-                //                }
                 completion(coordinate)
             } else {
                 completion(nil)
@@ -370,5 +333,35 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         alertController.addAction(addAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - UIPickerViewDataSource/UIPickerViewDelegate
+extension SafeZonesViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return provinceList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return provinceList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        provincePickerInput?.text = row != 0 ? provinceList[row] : String()
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension SafeZonesViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let count = textField.text?.count ?? 0
+        return count < 6
     }
 }
