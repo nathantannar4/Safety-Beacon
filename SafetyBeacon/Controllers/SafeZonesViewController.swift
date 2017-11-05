@@ -1,5 +1,5 @@
 //
-//  SafeZones.swift
+//  SafeZonesViewController.swift
 //  SafetyBeacon
 //
 //  Created by Nathan Tannar on 9/25/17
@@ -14,15 +14,14 @@ import NTComponents
 import Parse
 import UIKit
 
-class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     // MARK: - Properties
-    
     var safeZones = [PFObject]()
     
-    var provinceOption = ["BC", "AB", "SK", "MB", "ON"]
-    let thePicker = UIPickerView()
-    var pickerTextField: String = ""
+    let provinceList = ["Select Province/ Territory", "BC", "AB", "SK", "MB", "ON", "QC", "NB", "NS", "PE", "NL", "NT", "YT", "NU"]
+    let provincePicker = UIPickerView()
+    var provincePickerInput: UITextField?
     
     // MARK: - View Life Cycle
     
@@ -31,8 +30,8 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         super.viewDidLoad()
         title = "Safe Zones"
         self.refreshSafeZones()
-        
-        thePicker.delegate = self
+        tableView.tableFooterView = UIView()
+        provincePicker.delegate = self
     }
     
     // MARK: - UIPickerView
@@ -40,22 +39,33 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    // Picker rows
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return provinceOption.count
+        return provinceList.count
     }
+    // Picker text return
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return provinceOption[row]
+        return provinceList[row]
     }
+    // Selecting row options
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerTextField = provinceOption[row]
-        print("\(pickerTextField)")
+        if row != 0 {
+            provincePickerInput?.text = provinceList[row]
+        }
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let count = textField.text?.count ?? 0
+        return count < 6
     }
     
     // Updating Safe Zones from database
     func refreshSafeZones() {
-        
         //query db
         guard let user = User.current(), let patient = user.patient else { return }
+        
         let query = PFQuery(className: "SafeZones")
         query.whereKey("patient", equalTo: patient)
         query.findObjectsInBackground { (objects, error) in
@@ -68,13 +78,13 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
             self.tableView.reloadData()
         }
     }
+    
     // MARK: - UITableViewDataSource
     
     // Sections within Bookmarks View
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
     // Section titles
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = NTTableViewHeaderFooterView()
@@ -108,7 +118,7 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         
         // Add Bookmarks
         if indexPath.section == 0 {
-            cell.textLabel?.text = "Enter Address"
+            cell.textLabel?.text = "Add a new Safe Zone"
             cell.accessoryType = .disclosureIndicator
             return cell
         }
@@ -119,10 +129,9 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         return cell
     }
     
-    // MARK: - UITableViewDelegate
-    
     // Row selectable actions
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
             addSafeZone()
         }
@@ -153,28 +162,39 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
             
             // Get original bookmark
             let originalName = self.safeZones[indexPath.row]["name"] as? String
-            let originalRadius = self.safeZones[indexPath.row]["radius"] as? String
+            let radiusDouble = self.safeZones[indexPath.row]["radius"] as? Double ?? 0
             let concatenatedAddress = self.safeZones[indexPath.row]["address"] as? String
             var concatenatedAddressArr = concatenatedAddress?.components(separatedBy: ", ")
             let originalStreet = concatenatedAddressArr![0] as String
             let originalCity = concatenatedAddressArr![1] as String
             let originalProvince = concatenatedAddressArr![2] as String
             let originalPostal = concatenatedAddressArr![3] as String
-            
+            let originalRadius = String(radiusDouble)
+
             // Text input placeholders
-            alertController.addTextField { nameField in nameField.placeholder = "Safe Zone Name" }
-            alertController.addTextField { streetField in streetField.placeholder = "Street Address" }
-            alertController.addTextField { cityField in cityField.placeholder = "City" }
-            alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory" }
-            alertController.addTextField { postalField in postalField.placeholder = "Postal Code" }
-            alertController.addTextField { radiusField in radiusField.placeholder = "Radius Field" }
-            // Put original row content as text input
-            alertController.textFields![0].text = originalName
-            alertController.textFields![1].text = originalStreet
-            alertController.textFields![2].text = originalCity
-            alertController.textFields![3].text = originalProvince
-            alertController.textFields![4].text = originalPostal
-            alertController.textFields![5].text = originalRadius
+            alertController.addTextField { nameField in nameField.placeholder = "Safe Zone Name"
+                nameField.text = originalName
+            }
+            alertController.addTextField { streetField in streetField.placeholder = "Street Address"
+                streetField.text = originalStreet
+            }
+            alertController.addTextField { cityField in cityField.placeholder = "City"
+                cityField.text = originalCity
+            }
+            alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory"
+                provinceField.placeholder = "Province/ Territory"
+                self.provincePickerInput = provinceField
+                provinceField.inputView = self.provincePicker
+                provinceField.text = originalProvince
+            }
+            alertController.addTextField { postalField in postalField.placeholder = "Postal Code (no space)"
+                postalField.delegate = self
+                postalField.text = originalPostal
+            }
+            alertController.addTextField { radiusField in radiusField.placeholder = "Radius"
+                radiusField.delegate = self
+                radiusField.text = originalRadius
+            }
             
             // Change button
             let changeAction = UIAlertAction(title: "Change", style: UIAlertActionStyle.default) { (_: UIAlertAction!) -> Void in
@@ -208,12 +228,13 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
                     })
                     self.safeZones[indexPath.row]["address"] = newAddress
                 }
+                guard let radius = Double(radiusField) else { return }
                 // Update if name changed
                 if originalName != nameField {
                     self.safeZones[indexPath.row]["name"] = nameField
                 }
                 if originalRadius != radiusField {
-                    self.safeZones[indexPath.row]["radius"] = radiusField
+                    self.safeZones[indexPath.row]["radius"] = radius
                 }
                 
                 // Save bookmark at same row
@@ -235,28 +256,26 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
     // MARK: - Processing Functions
     
     // Get address from coordinates
-    func getCoordinates(address: String, completion: @escaping (CLLocationCoordinate2D?)->Void) {
+    func getCoordinates(address: String, completion: @escaping (CLLocationCoordinate2D?) -> Void) {
         CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
-            
             if error != nil {
-                print(error as Any)
+                Log.write(.error, error.debugDescription)
                 return
             }
             if placemarks?.count != nil {
                 let placemark = placemarks?[0]
                 let location = placemark?.location
                 let coordinate = location?.coordinate
-                print("\nlat: \(coordinate!.latitude), long: \(coordinate!.longitude)")
-                if placemark?.areasOfInterest?.count != nil {
-                    let areaOfInterest = placemark!.areasOfInterest![0]
-                    print(areaOfInterest)
-                    completion(coordinate)
-                } else {
-                    print("No area of interest found.")
-                    completion(nil)
-                }
+                //                if placemark?.areasOfInterest?.count != nil {
+                //                    let areaOfInterest = placemark!.areasOfInterest![0]
+                //                    print(areaOfInterest)
+                //                } else {
+                //                    print("No area of interest found.")
+                //                }
+                completion(coordinate)
+            } else {
+                completion(nil)
             }
-            
         })
     }
     
@@ -266,7 +285,7 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         // Check that Caretaker is accessing this menu, not Patient
         guard let currentUser = User.current(), currentUser.isCaretaker, let patient = currentUser.patient else { return }
         
-        let zone = PFObject(className: "SafeZone")
+        let zone = PFObject(className: "SafeZones")
         zone["name"] = name
         zone["address"] = addressConcatinated
         zone["lat"] = addressLatitude
@@ -294,10 +313,15 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         alertController.addTextField { nameField in nameField.placeholder = "Safe Zone Name" }
         alertController.addTextField { streetField in streetField.placeholder = "Street Address" }
         alertController.addTextField { cityField in cityField.placeholder = "City" }
-        alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory"
-            provinceField.inputView = self.thePicker
+        alertController.addTextField { provinceField in
+            provinceField.placeholder = "Province/ Territory"
+            self.provincePickerInput = provinceField
+            provinceField.inputView = self.provincePicker
         }
-        alertController.addTextField { postalField in postalField.placeholder = "Postal Code" }
+        alertController.addTextField { postalField in
+            postalField.placeholder = "Postal Code (no space)"
+            postalField.delegate = self
+        }
         alertController.addTextField { radiusField in radiusField.placeholder = "Radius Field" }
         
         // Add button
@@ -305,8 +329,9 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
             guard let nameField = alertController.textFields?[0].text, !nameField.isEmpty,
                 let streetField = alertController.textFields?[1].text, !streetField.isEmpty,
                 let cityField = alertController.textFields?[2].text, !cityField.isEmpty,
-                let radiusField = alertController.textFields?[3].text, !radiusField.isEmpty,
-                let postalField = alertController.textFields?[4].text, !postalField.isEmpty
+                let provinceField = alertController.textFields?[3].text, !provinceField.isEmpty,
+                let postalField = alertController.textFields?[4].text, !postalField.isEmpty,
+                let radiusField = alertController.textFields?[5].text, !radiusField.isEmpty
                 else {
                     let invalidAlert = UIAlertController(title: "Invalid Safe Zone", message: "All fields must be entered.", preferredStyle: .alert)
                     invalidAlert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Default action"), style: .`default`, handler: { _ in
@@ -315,11 +340,7 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
                     self.present(invalidAlert, animated: true, completion: nil)
                     return
             }
-            
-            // How do I get textFields[3].text to update to what was in the pickerTextField (i.e. show what was chosen from the picker)
-            alertController.textFields?[3].text = self.pickerTextField
-            
-            let address = "\(streetField), \(cityField), \(self.pickerTextField), \(postalField)"
+            let address = "\(streetField), \(cityField), \(provinceField), \(postalField)"
             
             // Convert address to coordinates
             self.getCoordinates(address: address, completion: { (coordinate) in
@@ -342,4 +363,3 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         present(alertController, animated: true, completion: nil)
     }
 }
-
