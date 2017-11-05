@@ -5,27 +5,101 @@
 //  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
 //
 //  Edited by:
+//      Nathan Tannar
+//          - ntannar@sfu.ca
 //      Kim Youjung
 //          - youjungk@sfu.ca
 //
 
 import UIKit
 import Parse
+import NTComponents
 import Mapbox
+import DateTimePicker
 
 class HistoryViewController: MapViewController {
     
     // MARK: - Properties
     
-    // MARK: - Initialization
+    var filterView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.setDefaultShadow()
+        view.layer.shadowOffset = CGSize(width: 0, height: -2)
+        return view
+    }()
+    
+    lazy var fromButton: NTButton = { [weak self] in
+        let button = NTButton()
+        button.ripplePercent = 1
+        button.trackTouchLocation = false
+        button.title = "From: " + Date().addMonth(-1).string(dateStyle: .short, timeStyle: .none)
+        button.setDefaultShadow()
+        button.layer.cornerRadius = 22
+        button.tag = 0
+        button.addTarget(self, action: #selector(editFilter), for: .touchUpInside)
+        button.backgroundColor = .logoRed
+        return button
+    }()
+    
+    lazy var toButton: NTButton = { [weak self] in
+        let button = NTButton()
+        button.ripplePercent = 1
+        button.trackTouchLocation = false
+        button.title = "To: " + Date().string(dateStyle: .short, timeStyle: .none)
+        button.setDefaultShadow()
+        button.layer.cornerRadius = 22
+        button.tag = 1
+        button.addTarget(self, action: #selector(editFilter), for: .touchUpInside)
+        button.backgroundColor = .logoYellow
+        return button
+    }()
+    
+    var lowerDate = Date().addMonth(-1)
+    var upperDate = Date()
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "History"
+        setupFilterView()
         refreshLocations()
+    }
+    
+    fileprivate func setupFilterView() {
+        view.addSubview(filterView)
+        filterView.addSubview(fromButton)
+        filterView.addSubview(toButton)
         
+        filterView.addConstraints(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, heightConstant: 60)
+        
+        fromButton.addConstraints(filterView.topAnchor, left: filterView.leftAnchor, bottom: filterView.bottomAnchor, right: toButton.leftAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 8, rightConstant: 16)
+        
+        toButton.addConstraints(filterView.topAnchor, left: fromButton.rightAnchor, bottom: filterView.bottomAnchor, right: filterView.rightAnchor, topConstant: 8, leftConstant: 16, bottomConstant: 8, rightConstant: 16)
+        
+        fromButton.anchorWidthToItem(toButton)
+    }
+    
+    @objc
+    func editFilter(_ sender: NTButton) {
+        
+        let selected = sender.tag == 0 ? lowerDate : upperDate
+        let picker = DateTimePicker.show(selected: selected)
+        picker.selectedDate = selected
+        picker.is12HourFormat = true
+        picker.includeMonth = true
+        picker.highlightColor = sender.tag == 0 ? .logoRed : .logoYellow
+        picker.completionHandler = { newDate in
+            if sender.tag == 0 {
+                self.lowerDate = newDate
+                self.fromButton.title = "From: " + newDate.string(dateStyle: .short, timeStyle: .none)
+            } else {
+                self.upperDate = newDate
+                self.toButton.title = "To: " + newDate.string(dateStyle: .short, timeStyle: .none)
+            }
+            self.refreshLocations()
+        }
     }
     
     func refreshLocations() {
@@ -34,14 +108,13 @@ class HistoryViewController: MapViewController {
         
         let query = PFQuery(className: "History")
         query.whereKey("patient", equalTo: patient)
-//        query.whereKey("createdAt", lessThan: Date())
-//        query.whereKey("createdAt", greaterThan: Date().addMonth(-1))
+        query.whereKey("createdAt", lessThan: upperDate)
+        query.whereKey("createdAt", greaterThan: lowerDate)
         query.findObjectsInBackground(block: {(objects, error) in
             guard let objects = objects else {
                 return
             }
             self.mapView.annotations?.forEach { self.mapView.removeAnnotation($0) }
-//            print(objects)
             for location in objects {
                 // add to map
                 guard let long = location["long"] as? Double, let lat = location["lat"] as? Double, let createdAt = location.createdAt else {
@@ -49,9 +122,8 @@ class HistoryViewController: MapViewController {
                     return
                 }
 
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "HH:mm:ss a" //"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'"
-                let date = dateFormatter.string(from: createdAt)
+                let date = createdAt.string(dateStyle: .medium, timeStyle: .short)
+                
                 let location_info = MGLPointAnnotation()
                 location_info.coordinate = CLLocationCoordinate2DMake(lat, long)
                 location_info.title = date

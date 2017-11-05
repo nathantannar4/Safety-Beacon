@@ -86,7 +86,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
                 tabBarController.tabBarPosition = .top
                 tabBarController.tabBar.scrollIndicatorPosition = .bottom
                 tabBarController.tabBar.setDefaultShadow()
-                tabBarController.updateTabBarHeight(to: 30, animated: false)
+                tabBarController.updateTabBarHeight(to: 40, animated: false)
                 appController.setViewController(ContentController(rootViewController: tabBarController), forSide: .center)
 
             } else if currentUser.isPatient {
@@ -101,7 +101,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
                 tabBarController.tabBarPosition = .top
                 tabBarController.tabBar.scrollIndicatorPosition = .bottom
                 tabBarController.tabBar.setDefaultShadow()
-                tabBarController.updateTabBarHeight(to: 30, animated: false)
+                tabBarController.updateTabBarHeight(to: 40, animated: false)
                 appController.setViewController(ContentController(rootViewController: tabBarController), forSide: .center)
             }
         }

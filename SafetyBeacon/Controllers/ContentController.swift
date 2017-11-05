@@ -24,9 +24,10 @@ class ContentController: UINavigationController {
         rootViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
         
         let titleLabel = NTLabel()
+        titleLabel.textAlignment = .center
         titleLabel.text = "Safety Beacon"
         titleLabel.font = Font.Default.Title.withSize(22)
-        rootViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
+        rootViewController.navigationItem.titleView = titleLabel
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

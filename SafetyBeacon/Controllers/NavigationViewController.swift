@@ -23,10 +23,18 @@ class NavigationViewController: MapViewController {
     
     lazy var takeMeHomeButton: NTButton = { [weak self] in
         let button = NTButton()
-        button.backgroundColor = .logoYellow
-        button.setTitle("Go Home", for: .normal)
+        button.backgroundColor = .logoBlue
+        button.titleColor = .white
+        button.trackTouchLocation = false
+        button.ripplePercent = 1
+        button.setTitleColor(UIColor.white.withAlpha(0.3), for: .highlighted)
+        button.setTitle("Home", for: .normal)
+        button.titleFont = Font.Default.Title.withSize(22)
         button.addTarget(self, action: #selector(calculateRouteHome), for: .touchUpInside)
-        button.layer.cornerRadius = 30
+        button.layer.cornerRadius = 40
+        button.layer.borderWidth = 4
+        button.layer.borderColor = UIColor.white.cgColor
+        button.setDefaultShadow()
         return button
     }()
     
@@ -51,14 +59,14 @@ class NavigationViewController: MapViewController {
     
     override func setupConstraints() {
         super.setupConstraints()
-        takeMeHomeButton.addConstraints(nil, left: nil, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 32, rightConstant: 32, widthConstant: 100, heightConstant: 60)
+        takeMeHomeButton.addConstraints(nil, left: nil, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 32, rightConstant: 32, widthConstant: 80, heightConstant: 80)
     }
 
     // MARK: - User Actions
     @objc
     func calculateRouteHome(sender: UIButton!) {
         var directionsRoute: Route?
-        let home = CLLocationCoordinate2D(latitude: 49.2796628, longitude: -122.9188065) // TODO: - use actual home address
+        let home = CLLocationCoordinate2D(latitude: 49.11340930, longitude: -122.89621281) // TODO: - use actual home address
         //use mapbox to trace the path to home from current location
         guard let currentLocation = LocationManager.shared.currentLocation else { return }
         let origin = Waypoint(coordinate: currentLocation, name: "Current Location")
@@ -68,7 +76,7 @@ class NavigationViewController: MapViewController {
         
         let annotation = MGLPointAnnotation()
         annotation.coordinate = home
-        annotation.title = "Start navigation"
+        annotation.title = "Home"
         mapView.addAnnotation(annotation)
         
         _ = Directions.shared.calculate(options) { (waypoints, routes, error) in

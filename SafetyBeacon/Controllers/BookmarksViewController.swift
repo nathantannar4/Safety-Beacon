@@ -32,10 +32,14 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Bookmarks"
-        self.refreshBookmarks()
-    
+        view.backgroundColor = Color.Default.Background.ViewController
         provincePicker.delegate = self
         tableView.tableFooterView = UIView()
+        refreshBookmarks()
+        
+        let rc = UIRefreshControl()
+        rc.addTarget(self, action: #selector(refreshBookmarks), for: .valueChanged)
+        tableView.refreshControl = rc
     }
  
     // MARK: - UIPickerViewDelegate
@@ -67,6 +71,7 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
     }
     
     // Updating bookmarks from database
+    @objc
     func refreshBookmarks() {
         // Check that Caretaker is accessing this menu, not Patient
         guard let currentUser = User.current(), currentUser.isCaretaker, let patient = currentUser.patient else { return }
@@ -74,6 +79,7 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
         let query = PFQuery(className: "Bookmarks")
         query.whereKey("patient", equalTo: patient)
         query.findObjectsInBackground { (objects, error) in
+            self.tableView.refreshControl?.endRefreshing()
             guard let objects = objects else {
                 NTPing(type: .isDanger, title: "Patient currently set bookmarks").show(duration: 5)
                 Log.write(.error, error.debugDescription)
@@ -123,7 +129,7 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
         
         // Add Bookmarks
         if indexPath.section == 0 {
-            cell.textLabel?.text = "Enter Address"
+            cell.textLabel?.text = "Enter new Address"
             cell.accessoryType = .disclosureIndicator
             return cell
         }
@@ -155,11 +161,15 @@ class BookmarksViewController: UITableViewController, UIPickerViewDataSource, UI
                 }
                 let navigation = NTNavigationController(rootViewController: location)
                 self.present(navigation, animated: true, completion: {
-                    location.mapView.setCenter(coordinate, zoomLevel: 12, animated: true)
                     let locationMarker = MGLPointAnnotation()
                     locationMarker.coordinate = coordinate
                     locationMarker.title = originalStreet
+                    if let currentLocation = LocationManager.shared.currentLocation {
+                        // returns distance in meters
+                        locationMarker.subtitle = "\(Int(currentLocation.distance(to: coordinate)/1000)) Km"
+                    }
                     location.mapView.addAnnotation(locationMarker)
+                    location.mapView.setCenter(coordinate, zoomLevel: 12, animated: true)
                 })
             })
         }

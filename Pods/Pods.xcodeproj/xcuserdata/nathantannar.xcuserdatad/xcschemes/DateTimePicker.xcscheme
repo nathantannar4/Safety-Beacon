@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EDBB794026C9FE270C8164D80BA55BA3"
-               BuildableName = "Pods_SafetyBeacon.framework"
-               BlueprintName = "Pods-SafetyBeacon"
+               BlueprintIdentifier = "5F72C1852584A5C1073B32B80AF17541"
+               BuildableName = "DateTimePicker.framework"
+               BlueprintName = "DateTimePicker"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EDBB794026C9FE270C8164D80BA55BA3"
-            BuildableName = "Pods_SafetyBeacon.framework"
-            BlueprintName = "Pods-SafetyBeacon"
+            BlueprintIdentifier = "5F72C1852584A5C1073B32B80AF17541"
+            BuildableName = "DateTimePicker.framework"
+            BlueprintName = "DateTimePicker"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

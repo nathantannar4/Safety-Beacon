@@ -14,16 +14,13 @@
 import UIKit
 import NTComponents
 import Mapbox
-import MapboxDirections
-import MapboxCoreNavigation
 
 class MapViewController: UIViewController {
     
     // MARK: - Properties
     
     lazy var mapView: MGLMapView = { [weak self] in
-        let url = URL(string: "mapbox://styles/mapbox/streets-v10")
-        let mapView = MGLMapView(frame: view.bounds, styleURL: url)
+        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL())
         mapView.delegate = self
         mapView.showsUserLocation = true
         return mapView
@@ -53,9 +50,28 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MGLMapViewDelegate {
     
-    // Use the default marker. See also: our view annotation or custom marker examples.
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-        return nil
+        
+        guard annotation is MGLPointAnnotation else { return nil }
+        
+        // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
+        let reuseIdentifier = "\(annotation.coordinate.longitude)"
+        
+        // For better performance, always try to reuse existing annotations.
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        // If there’s no reusable annotation view available, initialize a new one.
+        if annotationView == nil {
+            annotationView = MGLAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView!.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+            annotationView!.layer.cornerRadius = 12
+            annotationView!.layer.borderColor = UIColor.white.cgColor
+            annotationView!.layer.borderWidth = 2
+            annotationView?.setDefaultShadow()
+            annotationView!.backgroundColor = .logoRed
+        }
+        
+        return annotationView
     }
     
     // Allow callout view to appear when an annotation is tapped.

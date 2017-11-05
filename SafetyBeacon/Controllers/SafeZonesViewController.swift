@@ -31,9 +31,14 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Safe Zones"
-        self.refreshSafeZones()
+        view.backgroundColor = Color.Default.Background.ViewController
         tableView.tableFooterView = UIView()
         provincePicker.delegate = self
+        refreshSafeZones()
+        
+        let rc = UIRefreshControl()
+        rc.addTarget(self, action: #selector(refreshSafeZones), for: .valueChanged)
+        tableView.refreshControl = rc
     }
     
     // MARK: - UIPickerView
@@ -64,6 +69,7 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
     }
     
     // Updating Safe Zones from database
+    @objc
     func refreshSafeZones() {
         //query db
         guard let user = User.current(), let patient = user.patient else { return }
@@ -71,6 +77,7 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         let query = PFQuery(className: "SafeZones")
         query.whereKey("patient", equalTo: patient)
         query.findObjectsInBackground { (objects, error) in
+            self.tableView.refreshControl?.endRefreshing()
             guard let objects = objects else {
                 NTPing(type: .isDanger, title: "Patient currently set safe zones").show(duration: 5)
                 Log.write(.error, error.debugDescription)
@@ -120,7 +127,7 @@ class SafeZonesViewController: UITableViewController, UIPickerViewDataSource, UI
         
         // Add Bookmarks
         if indexPath.section == 0 {
-            cell.textLabel?.text = "Add a new Safe Zone"
+            cell.textLabel?.text = "Enter new Safe Zone"
             cell.accessoryType = .disclosureIndicator
             return cell
         }

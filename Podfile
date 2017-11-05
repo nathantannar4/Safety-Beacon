@@ -17,5 +17,6 @@ target 'SafetyBeacon' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'AcknowList'
+  pod 'DateTimePicker'
 
 end

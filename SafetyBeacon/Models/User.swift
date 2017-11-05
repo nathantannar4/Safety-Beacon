@@ -7,6 +7,7 @@
 //
 
 import Parse
+import NTComponents
 
 class User: NSObject {
     
@@ -102,6 +103,7 @@ class User: NSObject {
         PFUser.logInWithUsername(inBackground: email, password: password) { (user, error) in
             guard let user = user else {
                 Log.write(.error, error.debugDescription)
+                NTPing(type: .isDanger, title: error?.localizedDescription).show()
                 completion?(false)
                 return
             }
@@ -125,6 +127,7 @@ class User: NSObject {
         user.signUpInBackground { (success, error) in
             guard success else {
                 Log.write(.error, error.debugDescription)
+                NTPing(type: .isDanger, title: error?.localizedDescription).show()
                 completion?(false)
                 return
             }
@@ -140,6 +143,7 @@ class User: NSObject {
         PFUser.logOutInBackground { (error) in
             guard error == nil else {
                 Log.write(.error, error.debugDescription)
+                NTPing(type: .isDanger, title: error?.localizedDescription).show()
                 completion?(false)
                 return
             }

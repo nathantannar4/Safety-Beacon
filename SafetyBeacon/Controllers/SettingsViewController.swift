@@ -163,9 +163,8 @@ class SettingsViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { _ in
             User.logoutInBackground(nil)
-            self.dismiss(animated: false, completion: {
-                appController.setViewController(LoginViewController(), forSide: .center)
-            })
+            appController.setViewController(LoginViewController(), forSide: .center)
+            self.dismiss(animated: true, completion: nil)
         }))
         alert.view.tintColor = .logoBlue
         present(alert, animated: true, completion: nil)
