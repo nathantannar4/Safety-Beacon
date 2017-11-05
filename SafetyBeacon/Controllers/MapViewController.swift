@@ -9,6 +9,8 @@
 import UIKit
 import NTComponents
 import Mapbox
+import MapboxDirections
+import MapboxCoreNavigation
 
 class MapViewController: UIViewController {
     
@@ -26,41 +28,22 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        LocationManager.shared.beginTracking()
         
-        title = "Map"
         view.backgroundColor = .white
         setupSubviews()
         setupConstraints()
-        
-        // Declare the marker `hello` and set its coordinates, title, and subtitle.
-//        let hello = MGLPointAnnotation()
-//        hello.coordinate = CLLocationCoordinate2D(latitude: 40.7326808, longitude: -73.9843407)
-//        hello.title = "Hello world!"
-//        hello.subtitle = "Welcome to my marker"
-//
-//        // Add marker `hello` to the map.
-//        mapView.addAnnotation(hello)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        LocationManager.shared.beginTracking()
-        guard let location = LocationManager.shared.currentLocation else { return }
-        mapView.setCenter(location, zoomLevel: 12, animated: true)
     }
     
     open func setupSubviews() {
-        
         view.addSubview(mapView)
     }
     
     open func setupConstraints() {
-        
         mapView.constrainToSuperview()
     }
     
-    // MARK: - User Actions
 }
 
 extension MapViewController: MGLMapViewDelegate {
