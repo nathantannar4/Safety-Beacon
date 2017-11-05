@@ -28,7 +28,7 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         LocationManager.shared.beginTracking()
         
         view.backgroundColor = .white

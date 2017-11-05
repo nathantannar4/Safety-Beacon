@@ -70,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         application.registerForRemoteNotifications()
         
+        LocationManager.shared.beginTracking()
         window = UIWindow(frame: UIScreen.main.bounds)
         if User.current() != nil {
             LoginViewController.loginSuccessful()
