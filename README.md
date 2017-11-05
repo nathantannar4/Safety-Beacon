@@ -48,9 +48,10 @@ Weekly meetings on Tuesdays from 4:30-5:30 in the ASB atrium
 | Sept 17     | [View](./docs/Meeting_Minutes_1.pdf)    |
 | Sept 19     | [View](./docs/Meeting_Minutes_2.pdf)    |
 | Sept 23     | [View](./docs/Meeting_Minutes_3.pdf)    |
-| Oct 3       | [View](./docs/Meeting_Minutes_4.pdf)    |
+| Oct 3        | [View](./docs/Meeting_Minutes_4.pdf)    |
 | Oct 10      | [View](./docs/Meeting_Minutes_4.pdf)    |
 | Oct 17      | [View](./docs/Meeting_Minutes_4.pdf)    |
+| Nov 4       | [View](./docs/Meeting_Minutes_5.pdf)    |
 
 ## Team
 

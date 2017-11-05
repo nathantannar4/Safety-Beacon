@@ -98,7 +98,7 @@ class SettingsViewController: UITableViewController {
             
             cell.textLabel?.text = User.current()?.username
             if !currentUser.requiresSetup {
-                cell.detailTextLabel?.text = User.current()?.isCaretaker ?? true ? "Caretaker" : "Paient"
+                cell.detailTextLabel?.text = User.current()?.isCaretaker ?? true ? "Caretaker" : "Patient"
                 cell.imageView?.image = User.current()?.isCaretaker ?? false ? #imageLiteral(resourceName: "ic_heart") : #imageLiteral(resourceName: "ic_BothPatients")
             }
             cell.selectionStyle = .none
@@ -109,7 +109,7 @@ class SettingsViewController: UITableViewController {
                 cell.textLabel?.text = "No user linked"
             } else {
                 cell.textLabel?.text = User.current()?.isCaretaker ?? false ? User.current()?.patient?.username : User.current()?.caretaker?.username
-                cell.detailTextLabel?.text = User.current()?.isPatient ?? false ? "Caretaker" : "Paient"
+                cell.detailTextLabel?.text = User.current()?.isPatient ?? false ? "Caretaker" : "Patient"
                 cell.imageView?.image = User.current()?.isPatient ?? false ? #imageLiteral(resourceName: "ic_heart") : #imageLiteral(resourceName: "ic_BothPatients")
             }
             cell.selectionStyle = .none

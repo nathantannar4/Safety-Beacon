@@ -1,1 +1,3 @@
 Open SafetyBeacon.xcworkspace
+
+Please also note that we use Maps in our app which has poor performance in simulators for obvious reasons
