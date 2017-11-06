@@ -34,22 +34,11 @@
 		38C890D71FAE6C2900723F0D /* NSConstraintLayoutSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C890D31FAE6C2900723F0D /* NSConstraintLayoutSet.swift */; };
 		38C890D81FAE6C2900723F0D /* DynamicTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C890D41FAE6C2900723F0D /* DynamicTabBarItem.swift */; };
 		38F7C2561F736D92006C995A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C2551F736D92006C995A /* AppDelegate.swift */; };
-		38F7C2681F736D92006C995A /* SafetyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C2671F736D92006C995A /* SafetyTrackerTests.swift */; };
 		38F7C27E1F736EC0006C995A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F7C2771F736E36006C995A /* LaunchScreen.storyboard */; };
 		38F7C2801F736EC5006C995A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F7C27B1F736E37006C995A /* Assets.xcassets */; };
 		785FFDF79C7B992CF2941605 /* Pods_SafetyBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9324C7D4A6FA4E0E95079A40 /* Pods_SafetyBeacon.framework */; };
 		96255D061FAE78990072F482 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96255D051FAE78990072F482 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		38F7C2641F736D92006C995A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 38F7C24A1F736D92006C995A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 38F7C2511F736D92006C995A;
-			remoteInfo = SafetyTracker;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3810DA4B1F832A5300B5180E /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +69,6 @@
 		38C890D41FAE6C2900723F0D /* DynamicTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarItem.swift; sourceTree = "<group>"; };
 		38F7C2521F736D92006C995A /* SafetyBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafetyBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7C2551F736D92006C995A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		38F7C2631F736D92006C995A /* SafetyBeaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafetyBeaconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7C2671F736D92006C995A /* SafetyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyTrackerTests.swift; sourceTree = "<group>"; };
 		38F7C2691F736D93006C995A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38F7C2781F736E36006C995A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,13 +87,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				785FFDF79C7B992CF2941605 /* Pods_SafetyBeacon.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38F7C2601F736D92006C995A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				38F7C2521F736D92006C995A /* SafetyBeacon.app */,
-				38F7C2631F736D92006C995A /* SafetyBeaconTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,24 +249,6 @@
 			productReference = 38F7C2521F736D92006C995A /* SafetyBeacon.app */;
 			productType = "com.apple.product-type.application";
 		};
-		38F7C2621F736D92006C995A /* SafetyBeaconTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 38F7C26F1F736D93006C995A /* Build configuration list for PBXNativeTarget "SafetyBeaconTests" */;
-			buildPhases = (
-				38F7C25F1F736D92006C995A /* Sources */,
-				38F7C2601F736D92006C995A /* Frameworks */,
-				38F7C2611F736D92006C995A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				38F7C2651F736D92006C995A /* PBXTargetDependency */,
-			);
-			name = SafetyBeaconTests;
-			productName = SafetyTrackerTests;
-			productReference = 38F7C2631F736D92006C995A /* SafetyBeaconTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -300,11 +262,6 @@
 					38F7C2511F736D92006C995A = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
-					};
-					38F7C2621F736D92006C995A = {
-						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 38F7C2511F736D92006C995A;
 					};
 				};
 			};
@@ -322,7 +279,6 @@
 			projectRoot = "";
 			targets = (
 				38F7C2511F736D92006C995A /* SafetyBeacon */,
-				38F7C2621F736D92006C995A /* SafetyBeaconTests */,
 			);
 		};
 /* End PBXProject section */
@@ -335,13 +291,6 @@
 				38F7C2801F736EC5006C995A /* Assets.xcassets in Resources */,
 				38F7C27E1F736EC0006C995A /* LaunchScreen.storyboard in Resources */,
 				3869F55B1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		38F7C2611F736D92006C995A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,23 +425,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		38F7C25F1F736D92006C995A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				38F7C2681F736D92006C995A /* SafetyTrackerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		38F7C2651F736D92006C995A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 38F7C2511F736D92006C995A /* SafetyBeacon */;
-			targetProxy = 38F7C2641F736D92006C995A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		38F7C2771F736E36006C995A /* LaunchScreen.storyboard */ = {
@@ -645,40 +578,6 @@
 			};
 			name = Release;
 		};
-		38F7C2701F736D93006C995A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9EUCWD26TP;
-				INFOPLIST_FILE = SafetyTrackerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.SafetyTrackerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafetyBeacon.app/SafetyBeacon";
-			};
-			name = Debug;
-		};
-		38F7C2711F736D93006C995A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9EUCWD26TP;
-				INFOPLIST_FILE = SafetyTrackerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.SafetyTrackerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafetyBeacon.app/SafetyBeacon";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -696,15 +595,6 @@
 			buildConfigurations = (
 				38F7C26D1F736D93006C995A /* Debug */,
 				38F7C26E1F736D93006C995A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		38F7C26F1F736D93006C995A /* Build configuration list for PBXNativeTarget "SafetyBeaconTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				38F7C2701F736D93006C995A /* Debug */,
-				38F7C2711F736D93006C995A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

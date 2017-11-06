@@ -377,7 +377,7 @@ open class RouteController: NSObject {
 }
 
 extension RouteController {
-    @objc func progressDidChange(notification: NSNotification) {
+    func progressDidChange(notification: NSNotification) {
         if sessionState.departureTimestamp == nil {
             sessionState.departureTimestamp = Date()
             sendDepartEvent()
@@ -385,7 +385,7 @@ extension RouteController {
         checkAndSendOutstandingFeedbackEvents(forceAll: false)
     }
     
-    @objc func alertLevelDidChange(notification: NSNotification) {
+    func alertLevelDidChange(notification: NSNotification) {
         let alertLevel = routeProgress.currentLegProgress.alertUserLevel
         if alertLevel == .arrive && sessionState.arrivalTimestamp == nil {
             sessionState.arrivalTimestamp = Date()
@@ -394,11 +394,11 @@ extension RouteController {
         recentDistancesFromManeuver.removeAll()
     }
     
-    @objc func willReroute(notification: NSNotification) {
+    func willReroute(notification: NSNotification) {
         _ = enqueueRerouteEvent()
     }
     
-    @objc func didReroute(notification: NSNotification) {
+    func didReroute(notification: NSNotification) {
         if let lastReroute = outstandingFeedbackEvents.map({$0 as? RerouteEvent }).last {
             lastReroute?.update(newRoute: routeProgress.route)
         }
@@ -408,7 +408,7 @@ extension RouteController {
 
 extension RouteController: CLLocationManagerDelegate {
     
-    @objc func interpolateLocation() {
+    func interpolateLocation() {
         guard let location = locationManager.lastKnownLocation else { return }
         guard let coordinates = routeProgress.route.coordinates else { return }
         let polyline = Polyline(coordinates)
