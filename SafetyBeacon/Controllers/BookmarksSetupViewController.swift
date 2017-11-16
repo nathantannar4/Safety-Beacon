@@ -1,5 +1,5 @@
 //
-//  BookmarksViewController.swift
+//  BookmarksSetupViewController.swift
 //  SafetyBeacon
 //
 //  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
@@ -17,7 +17,7 @@ import Parse
 import UIKit
 import Mapbox
 
-class BookmarksViewController: UITableViewController {
+class BookmarksSetupViewController: UITableViewController {
 
     // MARK: - Properties
     var bookmarks = [PFObject]()
@@ -382,7 +382,7 @@ class BookmarksViewController: UITableViewController {
 }
 
 // MARK: - UIPickerViewDataSource/UIPickerViewDelegate
-extension BookmarksViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension BookmarksSetupViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     // Sections within picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -407,7 +407,7 @@ extension BookmarksViewController: UIPickerViewDataSource, UIPickerViewDelegate 
 }
 
 // MARK: - UITextFieldDelegate
-extension BookmarksViewController: UITextFieldDelegate {
+extension BookmarksSetupViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let count = textField.text?.count ?? 0
