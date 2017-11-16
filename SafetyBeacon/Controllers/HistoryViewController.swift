@@ -21,6 +21,8 @@ class HistoryViewController: MapViewController {
     
     // MARK: - Properties
     
+    // THESE ARE ALL VIEW INITIALIZATIONS, we do not use storyboards so this is how its done
+    
     var filterView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -55,8 +57,10 @@ class HistoryViewController: MapViewController {
         return button
     }()
     
-    var lowerDate = Date().addMonth(-1)
-    var upperDate = Date()
+    // END
+    
+    var lowerDate = Date().addMonth(-1) // lower date filter
+    var upperDate = Date()              // upper date filter
     
     // MARK: - View Life Cycle
     
@@ -67,6 +71,7 @@ class HistoryViewController: MapViewController {
         refreshLocations()
     }
     
+    // Adds the filter view and sets up the auto layout constraints
     fileprivate func setupFilterView() {
         view.addSubview(filterView)
         filterView.addSubview(fromButton)
@@ -81,14 +86,15 @@ class HistoryViewController: MapViewController {
         fromButton.anchorWidthToItem(toButton)
     }
     
+    // Gets all the bookmarks for the patient and places a marker on the map for each one
     func refreshLocations() {
         
         guard let patient = User.current()?.patient else { return }
         
         let query = PFQuery(className: "History")
-        query.whereKey("patient", equalTo: patient)
-        query.whereKey("createdAt", lessThan: upperDate)
-        query.whereKey("createdAt", greaterThan: lowerDate)
+        query.whereKey("patient", equalTo: patient) // bookmarks for patient
+        query.whereKey("createdAt", lessThan: upperDate) // filter
+        query.whereKey("createdAt", greaterThan: lowerDate) // filter
         query.findObjectsInBackground(block: {(objects, error) in
             guard let objects = objects else {
                 return
@@ -112,6 +118,7 @@ class HistoryViewController: MapViewController {
     @objc
     func editFilter(_ sender: NTButton) {
         
+        // Displays a date picker to adjust the lower or upper date filter
         let selected = sender.tag == 0 ? lowerDate : upperDate
         let picker = DateTimePicker.show(selected: selected)
         picker.selectedDate = selected

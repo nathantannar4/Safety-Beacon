@@ -132,6 +132,7 @@ class SettingsViewController: UITableViewController {
     
     // MARK: - UITableViewDelegate
     
+    // User selected a row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             if indexPath.row == 0 {
@@ -159,6 +160,7 @@ class SettingsViewController: UITableViewController {
     @objc
     func logout() {
         
+        // Promts the user to logout
         let alert = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { _ in

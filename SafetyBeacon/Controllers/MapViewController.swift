@@ -31,6 +31,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        // Start tracking the user
         LocationManager.shared.beginTracking()
         
         view.backgroundColor = .white
@@ -48,6 +49,7 @@ class MapViewController: UIViewController {
     
 }
 
+// Places markers on the map for each location
 extension MapViewController: MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {

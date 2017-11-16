@@ -18,6 +18,8 @@ class AccountSetupViewController: UIViewController {
     
     // MARK: - Properties
     
+    // THESE ARE ALL VIEW INITIALIZATIONS, we do not use storyboards so this is how its done
+    
     lazy var mapView: MGLMapView = { [weak self] in
         let url = URL(string: "mapbox://styles/mapbox/streets-v10")
         let mapView = MGLMapView(frame: .zero, styleURL: url)
@@ -71,6 +73,8 @@ class AccountSetupViewController: UIViewController {
         return button
     }()
     
+    // END
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -83,10 +87,12 @@ class AccountSetupViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // Centers the map to the user
         guard let location = LocationManager.shared.currentLocation else { return }
         mapView.setCenter(location, zoomLevel: 12, animated: true)
     }
     
+    // Adds subviews
     open func setupSubviews() {
         view.addSubview(mapView)
         view.addSubview(headerLabel)
@@ -95,6 +101,7 @@ class AccountSetupViewController: UIViewController {
         view.addSubview(helpButton)
     }
     
+    // Apply auto-layout constraints
     open func setupConstraints() {
         mapView.addConstraints(view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, topConstant: 0, heightConstant: 225)
         headerLabel.addConstraints(mapView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: -36, heightConstant: 44)

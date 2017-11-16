@@ -32,12 +32,15 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
     override func loginLogic(sender: NTLoginButton) {
         
         if sender.loginMethod == .email {
+            
+            // Present the email input view
             let vc = NTEmailAuthViewController()
             vc.delegate = self
             present(vc, animated: true, completion: nil)
         }
     }
     
+    // Logs a user in
     func authorize(_ controller: NTEmailAuthViewController, email: String, password: String) {
         
         controller.showActivityIndicator = true
@@ -51,6 +54,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
         }
     }
     
+    // Registers a user with the database
     func register(_ controller: NTEmailAuthViewController, email: String, password: String) {
         
         controller.showActivityIndicator = true
@@ -64,6 +68,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
         }
     }
     
+    // Changes the UI to the correct view
     class func loginSuccessful() {
         
         guard let currentUser = User.current() else { return }
@@ -78,6 +83,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
                 
                 // Caretaker Views
                 
+                // This sets up how we want the DynamicTabBarController to look like
                 let viewControllers = [ReportViewController(), BookmarksViewController(), SafeZonesViewController(), HistoryViewController()]
                 let tabBarController = DynamicTabBarController(viewControllers: viewControllers)
                 tabBarController.isScrollEnabled = false
@@ -93,6 +99,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
                 
                 // Patient Views
                 
+                // This sets up how we want the DynamicTabBarController to look like
                 let viewControllers = [NavigationViewController()]
                 let tabBarController = DynamicTabBarController(viewControllers: viewControllers)
                 tabBarController.isScrollEnabled = false
