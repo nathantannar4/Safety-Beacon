@@ -18,8 +18,6 @@ import NTComponents
 class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegate {
     
     static var shared = LocationManager()
-    var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
-    var updateTimer: Timer?
 
     fileprivate var counter = 0
     
@@ -120,20 +118,16 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         Log.write(.status, "\(counter)locationManagerDidUpdateLocations: \(locations)")
-        
         // Every 5 minutes (300 seconds) sync the users location
         if UIApplication.shared.applicationState == .active {
-//            if backgroundTask != UIBackgroundTaskInvalid {
-//                //endBackgroundTask()
-//            }
             if counter % 300 == 0 {
                 saveCurrentLocation()
                 counter = 1
             }
             
-        } else {
-            //registerBackgroundTask()
-            print ("application is backgrounded, most recent location: , \(locations)")
+        }
+        // if the application is .inactive or .background
+        else {
             if (counter % 300 == 0){
                 saveCurrentLocation()
                 counter = 1
@@ -141,49 +135,17 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
         }
         counter += 1
         
-//        switch UIApplication.shared.applicationState {
-//        case .active:
-//            print ("active")
-//        case .background:
-//            print("App is backgrounded.")
-//            print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
-//        case .inactive:
-//            break
-//        }
+        switch UIApplication.shared.applicationState {
+        case .active:
+            print ("active")
+        case .background:
+            print("App is backgrounded.")
+            print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
+        case .inactive:
+            break
+        }
         
     }
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        print("GETS HERE1")
-        updateTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(saveCurrentLocation), userInfo: nil, repeats: true)
-        registerBackgroundTask()
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        updateTimer?.invalidate()
-        updateTimer = nil
-        // end background task
-        if backgroundTask != UIBackgroundTaskInvalid {
-            endBackgroundTask()
-        }
-    }
-    //    func locationManagerInitialize(_application: UIApplication){//, didChangeState state: UIApplicationState){
-//        switch UIApplication.shared.applicationState {
-//        case .active:
-//            print("GETS HERE1")
-//            updateTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(saveCurrentLocation), userInfo: nil, repeats: true)
-//            registerBackgroundTask()
-//        case .background:
-//            print("GETS HERE2")
-//            updateTimer?.invalidate()
-//            updateTimer = nil
-//            // end background task
-//            if backgroundTask != UIBackgroundTaskInvalid {
-//            endBackgroundTask()
-//            }
-//        case .inactive:
-//            print("inactive")
-//        }
-//    }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         Log.write(.status, "locationManagerDidChangeAuthorizationStatus: \(status)")
@@ -200,20 +162,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
             break
         }
     }
-    
-    func registerBackgroundTask() {
-        print ("background task registered..............")
-        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
-            self?.endBackgroundTask()
-        }
-        assert(backgroundTask != UIBackgroundTaskInvalid)
-    }
 
-    func endBackgroundTask() {
-        print("Background task ended.")
-        UIApplication.shared.endBackgroundTask(backgroundTask)
-        backgroundTask = UIBackgroundTaskInvalid
-    }
 
 }
 

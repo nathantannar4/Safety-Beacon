@@ -22,7 +22,9 @@ var appController = NTDrawerController()
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    var updateTimer: Timer?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         Color.Default.setPrimary(to: .logoOffwhite)
@@ -83,6 +85,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        updateTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(debugfunc), userInfo: nil, repeats: true)
+        print ("App delegate didenterbackground")
+        registerBackgroundTask()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -91,9 +96,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        //need to reset timer and end background process
+        print ("didbecomeActive")
+        updateTimer?.invalidate()
+        updateTimer = nil
+        // end background task
+        if backgroundTask != UIBackgroundTaskInvalid {
+            endBackgroundTask()
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func registerBackgroundTask() {
+        print ("background task registered..............")
+        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            self?.endBackgroundTask()
+        }
+        assert(backgroundTask != UIBackgroundTaskInvalid)
+        
+    }
+    
+    func endBackgroundTask() {
+        print("Background task ended.")
+        UIApplication.shared.endBackgroundTask(backgroundTask)
+        backgroundTask = UIBackgroundTaskInvalid
+    }
+    
+    @objc func debugfunc() {
+        switch UIApplication.shared.applicationState {
+        case .active:
+            print ("debugfunc: Active")
+        case .background:
+            print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
+        case .inactive:
+            break
+        }
+    }
+    
 }
