@@ -16,8 +16,9 @@ import NTComponents
 import Mapbox
 import MapboxDirections
 import MapboxCoreNavigation
+import MapboxNavigation
 
-class NavigationViewController: MapViewController {
+class NavigationMapViewController: MapViewController {
     
     // MARK: - Properties
     
@@ -37,6 +38,8 @@ class NavigationViewController: MapViewController {
         button.setDefaultShadow()
         return button
     }()
+    
+    var directionsRoute: Route?
     
     // MARK: - View Life Cycle
     
@@ -61,12 +64,15 @@ class NavigationViewController: MapViewController {
         super.setupConstraints()
         takeMeHomeButton.addConstraints(nil, left: nil, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 32, rightConstant: 32, widthConstant: 80, heightConstant: 80)
     }
+    
+    // Always allow callouts to appear when annotations are tapped.
+    override func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
+    }
 
     // MARK: - User Actions
     @objc
     func calculateRouteHome() {
-        
-        var directionsRoute: Route?
         
         // TODO: - use actual home address
         let home = CLLocationCoordinate2D(latitude: 49.11340930, longitude: -122.89621281)
@@ -84,8 +90,8 @@ class NavigationViewController: MapViewController {
         
         _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
             guard let route = routes?.first else { return }
-            directionsRoute = route
-            self.drawRoute(route: directionsRoute!)
+            self.directionsRoute = route
+            self.drawRoute(route: self.directionsRoute!)
         }
     }
     
@@ -105,5 +111,15 @@ class NavigationViewController: MapViewController {
             mapView.style?.addSource(source)
             mapView.style?.addLayer(lineStyle)
         }
+    }
+    
+    // Present the navigation view controller
+    func presentNavigation(along route: Route) {
+        let viewController = NavigationViewController(for: route)
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+        self.presentNavigation(along: directionsRoute!)
     }
 }

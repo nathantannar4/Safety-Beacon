@@ -103,6 +103,8 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AWSPolly/AWSPolly.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework"
@@ -111,14 +113,20 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NTComponents/NTComponents.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OSRMTextInstructions/OSRMTextInstructions.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Parse/Parse.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Solar/Solar.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Turf/Turf.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AWSPolly/AWSPolly.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework"
@@ -127,10 +135,14 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NTComponents/NTComponents.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OSRMTextInstructions/OSRMTextInstructions.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Parse/Parse.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Solar/Solar.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Turf/Turf.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

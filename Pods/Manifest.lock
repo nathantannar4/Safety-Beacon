@@ -1,13 +1,16 @@
 PODS:
   - AcknowList (1.4)
   - ARCL (1.0.1)
+  - AWSCore (2.6.6)
+  - AWSPolly (2.6.6):
+    - AWSCore (= 2.6.6)
   - Bolts/Tasks (1.8.4)
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
   - DateTimePicker (1.2)
   - Fabric (1.7.2)
   - Mapbox-iOS-SDK (3.6.4)
-  - MapboxCoreNavigation (0.9.0):
+  - MapboxCoreNavigation (0.8.3):
     - MapboxDirections.swift (~> 0.10.5)
     - MapboxMobileEvents (~> 0.2)
     - OSRMTextInstructions (~> 0.3)
@@ -15,12 +18,25 @@ PODS:
   - MapboxDirections.swift (0.10.6):
     - Polyline (= 4.1.1)
   - MapboxMobileEvents (0.2.10)
+  - MapboxNavigation (0.8.3):
+    - AWSPolly (~> 2.6)
+    - Mapbox-iOS-SDK (~> 3.6)
+    - MapboxCoreNavigation (= 0.8.3)
+    - Pulley (= 1.4)
+    - SDWebImage (~> 4.1)
+    - Solar (= 2.0.0)
+    - Turf (~> 0.0.3)
   - NTComponents (1.0.0)
-  - OSRMTextInstructions (0.4.0):
+  - OSRMTextInstructions (0.5.0):
     - MapboxDirections.swift (~> 0.10)
   - Parse (1.15.3):
     - Bolts/Tasks (~> 1.8)
   - Polyline (4.1.1)
+  - Pulley (1.4)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
+  - Solar (2.0.0)
   - Turf (0.0.4)
 
 DEPENDENCIES:
@@ -31,6 +47,7 @@ DEPENDENCIES:
   - Fabric
   - Mapbox-iOS-SDK
   - MapboxCoreNavigation
+  - MapboxNavigation (~> 0.8.0)
   - NTComponents
   - Parse
   - Polyline
@@ -38,20 +55,26 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AcknowList: 1fae3fa62f256ddd1001adf20ba5c52743515ac7
   ARCL: 193b108d6fd5277ce742be3af92ccf81bbdd2f3b
+  AWSCore: 64619e45b47678afab53ca0f9b4fa380ebee6f0b
+  AWSPolly: 1491ed4d692befddded0af142f1258a209a4379b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   DateTimePicker: d3833535f731663cab99705326765a5ef18f66cc
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   Mapbox-iOS-SDK: 47847dd44285477e0dfffd0130f65c8a52823ada
-  MapboxCoreNavigation: 9cd3a9f11230414091acb822158a245137105b97
+  MapboxCoreNavigation: e3a02e78de886e82236e569006469cbd24fd419c
   MapboxDirections.swift: fbe95bd11c66339c1ef8b96301464f326394ac0d
   MapboxMobileEvents: 9e48b59d0eed04508595dcb04a77b7632e1c3054
+  MapboxNavigation: d7980154b489ae793f7b3e6c328b12f3210d9a53
   NTComponents: 98a9e0958818b087e87b8e3c94cbdbcc70941072
-  OSRMTextInstructions: d8aa1d21310fd31bf256cf245b11b9a8e6413d63
+  OSRMTextInstructions: 7bbe5a1ba548991d2a7ffba38262845e7a024390
   Parse: cdc0f1f975ee8be0409e66f21b05df4ae067047c
   Polyline: 381d1e699fd12508f97cfc468478dfbab67edf1f
+  Pulley: 3d47a5ca819b8f35a63e9a4811d35035d484d1d9
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
+  Solar: ea092f7660c1b58d2b754227decb61a1c6710826
   Turf: 6c169618fa671e3f8a7b764b5b3332053ad6110e
 
-PODFILE CHECKSUM: a40a52990e6080575d6a3ad41aac08e3ee97a602
+PODFILE CHECKSUM: 36bda1a284842226c2f80ab1b9fe0762a3a7db08
 
 COCOAPODS: 1.3.1

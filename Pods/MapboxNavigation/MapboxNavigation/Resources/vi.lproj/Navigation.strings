@@ -1,0 +1,10 @@
+﻿
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "JMs-xU-Gfd"; */
+"JMs-xU-Gfd.normalTitle" = "Hủy bỏ";
+
+/* Class = "UILabel"; text = "Rerouting…"; ObjectID = "UpZ-gr-OKM"; */
+"UpZ-gr-OKM.text" = "Đang Tìm Đường đi Mới…";
+
+/* Class = "UILabel"; text = "Thank you for your report!"; ObjectID = "upm-fg-ffn"; */
+"upm-fg-ffn.text" = "Cảm ơn bạn đã báo cáo!";
+
