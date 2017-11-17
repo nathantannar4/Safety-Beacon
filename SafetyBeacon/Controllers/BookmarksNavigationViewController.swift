@@ -41,12 +41,22 @@ class BookmarksNavigationViewController: UITableViewController {
     @objc
     func refreshBookmarks() {
         // Check that Caretaker is accessing this menu, not Patient
-        guard let currentUser = User.current(), currentUser.isPatient, let caretaker = currentUser.caretaker else { return }
-        
-print("\n caretaker is - \(caretaker)")
+        guard let currentUser = User.current(), currentUser.isPatient else { return }
         
         let query = PFQuery(className: "Bookmarks")
-        query.whereKey("caretaker", equalTo: caretaker)
+print("\n currentUser is - \(currentUser)")
+query.whereKey("patient", equalTo: currentUser)
+
+//SIGABT from line above ^
+//        currentUser is - <PFUser: 0x6000000e1080, objectId: pRGYHaleS6, localId: (null)> {
+//            ACL = "<PFACL: 0x600000431180>";
+//            caretaker = "<PFUser: 0x6000000e7500, objectId: iMZAoyqRS0, localId: (null)>";
+//            email = "patient@safetybeacon.ca";
+//            emailVerified = 1;
+//            username = "patient@safetybeacon.ca";
+//        }
+//        2017-11-17 00:08:37.950949-0800 SafetyBeacon[13300:1847179] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'Cannot do a comparison query for type: SafetyBeacon.User'
+
         query.findObjectsInBackground { (objects, error) in
             self.tableView.refreshControl?.endRefreshing()
             guard let objects = objects else {
@@ -69,7 +79,9 @@ print("\n caretaker is - \(caretaker)")
     // Section titles
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = NTTableViewHeaderFooterView()
-        header.textLabel.text = "Select Destination to Navigate to"
+        if section == 0 {
+            header.textLabel.text = "Select Destination to Navigate to"
+        }
         return header
     }
     
