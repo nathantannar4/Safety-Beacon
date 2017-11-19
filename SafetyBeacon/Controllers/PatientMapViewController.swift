@@ -31,7 +31,7 @@ class PatientMapViewController: MapViewController {
         button.setTitleColor(UIColor.white.withAlpha(0.3), for: .highlighted)
         button.setTitle("Home", for: .normal)
         button.titleFont = Font.Default.Title.withSize(22)
-        button.addTarget(self, action: #selector(calculateRouteHome), for: .touchUpInside)
+        button.addTarget(self, action: #selector(presentNavigation), for: .touchUpInside)
         button.layer.cornerRadius = 40
         button.layer.borderWidth = 4
         button.layer.borderColor = UIColor.white.cgColor
@@ -44,7 +44,7 @@ class PatientMapViewController: MapViewController {
     
     // Get bookmarks from database
     @objc
-    func getBookmarks() {
+    func getHomeBookmark() {
         // Check that Caretaker is accessing this menu, not Patient
         guard let currentUser = User.current(), currentUser.isPatient else { return }
         
@@ -56,6 +56,10 @@ class PatientMapViewController: MapViewController {
                 return
             }
             self.bookmarks = objects
+            
+            // TODO: Search for bookmark "Home"
+            let home = self.bookmarks[0]["address"] as? String
+            self.calculateRouteHome(Home: home!)
         }
     }
     
@@ -64,7 +68,7 @@ class PatientMapViewController: MapViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Map"
-        self.getBookmarks()
+        self.getHomeBookmark()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,18 +88,11 @@ class PatientMapViewController: MapViewController {
         takeMeHomeButton.addConstraints(nil, left: nil, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 32, rightConstant: 32, widthConstant: 80, heightConstant: 80)
     }
     
-    // Always allow callouts to appear when annotations are tapped.
-    override func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-        return true
-    }
-
     // MARK: - User Actions
     @objc
-    func calculateRouteHome() {
+    func calculateRouteHome(Home: String) {
         
-        // TODO: Search for bookmark "Home"
-        let home = bookmarks[0]["address"] as? String
-        self.getCoordinates(address: home!, completion: { (coordinate) in
+        self.getCoordinates(address: Home, completion: { (coordinate) in
             guard let coordinate = coordinate else {
                 NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
                 return
@@ -110,8 +107,12 @@ class PatientMapViewController: MapViewController {
             let annotation = MGLPointAnnotation()
             annotation.coordinate = coordinate
             annotation.title = "Home"
+            if let currentLocation = LocationManager.shared.currentLocation {
+                // Return distance in Km
+                annotation.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km Away"
+            }
             self.mapView.addAnnotation(annotation)
-            
+
             _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
                 guard let route = routes?.first else { return }
                 self.directionsRoute = route
@@ -139,13 +140,10 @@ class PatientMapViewController: MapViewController {
     }
     
     // Present the navigation view controller
-    func presentNavigation(along route: Route) {
-        let viewController = NavigationViewController(for: route)
+    @objc
+    func presentNavigation() {
+        let viewController = NavigationViewController(for: directionsRoute!)
         self.present(viewController, animated: true, completion: nil)
-    }
-    
-    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
-        self.presentNavigation(along: directionsRoute!)
     }
     
     // Get coordinates from address
