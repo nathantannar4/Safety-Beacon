@@ -10,7 +10,6 @@
 //
 
 import AddressBookUI
-import Contacts
 import CoreLocation
 import NTComponents
 import Parse
@@ -35,10 +34,6 @@ class BookmarksNavigationViewController: UITableViewController {
         view.backgroundColor = Color.Default.Background.ViewController
         tableView.tableFooterView = UIView()
         refreshBookmarks()
-        
-        let rc = UIRefreshControl()
-        rc.addTarget(self, action: #selector(refreshBookmarks), for: .valueChanged)
-        tableView.refreshControl = rc
     }
     
     // Updating bookmarks from database
@@ -72,7 +67,7 @@ class BookmarksNavigationViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = NTTableViewHeaderFooterView()
         if section == 0 {
-            header.textLabel.text = "Select Destination to Navigate to"
+            header.textLabel.text = "Select Destination:"
         }
         return header
     }
@@ -122,8 +117,8 @@ class BookmarksNavigationViewController: UITableViewController {
                 locationMarker.coordinate = coordinate
                 locationMarker.title = originalStreet
                 if let currentLocation = LocationManager.shared.currentLocation {
-                    // Return distance in meters
-                    locationMarker.subtitle = "\(Int(currentLocation.distance(to: coordinate)/1000)) Km Away"
+                    // Return distance in Km
+                    locationMarker.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km Away"
                 }
                 location.mapView.addAnnotation(locationMarker)
                 location.mapView.setCenter(coordinate, zoomLevel: 13, animated: true)
@@ -132,28 +127,30 @@ class BookmarksNavigationViewController: UITableViewController {
                 guard let currentLocation = LocationManager.shared.currentLocation else { return }
                 let origin = Waypoint(coordinate: currentLocation, name: "Current Location")
                 let destination = Waypoint(coordinate: coordinate, name: location.title)
-                
+
                 let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .walking)
-                
+
                 _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
                     guard let route = routes?.first else { return }
                     self.directionsRoute = route
-                    
+
                     guard route.coordinateCount > 0 else { return }
                     // Convert the route’s coordinates into a polyline.
                     var routeCoordinates = route.coordinates!
                     let polyline = MGLPolylineFeature(coordinates: &routeCoordinates, count: route.coordinateCount)
-                    
+
                     // If there's already a route line on the map, reset its shape to the new route
                     if let source = location.mapView.style?.source(withIdentifier: "route-source") as? MGLShapeSource {
                         source.shape = polyline
                     } else {
                         let source = MGLShapeSource(identifier: "route-source", features: [polyline], options: nil)
                         let lineStyle = MGLLineStyleLayer(identifier: "route-style", source: source)
-                        
+
                         location.mapView.style?.addSource(source)
                         location.mapView.style?.addLayer(lineStyle)
                     }
+                    // Connect start button to action
+                    location.startButton.addTarget(self, action: #selector(self.presentNavigation), for: .touchUpInside)
                 }
             })
         })
@@ -161,6 +158,22 @@ class BookmarksNavigationViewController: UITableViewController {
     }
     
     // MARK: - Processing Functions
+    
+    // Get the view controller currently displayed
+    func topMostController() -> UIViewController {
+        var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+        while (topController.presentedViewController != nil) {
+            topController = topController.presentedViewController!
+        }
+        return topController
+    }
+    
+    // Present the navigation view controller
+    @objc
+    func presentNavigation() {
+        let viewController = NavigationViewController(for: self.directionsRoute!)
+        topMostController().present(viewController, animated: true, completion: nil)
+    }
     
     // Get coordinates from address
     func getCoordinates(address: String, completion: @escaping (CLLocationCoordinate2D?) -> Void) {

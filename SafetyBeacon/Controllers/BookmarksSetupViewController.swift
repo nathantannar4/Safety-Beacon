@@ -158,8 +158,8 @@ class BookmarksSetupViewController: UITableViewController {
                     locationMarker.coordinate = coordinate
                     locationMarker.title = originalStreet
                     if let currentLocation = LocationManager.shared.currentLocation {
-                        // returns distance in meters
-                        locationMarker.subtitle = "\(Int(currentLocation.distance(to: coordinate)/1000)) Km"
+                        // Return distance in Km
+                        locationMarker.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km Away"
                     }
                     location.mapView.addAnnotation(locationMarker)
                     location.mapView.setCenter(coordinate, zoomLevel: 12, animated: true)
