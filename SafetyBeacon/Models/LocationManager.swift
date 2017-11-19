@@ -7,7 +7,7 @@
 //  Edited by:
 //      Nathan Tannar
 //           - ntannar@sfu.ca
-//      Kim Youjung
+//      Youjung Kim
 //          - youjungk@sfu.ca
 //
 
@@ -135,6 +135,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
         }
         counter += 1
         
+		//For testing purposes
         switch UIApplication.shared.applicationState {
         case .active:
             print ("active")

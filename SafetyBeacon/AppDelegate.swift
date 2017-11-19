@@ -7,7 +7,8 @@
 //  Edited by:
 //      Nathan Tannar
 //           - ntannar@sfu.ca
-//
+//      Youjung Kim
+//          - youjungk@sfu.ca
 
 import UIKit
 import Parse
@@ -22,6 +23,7 @@ var appController = NTDrawerController()
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+	// Variables for running background Tasks
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
     var updateTimer: Timer?
     
@@ -85,8 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+		// Timer for the background process
         updateTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(debugfunc), userInfo: nil, repeats: true)
-        print ("App delegate didenterbackground")
+        //print ("App delegate didenterbackground") //Debug print statement
+		// registerBackgroundTask() tells iOS that you need more time to complete the task
         registerBackgroundTask()
     }
 
@@ -97,7 +101,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         //need to reset timer and end background process
-        print ("didbecomeActive")
+		// When application opens, it resets the updateTimer and terminate the backgroundTask (endBackgroundTask())
+        //print ("didbecomeActive") //Debug print statement
         updateTimer?.invalidate()
         updateTimer = nil
         // end background task
@@ -111,7 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func registerBackgroundTask() {
-        print ("background task registered..............")
+        //print ("background task registered..............") //Debug print statement
         backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
             self?.endBackgroundTask()
         }
@@ -120,11 +125,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func endBackgroundTask() {
-        print("Background task ended.")
+        //print("Background task ended.") //Debug print statement
         UIApplication.shared.endBackgroundTask(backgroundTask)
         backgroundTask = UIBackgroundTaskInvalid
     }
-    
+    // Just for debugging purposes, could be replaced with an empty function
     @objc func debugfunc() {
         switch UIApplication.shared.applicationState {
         case .active:
