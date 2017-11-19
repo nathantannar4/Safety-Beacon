@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3810DA4C1F832A5300B5180E /* NavigationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810DA4B1F832A5300B5180E /* NavigationMapViewController.swift */; };
+		3810DA4C1F832A5300B5180E /* PatientMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810DA4B1F832A5300B5180E /* PatientMapViewController.swift */; };
 		3810DA4E1F832AAC00B5180E /* SafeZonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810DA4D1F832AAC00B5180E /* SafeZonesViewController.swift */; };
 		3847EEA81F79DD6000305761 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEA71F79DD6000305761 /* MapViewController.swift */; };
-		3847EEAA1F79DFAF00305761 /* BookmarksSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEA91F79DFAF00305761 /* BookmarksSetupViewController.swift */; };
-		3847EEAE1F79E02E00305761 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEAD1F79E02E00305761 /* ReportViewController.swift */; };
-		3847EEB01F79E08700305761 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEAF1F79E08700305761 /* HistoryViewController.swift */; };
+		3847EEAA1F79DFAF00305761 /* CaretakerBookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEA91F79DFAF00305761 /* CaretakerBookmarksViewController.swift */; };
+		3847EEAE1F79E02E00305761 /* CaretakerReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEAD1F79E02E00305761 /* CaretakerReportViewController.swift */; };
+		3847EEB01F79E08700305761 /* CaretakerHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEAF1F79E08700305761 /* CaretakerHistoryViewController.swift */; };
 		385BA3301F79BD38004B9061 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385BA32F1F79BD38004B9061 /* LoginViewController.swift */; };
 		385BA3311F79BE2A004B9061 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1209D1F736FAC00A4A9A4 /* UIView+AutoLayout.swift */; };
 		385BA3321F79BE2C004B9061 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1209C1F736FAC00A4A9A4 /* UIColor+Extensions.swift */; };
@@ -37,17 +37,18 @@
 		38F7C27E1F736EC0006C995A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F7C2771F736E36006C995A /* LaunchScreen.storyboard */; };
 		38F7C2801F736EC5006C995A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F7C27B1F736E37006C995A /* Assets.xcassets */; };
 		785FFDF79C7B992CF2941605 /* Pods_SafetyBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9324C7D4A6FA4E0E95079A40 /* Pods_SafetyBeacon.framework */; };
-		961FF6CF1FBD6E26006C7535 /* BookmarksNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FF6CE1FBD6E26006C7535 /* BookmarksNavigationViewController.swift */; };
-		96255D061FAE78990072F482 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96255D051FAE78990072F482 /* LocationViewController.swift */; };
+		961FF6CF1FBD6E26006C7535 /* PatientBookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FF6CE1FBD6E26006C7535 /* PatientBookmarksViewController.swift */; };
+		96255D061FAE78990072F482 /* PatientLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96255D051FAE78990072F482 /* PatientLocationViewController.swift */; };
+		968BCD111FC2446E00EAB598 /* CaretakerLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968BCD101FC2446E00EAB598 /* CaretakerLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3810DA4B1F832A5300B5180E /* NavigationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMapViewController.swift; sourceTree = "<group>"; };
+		3810DA4B1F832A5300B5180E /* PatientMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientMapViewController.swift; sourceTree = "<group>"; };
 		3810DA4D1F832AAC00B5180E /* SafeZonesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeZonesViewController.swift; sourceTree = "<group>"; };
 		3847EEA71F79DD6000305761 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		3847EEA91F79DFAF00305761 /* BookmarksSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksSetupViewController.swift; sourceTree = "<group>"; };
-		3847EEAD1F79E02E00305761 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
-		3847EEAF1F79E08700305761 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		3847EEA91F79DFAF00305761 /* CaretakerBookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerBookmarksViewController.swift; sourceTree = "<group>"; };
+		3847EEAD1F79E02E00305761 /* CaretakerReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerReportViewController.swift; sourceTree = "<group>"; };
+		3847EEAF1F79E08700305761 /* CaretakerHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerHistoryViewController.swift; sourceTree = "<group>"; };
 		385BA32F1F79BD38004B9061 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		385BA33E1F79C2A5004B9061 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3869F55A1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-SafetyBeacon-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
@@ -78,8 +79,9 @@
 		5D5100163DA4D68C4A0E9F36 /* Pods-SafetyBeacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBeacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon.release.xcconfig"; sourceTree = "<group>"; };
 		7CB55ED398553A1D330243CC /* Pods_SafetyBeaconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBeaconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9324C7D4A6FA4E0E95079A40 /* Pods_SafetyBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		961FF6CE1FBD6E26006C7535 /* BookmarksNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksNavigationViewController.swift; sourceTree = "<group>"; };
-		96255D051FAE78990072F482 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		961FF6CE1FBD6E26006C7535 /* PatientBookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientBookmarksViewController.swift; sourceTree = "<group>"; };
+		96255D051FAE78990072F482 /* PatientLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientLocationViewController.swift; sourceTree = "<group>"; };
+		968BCD101FC2446E00EAB598 /* CaretakerLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerLocationViewController.swift; sourceTree = "<group>"; };
 		F38440B137C4743245CE70BD /* Pods-SafetyBeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBeacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,14 +124,15 @@
 				385BA32F1F79BD38004B9061 /* LoginViewController.swift */,
 				3869F5601FA2C00F00DC3CDC /* AccountSetupViewController.swift */,
 				3847EEA71F79DD6000305761 /* MapViewController.swift */,
-				3810DA4B1F832A5300B5180E /* NavigationMapViewController.swift */,
-				3847EEAD1F79E02E00305761 /* ReportViewController.swift */,
-				3847EEA91F79DFAF00305761 /* BookmarksSetupViewController.swift */,
-				961FF6CE1FBD6E26006C7535 /* BookmarksNavigationViewController.swift */,
+				3810DA4B1F832A5300B5180E /* PatientMapViewController.swift */,
+				3847EEAD1F79E02E00305761 /* CaretakerReportViewController.swift */,
+				3847EEA91F79DFAF00305761 /* CaretakerBookmarksViewController.swift */,
+				961FF6CE1FBD6E26006C7535 /* PatientBookmarksViewController.swift */,
 				3810DA4D1F832AAC00B5180E /* SafeZonesViewController.swift */,
-				3847EEAF1F79E08700305761 /* HistoryViewController.swift */,
+				3847EEAF1F79E08700305761 /* CaretakerHistoryViewController.swift */,
 				389E62FA1F909A41005B39DA /* SettingsViewController.swift */,
-				96255D051FAE78990072F482 /* LocationViewController.swift */,
+				96255D051FAE78990072F482 /* PatientLocationViewController.swift */,
+				968BCD101FC2446E00EAB598 /* CaretakerLocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -417,26 +420,27 @@
 				38C890D81FAE6C2900723F0D /* DynamicTabBarItem.swift in Sources */,
 				389E62FB1F909A41005B39DA /* SettingsViewController.swift in Sources */,
 				3810DA4E1F832AAC00B5180E /* SafeZonesViewController.swift in Sources */,
-				3847EEAE1F79E02E00305761 /* ReportViewController.swift in Sources */,
+				3847EEAE1F79E02E00305761 /* CaretakerReportViewController.swift in Sources */,
 				38C890D51FAE6C2900723F0D /* DynamicTabBarController.swift in Sources */,
 				38F7C2561F736D92006C995A /* AppDelegate.swift in Sources */,
 				385BA3321F79BE2C004B9061 /* UIColor+Extensions.swift in Sources */,
-				3810DA4C1F832A5300B5180E /* NavigationMapViewController.swift in Sources */,
-				96255D061FAE78990072F482 /* LocationViewController.swift in Sources */,
+				3810DA4C1F832A5300B5180E /* PatientMapViewController.swift in Sources */,
+				96255D061FAE78990072F482 /* PatientLocationViewController.swift in Sources */,
 				3847EEA81F79DD6000305761 /* MapViewController.swift in Sources */,
 				389E62F91F90992C005B39DA /* ContentController.swift in Sources */,
 				385BA3311F79BE2A004B9061 /* UIView+AutoLayout.swift in Sources */,
-				3847EEB01F79E08700305761 /* HistoryViewController.swift in Sources */,
+				3847EEB01F79E08700305761 /* CaretakerHistoryViewController.swift in Sources */,
 				3892E9BC1F78539F002E3AC2 /* Secrets.swift in Sources */,
 				3869F5611FA2C00F00DC3CDC /* AccountSetupViewController.swift in Sources */,
-				3847EEAA1F79DFAF00305761 /* BookmarksSetupViewController.swift in Sources */,
+				3847EEAA1F79DFAF00305761 /* CaretakerBookmarksViewController.swift in Sources */,
 				3892E9C41F79B5ED002E3AC2 /* Log.swift in Sources */,
 				385BA3301F79BD38004B9061 /* LoginViewController.swift in Sources */,
 				3869F5631FA2D0F600DC3CDC /* ProgressHUD.swift in Sources */,
 				3892E9C21F79B460002E3AC2 /* LocationManager.swift in Sources */,
 				38C890D61FAE6C2900723F0D /* DynamicTabBar.swift in Sources */,
+				968BCD111FC2446E00EAB598 /* CaretakerLocationViewController.swift in Sources */,
 				385BA33F1F79C2A5004B9061 /* User.swift in Sources */,
-				961FF6CF1FBD6E26006C7535 /* BookmarksNavigationViewController.swift in Sources */,
+				961FF6CF1FBD6E26006C7535 /* PatientBookmarksViewController.swift in Sources */,
 				3869F55D1FA2BA0D00DC3CDC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

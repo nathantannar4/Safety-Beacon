@@ -1,5 +1,5 @@
 //
-//  ReportViewController.swift
+//  CaretakerReportViewController.swift
 //  SafetyBeacon
 //
 //  Created by Nathan Tannar on 9/25/17.
@@ -9,7 +9,7 @@
 import UIKit
 import NTComponents
 
-class ReportViewController: NTTableViewController {
+class CaretakerReportViewController: NTTableViewController {
     
     // MARK: - Properties
     

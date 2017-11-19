@@ -1,5 +1,5 @@
 //
-//  BookmarksNavigationViewController.swift
+//  PatientBookmarksViewController.swift
 //  SafetyBeacon
 //
 //  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
@@ -19,7 +19,7 @@ import MapboxDirections
 import MapboxCoreNavigation
 import MapboxNavigation
 
-class BookmarksNavigationViewController: UITableViewController {
+class PatientBookmarksViewController: UITableViewController {
     
     // MARK: - Properties
     var bookmarks = [PFObject]()
@@ -99,7 +99,7 @@ class BookmarksNavigationViewController: UITableViewController {
     
     // Row selectable actions
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let location = LocationViewController()
+        let location = PatientLocationViewController()
         location.title = bookmarks[indexPath.row]["name"] as? String
         let address = bookmarks[indexPath.row]["address"] as? String
         var concatenatedAddressArr = address?.components(separatedBy: ", ")

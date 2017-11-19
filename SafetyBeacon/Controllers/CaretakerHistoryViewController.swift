@@ -1,5 +1,5 @@
 //
-//  HistoryViewController.swift
+//  CaretakerHistoryViewController.swift
 //  SafetyBeacon
 //
 //  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
@@ -17,7 +17,7 @@ import NTComponents
 import Mapbox
 import DateTimePicker
 
-class HistoryViewController: MapViewController {
+class CaretakerHistoryViewController: MapViewController {
     
     // MARK: - Properties
     

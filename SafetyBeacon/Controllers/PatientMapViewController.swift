@@ -1,5 +1,5 @@
 //
-//  NavigationViewController.swift
+//  PatientMapViewController.swift
 //  SafetyBeacon
 //
 //  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
@@ -19,7 +19,7 @@ import MapboxDirections
 import MapboxCoreNavigation
 import MapboxNavigation
 
-class NavigationMapViewController: MapViewController {
+class PatientMapViewController: MapViewController {
     
     // MARK: - Properties
     lazy var takeMeHomeButton: NTButton = { [weak self] in

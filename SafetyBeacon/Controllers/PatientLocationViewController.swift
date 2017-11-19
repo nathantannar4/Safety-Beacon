@@ -1,5 +1,5 @@
 //
-//  LocationViewController.swift
+//  PatientLocationViewController.swift
 //  SafetyBeacon
 //
 //  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
@@ -12,7 +12,7 @@
 import UIKit
 import NTComponents
 
-class LocationViewController: MapViewController {
+class PatientLocationViewController: MapViewController {
     
     lazy var startButton: NTButton = { [weak self] in
         let button = NTButton()

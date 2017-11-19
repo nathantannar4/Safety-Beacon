@@ -1,5 +1,5 @@
 //
-//  BookmarksSetupViewController.swift
+//  CaretakerBookmarksViewController.swift
 //  SafetyBeacon
 //
 //  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
@@ -19,7 +19,7 @@ import Parse
 import UIKit
 import Mapbox
 
-class BookmarksSetupViewController: UITableViewController {
+class CaretakerBookmarksViewController: UITableViewController {
 
     // MARK: - Properties
     var bookmarks = [PFObject]()
@@ -141,7 +141,7 @@ class BookmarksSetupViewController: UITableViewController {
             addBookmark()
         }
         if indexPath.section == 1 {
-            let location = LocationViewController()
+            let location = CaretakerLocationViewController()
             location.title = bookmarks[indexPath.row]["name"] as? String
             let address = bookmarks[indexPath.row]["address"] as? String
             var concatenatedAddressArr = address?.components(separatedBy: ", ")
@@ -404,7 +404,7 @@ class BookmarksSetupViewController: UITableViewController {
 }
 
 // MARK: - UIPickerViewDataSource/UIPickerViewDelegate
-extension BookmarksSetupViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension CaretakerBookmarksViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     // Sections within picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -429,7 +429,7 @@ extension BookmarksSetupViewController: UIPickerViewDataSource, UIPickerViewDele
 }
 
 // MARK: - UITextFieldDelegate
-extension BookmarksSetupViewController: UITextFieldDelegate {
+extension CaretakerBookmarksViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let count = textField.text?.count ?? 0
