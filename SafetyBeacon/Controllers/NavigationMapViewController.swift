@@ -11,6 +11,7 @@
 //          - paleblan@sfu.ca
 //
 
+import Parse
 import UIKit
 import NTComponents
 import Mapbox
@@ -21,7 +22,6 @@ import MapboxNavigation
 class NavigationMapViewController: MapViewController {
     
     // MARK: - Properties
-    
     lazy var takeMeHomeButton: NTButton = { [weak self] in
         let button = NTButton()
         button.backgroundColor = .logoBlue
@@ -40,19 +40,38 @@ class NavigationMapViewController: MapViewController {
     }()
     
     var directionsRoute: Route?
+    var bookmarks = [PFObject]()
+    
+    // Get bookmarks from database
+    @objc
+    func getBookmarks() {
+        // Check that Caretaker is accessing this menu, not Patient
+        guard let currentUser = User.current(), currentUser.isPatient else { return }
+        
+        let query = PFQuery(className: "Bookmarks")
+        query.whereKey("patient", equalTo: currentUser.object)
+        query.findObjectsInBackground { (objects, error) in
+            guard let objects = objects else {
+                Log.write(.error, error.debugDescription)
+                return
+            }
+            self.bookmarks = objects
+        }
+    }
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Map"
+        self.getBookmarks()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         guard let location = LocationManager.shared.currentLocation else { return }
-        mapView.setCenter(location, zoomLevel: 12, animated: true)
+        mapView.setCenter(location, zoomLevel: 13, animated: true)
     }
     
     override func setupSubviews() {
@@ -74,25 +93,31 @@ class NavigationMapViewController: MapViewController {
     @objc
     func calculateRouteHome() {
         
-        // TODO: - use actual home address
-        let home = CLLocationCoordinate2D(latitude: 49.11340930, longitude: -122.89621281)
-        //use mapbox to trace the path to home from current location
-        guard let currentLocation = LocationManager.shared.currentLocation else { return }
-        let origin = Waypoint(coordinate: currentLocation, name: "Current Location")
-        let destination = Waypoint(coordinate: home, name: "Home")
-        
-        let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .walking)
-        
-        let annotation = MGLPointAnnotation()
-        annotation.coordinate = home
-        annotation.title = "Home"
-        mapView.addAnnotation(annotation)
-        
-        _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
-            guard let route = routes?.first else { return }
-            self.directionsRoute = route
-            self.drawRoute(route: self.directionsRoute!)
-        }
+        // TODO: Search for bookmark "Home"
+        let home = bookmarks[0]["address"] as? String
+        self.getCoordinates(address: home!, completion: { (coordinate) in
+            guard let coordinate = coordinate else {
+                NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
+                return
+            }
+            //use mapbox to trace the path to home from current location
+            guard let currentLocation = LocationManager.shared.currentLocation else { return }
+            let origin = Waypoint(coordinate: currentLocation, name: "Current Location")
+            let destination = Waypoint(coordinate: coordinate, name: "Home")
+            
+            let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .walking)
+            
+            let annotation = MGLPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = "Home"
+            self.mapView.addAnnotation(annotation)
+            
+            _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
+                guard let route = routes?.first else { return }
+                self.directionsRoute = route
+                self.drawRoute(route: self.directionsRoute!)
+            }
+        })
     }
     
     func drawRoute(route: Route) {
@@ -121,5 +146,23 @@ class NavigationMapViewController: MapViewController {
     
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
         self.presentNavigation(along: directionsRoute!)
+    }
+    
+    // Get coordinates from address
+    func getCoordinates(address: String, completion: @escaping (CLLocationCoordinate2D?) -> Void) {
+        CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
+            if error != nil {
+                Log.write(.error, error.debugDescription)
+                return
+            }
+            if placemarks?.count != nil {
+                let placemark = placemarks?[0]
+                let location = placemark?.location
+                let coordinate = location?.coordinate
+                completion(coordinate)
+            } else {
+                completion(nil)
+            }
+        })
     }
 }

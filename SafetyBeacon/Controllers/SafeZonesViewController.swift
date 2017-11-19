@@ -362,6 +362,14 @@ extension SafeZonesViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let count = textField.text?.count ?? 0
-        return count < 6
+        let char = string.cString(using: String.Encoding.utf8)!
+        let isBackSpace = strcmp(char, "\\b")
+        
+        // Limit postal code input limit to 6, unless backspace is pressed
+        if (isBackSpace == -92) {
+            return true
+        } else {
+            return count < 6
+        }
     }
 }

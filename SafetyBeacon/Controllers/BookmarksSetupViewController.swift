@@ -1,5 +1,5 @@
 //
-//  BookmarksViewController.swift
+//  BookmarksSetupViewController.swift
 //  SafetyBeacon
 //
 //  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
@@ -7,8 +7,8 @@
 //  Edited by:
 //      Jason Tsang
 //          - jrtsang@sfu.ca
-//	Nathan Tannar
-//	    - ntannar@sfu.ca
+//	    Nathan Tannar
+//	        - ntannar@sfu.ca
 //
 
 import AddressBookUI
@@ -19,7 +19,7 @@ import Parse
 import UIKit
 import Mapbox
 
-class BookmarksViewController: UITableViewController {
+class BookmarksSetupViewController: UITableViewController {
 
     // MARK: - Properties
     var bookmarks = [PFObject]()
@@ -158,8 +158,8 @@ class BookmarksViewController: UITableViewController {
                     locationMarker.coordinate = coordinate
                     locationMarker.title = originalStreet
                     if let currentLocation = LocationManager.shared.currentLocation {
-                        // returns distance in meters
-                        locationMarker.subtitle = "\(Int(currentLocation.distance(to: coordinate)/1000)) Km"
+                        // Return distance in Km
+                        locationMarker.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km Away"
                     }
                     location.mapView.addAnnotation(locationMarker)
                     location.mapView.setCenter(coordinate, zoomLevel: 12, animated: true)
@@ -404,7 +404,7 @@ class BookmarksViewController: UITableViewController {
 }
 
 // MARK: - UIPickerViewDataSource/UIPickerViewDelegate
-extension BookmarksViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension BookmarksSetupViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     // Sections within picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -429,10 +429,18 @@ extension BookmarksViewController: UIPickerViewDataSource, UIPickerViewDelegate 
 }
 
 // MARK: - UITextFieldDelegate
-extension BookmarksViewController: UITextFieldDelegate {
+extension BookmarksSetupViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let count = textField.text?.count ?? 0
-        return count < 6
+        let char = string.cString(using: String.Encoding.utf8)!
+        let isBackSpace = strcmp(char, "\\b")
+
+        // Limit postal code input limit to 6, unless backspace is pressed
+        if (isBackSpace == -92) {
+            return true
+        } else {
+            return count < 6
+        }
     }
 }
