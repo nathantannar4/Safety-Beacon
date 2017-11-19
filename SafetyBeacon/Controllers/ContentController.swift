@@ -10,6 +10,7 @@
 //
 
 import NTComponents
+import WhatsNew
 
 class ContentController: UINavigationController {
     
@@ -47,6 +48,26 @@ class ContentController: UINavigationController {
         navigationBar.isTranslucent = false
         navigationBar.shadowImage = UIImage()
         navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // The major items that are new
+        let items = [
+            WhatsNewItem.image(title: "Navigation", subtitle: "Turn-by-Turn navigation instructions", image: UIImage(named: "icons8-route")!.withRenderingMode(.alwaysTemplate)),
+            WhatsNewItem.image(title: "History", subtitle: "View the patients history and filter locations by date and time", image: UIImage(named: "icons8-clock")!.withRenderingMode(.alwaysTemplate)),
+            WhatsNewItem.image(title: "Battery Alerts", subtitle: "The caretaker is updated in the event that the patients battery is low", image: UIImage(named: "icons8-high_battery")!.withRenderingMode(.alwaysTemplate)),
+            WhatsNewItem.image(title: "Background Updates", subtitle: "The patients location will now be updated even when their app is closed.", image: UIImage(named: "icons8-refresh")!.withRenderingMode(.alwaysTemplate)),
+            ]
+        
+        // Present the WhatsNew controller
+        let whatsNew = WhatsNewViewController(items: items)
+        whatsNew.buttonBackgroundColor = .logoBlue
+        whatsNew.itemTextColor = .darkGray
+        whatsNew.buttonTextColor = .white
+        whatsNew.view.backgroundColor = .logoOffwhite
+        whatsNew.presentIfNeeded(on: self)
     }
     
     @objc

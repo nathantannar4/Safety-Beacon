@@ -13,11 +13,12 @@ target 'SafetyBeacon' do
   pod 'Polyline'
   pod 'Mapbox-iOS-SDK'
   pod 'MapboxCoreNavigation'
-  pod 'MapboxNavigation', '~> 0.8.0'
+  pod 'MapboxNavigation'
   pod 'NTComponents'
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'AcknowList'
   pod 'DateTimePicker'
+  pod 'WhatsNew'
 
 end

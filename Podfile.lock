@@ -38,6 +38,7 @@ PODS:
   - SDWebImage/Core (4.2.2)
   - Solar (2.0.0)
   - Turf (0.0.4)
+  - WhatsNew (0.3.1)
 
 DEPENDENCIES:
   - AcknowList
@@ -47,10 +48,11 @@ DEPENDENCIES:
   - Fabric
   - Mapbox-iOS-SDK
   - MapboxCoreNavigation
-  - MapboxNavigation (~> 0.8.0)
+  - MapboxNavigation
   - NTComponents
   - Parse
   - Polyline
+  - WhatsNew
 
 SPEC CHECKSUMS:
   AcknowList: 1fae3fa62f256ddd1001adf20ba5c52743515ac7
@@ -74,7 +76,8 @@ SPEC CHECKSUMS:
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   Solar: ea092f7660c1b58d2b754227decb61a1c6710826
   Turf: 6c169618fa671e3f8a7b764b5b3332053ad6110e
+  WhatsNew: 591f464f77354ad49849d34f32c62b17c2c4e693
 
-PODFILE CHECKSUM: 36bda1a284842226c2f80ab1b9fe0762a3a7db08
+PODFILE CHECKSUM: dc8ba6e851cb5f7ad0a5e4c5f79ecbb2b3709b64
 
 COCOAPODS: 1.3.1
