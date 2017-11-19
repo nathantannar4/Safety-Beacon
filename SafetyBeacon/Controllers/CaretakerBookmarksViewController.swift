@@ -158,8 +158,8 @@ class CaretakerBookmarksViewController: UITableViewController {
                     locationMarker.coordinate = coordinate
                     locationMarker.title = originalStreet
                     if let currentLocation = LocationManager.shared.currentLocation {
-                        // Return distance in Km
-                        locationMarker.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km Away"
+                        // Return distance in Km away from patient
+                        locationMarker.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km from Patient's Location"
                     }
                     location.mapView.addAnnotation(locationMarker)
                     location.mapView.setCenter(coordinate, zoomLevel: 12, animated: true)
