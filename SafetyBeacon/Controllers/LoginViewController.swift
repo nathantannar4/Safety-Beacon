@@ -84,7 +84,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
                 // Caretaker Views
                 
                 // This sets up how we want the DynamicTabBarController to look like
-                let viewControllers = [CaretakerReportViewController(), CaretakerBookmarksViewController(), SafeZonesViewController(), CaretakerHistoryViewController()]
+                let viewControllers = [CaretakerReportViewController(), CaretakerBookmarksViewController(), CaretakerSafeZonesViewController(), CaretakerHistoryViewController()]
                 let tabBarController = DynamicTabBarController(viewControllers: viewControllers)
                 tabBarController.isScrollEnabled = false
                 tabBarController.tabBar.activeTintColor = .logoBlue
