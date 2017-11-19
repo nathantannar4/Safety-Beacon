@@ -1,23 +1,32 @@
-﻿/* Indicates a faster route was found */
+/* Dismiss button title on the steps view */
+"DISMISS_STEPS_TITLE" = "Cerrar";
+
+/* Indicates a faster route was found */
 "FASTER_ROUTE_FOUND" = "Ruta más rápida encontrada";
 
-/* Feedback type for Accident */
-"FEEDBACK_ACCIDENT" = "Accidente";
+/* Feedback type for Bad Route */
+"FEEDBACK_BAD_ROUTE" = "Ruta\npobre";
 
-/* Feedback type for Closure */
-"FEEDBACK_CLOSURE" = "Cerrado";
+/* Feedback type for Confusing Instruction */
+"FEEDBACK_CONFUSING_INSTRUCTION" = "Instrucción\nengañosa";
 
-/* Feedback type for Confusing */
-"FEEDBACK_CONFUSING" = "Confundido";
+/* Feedback type for Other Map Issue Issue */
+"FEEDBACK_GENERAL_ISSUE" = "Otra problema\nen la mapa";
 
-/* Feedback type for Hazard */
-"FEEDBACK_HAZARD" = "Peligro";
+/* Feedback type for Missing Exit */
+"FEEDBACK_MISSING_EXIT" = "Falta\nsalida";
 
-/* Feedback type for Other Issue */
-"FEEDBACK_OTHER" = "Otra problema";
+/* Feedback type for Missing Road */
+"FEEDBACK_MISSING_ROAD" = "Falta\ncamino";
 
-/* Feedback type for Unallowed Turn */
-"FEEDBACK_UNALLOWED_TURN" = "Prohibido";
+/* Feedback type for a maneuver that is Not Allowed */
+"FEEDBACK_NOT_ALLOWED" = "Prohibido";
+
+/* Feedback type for Report Traffic */
+"FEEDBACK_REPORT_TRAFFIC" = "Reportar\ncongestión";
+
+/* Feedback type for Road Closed */
+"FEEDBACK_ROAD_CLOSURE" = "Camino\ncerrado";
 
 /* Format for displaying the first two major ways */
 "LEG_MAJOR_WAYS_FORMAT" = "%1$@ y %2$@";
@@ -25,11 +34,17 @@
 /* Format string for a short distance or time less than a minimum threshold; 1 = duration remaining */
 "LESS_THAN" = "<%@";
 
+/* Recording audio for feedback */
+"RECORDING_AUDIO" = "Grabando audio";
+
 /* Indicates that rerouting is in progress */
 "REROUTING" = "Reenrutando…";
 
 /* Button title for resume tracking */
 "RESUME" = "Continuar";
+
+/* Then */
+"THEN" = "Luego:";
 
 /* The text of a banner that appears during turn-by-turn navigation when route simulation is enabled. */
 "USER_IN_SIMULATION_MODE" = "Simulando navegación";

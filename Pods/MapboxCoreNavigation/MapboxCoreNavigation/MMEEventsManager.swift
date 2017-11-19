@@ -4,7 +4,7 @@ import AVFoundation
 import MapboxMobileEvents
 
 let SecondsBeforeCollectionAfterFeedbackEvent: TimeInterval = 20
-let EventVersion = 5
+let EventVersion = 6
 
 struct EventDetails {
     var originalRequestIdentifier: String?
@@ -33,8 +33,12 @@ struct EventDetails {
     var audioType: String
     var screenBrightness: Int
     var batteryPluggedIn: Bool
-    var batteryLevel: Float
+    var batteryLevel: Int
     var applicationState: UIApplicationState
+    var userAbsoluteDistanceToDestination: CLLocationDistance?
+    var locationEngine: CLLocationManager.Type?
+    var percentTimeInPortrait: Int
+    var percentTimeInForeground: Int
     
     init(routeController: RouteController, session: SessionState) {
         created = Date()
@@ -54,6 +58,10 @@ struct EventDetails {
         
         if let location = routeController.locationManager.location {
             coordinate = location.coordinate
+            
+            if let coordinates = routeController.routeProgress.route.coordinates, let lastCoord = coordinates.last {
+                userAbsoluteDistanceToDestination = location.distance(from: CLLocation(latitude: lastCoord.latitude, longitude: lastCoord.longitude))
+            }
         }
         
         if let geometry = session.originalRoute.coordinates {
@@ -80,8 +88,29 @@ struct EventDetails {
         screenBrightness = Int(UIScreen.main.brightness * 100)
         
         batteryPluggedIn = UIDevice.current.batteryState == .charging || UIDevice.current.batteryState == .full
-        batteryLevel = UIDevice.current.batteryLevel >= 0 ? UIDevice.current.batteryLevel * 100 : -1
+        batteryLevel = UIDevice.current.batteryLevel >= 0 ? Int(UIDevice.current.batteryLevel) * 100 : -1
         applicationState = UIApplication.shared.applicationState
+        if let manager = routeController.locationManager {
+            locationEngine = type(of: manager)
+        }
+        
+        var totalTimeInPortrait = session.timeSpentInPortrait
+        var totalTimeInLandscape = session.timeSpentInLandscape
+        if UIDevice.current.orientation.isPortrait {
+            totalTimeInPortrait += abs(session.lastTimeInPortrait.timeIntervalSinceNow)
+        } else if UIDevice.current.orientation.isLandscape {
+            totalTimeInLandscape += abs(session.lastTimeInLandscape.timeIntervalSinceNow)
+        }
+        percentTimeInPortrait = totalTimeInPortrait + totalTimeInLandscape == 0 ? 100 : Int((totalTimeInPortrait / (totalTimeInPortrait + totalTimeInLandscape)) * 100)
+        
+        var totalTimeInForeground = session.timeSpentInForeground
+        var totalTimeInBackground = session.timeSpentInBackground
+        if UIApplication.shared.applicationState == .active {
+            totalTimeInForeground += abs(session.lastTimeInForeground.timeIntervalSinceNow)
+        } else {
+            totalTimeInBackground += abs(session.lastTimeInBackground.timeIntervalSinceNow)
+        }
+        percentTimeInForeground = totalTimeInPortrait + totalTimeInLandscape == 0 ? 100 : Int((totalTimeInPortrait / (totalTimeInPortrait + totalTimeInLandscape) * 100))
     }
     
     var eventDictionary: [String: Any] {
@@ -135,6 +164,13 @@ struct EventDetails {
         modifiedEventDictionary["batteryPluggedIn"] = batteryPluggedIn
         modifiedEventDictionary["batteryLevel"] = batteryLevel
         modifiedEventDictionary["applicationState"] = applicationState.telemetryString
+        modifiedEventDictionary["absoluteDistanceToDestination"] = userAbsoluteDistanceToDestination
+        if let locationEngine = locationEngine {
+            modifiedEventDictionary["locationEngine"] = String(describing: locationEngine)
+        }
+        
+        modifiedEventDictionary["percentTimeInPortrait"] = percentTimeInPortrait
+        modifiedEventDictionary["percentTimeInForeground"] = percentTimeInForeground
 
         return modifiedEventDictionary
     }
@@ -178,11 +214,11 @@ extension MMEEventsManager {
         return eventDictionary
     }
     
-    func navigationRerouteEvent(routeController: RouteController) -> [String: Any] {
+    func navigationRerouteEvent(routeController: RouteController, eventType: String = MMEEventTypeNavigationReroute) -> [String: Any] {
         let timestamp = Date()
         
         var eventDictionary = self.addDefaultEvents(routeController: routeController)
-        eventDictionary["event"] = MMEEventTypeNavigationReroute
+        eventDictionary["event"] = eventType
         
         eventDictionary["secondsSinceLastReroute"] = routeController.sessionState.lastRerouteDate != nil ? round(timestamp.timeIntervalSince(routeController.sessionState.lastRerouteDate!)) : -1
         eventDictionary["step"] = routeController.routeProgress.currentLegProgress.stepDictionary
@@ -345,9 +381,13 @@ class CoreFeedbackEvent: Hashable {
 }
 
 class FeedbackEvent: CoreFeedbackEvent {
-    func update(type: FeedbackType, description: String?) {
+    func update(type: FeedbackType, source: FeedbackSource, description: String?, audio: Data?) {
         eventDictionary["feedbackType"] = type.description
+        eventDictionary["source"] = source.description
         eventDictionary["description"] = description
+        if let audio = audio {
+            eventDictionary["audio"] = audio.base64EncodedString()
+        }
     }
 }
 
@@ -360,3 +400,4 @@ class RerouteEvent: CoreFeedbackEvent {
         }
     }
 }
+

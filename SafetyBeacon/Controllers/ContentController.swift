@@ -64,7 +64,7 @@ class ContentController: UINavigationController {
         // Present the WhatsNew controller
         let whatsNew = WhatsNewViewController(items: items)
         whatsNew.buttonBackgroundColor = .logoBlue
-        whatsNew.itemTextColor = .darkGray
+        whatsNew.itemTitleColor = .darkGray
         whatsNew.buttonTextColor = .white
         whatsNew.view.backgroundColor = .logoOffwhite
         whatsNew.presentIfNeeded(on: self)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0910"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "76EFF0BAC2BE066ADC3F7BFCAF84F129"
+               BlueprintIdentifier = "9F2495A6CE45A1541F5C7395F535B621"
                BuildableName = "MapboxDirections.framework"
                BlueprintName = "MapboxDirections.swift"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "76EFF0BAC2BE066ADC3F7BFCAF84F129"
+            BlueprintIdentifier = "9F2495A6CE45A1541F5C7395F535B621"
             BuildableName = "MapboxDirections.framework"
             BlueprintName = "MapboxDirections.swift"
             ReferencedContainer = "container:Pods.xcodeproj">
