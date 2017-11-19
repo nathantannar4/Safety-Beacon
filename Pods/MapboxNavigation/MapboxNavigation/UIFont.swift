@@ -40,6 +40,6 @@ extension UIFont {
     }
     
     func with(weight: CGFloat) -> UIFont {
-        return UIFont.systemFont(ofSize: weight)
+        return UIFont.systemFont(ofSize: 15)
     }
 }

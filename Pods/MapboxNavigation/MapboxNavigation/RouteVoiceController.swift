@@ -11,9 +11,6 @@ open class RouteVoiceController: NSObject, AVSpeechSynthesizerDelegate, AVAudioP
     
     lazy var speechSynth = AVSpeechSynthesizer()
     var audioPlayer: AVAudioPlayer?
-    let maneuverVoiceDistanceFormatter = SpokenDistanceFormatter(approximate: true)
-    let spokenInstructionFormatter = SpokenInstructionFormatter()
-    let routeStepFormatter = RouteStepFormatter()
     var recentlyAnnouncedRouteStep: RouteStep?
     var fallbackText: String!
     var announcementTimer: Timer?
@@ -51,7 +48,7 @@ open class RouteVoiceController: NSObject, AVSpeechSynthesizerDelegate, AVAudioP
     /**
      Sound to play prior to reroute. Inherits volume level from `volume`.
      */
-    public var rerouteSoundPlayer: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "reroute-sound", bundle: .mapboxNavigation)!.data, fileTypeHint: "mp3")
+    public var rerouteSoundPlayer: AVAudioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "reroute-sound", bundle: .mapboxNavigation)!.data, fileTypeHint: AVFileType.mp3.rawValue)
     
     
     /**
@@ -72,8 +69,6 @@ open class RouteVoiceController: NSObject, AVSpeechSynthesizerDelegate, AVAudioP
         
         speechSynth.delegate = self
         rerouteSoundPlayer.delegate = self
-        maneuverVoiceDistanceFormatter.unitStyle = .long
-        maneuverVoiceDistanceFormatter.numberFormatter.locale = .nationalizedCurrent
         resumeNotifications()
     }
     
@@ -84,13 +79,13 @@ open class RouteVoiceController: NSObject, AVSpeechSynthesizerDelegate, AVAudioP
     }
     
     func resumeNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(alertLevelDidChange(notification:)), name: RouteControllerAlertLevelDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didPassSpokenInstructionPoint(notification:)), name: RouteControllerDidPassSpokenInstructionPoint, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pauseSpeechAndPlayReroutingDing(notification:)), name: RouteControllerWillReroute, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReroute(notification:)), name: RouteControllerDidReroute, object: nil)
     }
     
     func suspendNotifications() {
-        NotificationCenter.default.removeObserver(self, name: RouteControllerAlertLevelDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: RouteControllerDidPassSpokenInstructionPoint, object: nil)
         NotificationCenter.default.removeObserver(self, name: RouteControllerWillReroute, object: nil)
         NotificationCenter.default.removeObserver(self, name: RouteControllerDidReroute, object: nil)
     }
@@ -153,13 +148,12 @@ open class RouteVoiceController: NSObject, AVSpeechSynthesizerDelegate, AVAudioP
         announcementTimer = Timer.scheduledTimer(timeInterval: bufferBetweenAnnouncements, target: self, selector: #selector(resetAnnouncementTimer), userInfo: nil, repeats: false)
     }
     
-    @objc
-    func resetAnnouncementTimer() {
+    @objc func resetAnnouncementTimer() {
         announcementTimer?.invalidate()
         recentlyAnnouncedRouteStep = nil
     }
     
-    @objc open func alertLevelDidChange(notification: NSNotification) {
+    @objc open func didPassSpokenInstructionPoint(notification: NSNotification) {
         guard shouldSpeak(for: notification) == true else { return }
         
         speak(fallbackText, error: nil)
@@ -169,8 +163,7 @@ open class RouteVoiceController: NSObject, AVSpeechSynthesizerDelegate, AVAudioP
     func shouldSpeak(for notification: NSNotification) -> Bool {
         guard isEnabled, volume > 0, !NavigationSettings.shared.muted else { return false }
         
-        let routeProgress = notification.userInfo![RouteControllerAlertLevelDidChangeNotificationRouteProgressKey] as! RouteProgress
-        let userDistance = notification.userInfo![RouteControllerAlertLevelDidChangeNotificationDistanceToEndOfManeuverKey] as! CLLocationDistance
+        let routeProgress = notification.userInfo![RouteControllerDidPassSpokenInstructionPointRouteProgressKey] as! RouteProgress
         
         // We're guarding against two things here:
         //   1. `recentlyAnnouncedRouteStep` being nil.
@@ -183,12 +176,7 @@ open class RouteVoiceController: NSObject, AVSpeechSynthesizerDelegate, AVAudioP
         // Set recentlyAnnouncedRouteStep to the current step
         recentlyAnnouncedRouteStep = routeProgress.currentLegProgress.currentStep
         
-        fallbackText = spokenInstructionFormatter.string(routeProgress: routeProgress, userDistance: userDistance, markUpWithSSML: false)
-        
-        // If the user is merging onto a highway, an announcement to merge is a bit excessive
-        if let upComingStep = routeProgress.currentLegProgress.upComingStep, routeProgress.currentLegProgress.currentStep.maneuverType == .takeOnRamp && upComingStep.maneuverType == .merge && routeProgress.currentLegProgress.alertUserLevel == .high {
-            return false
-        }
+        fallbackText = routeProgress.currentLegProgress.currentStepProgress.currentSpokenInstruction?.text
         
         return true
     }

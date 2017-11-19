@@ -2,11 +2,7 @@ import UIKit
 import MapboxCoreNavigation
 import MapboxDirections
 import Mapbox
-import Pulley
 import Solar
-
-@objc(MBNavigationPulleyViewController)
-public class NavigationPulleyViewController: PulleyViewController {}
 
 /**
  The `NavigationViewControllerDelegate` provides methods for configuring the map view shown by a `NavigationViewController` and responding to the cancellation of a navigation session.
@@ -120,6 +116,8 @@ public protocol NavigationViewControllerDelegate {
      */
     @objc optional func navigationMapView(_ mapView: NavigationMapView, shapeFor waypoints: [Waypoint]) -> MGLShape?
     
+    @objc optional func navigationMapView(_ mapView: NavigationMapView, didTap route: Route)
+    
     /**
      Return an `MGLAnnotationImage` that represents the destination marker.
      
@@ -130,7 +128,7 @@ public protocol NavigationViewControllerDelegate {
     /**
      Returns a view object to mark the given point annotation object on the map.
      
-     The user location annotation view can also be customized via this method. When annotation is an instance of `MGLUserLocation`, return an instance of `MGLUserLocationAnnotationView` (or a subclass thereof).
+     The user location annotation view can also be customized via this method. When annotation is an instance of `MGLUserLocation`, return an instance of `MGLUserLocationAnnotationView` (or a subclass thereof). Note that, when `NavigationMapView.tracksUserCourse` is set to `true`, the map view uses a distinct user course view; to customize it, set the `NavigationMapView.userCourseView` property of the map view returned by this view controller’s `mapView` property.
      */
     @objc optional func navigationMapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView?
     
@@ -152,6 +150,11 @@ public protocol NavigationViewControllerDelegate {
      - parameter feedbackType: The type of feedback event that was sent.
      */
     @objc optional func navigationViewController(_ viewController: NavigationViewController, didSend feedbackId: String, feedbackType: FeedbackType)
+    
+    /**
+     Returns the center point of the user course view in screen coordinates relative to the map view.
+     */
+    @objc optional func navigationViewController(_ navigationViewController: NavigationViewController, mapViewUserAnchorPoint mapView: NavigationMapView) -> CGPoint
 }
 
 /**
@@ -160,7 +163,7 @@ public protocol NavigationViewControllerDelegate {
  It provides step by step instructions, an overview of all steps for the given route and support for basic styling.
  */
 @objc(MBNavigationViewController)
-public class NavigationViewController: NavigationPulleyViewController, RouteMapViewControllerDelegate {
+public class NavigationViewController: UIViewController, RouteMapViewControllerDelegate {
     
     /** 
      A `Route` object constructed by [MapboxDirections](https://mapbox.github.io/mapbox-navigation-ios/directions/).
@@ -176,8 +179,6 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
                 routeController.routeProgress = RouteProgress(route: route)
             }
             mapViewController?.notifyDidReroute(route: route)
-            tableViewController?.tableView.reloadData()
-            tableViewController?.updateETA(routeProgress: routeController.routeProgress)
         }
     }
     
@@ -206,11 +207,7 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
     /**
      The receiver’s delegate.
      */
-    public weak var navigationDelegate: NavigationViewControllerDelegate? {
-        didSet {
-            mapViewController?.delegate = mapViewController?.delegate
-        }
-    }
+    public weak var delegate: NavigationViewControllerDelegate?
     
     /**
      Provides access to various speech synthesizer options.
@@ -238,11 +235,11 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
     }
     
     /**
-     Provides access to the navigation's `MGLMapView` with all its styling capabilities.
+     The main map view displayed inside the view controller.
      
-     Note that you should not change the `mapView`'s delegate.
+     - note: Do not change this map view’s delegate.
      */
-    public var mapView: MGLMapView? {
+    public var mapView: NavigationMapView? {
         get {
             return mapViewController?.mapView
         }
@@ -253,11 +250,7 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
      
      By default, this property is set to `true`, causing the user location annotation to be snapped to the route.
      */
-    public var snapsUserLocationAnnotationToRoute = true {
-        didSet {
-            mapViewController?.snapsUserLocationAnnotationToRoute = snapsUserLocationAnnotationToRoute
-        }
-    }
+    public var snapsUserLocationAnnotationToRoute = true
     
     /**
      Toggles sending of UILocalNotification upon upcoming steps when application is in the background. Defaults to `true`.
@@ -267,7 +260,11 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
     /**
      Shows a button that allows drivers to report feedback such as accidents, closed roads,  poor instructions, etc. Defaults to `false`.
      */
-    public var showsReportFeedback: Bool = true
+    public var showsReportFeedback: Bool = true {
+        didSet {
+            mapViewController?.reportButton.isHidden = !showsReportFeedback
+        }
+    }
     
     /**
      If true, the map style and UI will automatically be updated given the time of day.
@@ -278,13 +275,13 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
     
     var styleTypeForTimeOfDay: StyleType {
         guard automaticallyAdjustsStyleForTimeOfDay else { return .dayStyle }
-        
+
         guard let location = routeController.location,
             let solar = Solar(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude),
             let sunrise = solar.sunrise, let sunset = solar.sunset else {
                 return .dayStyle
         }
-        
+
         return isNighttime(date: solar.date, sunrise: sunrise, sunset: sunset) ? .nightStyle : .dayStyle
     }
     
@@ -296,22 +293,23 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
         return currentMinutesFromMidnight < sunriseMinutesFromMidnight || currentMinutesFromMidnight > sunsetMinutesFromMidnight
     }
     
-    var tableViewController: RouteTableViewController?
     var mapViewController: RouteMapViewController?
+    
+    /**
+     A Boolean value that determines whether the map annotates the locations at which instructions are spoken for debugging purposes.
+     */
+    public var annotatesSpokenInstructions = false
+    
+    /**
+     A Boolean value that determines whether the user can long-press a feedback item to dictate feedback.
+     */
+    public var recordsAudioFeedback = false
     
     let progressBar = ProgressBar()
     let routeStepFormatter = RouteStepFormatter()
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    var updateETATimer: Timer?
-    
-    required public init(contentViewController: UIViewController, drawerViewController: UIViewController) {
-        fatalError("init(contentViewController:drawerViewController:) has not been implemented. " +
-                   "Use init(for:directions:) if you are instantiating programmatically " +
-                   "or a storyboard reference to Navigation if you are using storyboards.")
     }
     
     /**
@@ -327,28 +325,33 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
         
         let storyboard = UIStoryboard(name: "Navigation", bundle: .mapboxNavigation)
         let mapViewController = storyboard.instantiateViewController(withIdentifier: "RouteMapViewController") as! RouteMapViewController
-        let tableViewController = storyboard.instantiateViewController(withIdentifier: "RouteTableViewController") as! RouteTableViewController
         
-        super.init(contentViewController: mapViewController, drawerViewController: tableViewController)
+        self.mapViewController = mapViewController
+        
+        super.init(nibName: nil, bundle: nil)
         
         self.styles = styles ?? [DayStyle(), NightStyle()]
+        
+        addChildViewController(mapViewController)
+        mapViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(mapViewController.view)
+        
+        let v = mapViewController.view!
+        v.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        v.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        v.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        v.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
         self.directions = directions
         self.route = route
         
         self.routeController = RouteController(along: route, directions: directions, locationManager: locationManager ?? NavigationLocationManager())
         self.routeController.usesDefaultUserInterface = true
         self.routeController.delegate = self
-        
-        self.mapViewController = mapViewController
-        self.tableViewController = tableViewController
-        
+
         mapViewController.delegate = self
         mapViewController.routeController = routeController
-        mapViewController.routeTableViewController = tableViewController
         mapViewController.reportButton.isHidden = !showsReportFeedback
-        
-        tableViewController.routeController = routeController
-        tableViewController.headerView.delegate = self
 
         self.currentStyleType = styleTypeForTimeOfDay
         
@@ -362,31 +365,10 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
         voiceController?.announcementTimer?.invalidate()
     }
     
-    override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier ?? "" {
-        case "MapViewControllerSegueIdentifier":
-            if let controller = segue.destination as? RouteMapViewController {
-                controller.routeController = routeController
-                mapViewController = controller
-                controller.delegate = self
-            }
-        case "TableViewControllerSegueIdentifier":
-            if let controller = segue.destination as? RouteTableViewController {
-                controller.headerView.delegate = self
-                controller.routeController = routeController
-                tableViewController = controller
-            }
-        default:
-            break
-        }
-    }
-    
     override public func viewDidLoad() {
         super.viewDidLoad()
         resumeNotifications()
-        drawerCornerRadius = 0
         progressBar.dock(on: view)
-        self.delegate = self
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -394,7 +376,6 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
         
         UIApplication.shared.isIdleTimerDisabled = true
         routeController.resume()
-        resetETATimer()
         
         applyStyle()
         
@@ -408,8 +389,7 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
         super.viewWillDisappear(animated)
         
         UIApplication.shared.isIdleTimerDisabled = false
-        updateETATimer?.invalidate()
-        updateETATimer = nil
+        
         routeController.suspendLocationUpdates()
     }
     
@@ -417,43 +397,38 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
     
     func resumeNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(progressDidChange(notification:)), name: RouteControllerProgressDidChange, object: routeController)
-        NotificationCenter.default.addObserver(self, selector: #selector(alertLevelDidChange(notification:)), name: RouteControllerAlertLevelDidChange, object: routeController)
+        NotificationCenter.default.addObserver(self, selector: #selector(didPassInstructionPoint(notification:)), name: RouteControllerDidPassSpokenInstructionPoint, object: routeController)
     }
     
     func suspendNotifications() {
         NotificationCenter.default.removeObserver(self, name: RouteControllerProgressDidChange, object: routeController)
-        NotificationCenter.default.removeObserver(self, name: RouteControllerAlertLevelDidChange, object: routeController)
+        NotificationCenter.default.removeObserver(self, name: RouteControllerDidPassSpokenInstructionPoint, object: routeController)
     }
     
     @objc func progressDidChange(notification: NSNotification) {
-        resetETATimer()
-        
-        let routeProgress = notification.userInfo![RouteControllerAlertLevelDidChangeNotificationRouteProgressKey] as! RouteProgress
+        let routeProgress = notification.userInfo![MBRouteControllerDidPassSpokenInstructionPointRouteProgressKey] as! RouteProgress
         let location = notification.userInfo![RouteControllerProgressDidChangeNotificationLocationKey] as! CLLocation
         let secondsRemaining = notification.userInfo![RouteControllerProgressDidChangeNotificationSecondsRemainingOnStepKey] as! TimeInterval
 
         mapViewController?.notifyDidChange(routeProgress: routeProgress, location: location, secondsRemaining: secondsRemaining)
-        tableViewController?.updateETA(routeProgress: routeProgress)
-        progressBar.progress = routeProgress.currentLegProgress.alertUserLevel == .arrive ? 1 : CGFloat(routeProgress.fractionTraveled)
+        
+        progressBar.setProgress(routeProgress.currentLegProgress.userHasArrivedAtWaypoint ? 1 : CGFloat(routeProgress.fractionTraveled), animated: true)
     }
-    @objc  
-    func alertLevelDidChange(notification: NSNotification) {
-        let routeProgress = notification.userInfo![RouteControllerAlertLevelDidChangeNotificationRouteProgressKey] as! RouteProgress
-        let alertLevel = routeProgress.currentLegProgress.alertUserLevel
+    
+    @objc func didPassInstructionPoint(notification: NSNotification) {
+        let routeProgress = notification.userInfo![MBRouteControllerDidPassSpokenInstructionPointRouteProgressKey] as! RouteProgress
         
-        mapViewController?.notifyAlertLevelDidChange(routeProgress: routeProgress)
-        tableViewController?.notifyAlertLevelDidChange()
+        mapViewController?.updateMapOverlays(for: routeProgress)
+        mapViewController?.updateCameraAltitude(for: routeProgress)
         
-        // Any time the alert level changes, clear out previous notifications.
-        // When we give a high alert notification, we want to clear out this notification when completing that step.
         clearStaleNotifications()
         
-        if let upComingStep = routeProgress.currentLegProgress.upComingStep, alertLevel == .high {
+        if let upComingStep = routeProgress.currentLegProgress.upComingStep, routeProgress.currentLegProgress.currentStepProgress.durationRemaining < RouteControllerHighAlertInterval {
             scheduleLocalNotification(about: upComingStep, legIndex: routeProgress.legIndex, numberOfLegs: routeProgress.route.legs.count)
         }
         
-        if routeProgress.currentLegProgress.alertUserLevel == .arrive {
-            navigationDelegate?.navigationViewController?(self, didArriveAt: routeProgress.currentLegProgress.leg.destination)
+        if routeProgress.currentLegProgress.userHasArrivedAtWaypoint {
+            delegate?.navigationViewController?(self, didArriveAt: routeProgress.currentLegProgress.leg.destination)
         }
         
         forceRefreshAppearanceIfNeeded()
@@ -472,15 +447,6 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
                 }
             }
         }
-    }
-    
-    @objc func updateETA() {
-        tableViewController?.updateETA(routeProgress: routeController.routeProgress)
-    }
-    
-    func resetETATimer() {
-        updateETATimer?.invalidate()
-        updateETATimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(updateETA), userInfo: nil, repeats: true)
     }
     
     func forceRefreshAppearanceIfNeeded() {
@@ -533,84 +499,109 @@ public class NavigationViewController: NavigationPulleyViewController, RouteMapV
     }
     
     func navigationMapView(_ mapView: NavigationMapView, routeCasingStyleLayerWithIdentifier identifier: String, source: MGLSource) -> MGLStyleLayer? {
-        return navigationDelegate?.navigationMapView?(mapView, routeCasingStyleLayerWithIdentifier: identifier, source: source)
+        return delegate?.navigationMapView?(mapView, routeCasingStyleLayerWithIdentifier: identifier, source: source)
     }
     
     func navigationMapView(_ mapView: NavigationMapView, routeStyleLayerWithIdentifier identifier: String, source: MGLSource) -> MGLStyleLayer? {
-        return navigationDelegate?.navigationMapView?(mapView, routeStyleLayerWithIdentifier: identifier, source: source)
+        return delegate?.navigationMapView?(mapView, routeStyleLayerWithIdentifier: identifier, source: source)
+    }
+    
+    func navigationMapView(_ mapView: NavigationMapView, didTap route: Route) {
+        delegate?.navigationMapView?(mapView, didTap: route)
     }
     
     func navigationMapView(_ mapView: NavigationMapView, shapeDescribing route: Route) -> MGLShape? {
-        return navigationDelegate?.navigationMapView?(mapView, shapeDescribing: route)
+        return delegate?.navigationMapView?(mapView, shapeDescribing: route)
     }
     
     func navigationMapView(_ mapView: NavigationMapView, simplifiedShapeDescribing route: Route) -> MGLShape? {
-        return navigationDelegate?.navigationMapView?(mapView, shapeDescribing: route)
+        return delegate?.navigationMapView?(mapView, shapeDescribing: route)
     }
     
     func navigationMapView(_ mapView: NavigationMapView, waypointStyleLayerWithIdentifier identifier: String, source: MGLSource) -> MGLStyleLayer? {
-        return navigationDelegate?.navigationMapView?(mapView, waypointStyleLayerWithIdentifier: identifier, source: source)
+        return delegate?.navigationMapView?(mapView, waypointStyleLayerWithIdentifier: identifier, source: source)
     }
     
     func navigationMapView(_ mapView: NavigationMapView, waypointSymbolStyleLayerWithIdentifier identifier: String, source: MGLSource) -> MGLStyleLayer? {
-        return navigationDelegate?.navigationMapView?(mapView, waypointSymbolStyleLayerWithIdentifier: identifier, source: source)
+        return delegate?.navigationMapView?(mapView, waypointSymbolStyleLayerWithIdentifier: identifier, source: source)
     }
+    
     func navigationMapView(_ mapView: NavigationMapView, shapeFor waypoints: [Waypoint]) -> MGLShape? {
-        return navigationDelegate?.navigationMapView?(mapView, shapeFor: waypoints)
+        return delegate?.navigationMapView?(mapView, shapeFor: waypoints)
     }
     
     func navigationMapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
-        return navigationDelegate?.navigationMapView?(mapView, imageFor: annotation)
+        return delegate?.navigationMapView?(mapView, imageFor: annotation)
     }
     
     func navigationMapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-        return navigationDelegate?.navigationMapView?(mapView, viewFor: annotation)
+        return delegate?.navigationMapView?(mapView, viewFor: annotation)
     }
     
     func mapViewControllerDidOpenFeedback(_ mapViewController: RouteMapViewController) {
-        navigationDelegate?.navigationViewControllerDidOpenFeedback?(self)
+        delegate?.navigationViewControllerDidOpenFeedback?(self)
     }
     
     func mapViewControllerDidCancelFeedback(_ mapViewController: RouteMapViewController) {
-        navigationDelegate?.navigationViewControllerDidCancelFeedback?(self)
+        delegate?.navigationViewControllerDidCancelFeedback?(self)
+    }
+    
+    func mapViewControllerDidCancelNavigation(_ mapViewController: RouteMapViewController) {
+        if delegate?.navigationViewControllerDidCancelNavigation?(self) != nil {
+            // The receiver should handle dismissal of the NavigationViewController
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     func mapViewController(_ mapViewController: RouteMapViewController, didSend feedbackId: String, feedbackType: FeedbackType) {
-        navigationDelegate?.navigationViewController?(self, didSend: feedbackId, feedbackType: feedbackType)
+        delegate?.navigationViewController?(self, didSend: feedbackId, feedbackType: feedbackType)
+    }
+    
+    func mapViewController(_ mapViewController: RouteMapViewController, mapViewUserAnchorPoint mapView: NavigationMapView) -> CGPoint? {
+        return delegate?.navigationViewController?(self, mapViewUserAnchorPoint: mapView)
+    }
+    
+    func mapViewControllerShouldAnnotateSpokenInstructions(_ routeMapViewController: RouteMapViewController) -> Bool {
+        return annotatesSpokenInstructions
+    }
+    
+    func mapViewControllerShouldRecordAudioFeedback(_ routeMapViewController: RouteMapViewController) -> Bool {
+        return recordsAudioFeedback
     }
 }
 
 extension NavigationViewController: RouteControllerDelegate {
     public func routeController(_ routeController: RouteController, shouldRerouteFrom location: CLLocation) -> Bool {
-        return navigationDelegate?.navigationViewController?(self, shouldRerouteFrom: location) ?? true
+        return delegate?.navigationViewController?(self, shouldRerouteFrom: location) ?? true
     }
     
     public func routeController(_ routeController: RouteController, shouldIncrementLegWhenArrivingAtWaypoint waypoint: Waypoint) -> Bool {
-        return navigationDelegate?.navigationViewController?(self, shouldIncrementLegWhenArrivingAtWaypoint: waypoint) ?? true
+        return delegate?.navigationViewController?(self, shouldIncrementLegWhenArrivingAtWaypoint: waypoint) ?? true
     }
     
     public func routeController(_ routeController: RouteController, willRerouteFrom location: CLLocation) {
-        navigationDelegate?.navigationViewController?(self, willRerouteFrom: location)
+        delegate?.navigationViewController?(self, willRerouteFrom: location)
     }
     
     public func routeController(_ routeController: RouteController, didRerouteAlong route: Route) {
-        let routeProgress = routeController.routeProgress
-        scheduleLocalNotification(about: routeProgress.currentLegProgress.currentStep, legIndex: routeProgress.legIndex, numberOfLegs: route.legs.count)
-        
         mapViewController?.notifyDidReroute(route: route)
-        tableViewController?.tableView.reloadData()
-        tableViewController?.updateETA(routeProgress: routeController.routeProgress)
-        
-        navigationDelegate?.navigationViewController?(self, didRerouteAlong: route)
+        delegate?.navigationViewController?(self, didRerouteAlong: route)
     }
     
     public func routeController(_ routeController: RouteController, didFailToRerouteWith error: Error) {
-        navigationDelegate?.navigationViewController?(self, didFailToRerouteWith: error)
+        delegate?.navigationViewController?(self, didFailToRerouteWith: error)
     }
     
     public func routeController(_ routeController: RouteController, didUpdate locations: [CLLocation]) {
-        mapViewController?.mapView.locationManager(routeController.locationManager, didUpdateLocations: locations)
-        
+        if snapsUserLocationAnnotationToRoute, let location = routeController.location ?? locations.last {
+            mapViewController?.mapView.updateCourseTracking(location: location, animated: true)
+            mapViewController?.labelCurrentRoad(at: location)
+        } else if let location = locations.last {
+            mapViewController?.mapView.updateCourseTracking(location: location, animated: true)
+            mapViewController?.labelCurrentRoad(at: location)
+        }
+    
         if !(routeController.locationManager is SimulatedLocationManager) {
             mapViewController?.statusView.hide(delay: 3, animated: true)
         }
@@ -619,33 +610,5 @@ extension NavigationViewController: RouteControllerDelegate {
     public func routeController(_ routeController: RouteController, didDiscard location: CLLocation) {
         let title = NSLocalizedString("WEAK_GPS", bundle: .mapboxNavigation, value: "Weak GPS signal", comment: "Inform user about weak GPS signal")
         mapViewController?.statusView.show(title, showSpinner: false)
-    }
-}
-
-extension NavigationViewController: RouteTableViewHeaderViewDelegate {
-    func didTapCancel() {
-        if navigationDelegate?.navigationViewControllerDidCancelNavigation?(self) != nil {
-            // The receiver should handle dismissal of the NavigationViewController
-        } else {
-            dismiss(animated: true, completion: nil)
-        }
-    }
-}
-
-extension NavigationViewController: PulleyDelegate {
-    public func drawerPositionDidChange(drawer: PulleyViewController) {
-        switch drawer.drawerPosition {
-        case .open:
-            tableViewController?.tableView.isScrollEnabled = true
-            break
-        case .partiallyRevealed:
-            tableViewController?.tableView.isScrollEnabled = true
-            break
-        case .collapsed:
-            tableViewController?.tableView.isScrollEnabled = false
-            break
-        case .closed:
-            break
-        }
     }
 }

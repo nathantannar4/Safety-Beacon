@@ -15,8 +15,8 @@ class LanesContainerView: LanesView {
         commonInit()
     }
     
-    func laneArrowView() -> LaneArrowView {
-        let view = LaneArrowView(frame: CGRect(origin: .zero, size: CGSize(width: 30, height: 30)))
+    func laneArrowView() -> LaneView {
+        let view = LaneView(frame: CGRect(origin: .zero, size: CGSize(width: 30, height: 30)))
         view.backgroundColor = .clear
         return view
     }
@@ -34,12 +34,12 @@ class LanesContainerView: LanesView {
         addConstraint(NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: stackView, attribute: .centerX, multiplier: 1, constant: 0))
     }
     
-    func updateLaneViews(step: RouteStep, alertLevel: AlertLevel) {
+    func updateLaneViews(step: RouteStep, durationRemaining: TimeInterval) {
         clearLaneViews()
         
         if let allLanes = step.intersections?.first?.approachLanes,
             let usableLanes = step.intersections?.first?.usableApproachLanes,
-            (alertLevel == .high || alertLevel == .medium) {
+            durationRemaining < RouteControllerMediumAlertInterval {
             
             for (i, lane) in allLanes.enumerated() {
                 let laneView = laneArrowView()

@@ -10,35 +10,33 @@ PODS:
   - DateTimePicker (1.2)
   - Fabric (1.7.2)
   - Mapbox-iOS-SDK (3.6.4)
-  - MapboxCoreNavigation (0.8.3):
-    - MapboxDirections.swift (~> 0.10.5)
+  - MapboxCoreNavigation (0.10.1):
+    - MapboxDirections.swift (~> 0.12)
     - MapboxMobileEvents (~> 0.2)
-    - OSRMTextInstructions (~> 0.3)
-    - Turf (~> 0.0.3)
-  - MapboxDirections.swift (0.10.6):
+    - OSRMTextInstructions (~> 0.5)
+    - Turf (~> 0.0.4)
+  - MapboxDirections.swift (0.12.1):
     - Polyline (= 4.1.1)
   - MapboxMobileEvents (0.2.10)
-  - MapboxNavigation (0.8.3):
+  - MapboxNavigation (0.10.1):
     - AWSPolly (~> 2.6)
     - Mapbox-iOS-SDK (~> 3.6)
-    - MapboxCoreNavigation (= 0.8.3)
-    - Pulley (= 1.4)
+    - MapboxCoreNavigation (= 0.10.1)
     - SDWebImage (~> 4.1)
     - Solar (= 2.0.0)
-    - Turf (~> 0.0.3)
+    - Turf (~> 0.0.4)
   - NTComponents (1.0.0)
   - OSRMTextInstructions (0.5.0):
     - MapboxDirections.swift (~> 0.10)
   - Parse (1.15.3):
     - Bolts/Tasks (~> 1.8)
   - Polyline (4.1.1)
-  - Pulley (1.4)
   - SDWebImage (4.2.2):
     - SDWebImage/Core (= 4.2.2)
   - SDWebImage/Core (4.2.2)
   - Solar (2.0.0)
   - Turf (0.0.4)
-  - WhatsNew (0.3.1)
+  - WhatsNew (0.4)
 
 DEPENDENCIES:
   - AcknowList
@@ -64,19 +62,18 @@ SPEC CHECKSUMS:
   DateTimePicker: d3833535f731663cab99705326765a5ef18f66cc
   Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   Mapbox-iOS-SDK: 47847dd44285477e0dfffd0130f65c8a52823ada
-  MapboxCoreNavigation: e3a02e78de886e82236e569006469cbd24fd419c
-  MapboxDirections.swift: fbe95bd11c66339c1ef8b96301464f326394ac0d
+  MapboxCoreNavigation: d437a6dc243aa05b857dff8b44ab1b5f04786ba6
+  MapboxDirections.swift: b8d17a00440c050bbcc38c83523e558ee18e1054
   MapboxMobileEvents: 9e48b59d0eed04508595dcb04a77b7632e1c3054
-  MapboxNavigation: d7980154b489ae793f7b3e6c328b12f3210d9a53
+  MapboxNavigation: 6943386bc0c35df0a36c361d07aa95951853f32d
   NTComponents: 98a9e0958818b087e87b8e3c94cbdbcc70941072
   OSRMTextInstructions: 7bbe5a1ba548991d2a7ffba38262845e7a024390
   Parse: cdc0f1f975ee8be0409e66f21b05df4ae067047c
   Polyline: 381d1e699fd12508f97cfc468478dfbab67edf1f
-  Pulley: 3d47a5ca819b8f35a63e9a4811d35035d484d1d9
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   Solar: ea092f7660c1b58d2b754227decb61a1c6710826
   Turf: 6c169618fa671e3f8a7b764b5b3332053ad6110e
-  WhatsNew: 591f464f77354ad49849d34f32c62b17c2c4e693
+  WhatsNew: 8cc3456a239e719ca48a9ff49c0da9c262e2c0f0
 
 PODFILE CHECKSUM: dc8ba6e851cb5f7ad0a5e4c5f79ecbb2b3709b64
 
