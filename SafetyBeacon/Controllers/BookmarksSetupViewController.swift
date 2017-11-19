@@ -7,8 +7,8 @@
 //  Edited by:
 //      Jason Tsang
 //          - jrtsang@sfu.ca
-//	Nathan Tannar
-//	    - ntannar@sfu.ca
+//	    Nathan Tannar
+//	        - ntannar@sfu.ca
 //
 
 import AddressBookUI

@@ -16,11 +16,15 @@ import NTComponents
 import Parse
 import UIKit
 import Mapbox
+import MapboxDirections
+import MapboxCoreNavigation
+import MapboxNavigation
 
 class BookmarksNavigationViewController: UITableViewController {
     
     // MARK: - Properties
     var bookmarks = [PFObject]()
+    var directionsRoute: Route?
     
     // MARK: - View Life Cycle
     
@@ -112,126 +116,49 @@ class BookmarksNavigationViewController: UITableViewController {
                 return
             }
             let navigation = NTNavigationController(rootViewController: location)
+            
             self.present(navigation, animated: true, completion: {
                 let locationMarker = MGLPointAnnotation()
                 locationMarker.coordinate = coordinate
                 locationMarker.title = originalStreet
                 if let currentLocation = LocationManager.shared.currentLocation {
-                    // returns distance in meters
-                    locationMarker.subtitle = "\(Int(currentLocation.distance(to: coordinate)/1000)) Km"
+                    // Return distance in meters
+                    locationMarker.subtitle = "\(Int(currentLocation.distance(to: coordinate)/1000)) Km Away"
                 }
                 location.mapView.addAnnotation(locationMarker)
-                location.mapView.setCenter(coordinate, zoomLevel: 12, animated: true)
+                location.mapView.setCenter(coordinate, zoomLevel: 13, animated: true)
+                
+                // Use mapbox to trace the path to home from current location
+                guard let currentLocation = LocationManager.shared.currentLocation else { return }
+                let origin = Waypoint(coordinate: currentLocation, name: "Current Location")
+                let destination = Waypoint(coordinate: coordinate, name: location.title)
+                
+                let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .walking)
+                
+                _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
+                    guard let route = routes?.first else { return }
+                    self.directionsRoute = route
+                    
+                    guard route.coordinateCount > 0 else { return }
+                    // Convert the route’s coordinates into a polyline.
+                    var routeCoordinates = route.coordinates!
+                    let polyline = MGLPolylineFeature(coordinates: &routeCoordinates, count: route.coordinateCount)
+                    
+                    // If there's already a route line on the map, reset its shape to the new route
+                    if let source = location.mapView.style?.source(withIdentifier: "route-source") as? MGLShapeSource {
+                        source.shape = polyline
+                    } else {
+                        let source = MGLShapeSource(identifier: "route-source", features: [polyline], options: nil)
+                        let lineStyle = MGLLineStyleLayer(identifier: "route-style", source: source)
+                        
+                        location.mapView.style?.addSource(source)
+                        location.mapView.style?.addLayer(lineStyle)
+                    }
+                }
             })
         })
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    // Modifiable rows (not first section)
-//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return indexPath.section != 0
-//    }
-    
-    // Modifiable row actions (swipe left)
-//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        let delete = UITableViewRowAction(style: UITableViewRowActionStyle.destructive, title: "Delete") { (_, indexPath) in
-//            self.bookmarks[indexPath.row].deleteInBackground(block: { (success, error) in
-//                guard success else {
-//                    Log.write(.error, error.debugDescription)
-//                    NTPing(type: .isDanger, title: error?.localizedDescription).show(duration: 3)
-//                    return
-//                }
-//                self.bookmarks.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-//                NTPing(type: .isSuccess, title: "Bookmark successfully deleted").show(duration: 3)
-//            })
-//        }
-//
-//        let edit = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "Edit") { (_, indexPath) in
-//            let alertController = UIAlertController(title: "Edit Bookmark", message: "Change Bookmark name or address:", preferredStyle: UIAlertControllerStyle.alert)
-//
-//            // Get original bookmark
-//            let originalName = self.bookmarks[indexPath.row]["name"] as? String
-//            let concatenatedAddress = self.bookmarks[indexPath.row]["address"] as? String
-//            var concatenatedAddressArr = concatenatedAddress?.components(separatedBy: ", ")
-//            let originalStreet = concatenatedAddressArr![0] as String
-//            let originalCity = concatenatedAddressArr![1] as String
-//            let originalProvince = concatenatedAddressArr![2] as String
-//            let originalPostal = concatenatedAddressArr![3] as String
-//
-//            // Text input placeholders
-//            alertController.addTextField { nameField in nameField.placeholder = "Bookmark Name"
-//                nameField.text = originalName
-//            }
-//            alertController.addTextField { streetField in streetField.placeholder = "Street Address"
-//                streetField.text = originalStreet
-//            }
-//            alertController.addTextField { cityField in cityField.placeholder = "City"
-//                cityField.text = originalCity
-//            }
-//            alertController.addTextField { provinceField in provinceField.placeholder = "Province/ Territory"
-//                provinceField.placeholder = "Province/ Territory"
-//                self.provincePickerInput = provinceField
-//                provinceField.inputView = self.provincePicker
-//                provinceField.text = originalProvince
-//            }
-//            alertController.addTextField { postalField in postalField.placeholder = "Postal Code (no space)"
-//                postalField.delegate = self
-//                postalField.text = originalPostal
-//            }
-//
-//            // Change button
-//            let changeAction = UIAlertAction(title: "Change", style: UIAlertActionStyle.default) { (_: UIAlertAction!) -> Void in
-//                guard let nameField = alertController.textFields![0].text, !nameField.isEmpty,
-//                    let streetField = alertController.textFields![1].text, !streetField.isEmpty,
-//                    let cityField = alertController.textFields![2].text, !cityField.isEmpty,
-//                    let provinceField = alertController.textFields![3].text, !provinceField.isEmpty,
-//                    let postalField = alertController.textFields![4].text, !postalField.isEmpty
-//                    else {
-//                        let invalidAlert = UIAlertController(title: "Invalid Bookmark", message: "All fields must be entered.", preferredStyle: .alert)
-//                        invalidAlert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Default action"), style: .`default`, handler: { _ in
-//                            NSLog("The \"Invalid Bookmark\" alert occured.")
-//                        }))
-//                        self.present(invalidAlert, animated: true, completion: nil)
-//                        return
-//                }
-//
-//                // Update only address fields changed
-//                if originalStreet != streetField || originalCity != cityField || originalProvince != provinceField || originalPostal != postalField {
-//                    let newAddress = "\(streetField), \(cityField), \(provinceField), \(postalField)"
-//                    // Convert address to coordinates
-//                    self.getCoordinates(address: newAddress, completion: { (coordinate) in
-//                        guard let coordinate = coordinate else {
-//                            print("\n Failed to getCoordinates() - \(newAddress)")
-//                            NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
-//                            return
-//                        }
-//                        self.bookmarks[indexPath.row]["lat"] = coordinate.latitude
-//                        self.bookmarks[indexPath.row]["long"] = coordinate.longitude
-//                    })
-//                    self.bookmarks[indexPath.row]["address"] = newAddress
-//                }
-//                // Update if name changed
-//                if originalName != nameField {
-//                    self.bookmarks[indexPath.row]["name"] = nameField
-//                }
-//
-//                // Save bookmark at same row
-//                self.bookmarks[indexPath.row].saveInBackground()
-//                self.refreshBookmarks()
-//                NTPing(type: .isSuccess, title: "Bookmark successfully updated").show(duration: 3)
-//            }
-//
-//            // Cancel button
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//
-//            alertController.addAction(changeAction)
-//            alertController.addAction(cancelAction)
-//            self.present(alertController, animated: true, completion: nil)
-//        }
-//        edit.backgroundColor = .logoBlue
-//        return [delete, edit]
-//    }
     
     // MARK: - Processing Functions
     
@@ -252,31 +179,5 @@ class BookmarksNavigationViewController: UITableViewController {
             }
         })
     }
-    
-    // Get address from coordinates
-    func getAddress(latitude: CLLocationDegrees, longitude: CLLocationDegrees, completion: @escaping (String?) -> Void) {
-        let location = CLLocation(latitude: latitude, longitude: longitude)
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
-            if error != nil {
-                Log.write(.error, error.debugDescription)
-                return
-            } else if placemarks?.count != nil {
-                let placemark = placemarks![0]
-                guard let streetField = placemark.postalAddress?.street,
-                    let cityField = placemark.postalAddress?.city,
-                    let provinceField = placemark.postalAddress?.state,
-                    let postalField = placemark.postalAddress?.postalCode
-                    else {
-                        return
-                }
-                let address = "\(streetField),\(cityField),\(provinceField),\(postalField)"
-                completion(address)
-            } else {
-                completion(nil)
-            }
-        })
-    }
-    
-    // MARK: - User Actions
+
 }
