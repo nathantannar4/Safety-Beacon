@@ -2,7 +2,7 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-*/.DS_Store
+.DS_Store
 
 ## Build generated
 build/
@@ -48,3 +48,7 @@ SafetyBeacon/.build/
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
+
+*.plist
+
+SafetyBeacon\.xcworkspace/xcuserdata/philipleblanc\.xcuserdatad/UserInterfaceState\.xcuserstate

@@ -44,9 +44,32 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     private override init() {
         super.init()
+        setupBatteryMonitor()
+    }
+    
+    /// Adds observers to monitor the devices battery level
+    private func setupBatteryMonitor() {
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelDidChange), name: .UIDeviceBatteryLevelDidChange, object: nil)
     }
     
     // MARK: - Functions
+    
+    /// Sends notifications to the caretaker under during critical battery levels
+    @objc
+    func batteryLevelDidChange() {
+        let currentLevel = UIDevice.current.batteryLevel // 1.0 = 100%, 0.2 = 20%
+        if currentLevel == 0.2 {
+            // Send notification to caretaker
+            guard let caretakerID = User.current()?.caretaker?.objectId else { return }
+            PushNotication.sendPushNotificationMessage(caretakerID, text: "Battery level at \(currentLevel*100)%")
+        } else if currentLevel <= 0.1 {
+            // Send notification to caretaker and update location
+            guard let caretakerID = User.current()?.caretaker?.objectId else { return }
+            PushNotication.sendPushNotificationMessage(caretakerID, text: "Battery level at \(currentLevel*100)%")
+            saveCurrentLocation()
+        }
+    }
     
     /// Promts the user for location accesss authorization
     func requestAlwaysAuthorization() {

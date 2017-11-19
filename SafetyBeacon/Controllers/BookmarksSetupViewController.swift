@@ -7,6 +7,8 @@
 //  Edited by:
 //      Jason Tsang
 //          - jrtsang@sfu.ca
+//	Nathan Tannar
+//	    - ntannar@sfu.ca
 //
 
 import AddressBookUI
@@ -46,11 +48,21 @@ class BookmarksSetupViewController: UITableViewController {
     // Updating bookmarks from database
     @objc
     func refreshBookmarks() {
+
         // Check that Caretaker is accessing this menu, not Patient
-        guard let currentUser = User.current(), currentUser.isCaretaker, let patient = currentUser.patient else { return }
+        guard let currentUser = User.current() else { return }
         
         let query = PFQuery(className: "Bookmarks")
-        query.whereKey("patient", equalTo: patient)
+	
+        if let user = currentUser.patient {
+            // The current user is the caretaker
+            query.whereKey("patient", equalTo: user)
+        } else {
+            // The current user is the patient
+            query.whereKey("patient", equalTo: currentUser.object)
+        }
+        
+        
         query.findObjectsInBackground { (objects, error) in
             self.tableView.refreshControl?.endRefreshing()
             guard let objects = objects else {
@@ -90,9 +102,17 @@ class BookmarksSetupViewController: UITableViewController {
     
     // Table styling
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let currentUser = User.current() else { return 0 }
+        if currentUser.isPatient {
+            return section < 1 ? 0 : 44
+        }
         return 44
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let currentUser = User.current() else { return 0 }
+        if currentUser.isPatient {
+            return indexPath.section < 1 ? 0 : 44
+        }
         return indexPath.section <= 1 ? 44 : UITableViewAutomaticDimension
     }
     
@@ -151,7 +171,9 @@ class BookmarksSetupViewController: UITableViewController {
     
     // Modifiable rows (not first section)
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.section != 0
+        guard let currentUser = User.current() else { return false }
+	guard currentUser.isCaretaker else { return false } // the patient cannot edit 
+	return indexPath.section != 0
     }
     
     // Modifiable row actions (swipe left)

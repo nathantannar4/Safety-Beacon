@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3810DA4C1F832A5300B5180E /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810DA4B1F832A5300B5180E /* NavigationViewController.swift */; };
+		3810DA4C1F832A5300B5180E /* NavigationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810DA4B1F832A5300B5180E /* NavigationMapViewController.swift */; };
 		3810DA4E1F832AAC00B5180E /* SafeZonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810DA4D1F832AAC00B5180E /* SafeZonesViewController.swift */; };
 		3847EEA81F79DD6000305761 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEA71F79DD6000305761 /* MapViewController.swift */; };
 		3847EEAA1F79DFAF00305761 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEA91F79DFAF00305761 /* BookmarksViewController.swift */; };
@@ -41,7 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3810DA4B1F832A5300B5180E /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		3810DA4B1F832A5300B5180E /* NavigationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMapViewController.swift; sourceTree = "<group>"; };
 		3810DA4D1F832AAC00B5180E /* SafeZonesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeZonesViewController.swift; sourceTree = "<group>"; };
 		3847EEA71F79DD6000305761 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3847EEA91F79DFAF00305761 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				385BA32F1F79BD38004B9061 /* LoginViewController.swift */,
 				3869F5601FA2C00F00DC3CDC /* AccountSetupViewController.swift */,
 				3847EEA71F79DD6000305761 /* MapViewController.swift */,
-				3810DA4B1F832A5300B5180E /* NavigationViewController.swift */,
+				3810DA4B1F832A5300B5180E /* NavigationMapViewController.swift */,
 				3847EEAD1F79E02E00305761 /* ReportViewController.swift */,
 				3847EEA91F79DFAF00305761 /* BookmarksViewController.swift */,
 				3810DA4D1F832AAC00B5180E /* SafeZonesViewController.swift */,
@@ -337,6 +337,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSPolly/AWSPolly.framework",
 				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework",
@@ -345,15 +347,22 @@
 				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
 				"${BUILT_PRODUCTS_DIR}/NTComponents/NTComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/OSRMTextInstructions/OSRMTextInstructions.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
+				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
 				"${BUILT_PRODUCTS_DIR}/Turf/Turf.framework",
+				"${BUILT_PRODUCTS_DIR}/WhatsNew/WhatsNew.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPolly.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTimePicker.framework",
@@ -362,11 +371,16 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NTComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OSRMTextInstructions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Turf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WhatsNew.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -406,7 +420,7 @@
 				38C890D51FAE6C2900723F0D /* DynamicTabBarController.swift in Sources */,
 				38F7C2561F736D92006C995A /* AppDelegate.swift in Sources */,
 				385BA3321F79BE2C004B9061 /* UIColor+Extensions.swift in Sources */,
-				3810DA4C1F832A5300B5180E /* NavigationViewController.swift in Sources */,
+				3810DA4C1F832A5300B5180E /* NavigationMapViewController.swift in Sources */,
 				96255D061FAE78990072F482 /* LocationViewController.swift in Sources */,
 				3847EEA81F79DD6000305761 /* MapViewController.swift in Sources */,
 				389E62F91F90992C005B39DA /* ContentController.swift in Sources */,
