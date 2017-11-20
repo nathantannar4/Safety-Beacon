@@ -1,5 +1,5 @@
 //
-//  NavigationViewController.swift
+//  PatientMapViewController.swift
 //  SafetyBeacon
 //
 //  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
@@ -19,9 +19,11 @@ import MapboxDirections
 import MapboxCoreNavigation
 import MapboxNavigation
 
-class NavigationMapViewController: MapViewController {
+class PatientMapViewController: MapViewController {
     
     // MARK: - Properties
+    
+    // Home button that starts turn-by-turn navigation
     lazy var takeMeHomeButton: NTButton = { [weak self] in
         let button = NTButton()
         button.backgroundColor = .logoBlue
@@ -31,7 +33,7 @@ class NavigationMapViewController: MapViewController {
         button.setTitleColor(UIColor.white.withAlpha(0.3), for: .highlighted)
         button.setTitle("Home", for: .normal)
         button.titleFont = Font.Default.Title.withSize(22)
-        button.addTarget(self, action: #selector(calculateRouteHome), for: .touchUpInside)
+        button.addTarget(self, action: #selector(presentNavigation), for: .touchUpInside)
         button.layer.cornerRadius = 40
         button.layer.borderWidth = 4
         button.layer.borderColor = UIColor.white.cgColor
@@ -42,29 +44,13 @@ class NavigationMapViewController: MapViewController {
     var directionsRoute: Route?
     var bookmarks = [PFObject]()
     
-    // Get bookmarks from database
-    @objc
-    func getBookmarks() {
-        // Check that Caretaker is accessing this menu, not Patient
-        guard let currentUser = User.current(), currentUser.isPatient else { return }
-        
-        let query = PFQuery(className: "Bookmarks")
-        query.whereKey("patient", equalTo: currentUser.object)
-        query.findObjectsInBackground { (objects, error) in
-            guard let objects = objects else {
-                Log.write(.error, error.debugDescription)
-                return
-            }
-            self.bookmarks = objects
-        }
-    }
-    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Map"
-        self.getBookmarks()
+        // Start with getting home bookmark, and marking it on the patient's map
+        self.getHomeBookmark()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,34 +70,53 @@ class NavigationMapViewController: MapViewController {
         takeMeHomeButton.addConstraints(nil, left: nil, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 32, rightConstant: 32, widthConstant: 80, heightConstant: 80)
     }
     
-    // Always allow callouts to appear when annotations are tapped.
-    override func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-        return true
-    }
-
     // MARK: - User Actions
+    
+    // Get bookmarks from database, and choose home
     @objc
-    func calculateRouteHome() {
+    func getHomeBookmark() {
+        // Check that Caretaker is accessing this menu, not Patient
+        guard let currentUser = User.current(), currentUser.isPatient else { return }
         
-        // TODO: Search for bookmark "Home"
-        let home = bookmarks[0]["address"] as? String
-        self.getCoordinates(address: home!, completion: { (coordinate) in
+        let query = PFQuery(className: "Bookmarks")
+        query.whereKey("patient", equalTo: currentUser.object)
+        query.findObjectsInBackground { (objects, error) in
+            guard let objects = objects else {
+                Log.write(.error, error.debugDescription)
+                return
+            }
+            self.bookmarks = objects
+            
+            // TODO: Search for bookmark "Home", if not present, give error
+            let home = self.bookmarks[0]["address"] as? String
+            self.calculateRouteHome(Home: home!)
+        }
+    }
+    
+    @objc
+    func calculateRouteHome(Home: String) {
+        
+        self.getCoordinates(address: Home, completion: { (coordinate) in
             guard let coordinate = coordinate else {
                 NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
                 return
             }
-            //use mapbox to trace the path to home from current location
+            // Use mapbox to trace the path to home from current location
             guard let currentLocation = LocationManager.shared.currentLocation else { return }
             let origin = Waypoint(coordinate: currentLocation, name: "Current Location")
             let destination = Waypoint(coordinate: coordinate, name: "Home")
             
             let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .walking)
-            
+            // Create home annotation marker
             let annotation = MGLPointAnnotation()
             annotation.coordinate = coordinate
             annotation.title = "Home"
+            if let currentLocation = LocationManager.shared.currentLocation {
+                // Return distance in Km from current location
+                annotation.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km Away"
+            }
             self.mapView.addAnnotation(annotation)
-            
+
             _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
                 guard let route = routes?.first else { return }
                 self.directionsRoute = route
@@ -139,13 +144,11 @@ class NavigationMapViewController: MapViewController {
     }
     
     // Present the navigation view controller
-    func presentNavigation(along route: Route) {
-        let viewController = NavigationViewController(for: route)
+    @objc
+    func presentNavigation() {
+        // TODO: If home bookmark missing (i.e. directionsRoute == nil) prompt error and ignore button action
+        let viewController = NavigationViewController(for: directionsRoute!)
         self.present(viewController, animated: true, completion: nil)
-    }
-    
-    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
-        self.presentNavigation(along: directionsRoute!)
     }
     
     // Get coordinates from address

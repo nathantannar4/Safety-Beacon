@@ -1,5 +1,5 @@
 //
-//  LocationViewController.swift
+//  PatientLocationViewController.swift
 //  SafetyBeacon
 //
 //  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
@@ -12,8 +12,9 @@
 import UIKit
 import NTComponents
 
-class LocationViewController: MapViewController {
+class PatientLocationViewController: MapViewController {
     
+    // Start navigation button
     lazy var startButton: NTButton = { [weak self] in
         let button = NTButton()
         button.backgroundColor = .logoGreen
@@ -42,6 +43,7 @@ class LocationViewController: MapViewController {
     
     override func setupConstraints() {
         super.setupConstraints()
+        // Location of start button on screen
         startButton.addConstraints(nil, left: nil, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 32, rightConstant: 32, widthConstant: 80, heightConstant: 80)
     }
 

@@ -1,5 +1,5 @@
 //
-//  BookmarksSetupViewController.swift
+//  CaretakerBookmarksViewController.swift
 //  SafetyBeacon
 //
 //  Changes tracked by git: github.com/nathantannar4/Safety-Beacon
@@ -19,7 +19,7 @@ import Parse
 import UIKit
 import Mapbox
 
-class BookmarksSetupViewController: UITableViewController {
+class CaretakerBookmarksViewController: UITableViewController {
 
     // MARK: - Properties
     var bookmarks = [PFObject]()
@@ -141,25 +141,26 @@ class BookmarksSetupViewController: UITableViewController {
             addBookmark()
         }
         if indexPath.section == 1 {
-            let location = LocationViewController()
+            let location = CaretakerLocationViewController()
             location.title = bookmarks[indexPath.row]["name"] as? String
             let address = bookmarks[indexPath.row]["address"] as? String
             var concatenatedAddressArr = address?.components(separatedBy: ", ")
             let originalStreet = concatenatedAddressArr![0] as String
-            
+            // Get coordinates from address
             self.getCoordinates(address: address!, completion: { (coordinate) in
                 guard let coordinate = coordinate else {
                     NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
                     return
                 }
                 let navigation = NTNavigationController(rootViewController: location)
+                // Present map view when bookmark selected
                 self.present(navigation, animated: true, completion: {
                     let locationMarker = MGLPointAnnotation()
                     locationMarker.coordinate = coordinate
                     locationMarker.title = originalStreet
                     if let currentLocation = LocationManager.shared.currentLocation {
-                        // Return distance in Km
-                        locationMarker.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km Away"
+                        // Return distance in Km away from patient
+                        locationMarker.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km from Patient's Location"
                     }
                     location.mapView.addAnnotation(locationMarker)
                     location.mapView.setCenter(coordinate, zoomLevel: 12, animated: true)
@@ -404,7 +405,7 @@ class BookmarksSetupViewController: UITableViewController {
 }
 
 // MARK: - UIPickerViewDataSource/UIPickerViewDelegate
-extension BookmarksSetupViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension CaretakerBookmarksViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     // Sections within picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -429,7 +430,7 @@ extension BookmarksSetupViewController: UIPickerViewDataSource, UIPickerViewDele
 }
 
 // MARK: - UITextFieldDelegate
-extension BookmarksSetupViewController: UITextFieldDelegate {
+extension CaretakerBookmarksViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let count = textField.text?.count ?? 0
