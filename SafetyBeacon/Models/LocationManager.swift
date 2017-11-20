@@ -7,7 +7,7 @@
 //  Edited by:
 //      Nathan Tannar
 //           - ntannar@sfu.ca
-//      Kim Youjung
+//      Youjung Kim
 //          - youjungk@sfu.ca
 //
 
@@ -15,10 +15,10 @@ import CoreLocation
 import Parse
 import NTComponents
 
-class LocationManager: NSObject, CLLocationManagerDelegate {
+class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegate {
     
     static var shared = LocationManager()
-    
+
     fileprivate var counter = 0
     
     // MARK: - Properties
@@ -79,7 +79,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     /// Saves the current users location to the server for processing
     ///
     /// - Returns: If the push was successful
-    func saveCurrentLocation() {
+    @objc func saveCurrentLocation() {
         
         guard let user = User.current(), user.isPatient, let location = currentLocation else { return }
         let location_history = PFObject(className: "History")
@@ -141,15 +141,36 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         Log.write(.status, "\(counter)locationManagerDidUpdateLocations: \(locations)")
-        
         // Every 5 minutes (300 seconds) sync the users location
-        if counter % 300 == 0 {
-            saveCurrentLocation()
-            counter = 1
+        if UIApplication.shared.applicationState == .active {
+            if counter % 300 == 0 {
+                saveCurrentLocation()
+                counter = 1
+            }
+            
+        }
+        // if the application is .inactive or .background
+        else {
+            if (counter % 300 == 0){
+                saveCurrentLocation()
+                counter = 1
+            }
         }
         counter += 1
+        
+		//For testing purposes
+        switch UIApplication.shared.applicationState {
+        case .active:
+            print ("active")
+        case .background:
+            print("App is backgrounded.")
+            print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
+        case .inactive:
+            break
+        }
+        
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         Log.write(.status, "locationManagerDidChangeAuthorizationStatus: \(status)")
         switch status {
@@ -165,4 +186,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             break
         }
     }
+
+
 }
+
+
