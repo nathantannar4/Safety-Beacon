@@ -124,15 +124,9 @@
 				385BA32F1F79BD38004B9061 /* LoginViewController.swift */,
 				3869F5601FA2C00F00DC3CDC /* AccountSetupViewController.swift */,
 				3847EEA71F79DD6000305761 /* MapViewController.swift */,
-				3810DA4B1F832A5300B5180E /* PatientMapViewController.swift */,
-				3847EEAD1F79E02E00305761 /* CaretakerReportViewController.swift */,
-				3847EEA91F79DFAF00305761 /* CaretakerBookmarksViewController.swift */,
-				961FF6CE1FBD6E26006C7535 /* PatientBookmarksViewController.swift */,
-				3810DA4D1F832AAC00B5180E /* CaretakerSafeZonesViewController.swift */,
-				3847EEAF1F79E08700305761 /* CaretakerHistoryViewController.swift */,
 				389E62FA1F909A41005B39DA /* SettingsViewController.swift */,
-				96255D051FAE78990072F482 /* PatientLocationViewController.swift */,
-				968BCD101FC2446E00EAB598 /* CaretakerLocationViewController.swift */,
+				38D8BAE41FC299E200BA3F76 /* Caretaker Controllers */,
+				38D8BAE51FC299EE00BA3F76 /* Patient Controllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -155,6 +149,28 @@
 				38C890D31FAE6C2900723F0D /* NSConstraintLayoutSet.swift */,
 			);
 			path = DynamicTabBarController;
+			sourceTree = "<group>";
+		};
+		38D8BAE41FC299E200BA3F76 /* Caretaker Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3847EEAD1F79E02E00305761 /* CaretakerReportViewController.swift */,
+				3847EEA91F79DFAF00305761 /* CaretakerBookmarksViewController.swift */,
+				3810DA4D1F832AAC00B5180E /* CaretakerSafeZonesViewController.swift */,
+				3847EEAF1F79E08700305761 /* CaretakerHistoryViewController.swift */,
+				968BCD101FC2446E00EAB598 /* CaretakerLocationViewController.swift */,
+			);
+			path = "Caretaker Controllers";
+			sourceTree = "<group>";
+		};
+		38D8BAE51FC299EE00BA3F76 /* Patient Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				961FF6CE1FBD6E26006C7535 /* PatientBookmarksViewController.swift */,
+				96255D051FAE78990072F482 /* PatientLocationViewController.swift */,
+				3810DA4B1F832A5300B5180E /* PatientMapViewController.swift */,
+			);
+			path = "Patient Controllers";
 			sourceTree = "<group>";
 		};
 		38F7C2491F736D92006C995A = {
@@ -577,7 +593,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9CPK2F7ZFE;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/SafetyBeacon/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.SafetyBeacon;
@@ -593,7 +609,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9CPK2F7ZFE;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/SafetyBeacon/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.SafetyBeacon;
