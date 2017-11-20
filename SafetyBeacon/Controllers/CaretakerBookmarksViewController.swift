@@ -146,13 +146,14 @@ class CaretakerBookmarksViewController: UITableViewController {
             let address = bookmarks[indexPath.row]["address"] as? String
             var concatenatedAddressArr = address?.components(separatedBy: ", ")
             let originalStreet = concatenatedAddressArr![0] as String
-            
+            // Get coordinates from address
             self.getCoordinates(address: address!, completion: { (coordinate) in
                 guard let coordinate = coordinate else {
                     NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
                     return
                 }
                 let navigation = NTNavigationController(rootViewController: location)
+                // Present map view when bookmark selected
                 self.present(navigation, animated: true, completion: {
                     let locationMarker = MGLPointAnnotation()
                     locationMarker.coordinate = coordinate

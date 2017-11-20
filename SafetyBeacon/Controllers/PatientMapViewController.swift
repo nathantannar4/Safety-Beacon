@@ -22,6 +22,8 @@ import MapboxNavigation
 class PatientMapViewController: MapViewController {
     
     // MARK: - Properties
+    
+    // Home button that starts turn-by-turn navigation
     lazy var takeMeHomeButton: NTButton = { [weak self] in
         let button = NTButton()
         button.backgroundColor = .logoBlue
@@ -42,32 +44,12 @@ class PatientMapViewController: MapViewController {
     var directionsRoute: Route?
     var bookmarks = [PFObject]()
     
-    // Get bookmarks from database
-    @objc
-    func getHomeBookmark() {
-        // Check that Caretaker is accessing this menu, not Patient
-        guard let currentUser = User.current(), currentUser.isPatient else { return }
-        
-        let query = PFQuery(className: "Bookmarks")
-        query.whereKey("patient", equalTo: currentUser.object)
-        query.findObjectsInBackground { (objects, error) in
-            guard let objects = objects else {
-                Log.write(.error, error.debugDescription)
-                return
-            }
-            self.bookmarks = objects
-            
-            // TODO: Search for bookmark "Home"
-            let home = self.bookmarks[0]["address"] as? String
-            self.calculateRouteHome(Home: home!)
-        }
-    }
-    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Map"
+        // Start with getting home bookmark, and marking it on the patient's map
         self.getHomeBookmark()
     }
     
@@ -89,6 +71,28 @@ class PatientMapViewController: MapViewController {
     }
     
     // MARK: - User Actions
+    
+    // Get bookmarks from database, and choose home
+    @objc
+    func getHomeBookmark() {
+        // Check that Caretaker is accessing this menu, not Patient
+        guard let currentUser = User.current(), currentUser.isPatient else { return }
+        
+        let query = PFQuery(className: "Bookmarks")
+        query.whereKey("patient", equalTo: currentUser.object)
+        query.findObjectsInBackground { (objects, error) in
+            guard let objects = objects else {
+                Log.write(.error, error.debugDescription)
+                return
+            }
+            self.bookmarks = objects
+            
+            // TODO: Search for bookmark "Home", if not present, give error
+            let home = self.bookmarks[0]["address"] as? String
+            self.calculateRouteHome(Home: home!)
+        }
+    }
+    
     @objc
     func calculateRouteHome(Home: String) {
         
@@ -97,18 +101,18 @@ class PatientMapViewController: MapViewController {
                 NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
                 return
             }
-            //use mapbox to trace the path to home from current location
+            // Use mapbox to trace the path to home from current location
             guard let currentLocation = LocationManager.shared.currentLocation else { return }
             let origin = Waypoint(coordinate: currentLocation, name: "Current Location")
             let destination = Waypoint(coordinate: coordinate, name: "Home")
             
             let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .walking)
-            
+            // Create home annotation marker
             let annotation = MGLPointAnnotation()
             annotation.coordinate = coordinate
             annotation.title = "Home"
             if let currentLocation = LocationManager.shared.currentLocation {
-                // Return distance in Km
+                // Return distance in Km from current location
                 annotation.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km Away"
             }
             self.mapView.addAnnotation(annotation)
@@ -142,6 +146,7 @@ class PatientMapViewController: MapViewController {
     // Present the navigation view controller
     @objc
     func presentNavigation() {
+        // TODO: If home bookmark missing (i.e. directionsRoute == nil) prompt error and ignore button action
         let viewController = NavigationViewController(for: directionsRoute!)
         self.present(viewController, animated: true, completion: nil)
     }

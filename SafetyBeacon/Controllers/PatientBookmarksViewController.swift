@@ -104,32 +104,32 @@ class PatientBookmarksViewController: UITableViewController {
         let address = bookmarks[indexPath.row]["address"] as? String
         var concatenatedAddressArr = address?.components(separatedBy: ", ")
         let originalStreet = concatenatedAddressArr![0] as String
-        
+        // Get coordinates from address
         self.getCoordinates(address: address!, completion: { (coordinate) in
             guard let coordinate = coordinate else {
                 NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
                 return
             }
             let navigation = NTNavigationController(rootViewController: location)
-            
+            // Present map view when bookmark selected
             self.present(navigation, animated: true, completion: {
                 let locationMarker = MGLPointAnnotation()
                 locationMarker.coordinate = coordinate
                 locationMarker.title = originalStreet
                 if let currentLocation = LocationManager.shared.currentLocation {
-                    // Return distance in Km
+                    // Return distance in Km from current location
                     locationMarker.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km Away"
                 }
                 location.mapView.addAnnotation(locationMarker)
                 location.mapView.setCenter(coordinate, zoomLevel: 13, animated: true)
                 
-                // Use mapbox to trace the path to home from current location
+                // Use mapbox to trace the path to bookmark from current location
                 guard let currentLocation = LocationManager.shared.currentLocation else { return }
                 let origin = Waypoint(coordinate: currentLocation, name: "Current Location")
                 let destination = Waypoint(coordinate: coordinate, name: location.title)
 
                 let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .walking)
-
+                // Calculate the route
                 _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
                     guard let route = routes?.first else { return }
                     self.directionsRoute = route
@@ -149,7 +149,7 @@ class PatientBookmarksViewController: UITableViewController {
                         location.mapView.style?.addSource(source)
                         location.mapView.style?.addLayer(lineStyle)
                     }
-                    // Connect start button to action
+                    // Connect start navigation button to action
                     location.startButton.addTarget(self, action: #selector(self.presentNavigation), for: .touchUpInside)
                 }
             })
