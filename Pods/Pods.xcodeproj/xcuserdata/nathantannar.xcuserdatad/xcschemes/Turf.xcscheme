@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "08E04C19B4AD2D8DE2175C5DEF7E2DD2"
+               BlueprintIdentifier = "80D84833A3FA6A34FA8D802F56F1560D"
                BuildableName = "Turf.framework"
                BlueprintName = "Turf"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "08E04C19B4AD2D8DE2175C5DEF7E2DD2"
+            BlueprintIdentifier = "80D84833A3FA6A34FA8D802F56F1560D"
             BuildableName = "Turf.framework"
             BlueprintName = "Turf"
             ReferencedContainer = "container:Pods.xcodeproj">

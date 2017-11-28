@@ -1,0 +1,33 @@
+{
+  "name": "MapboxARKit",
+  "version": "0.0.1",
+  "summary": "Utilities for combining Mapbox maps and location services with ARKit in your applications.",
+  "description": "Utilities for combining Mapbox maps and location services with ARKit in your applications.",
+  "homepage": "https://www.mapbox.com/",
+  "documentation_url": "https://mapbox.github.io/mapbox-arkit-ios/documentation/",
+  "license": {
+    "type": "ISC",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Mapbox": "mobile@mapbox.com"
+  },
+  "social_media_url": "https://twitter.com/mapbox",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/mapbox/mapbox-arkit-ios.git",
+    "tag": "v0.0.1"
+  },
+  "source_files": [
+    "MapboxARKit/*"
+  ],
+  "requires_arc": true,
+  "module_name": "MapboxARKit",
+  "dependencies": {
+    "Turf": [
+
+    ]
+  }
+}

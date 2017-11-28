@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		3810DA4C1F832A5300B5180E /* PatientMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810DA4B1F832A5300B5180E /* PatientMapViewController.swift */; };
 		3810DA4E1F832AAC00B5180E /* CaretakerSafeZonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810DA4D1F832AAC00B5180E /* CaretakerSafeZonesViewController.swift */; };
+		384756C31FCCE7BF00FDA3E8 /* MBARAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384756C01FCCE7BE00FDA3E8 /* MBARAnchor.swift */; };
+		384756C41FCCE7BF00FDA3E8 /* AnnotationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384756C11FCCE7BF00FDA3E8 /* AnnotationManager.swift */; };
+		384756C51FCCE7BF00FDA3E8 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384756C21FCCE7BF00FDA3E8 /* Annotation.swift */; };
+		384756C71FCCE7C700FDA3E8 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384756C61FCCE7C700FDA3E8 /* ARViewController.swift */; };
+		384756C91FCCE7D100FDA3E8 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 384756C81FCCE7D000FDA3E8 /* art.scnassets */; };
 		3847EEA81F79DD6000305761 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEA71F79DD6000305761 /* MapViewController.swift */; };
 		3847EEAA1F79DFAF00305761 /* CaretakerBookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEA91F79DFAF00305761 /* CaretakerBookmarksViewController.swift */; };
 		3847EEAE1F79E02E00305761 /* CaretakerReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847EEAD1F79E02E00305761 /* CaretakerReportViewController.swift */; };
@@ -45,6 +50,11 @@
 /* Begin PBXFileReference section */
 		3810DA4B1F832A5300B5180E /* PatientMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientMapViewController.swift; sourceTree = "<group>"; };
 		3810DA4D1F832AAC00B5180E /* CaretakerSafeZonesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerSafeZonesViewController.swift; sourceTree = "<group>"; };
+		384756C01FCCE7BE00FDA3E8 /* MBARAnchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBARAnchor.swift; sourceTree = "<group>"; };
+		384756C11FCCE7BF00FDA3E8 /* AnnotationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationManager.swift; sourceTree = "<group>"; };
+		384756C21FCCE7BF00FDA3E8 /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		384756C61FCCE7C700FDA3E8 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		384756C81FCCE7D000FDA3E8 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		3847EEA71F79DD6000305761 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3847EEA91F79DFAF00305761 /* CaretakerBookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerBookmarksViewController.swift; sourceTree = "<group>"; };
 		3847EEAD1F79E02E00305761 /* CaretakerReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerReportViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +116,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		384756BF1FCCE7A800FDA3E8 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				384756C61FCCE7C700FDA3E8 /* ARViewController.swift */,
+				384756C21FCCE7BF00FDA3E8 /* Annotation.swift */,
+				384756C11FCCE7BF00FDA3E8 /* AnnotationManager.swift */,
+				384756C01FCCE7BE00FDA3E8 /* MBARAnchor.swift */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
 		38C1209A1F736FAC00A4A9A4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +146,7 @@
 				3869F5601FA2C00F00DC3CDC /* AccountSetupViewController.swift */,
 				3847EEA71F79DD6000305761 /* MapViewController.swift */,
 				389E62FA1F909A41005B39DA /* SettingsViewController.swift */,
+				384756BF1FCCE7A800FDA3E8 /* AR */,
 				38D8BAE41FC299E200BA3F76 /* Caretaker Controllers */,
 				38D8BAE51FC299EE00BA3F76 /* Patient Controllers */,
 			);
@@ -233,6 +255,7 @@
 		38F7C27A1F736E37006C995A /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				384756C81FCCE7D000FDA3E8 /* art.scnassets */,
 				38F7C27B1F736E37006C995A /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -316,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38F7C2801F736EC5006C995A /* Assets.xcassets in Resources */,
+				384756C91FCCE7D100FDA3E8 /* art.scnassets in Resources */,
 				38F7C27E1F736EC0006C995A /* LaunchScreen.storyboard in Resources */,
 				3869F55B1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist in Resources */,
 			);
@@ -371,6 +395,7 @@
 				"${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/MapboxARKit/MapboxARKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
@@ -394,6 +419,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTimePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxARKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
@@ -440,6 +466,7 @@
 				3869F55F1FA2BA1200DC3CDC /* PushNotification.swift in Sources */,
 				38C890D81FAE6C2900723F0D /* DynamicTabBarItem.swift in Sources */,
 				389E62FB1F909A41005B39DA /* SettingsViewController.swift in Sources */,
+				384756C51FCCE7BF00FDA3E8 /* Annotation.swift in Sources */,
 				3810DA4E1F832AAC00B5180E /* CaretakerSafeZonesViewController.swift in Sources */,
 				3847EEAE1F79E02E00305761 /* CaretakerReportViewController.swift in Sources */,
 				38C890D51FAE6C2900723F0D /* DynamicTabBarController.swift in Sources */,
@@ -448,6 +475,7 @@
 				3810DA4C1F832A5300B5180E /* PatientMapViewController.swift in Sources */,
 				96255D061FAE78990072F482 /* PatientLocationViewController.swift in Sources */,
 				3847EEA81F79DD6000305761 /* MapViewController.swift in Sources */,
+				384756C71FCCE7C700FDA3E8 /* ARViewController.swift in Sources */,
 				389E62F91F90992C005B39DA /* ContentController.swift in Sources */,
 				385BA3311F79BE2A004B9061 /* UIView+AutoLayout.swift in Sources */,
 				3847EEB01F79E08700305761 /* CaretakerHistoryViewController.swift in Sources */,
@@ -462,6 +490,8 @@
 				968BCD111FC2446E00EAB598 /* CaretakerLocationViewController.swift in Sources */,
 				385BA33F1F79C2A5004B9061 /* User.swift in Sources */,
 				961FF6CF1FBD6E26006C7535 /* PatientBookmarksViewController.swift in Sources */,
+				384756C41FCCE7BF00FDA3E8 /* AnnotationManager.swift in Sources */,
+				384756C31FCCE7BF00FDA3E8 /* MBARAnchor.swift in Sources */,
 				3869F55D1FA2BA0D00DC3CDC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,10 +623,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JH5XJ55XGZ;
 				INFOPLIST_FILE = "$(SRCROOT)/SafetyBeacon/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.SafetyBeacon;
+				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.cmpt275.SafetyBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -609,10 +639,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JH5XJ55XGZ;
 				INFOPLIST_FILE = "$(SRCROOT)/SafetyBeacon/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.SafetyBeacon;
+				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.cmpt275.SafetyBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

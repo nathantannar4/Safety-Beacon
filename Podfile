@@ -14,6 +14,7 @@ target 'SafetyBeacon' do
   pod 'Mapbox-iOS-SDK'
   pod 'MapboxCoreNavigation'
   pod 'MapboxNavigation'
+  pod 'MapboxARKit', :git => 'https://github.com/mapbox/mapbox-arkit-ios.git'
   pod 'NTComponents'
   pod 'Fabric'
   pod 'Crashlytics'
