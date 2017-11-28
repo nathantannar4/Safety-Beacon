@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1366,7 +1366,7 @@
 		0346BD31C6CA5EEFDE9DB75087148C41 /* vendor_identifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = vendor_identifier.m; path = vendor/TrustKit/Reporting/vendor_identifier.m; sourceTree = "<group>"; };
 		03497C3B3B8A531E8138121DB3DA8E55 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		034F5A67FEB63707B554BB2EA9673686 /* AWSMTLManagedObjectAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMTLManagedObjectAdapter.h; path = AWSCore/Mantle/AWSMTLManagedObjectAdapter.h; sourceTree = "<group>"; };
-		039DC3F32F12BED10F20C2460BC47421 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Bolts.framework; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		039DC3F32F12BED10F20C2460BC47421 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		041A5F4095F46FEABBCEA18B7E4AC80E /* MapboxNavigation.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MapboxNavigation.xcconfig; sourceTree = "<group>"; };
 		045D3DDA836E4A7D11ED57A32629AA93 /* PFDefaultACLController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFDefaultACLController.m; path = Parse/Internal/ACL/DefaultACLController/PFDefaultACLController.m; sourceTree = "<group>"; };
 		04B9E7C7F429F76C28A3E67F119677EB /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1378,13 +1378,13 @@
 		062A3CAB261E743F5795C135397CE4C4 /* PFInstallationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFInstallationController.m; path = Parse/Internal/Installation/Controller/PFInstallationController.m; sourceTree = "<group>"; };
 		065D10680B3A32E9904A9A1455AD9409 /* PFInstallationPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInstallationPrivate.h; path = Parse/Internal/Installation/PFInstallationPrivate.h; sourceTree = "<group>"; };
 		06AFC8B740D646A3C5FD37FF6FA00FB3 /* ParseModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ParseModule.m; path = Parse/Internal/ParseModule.m; sourceTree = "<group>"; };
-		06CAB47DAD3A0115B10EC22A5B0A6377 /* MapboxARKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MapboxARKit.modulemap; sourceTree = "<group>"; };
+		06CAB47DAD3A0115B10EC22A5B0A6377 /* MapboxARKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MapboxARKit.modulemap; sourceTree = "<group>"; };
 		0714D09373050ADCF697EEA8B236636B /* PFCurrentConfigController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCurrentConfigController.h; path = Parse/Internal/Config/Controller/PFCurrentConfigController.h; sourceTree = "<group>"; };
-		078779BB568AD05ADD41400B81794DAE /* Turf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Turf.framework; path = Turf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		078779BB568AD05ADD41400B81794DAE /* Turf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Turf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CD6C35C06F9A5D72FFD7E3C450A34E /* MMEEventLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMEEventLogger.h; path = MapboxMobileEvents/MMEEventLogger.h; sourceTree = "<group>"; };
 		080AA80BB970BD0F1C4E78F4BF49302B /* MapboxMobileEvents.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MapboxMobileEvents.h; path = MapboxMobileEvents/MapboxMobileEvents.h; sourceTree = "<group>"; };
 		0878C43FB7BF9A600D84B9C5846FD198 /* PFOperationSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFOperationSet.h; path = Parse/Internal/Object/OperationSet/PFOperationSet.h; sourceTree = "<group>"; };
-		08D5518D93FDBF089FAB7D20DA1641CD /* Turf.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Turf.modulemap; sourceTree = "<group>"; };
+		08D5518D93FDBF089FAB7D20DA1641CD /* Turf.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Turf.modulemap; sourceTree = "<group>"; };
 		08E69635E5A088BFD21A859879EB64D9 /* NTCarouselView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTCarouselView.swift; path = "NTComponents/UI Kit/Views/NTCarouselView.swift"; sourceTree = "<group>"; };
 		091AFB09DE545D3EFC227F905CC25CFC /* Navigation.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Navigation.strings; path = ru.lproj/Navigation.strings; sourceTree = "<group>"; };
 		0959CFDEBF8CB5FA2144E386DDCED1B9 /* PFObjectFileCodingLogic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectFileCodingLogic.h; path = Parse/Internal/Object/Coder/File/PFObjectFileCodingLogic.h; sourceTree = "<group>"; };
@@ -1404,7 +1404,7 @@
 		0BC0FEC0CDA807B2580C84F39524827F /* NTNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTNavigationController.swift; path = "NTComponents/UI Kit/Navigation/NTNavigationController.swift"; sourceTree = "<group>"; };
 		0BDB2ADD4331E9CB493CBEBC65958350 /* PFObjectFileCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectFileCoder.m; path = Parse/Internal/Object/Coder/File/PFObjectFileCoder.m; sourceTree = "<group>"; };
 		0C3E147A44D3943C3F9BEBCFE56FF8A7 /* SceneLocationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SceneLocationView.swift; path = "ARKit+CoreLocation/Source/SceneLocationView.swift"; sourceTree = "<group>"; };
-		0C70993530E47961B6FAB741E97E3CF6 /* MaterialIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = MaterialIcons.ttf; path = NTComponents/Assets/fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
+		0C70993530E47961B6FAB741E97E3CF6 /* MaterialIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = MaterialIcons.ttf; path = NTComponents/Assets/fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
 		0CB6B2A40D60CC252B7B89F9AF552BA1 /* UIView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = NTComponents/Extensions/UIView.swift; sourceTree = "<group>"; };
 		0CCF26AF8ACFD0B4011D8C27E05361F3 /* AWSModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSModel.m; path = AWSCore/Utility/AWSModel.m; sourceTree = "<group>"; };
 		0CE879308981B8120B612D17B3CA452E /* AWSMTLValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMTLValueTransformer.m; path = AWSCore/Mantle/AWSMTLValueTransformer.m; sourceTree = "<group>"; };
@@ -1422,7 +1422,7 @@
 		0E48DA36B237E06DE4E72E4C556A068B /* Int.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Int.swift; path = NTComponents/Extensions/Int.swift; sourceTree = "<group>"; };
 		0E61BFAD4AA05CAB52A470FEFD1905D4 /* BFCancellationToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationToken.m; path = Bolts/Common/BFCancellationToken.m; sourceTree = "<group>"; };
 		0E93B2DB32A56C47EAE14867B864497A /* Navigation.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Navigation.strings; path = "zh-Hant.lproj/Navigation.strings"; sourceTree = "<group>"; };
-		0ED0816E5D589AA3E8B6519B8BC64CC9 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SDWebImage.modulemap; sourceTree = "<group>"; };
+		0ED0816E5D589AA3E8B6519B8BC64CC9 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SDWebImage.modulemap; sourceTree = "<group>"; };
 		0F271B7914F150168A5711BD1EC9148A /* PFMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMacros.h; path = Parse/Internal/PFMacros.h; sourceTree = "<group>"; };
 		0F2A1ED4C635B521C037BB1EB69B4082 /* vendor_identifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = vendor_identifier.h; path = vendor/TrustKit/Reporting/vendor_identifier.h; sourceTree = "<group>"; };
 		0F5CB697DB612E22FBE725A70C36532E /* AWSSTS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSTS.h; path = AWSCore/STS/AWSSTS.h; sourceTree = "<group>"; };
@@ -1439,7 +1439,7 @@
 		11096700F14C75770FA55308D081BB5A /* PFObject+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFObject+Deprecated.h"; path = "Parse/PFObject+Deprecated.h"; sourceTree = "<group>"; };
 		111E19A0D794E260FD622D5CB94CCED7 /* NTExpandableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTExpandableView.swift; path = "NTComponents/UI Kit/Views/NTExpandableView.swift"; sourceTree = "<group>"; };
 		1146959844F5BA33CFB0CB7C60C8A65E /* AWSService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSService.m; path = AWSCore/Service/AWSService.m; sourceTree = "<group>"; };
-		118D1A56A8020CCE35611A89D8AEE7C3 /* MapboxCoreNavigation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MapboxCoreNavigation.modulemap; sourceTree = "<group>"; };
+		118D1A56A8020CCE35611A89D8AEE7C3 /* MapboxCoreNavigation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MapboxCoreNavigation.modulemap; sourceTree = "<group>"; };
 		11C28E6754F422309FF92DEA00868BF8 /* Bolts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Bolts-dummy.m"; sourceTree = "<group>"; };
 		11DEB82F1C7F8C3B44473A9D06D5631A /* AWSPollyEnumTranslatorUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSPollyEnumTranslatorUtility.m; path = AWSPolly/AWSPollyEnumTranslatorUtility.m; sourceTree = "<group>"; };
 		11EEB5C3A659F37308B2A4197362C1D2 /* PFURLSessionCommandRunner.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLSessionCommandRunner.m; path = Parse/Internal/Commands/CommandRunner/URLSession/PFURLSessionCommandRunner.m; sourceTree = "<group>"; };
@@ -1486,10 +1486,10 @@
 		19D66DAECA1B9747DE4CDE06EF64705A /* InstructionsBannerViewLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InstructionsBannerViewLayout.swift; path = MapboxNavigation/InstructionsBannerViewLayout.swift; sourceTree = "<group>"; };
 		19D73B4ADD9FC6BB22A9977DF9BEB895 /* NavigationRouteOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationRouteOptions.swift; path = MapboxCoreNavigation/NavigationRouteOptions.swift; sourceTree = "<group>"; };
 		1A043C055A3215BDB693B0C9507F4A39 /* PFQueryUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryUtilities.m; path = Parse/Internal/Query/Utilities/PFQueryUtilities.m; sourceTree = "<group>"; };
-		1A2C1B3277B66A3C8B7EC8887B509A89 /* WhatsNew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WhatsNew.framework; path = WhatsNew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A2C1B3277B66A3C8B7EC8887B509A89 /* WhatsNew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatsNew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABA6A175CFE7C9895A6A852F51AB953 /* PFSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSession.h; path = Parse/PFSession.h; sourceTree = "<group>"; };
 		1AC615FD110B30ADC2C9E0F1A221188F /* ParseManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ParseManager.m; path = Parse/Internal/ParseManager.m; sourceTree = "<group>"; };
-		1ADB501A3621ECC2355960F442DCD8E0 /* AWSCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AWSCore.modulemap; sourceTree = "<group>"; };
+		1ADB501A3621ECC2355960F442DCD8E0 /* AWSCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AWSCore.modulemap; sourceTree = "<group>"; };
 		1AE7B58F3729CCBEB0DD82C3DCF46B0B /* MapboxCoreNavigation.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MapboxCoreNavigation.xcconfig; sourceTree = "<group>"; };
 		1AFCEA63501FCDA3FB0863AA18C2346C /* AWSDDFileLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSDDFileLogger.m; path = AWSCore/Logging/AWSDDFileLogger.m; sourceTree = "<group>"; };
 		1B10552CEF9D054BA1DED9F3457BAEAB /* PFInternalUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInternalUtils.h; path = Parse/Internal/PFInternalUtils.h; sourceTree = "<group>"; };
@@ -1547,7 +1547,7 @@
 		28559411D55A899615A3580E56DB756E /* MapboxNavigation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapboxNavigation-prefix.pch"; sourceTree = "<group>"; };
 		285A25E9DB34CC366D8A52907E441039 /* PFMulticastDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMulticastDelegate.m; path = Parse/Internal/PFMulticastDelegate.m; sourceTree = "<group>"; };
 		285D8DBC13258F8DF18294B79279A23B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2899FF0B657F9032D8A32F5235A674C2 /* Roboto-Light.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Light.ttf"; path = "NTComponents/Assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		2899FF0B657F9032D8A32F5235A674C2 /* Roboto-Light.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "NTComponents/Assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
 		28F257FBEC5CACB60C63FB85E6FA03DA /* MMETimerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMETimerManager.h; path = MapboxMobileEvents/MMETimerManager.h; sourceTree = "<group>"; };
 		290EF9DBF659EE49C4C5E411827ED08C /* AWSIdentityProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSIdentityProvider.m; path = AWSCore/Authentication/AWSIdentityProvider.m; sourceTree = "<group>"; };
 		291843BFE86026191E8439A45EBAB3EA /* AWSValidation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSValidation.m; path = AWSCore/Serialization/AWSValidation.m; sourceTree = "<group>"; };
@@ -1558,7 +1558,7 @@
 		29B6414BD4463970D80E8C66720A0529 /* WhatsNewItemImageView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = WhatsNewItemImageView.xib; path = WhatsNew/Resources/WhatsNewItemImageView.xib; sourceTree = "<group>"; };
 		29B7C37E5D2A9B8619B28DCF7A499F5C /* PFPolygon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPolygon.h; path = Parse/PFPolygon.h; sourceTree = "<group>"; };
 		2A396F978DAD33291B24A87500496812 /* PFQuery+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFQuery+Deprecated.h"; path = "Parse/PFQuery+Deprecated.h"; sourceTree = "<group>"; };
-		2B4CDC75E0B368E83888373B78A9D433 /* MapboxNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MapboxNavigation.framework; path = MapboxNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B4CDC75E0B368E83888373B78A9D433 /* MapboxNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B51935E9A0AB06C04034BE3729DD49B /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SCNNode+Extensions.swift"; path = "ARKit+CoreLocation/Source/SCNNode+Extensions.swift"; sourceTree = "<group>"; };
 		2B84ADF7DCBA45064DD767ACF4AF242D /* PFPurchaseController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPurchaseController.m; path = Parse/Internal/Purchase/Controller/PFPurchaseController.m; sourceTree = "<group>"; };
 		2C83B28B3217E96262B9D793FC86FA75 /* PFFile+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFFile+Deprecated.h"; path = "Parse/PFFile+Deprecated.h"; sourceTree = "<group>"; };
@@ -1609,7 +1609,7 @@
 		35690DC68C4F017A9AAB7A2118ADB184 /* MapboxNavigation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapboxNavigation-umbrella.h"; sourceTree = "<group>"; };
 		35BF6C6F092BD23F88E11446E1C19BCB /* PFURLSessionCommandRunner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSessionCommandRunner.h; path = Parse/Internal/Commands/CommandRunner/URLSession/PFURLSessionCommandRunner.h; sourceTree = "<group>"; };
 		35D89308CF1BCF5DE234232CFCDBE92A /* reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = reachability.m; path = MapboxMobileEvents/Reachability/reachability.m; sourceTree = "<group>"; };
-		361B6C0FF4AEE6CF3216233EE84EDDBF /* Bolts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Bolts.modulemap; sourceTree = "<group>"; };
+		361B6C0FF4AEE6CF3216233EE84EDDBF /* Bolts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Bolts.modulemap; sourceTree = "<group>"; };
 		36B1267471B7C80D9E0F0989C347A9C5 /* Color.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Color.swift; path = NTComponents/Styling/Color.swift; sourceTree = "<group>"; };
 		36D7C0534CEE9E7C4163480C3F1657C8 /* PFReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFReachability.h; path = Parse/Internal/PFReachability.h; sourceTree = "<group>"; };
 		36DFB261CE331075A96BFF7C15663DE7 /* AWSMTLReflection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMTLReflection.h; path = AWSCore/Mantle/AWSMTLReflection.h; sourceTree = "<group>"; };
@@ -1653,7 +1653,7 @@
 		3FEC2C0D71F6FABFC1E6D101BFC9B704 /* PFUser+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFUser+Synchronous.h"; path = "Parse/PFUser+Synchronous.h"; sourceTree = "<group>"; };
 		3FF0EBB49E63CCB05255CECE2E1560FC /* PFMutableACLState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMutableACLState.h; path = Parse/Internal/ACL/State/PFMutableACLState.h; sourceTree = "<group>"; };
 		406BD1D36FB52AB4A61CFAAED26885CA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		408668C9B58EC567617AE1200338BA02 /* Pods_SafetyBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SafetyBeacon.framework; path = "Pods-SafetyBeacon.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		408668C9B58EC567617AE1200338BA02 /* Pods_SafetyBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		408A0AE457235797B5A65222F055E9F3 /* PFURLConstructor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLConstructor.h; path = Parse/Internal/HTTPRequest/PFURLConstructor.h; sourceTree = "<group>"; };
 		40FC76CF4C51B64175361E1479B4CB5A /* AWSCocoaLumberjack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCocoaLumberjack.h; path = AWSCore/Logging/AWSCocoaLumberjack.h; sourceTree = "<group>"; };
 		4111D65E3DE4ADBCE8A66EA2E9CBA823 /* NTFormControlCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTFormControlCell.swift; path = "NTComponents/UI Kit/Form/Cells/NTFormControlCell.swift"; sourceTree = "<group>"; };
@@ -1670,7 +1670,7 @@
 		442594EBE6E93D2F9B4DD9797682132A /* PFCommandCache_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandCache_Private.h; path = Parse/Internal/PFCommandCache_Private.h; sourceTree = "<group>"; };
 		4458D7000AEA523F5A60F67171174CD7 /* TokenType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenType.swift; path = OSRMTextInstructions/TokenType.swift; sourceTree = "<group>"; };
 		44BDF6026E3E2E0368A62C6627D46F2E /* PFCurrentUserController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCurrentUserController.m; path = Parse/Internal/User/CurrentUserController/PFCurrentUserController.m; sourceTree = "<group>"; };
-		4500835D181709BAE688E0AB77C7C4D0 /* MapboxDirections.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MapboxDirections.swift.modulemap; sourceTree = "<group>"; };
+		4500835D181709BAE688E0AB77C7C4D0 /* MapboxDirections.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MapboxDirections.swift.modulemap; sourceTree = "<group>"; };
 		45255DE6C686EA8A73DFE31ED766255F /* NTLoginViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTLoginViewController.swift; path = "NTComponents/UI Kit/Other/NTLoginViewController.swift"; sourceTree = "<group>"; };
 		453833339886FF148AA055E656786BD4 /* OSRMTextInstructions-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OSRMTextInstructions-umbrella.h"; sourceTree = "<group>"; };
 		45B86E664DE608F0694A92E370C9F7B1 /* PFAnonymousUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnonymousUtils.h; path = Parse/PFAnonymousUtils.h; sourceTree = "<group>"; };
@@ -1679,7 +1679,7 @@
 		468D83A15D1454DE3B10D9FC8A8B6A15 /* Abbreviations.csv.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Abbreviations.csv.plist; path = es.lproj/Abbreviations.csv.plist; sourceTree = "<group>"; };
 		46C1D05FF42A2D018821879A1E2002A0 /* PFConfig_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConfig_Private.h; path = Parse/Internal/Config/PFConfig_Private.h; sourceTree = "<group>"; };
 		472943B387DAE9B5AA6675D047DC4BE6 /* NSError+AWSMTLModelException.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+AWSMTLModelException.h"; path = "AWSCore/Mantle/NSError+AWSMTLModelException.h"; sourceTree = "<group>"; };
-		475DE200F63A2204D3B492AD427BA979 /* MapboxARKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MapboxARKit.framework; path = MapboxARKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		475DE200F63A2204D3B492AD427BA979 /* MapboxARKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxARKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		477822E16711B023C8DF5676C2A75D4B /* WhatsNewItemTextView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = WhatsNewItemTextView.xib; path = WhatsNew/Resources/WhatsNewItemTextView.xib; sourceTree = "<group>"; };
 		479360ADA7CBF4A26DEEDBBFCC158C79 /* NSData+MMEGZIP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+MMEGZIP.h"; path = "MapboxMobileEvents/NSData+MMEGZIP.h"; sourceTree = "<group>"; };
 		47CD2D77F36951EE0085D54446021117 /* MGLMapView+MGLNavigationAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MGLMapView+MGLNavigationAdditions.h"; path = "MapboxNavigation/MGLMapView+MGLNavigationAdditions.h"; sourceTree = "<group>"; };
@@ -1694,24 +1694,24 @@
 		4970F3D76C10325A964F03A0AB749005 /* ParseManagerPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseManagerPrivate.h; path = Parse/Internal/ParseManagerPrivate.h; sourceTree = "<group>"; };
 		49CD823F73D4DEC9A17FFA7A3AC016D2 /* PFUserAuthenticationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFUserAuthenticationController.m; path = Parse/Internal/User/AuthenticationProviders/Controller/PFUserAuthenticationController.m; sourceTree = "<group>"; };
 		4A31E0DD293EEA2C4445BC0F8F5360E7 /* NTFormDatasource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTFormDatasource.swift; path = "NTComponents/UI Kit/Form/NTFormDatasource.swift"; sourceTree = "<group>"; };
-		4A3749214024E27D43775FE9DB6F8F41 /* MapboxDirections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MapboxDirections.framework; path = MapboxDirections.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A456C92CBF7A2537276D05D65AA4B05 /* ARCL.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ARCL.modulemap; sourceTree = "<group>"; };
+		4A3749214024E27D43775FE9DB6F8F41 /* MapboxDirections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxDirections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A456C92CBF7A2537276D05D65AA4B05 /* ARCL.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ARCL.modulemap; sourceTree = "<group>"; };
 		4A7672D74FB44D33C85D5CF0172FE127 /* Abbreviations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Abbreviations.swift; path = MapboxNavigation/Abbreviations.swift; sourceTree = "<group>"; };
 		4AD8D5BD1AC1D1AFFFB39B2D06D549C0 /* PFMutableFileState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableFileState.m; path = Parse/Internal/File/State/PFMutableFileState.m; sourceTree = "<group>"; };
 		4B066A624506FAD7921D634472F3F5FD /* PFFileState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFileState.h; path = Parse/Internal/File/State/PFFileState.h; sourceTree = "<group>"; };
 		4B444FB8249285A8FA7EFAF437A59346 /* PFRESTAnalyticsCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTAnalyticsCommand.h; path = Parse/Internal/Commands/PFRESTAnalyticsCommand.h; sourceTree = "<group>"; };
 		4B74D8D9940487FA0FB267EBF57E4712 /* AWSCognitoIdentityResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityResources.h; path = AWSCore/CognitoIdentity/AWSCognitoIdentityResources.h; sourceTree = "<group>"; };
 		4B8529F065E69180B7494BA0FE47FFA2 /* WhatsNewItemImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WhatsNewItemImageView.swift; path = WhatsNew/Items/WhatsNewItemImageView.swift; sourceTree = "<group>"; };
-		4BA3A4A344A6DC7629092975E5661BDF /* AcknowList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AcknowList.modulemap; sourceTree = "<group>"; };
+		4BA3A4A344A6DC7629092975E5661BDF /* AcknowList.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AcknowList.modulemap; sourceTree = "<group>"; };
 		4C312CFBEC85766EC63ADBB69B20AA19 /* PFURLSession_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSession_Private.h; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/PFURLSession_Private.h; sourceTree = "<group>"; };
 		4C7B18FA24CA8EBA3105265DA029B760 /* AWSLogging.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSLogging.m; path = AWSCore/Utility/AWSLogging.m; sourceTree = "<group>"; };
-		4C8705C1A3CC926A5C72808B4B074009 /* DateTimePicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DateTimePicker.modulemap; sourceTree = "<group>"; };
+		4C8705C1A3CC926A5C72808B4B074009 /* DateTimePicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DateTimePicker.modulemap; sourceTree = "<group>"; };
 		4C948B394A8E65BE8887DC014A7DB96D /* PFFileController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileController.m; path = Parse/Internal/File/Controller/PFFileController.m; sourceTree = "<group>"; };
 		4C9A8D70567142F3B352D1B3EFB437DE /* PFSession_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSession_Private.h; path = Parse/Internal/Session/PFSession_Private.h; sourceTree = "<group>"; };
 		4CEEF40AFF227956C68599BD30C07CA5 /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
 		4D0BB4CF0A249BBE61C951BF6C2A203C /* BFTask+Exceptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "BFTask+Exceptions.m"; path = "Bolts/Common/BFTask+Exceptions.m"; sourceTree = "<group>"; };
 		4D27118F0CC6461CE3EF0EF434B24F33 /* UIImage+UIImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+UIImageView.swift"; path = "NTComponents/Extensions/UIImage+UIImageView.swift"; sourceTree = "<group>"; };
-		4D302E5074DF2E6141C8A79F2D486C69 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Medium.ttf"; path = "NTComponents/Assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		4D302E5074DF2E6141C8A79F2D486C69 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "NTComponents/Assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		4D8734F186D1BBE8FC79E107C9960285 /* AWSCancellationToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCancellationToken.h; path = AWSCore/Bolts/AWSCancellationToken.h; sourceTree = "<group>"; };
 		4D9AB953C1314C4EC6DF197244A9922F /* PFEventuallyQueue_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFEventuallyQueue_Private.h; path = Parse/Internal/PFEventuallyQueue_Private.h; sourceTree = "<group>"; };
 		4DA77E868D2BF07E59DA8A11CD96AFAE /* SceneLocationEstimate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SceneLocationEstimate.swift; path = "ARKit+CoreLocation/Source/SceneLocationEstimate.swift"; sourceTree = "<group>"; };
@@ -1760,14 +1760,14 @@
 		55D8F0B8DA555345F9E47BF77A84B95C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55EEED6423BBC620180D9669F802648B /* PFCloud+Deprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFCloud+Deprecated.h"; path = "Parse/PFCloud+Deprecated.h"; sourceTree = "<group>"; };
 		55EF5C7F8DC72FCC6E5496A5EF85BCF7 /* NSData+MMEGZIP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+MMEGZIP.m"; path = "MapboxMobileEvents/NSData+MMEGZIP.m"; sourceTree = "<group>"; };
-		55F0019B623D727CB8B230E64A76A970 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Bold.ttf"; path = "NTComponents/Assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		55F0019B623D727CB8B230E64A76A970 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "NTComponents/Assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		560AC82C850C5A02262B016B7C1235B9 /* UIView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = MapboxNavigation/UIView.swift; sourceTree = "<group>"; };
 		56497475EAF54D9EE52AF5EF2434C447 /* Bundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Bundle.swift; path = MapboxNavigation/Bundle.swift; sourceTree = "<group>"; };
 		56771772BD9F6F24A7AF76B0F8186C09 /* AWSDDOSLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSDDOSLogger.h; path = AWSCore/Logging/AWSDDOSLogger.h; sourceTree = "<group>"; };
 		568892C1615F6F190F7D60B1F12C4B0B /* FAType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FAType.swift; path = NTComponents/Styling/FAType.swift; sourceTree = "<group>"; };
 		56C3742B33A2C1FFFE810E4B6A6FE271 /* PFPaymentTransactionObserver_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPaymentTransactionObserver_Private.h; path = Parse/Internal/Purchase/PaymentTransactionObserver/PFPaymentTransactionObserver_Private.h; sourceTree = "<group>"; };
 		56C3863BCE15DE0BE74F942DC7C45D7E /* PFCategoryLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCategoryLoader.h; path = Parse/Internal/PFCategoryLoader.h; sourceTree = "<group>"; };
-		56DB31D82965C367A54327AB125DB372 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Italic.ttf"; path = "NTComponents/Assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		56DB31D82965C367A54327AB125DB372 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Italic.ttf"; path = "NTComponents/Assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		56E976692134C00DABD0DCF5229618BC /* MapboxARKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapboxARKit-umbrella.h"; sourceTree = "<group>"; };
 		56F5187A39A37FFA0F7293DB0E83478D /* PFAnonymousUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAnonymousUtils.m; path = Parse/PFAnonymousUtils.m; sourceTree = "<group>"; };
 		57889E13F8D226A0E50EFF08D2D0C2A5 /* AWSTMMemoryCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSTMMemoryCache.h; path = AWSCore/TMCache/AWSTMMemoryCache.h; sourceTree = "<group>"; };
@@ -1806,7 +1806,7 @@
 		5DEC000C411C447F01452A0B6634663D /* NTTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTTableView.swift; path = "NTComponents/UI Kit/Table/NTTableView.swift"; sourceTree = "<group>"; };
 		5E78647BEE6E212EDCF94B2D2404D735 /* PFRESTCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTCommand.h; path = Parse/Internal/Commands/PFRESTCommand.h; sourceTree = "<group>"; };
 		5E9A83476240F8CAB51E65C624F007B1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5EB7125C4C21C8347503ACFE00A324E6 /* OSRMTextInstructions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OSRMTextInstructions.framework; path = OSRMTextInstructions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EB7125C4C21C8347503ACFE00A324E6 /* OSRMTextInstructions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OSRMTextInstructions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC27D542D84EB5749F2985336E55AB7 /* MMECategoryLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMECategoryLoader.h; path = MapboxMobileEvents/MMECategoryLoader.h; sourceTree = "<group>"; };
 		5EF546B535E1AEE82E5DC2921CC2E51D /* PFDataProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDataProvider.h; path = Parse/Internal/PFDataProvider.h; sourceTree = "<group>"; };
 		5F10DA657BEEE5036B360CA08F7E3B94 /* PFMutableUserState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableUserState.m; path = Parse/Internal/User/State/PFMutableUserState.m; sourceTree = "<group>"; };
@@ -1825,7 +1825,7 @@
 		622E978F00DF560849D0AFA48028E00C /* MapboxCoreNavigation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MapboxCoreNavigation-dummy.m"; sourceTree = "<group>"; };
 		62F21FD1C8316946EC03E44C15BC916C /* AcknowViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcknowViewController.swift; path = Source/AcknowViewController.swift; sourceTree = "<group>"; };
 		631B0EFAD9A18E7E8E33C6577A594C36 /* MBLaneIndication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBLaneIndication.swift; path = MapboxDirections/MBLaneIndication.swift; sourceTree = "<group>"; };
-		637482EBD39597EA4F23AF97D1D0EE7D /* WhatsNew.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = WhatsNew.modulemap; sourceTree = "<group>"; };
+		637482EBD39597EA4F23AF97D1D0EE7D /* WhatsNew.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = WhatsNew.modulemap; sourceTree = "<group>"; };
 		637E76AFA99BB58031D7FD753BB19AC8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63F7821A4C32B60DF1A230FD60B7FFFD /* PFAnalyticsController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAnalyticsController.m; path = Parse/Internal/Analytics/Controller/PFAnalyticsController.m; sourceTree = "<group>"; };
 		646225172D46F44BDD6B6FC0D7BADB80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -1867,7 +1867,7 @@
 		6B6A3CFDF21FBB39C4C214A265CB78C1 /* PFInstallationConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInstallationConstants.h; path = Parse/Internal/Installation/Constants/PFInstallationConstants.h; sourceTree = "<group>"; };
 		6B7BE2CB19ECBBF250C086C0A8CAEE5F /* PFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFNetworkActivityIndicatorManager.h; path = Parse/PFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		6BAC3D5056C4D2B0734438EBBFCEAE9D /* NTCollectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTCollectionViewController.swift; path = "NTComponents/UI Kit/Collection/NTCollectionViewController.swift"; sourceTree = "<group>"; };
-		6C844EA7EA4851561FFBAEF57861882D /* Parse.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Parse.modulemap; sourceTree = "<group>"; };
+		6C844EA7EA4851561FFBAEF57861882D /* Parse.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Parse.modulemap; sourceTree = "<group>"; };
 		6CAB37E3C669E442A0306246017E6F3E /* Locale.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Locale.swift; path = MapboxCoreNavigation/Locale.swift; sourceTree = "<group>"; };
 		6DB4D64070E34AC324C5E551CB6F9DE1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DC0836C2FFF8AF17CFC0A6054A47C80 /* PFProductsRequestHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFProductsRequestHandler.m; path = Parse/Internal/Product/ProductsRequestHandler/PFProductsRequestHandler.m; sourceTree = "<group>"; };
@@ -1880,7 +1880,7 @@
 		6FE7DB95BEBEF92B86E69E991B284114 /* MMEUniqueIdentifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMEUniqueIdentifier.m; path = MapboxMobileEvents/MMEUniqueIdentifier.m; sourceTree = "<group>"; };
 		705002B92086768A33E49F839B669A4D /* NTFormActionCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTFormActionCell.swift; path = "NTComponents/UI Kit/Collection/Cells/NTFormActionCell.swift"; sourceTree = "<group>"; };
 		706F2525F78E17370CCBCCA687C9F457 /* FullDateCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FullDateCollectionViewCell.swift; path = Source/FullDateCollectionViewCell.swift; sourceTree = "<group>"; };
-		70D24B3050B57FE2142E3087F8CAE1A5 /* Pods-SafetyBeacon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SafetyBeacon.modulemap"; sourceTree = "<group>"; };
+		70D24B3050B57FE2142E3087F8CAE1A5 /* Pods-SafetyBeacon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SafetyBeacon.modulemap"; sourceTree = "<group>"; };
 		70E6B7A37260F80D8F065F19DF0F1E44 /* ManeuverView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ManeuverView.swift; path = MapboxNavigation/ManeuverView.swift; sourceTree = "<group>"; };
 		713AD9D96ADB31AC670FE72573A1670A /* TSKPinFailureReport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TSKPinFailureReport.m; path = vendor/TrustKit/Reporting/TSKPinFailureReport.m; sourceTree = "<group>"; };
 		714BAD4B4DB31B768916C2E26A1C82DE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1944,7 +1944,7 @@
 		818A37D690582E66B4E548E4C9355896 /* Fabric+FABKits.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Fabric+FABKits.h"; path = "AWSCore/Fabric/Fabric+FABKits.h"; sourceTree = "<group>"; };
 		81A467C131EEA39268772F59683C1E65 /* PFURLSessionJSONDataTaskDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSessionJSONDataTaskDelegate.h; path = Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionJSONDataTaskDelegate.h; sourceTree = "<group>"; };
 		821E3F85B02E0360275A75023E5A0538 /* FloatingPoint+Radians.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FloatingPoint+Radians.swift"; path = "ARKit+CoreLocation/Source/FloatingPoint+Radians.swift"; sourceTree = "<group>"; };
-		828C99C03D6535D00711369167B4C3C3 /* OSRMTextInstructions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = OSRMTextInstructions.modulemap; sourceTree = "<group>"; };
+		828C99C03D6535D00711369167B4C3C3 /* OSRMTextInstructions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = OSRMTextInstructions.modulemap; sourceTree = "<group>"; };
 		82ADF139E3B6D0CE13D4266487C6B235 /* PFACL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFACL.m; path = Parse/PFACL.m; sourceTree = "<group>"; };
 		82B0D99A861F114A1833C2676B80EE80 /* PFPushState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPushState.m; path = Parse/Internal/Push/State/PFPushState.m; sourceTree = "<group>"; };
 		82BC9E156CAD13C1B2D06AD34926AFC8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
@@ -1957,7 +1957,7 @@
 		83F6E4CD47024EE15D2E89A1D13EEFFD /* PFCloud+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFCloud+Synchronous.h"; path = "Parse/PFCloud+Synchronous.h"; sourceTree = "<group>"; };
 		84151EB04DFB8A02BD45491533B001D3 /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = AWSCore/Fabric/Fabric.h; sourceTree = "<group>"; };
 		8426168F31D611240CE4DFAE58027BC3 /* PFNetworkCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFNetworkCommand.h; path = Parse/Internal/PFNetworkCommand.h; sourceTree = "<group>"; };
-		8449847F022E979132E59D5B3ED4977E /* DateTimePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DateTimePicker.framework; path = DateTimePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8449847F022E979132E59D5B3ED4977E /* DateTimePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DateTimePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		846F9FB0502C60017C46DFAAD1B3E667 /* PFPinningEventuallyQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPinningEventuallyQueue.h; path = Parse/Internal/PFPinningEventuallyQueue.h; sourceTree = "<group>"; };
 		847932B09C623570D7120D170A05EF88 /* PFOfflineObjectController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFOfflineObjectController.m; path = Parse/Internal/Object/Controller/OfflineController/PFOfflineObjectController.m; sourceTree = "<group>"; };
 		8498F21EEB8D5544E382496E5180EBAB /* PFTaskQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTaskQueue.h; path = Parse/Internal/PFTaskQueue.h; sourceTree = "<group>"; };
@@ -1966,7 +1966,7 @@
 		8518794E24CD48F9F9C503E78063C311 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		856C3BFE5232C18BE058B259B77F8E67 /* DateTimePicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DateTimePicker.xcconfig; sourceTree = "<group>"; };
 		85DF97F8AF2DC0A9EF1EAE39D2CEAE27 /* DistanceFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DistanceFormatter.swift; path = MapboxCoreNavigation/DistanceFormatter.swift; sourceTree = "<group>"; };
-		85EC5EF514F022B39F1255BF7943A6BF /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-BlackItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		85EC5EF514F022B39F1255BF7943A6BF /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-BlackItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
 		8600B60A89E933BCBDDFF60E9971FF3D /* NavigationViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationViewController.swift; path = MapboxNavigation/NavigationViewController.swift; sourceTree = "<group>"; };
 		8625816E1FB5F1A2A49F605882F4CE4C /* PFObjectFilePersistenceController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectFilePersistenceController.h; path = Parse/Internal/Object/FilePersistence/PFObjectFilePersistenceController.h; sourceTree = "<group>"; };
 		86B8CA3CA5276921C07CA8CEB45CABEF /* NTTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTTableViewHeaderFooterView.swift; path = "NTComponents/UI Kit/Table/NTTableViewHeaderFooterView.swift"; sourceTree = "<group>"; };
@@ -1981,7 +1981,7 @@
 		88A5C4961BA578FC12BEC22052A59B64 /* PFPushManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPushManager.h; path = Parse/Internal/Push/Manager/PFPushManager.h; sourceTree = "<group>"; };
 		88D85222CDDB73BFF7EBE7BB38A7C35F /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
 		890A304BF66AD55DB86FF83CA3C1DB35 /* PFUserDefaultsPersistenceGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserDefaultsPersistenceGroup.h; path = Parse/Internal/Persistence/Group/PFUserDefaultsPersistenceGroup.h; sourceTree = "<group>"; };
-		8974BBFB81C2FDAE76ACDBAE55E363F8 /* MapboxNavigation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MapboxNavigation.modulemap; sourceTree = "<group>"; };
+		8974BBFB81C2FDAE76ACDBAE55E363F8 /* MapboxNavigation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MapboxNavigation.modulemap; sourceTree = "<group>"; };
 		897CEEA6647E69CE40B11908D9843ACC /* PFUserConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFUserConstants.m; path = Parse/Internal/User/Constants/PFUserConstants.m; sourceTree = "<group>"; };
 		89999EE9CE36EEDB43085AA8BA994F43 /* AWSTMCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSTMCache.m; path = AWSCore/TMCache/AWSTMCache.m; sourceTree = "<group>"; };
 		89BDAE2D17827F327B53FB0F198B0AEC /* NTLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTLabel.swift; path = "NTComponents/UI Kit/Text/NTLabel.swift"; sourceTree = "<group>"; };
@@ -2021,10 +2021,10 @@
 		907A2A2AC6F45A7BADE8FA3A905BA6AF /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = "zh-Hans.lproj/Instructions.plist"; sourceTree = "<group>"; };
 		90A8B5B7C680DFA6B857ECB7E5A9A9C3 /* PFThreadsafety.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFThreadsafety.h; path = Parse/Internal/ThreadSafety/PFThreadsafety.h; sourceTree = "<group>"; };
 		90C72AB7CD1E75A86833FEAB6B48109D /* PFHTTPURLRequestConstructor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFHTTPURLRequestConstructor.m; path = Parse/Internal/HTTPRequest/PFHTTPURLRequestConstructor.m; sourceTree = "<group>"; };
-		90CD830CEB227C3B167EC8C59363018D /* ARCL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ARCL.framework; path = ARCL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90CD830CEB227C3B167EC8C59363018D /* ARCL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARCL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		910675704F67336D30B4F5351E2CF471 /* MBRouteStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBRouteStep.swift; path = MapboxDirections/MBRouteStep.swift; sourceTree = "<group>"; };
 		91B62593C348C269B5BEC232BAAB4BD8 /* NTMapView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTMapView.swift; path = "NTComponents/UI Kit/Map/NTMapView.swift"; sourceTree = "<group>"; };
-		91FDF42BE7F07CB44F3E9B6F839DD81E /* Polyline.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Polyline.modulemap; sourceTree = "<group>"; };
+		91FDF42BE7F07CB44F3E9B6F839DD81E /* Polyline.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Polyline.modulemap; sourceTree = "<group>"; };
 		925275B7C97F6C9A2AE4511C70E05965 /* MapboxDirections.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MapboxDirections.h; path = MapboxDirections/MapboxDirections.h; sourceTree = "<group>"; };
 		9275171978C97F85A48D30056E234E6E /* PFFileManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileManager.m; path = Parse/Internal/PFFileManager.m; sourceTree = "<group>"; };
 		92835D2671257F21C9796FDB8A586E38 /* Navigation.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Navigation.strings; path = hu.lproj/Navigation.strings; sourceTree = "<group>"; };
@@ -2032,10 +2032,10 @@
 		92E6C33EEC695AE1051CB08D97DCF8D5 /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		930A4A24D85C93848EDA55CF59A1E786 /* AWSInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSInfo.m; path = AWSCore/Service/AWSInfo.m; sourceTree = "<group>"; };
 		93165EE9AC530C2C73ED8462484F212A /* PFHash.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFHash.h; path = Parse/Internal/PFHash.h; sourceTree = "<group>"; };
-		935F360AB3695AB9E9B1FE6E311F2FD2 /* MapboxCoreNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MapboxCoreNavigation.framework; path = MapboxCoreNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		935F360AB3695AB9E9B1FE6E311F2FD2 /* MapboxCoreNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxCoreNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93708D07689546B1543B32EC18F59130 /* AWSEXTRuntimeExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSEXTRuntimeExtensions.m; path = AWSCore/Mantle/extobjc/AWSEXTRuntimeExtensions.m; sourceTree = "<group>"; };
 		938F5BA009DCA635C40FEA498EA1CC6D /* PFKeychainStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFKeychainStore.m; path = Parse/Internal/PFKeychainStore.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93ECD1150B14CC5A01333FCA0A2701B3 /* NTComponents-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NTComponents-umbrella.h"; sourceTree = "<group>"; };
 		9421344D53F7D1292322359689834E40 /* NTButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTButton.swift; path = "NTComponents/UI Kit/Controls/NTButton.swift"; sourceTree = "<group>"; };
 		9421ED04D1787788A13C81E19837EE6F /* NTToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTToolbar.swift; path = "NTComponents/UI Kit/Views/NTToolbar.swift"; sourceTree = "<group>"; };
@@ -2125,7 +2125,7 @@
 		A4ED1D69F985CA8319FD6A32BE4FBDF1 /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A52CF4F7B255B1C6603B5FC8E1E9FB61 /* MMEUniqueIdentifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMEUniqueIdentifier.h; path = MapboxMobileEvents/MMEUniqueIdentifier.h; sourceTree = "<group>"; };
 		A52E4BC70A5DCA0531CC77D109F31C37 /* PFRESTSessionCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTSessionCommand.h; path = Parse/Internal/Commands/PFRESTSessionCommand.h; sourceTree = "<group>"; };
-		A5413DCE982CB06293741677F816CDE1 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-ThinItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		A5413DCE982CB06293741677F816CDE1 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-ThinItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		A5480147534738E585460E543767551D /* BFTask+Private.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "BFTask+Private.m"; path = "Parse/Internal/BFTask+Private.m"; sourceTree = "<group>"; };
 		A6173587F2C20D8A15620F1D6DA1FB46 /* PFRESTPushCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTPushCommand.m; path = Parse/Internal/Commands/PFRESTPushCommand.m; sourceTree = "<group>"; };
 		A6816BB6CF847091EC3156ACAB3F4A7B /* PFACL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFACL.h; path = Parse/PFACL.h; sourceTree = "<group>"; };
@@ -2134,7 +2134,7 @@
 		A6D9D5774D488BAC452A08EB50AE2EA5 /* PFObject+Subclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFObject+Subclass.h"; path = "Parse/PFObject+Subclass.h"; sourceTree = "<group>"; };
 		A6DCA48B91A01EC2354E542D21D059C5 /* AWSDDOSLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSDDOSLogger.m; path = AWSCore/Logging/AWSDDOSLogger.m; sourceTree = "<group>"; };
 		A738125001870AC46BF45799FC030FD2 /* PFRelationState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRelationState.m; path = Parse/Internal/Relation/State/PFRelationState.m; sourceTree = "<group>"; };
-		A75617F41AFF359788D26140DB8CBEC6 /* AWSPolly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AWSPolly.framework; path = AWSPolly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A75617F41AFF359788D26140DB8CBEC6 /* AWSPolly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSPolly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77F62D5EE448F5EF6E23D055E1BCEA9 /* AWSEXTRuntimeExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSEXTRuntimeExtensions.h; path = AWSCore/Mantle/extobjc/AWSEXTRuntimeExtensions.h; sourceTree = "<group>"; };
 		A7868477DC932FEE5C3C1E01CB4B21C3 /* Bolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Bolts.h; path = Bolts/Common/Bolts.h; sourceTree = "<group>"; };
 		A78EB6F1991E13F6ECFB4B0B678B3900 /* PFOfflineObjectController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFOfflineObjectController.h; path = Parse/Internal/Object/Controller/OfflineController/PFOfflineObjectController.h; sourceTree = "<group>"; };
@@ -2173,7 +2173,7 @@
 		AF9796FF3D06B28DA8FE6012E11ED429 /* AWSFMDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSFMDB.h; path = AWSCore/FMDB/AWSFMDB.h; sourceTree = "<group>"; };
 		AFB3848482CEF10B9834A6D638985FC7 /* MGLMapView+MGLNavigationAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MGLMapView+MGLNavigationAdditions.m"; path = "MapboxNavigation/MGLMapView+MGLNavigationAdditions.m"; sourceTree = "<group>"; };
 		AFCB815AD3E71354ADC85DC47DEFBDA7 /* PFRESTCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTCommand.m; path = Parse/Internal/Commands/PFRESTCommand.m; sourceTree = "<group>"; };
-		AFD6A5325E3589979053A77C957B4AA3 /* Solar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Solar.modulemap; sourceTree = "<group>"; };
+		AFD6A5325E3589979053A77C957B4AA3 /* Solar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Solar.modulemap; sourceTree = "<group>"; };
 		AFFA13027D70AA457E2B2850D836511E /* PFAsyncTaskQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAsyncTaskQueue.h; path = Parse/Internal/PFAsyncTaskQueue.h; sourceTree = "<group>"; };
 		AFFA4A312670DBC5892F25019482DD0B /* PFRESTAnalyticsCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTAnalyticsCommand.m; path = Parse/Internal/Commands/PFRESTAnalyticsCommand.m; sourceTree = "<group>"; };
 		B0795529AAB4A85CF46FD94F6453DE42 /* PFFieldOperationDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFieldOperationDecoder.h; path = Parse/Internal/FieldOperation/PFFieldOperationDecoder.h; sourceTree = "<group>"; };
@@ -2190,16 +2190,16 @@
 		B21147419751D5D89FB8FACFDD5033AE /* PFSQLiteDatabaseResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSQLiteDatabaseResult.h; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseResult.h; sourceTree = "<group>"; };
 		B277AA460C8E79D277BF1DA7101A057A /* Feedback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Feedback.swift; path = MapboxCoreNavigation/Feedback.swift; sourceTree = "<group>"; };
 		B2CB8FE5E9D0CBAFFEB407D3777A1E7F /* AWSPolly-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AWSPolly-prefix.pch"; sourceTree = "<group>"; };
-		B2CC72AC9D00471D1AF3638302B29854 /* AcknowList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AcknowList.framework; path = AcknowList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2CC72AC9D00471D1AF3638302B29854 /* AcknowList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AcknowList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2CFBAAFF762BAC6810CD86F05DC01A8 /* NTCheckbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTCheckbox.swift; path = "NTComponents/UI Kit/Controls/NTCheckbox.swift"; sourceTree = "<group>"; };
-		B2D57D66940B607FE0E29CEF5B6C1B41 /* NTComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NTComponents.framework; path = NTComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2D57D66940B607FE0E29CEF5B6C1B41 /* NTComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NTComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2E5A90C13803CCF08864AE0352F7578 /* Annotation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Annotation.swift; path = MapboxARKit/Annotation.swift; sourceTree = "<group>"; };
 		B303950DB506F05C3D87F9EC9AB1B193 /* PFDefaultACLController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDefaultACLController.h; path = Parse/Internal/ACL/DefaultACLController/PFDefaultACLController.h; sourceTree = "<group>"; };
 		B3048390E960104C7BDDF2A462784949 /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = nl.lproj/Instructions.plist; sourceTree = "<group>"; };
 		B31226E096C7F9BF03F6E8B72A2B1004 /* NTFormTagInputCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTFormTagInputCell.swift; path = "NTComponents/UI Kit/Form/Cells/NTFormTagInputCell.swift"; sourceTree = "<group>"; };
 		B334B26525B459F69A660FC686A2B89D /* MapboxDirections.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MapboxDirections.swift-umbrella.h"; sourceTree = "<group>"; };
 		B345B6B7FEA4BB4FD445D812FDF3C5CF /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = NTComponents/Assets/Assets.xcassets; sourceTree = "<group>"; };
-		B358C22F238F13AD1D692ADC2AD48A88 /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Parse.framework; path = Parse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B358C22F238F13AD1D692ADC2AD48A88 /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Parse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B360C0B10D78316173BE0AC91B461B62 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B37E0BF6BEAA5E8611BFADC0B0496151 /* AWSSTSModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSSTSModel.m; path = AWSCore/STS/AWSSTSModel.m; sourceTree = "<group>"; };
 		B3BFCC28847B84340EBFECAD6397813F /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2208,7 +2208,7 @@
 		B422BB02D70B115FA7571C2FCCA10FB8 /* PFUserPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserPrivate.h; path = Parse/Internal/User/PFUserPrivate.h; sourceTree = "<group>"; };
 		B46FEBE9104FD0D63E9ABD75FE2C025A /* TSKBackgroundReporter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TSKBackgroundReporter.h; path = vendor/TrustKit/Reporting/TSKBackgroundReporter.h; sourceTree = "<group>"; };
 		B4CA70ED0ACCABB3CEEE47D0D3D386E4 /* PFAnonymousUtils_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnonymousUtils_Private.h; path = Parse/Internal/User/AuthenticationProviders/Providers/Anonymous/PFAnonymousUtils_Private.h; sourceTree = "<group>"; };
-		B4CF4163A8A2898414A7D6B8D05A128C /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MapboxMobileEvents.framework; path = MapboxMobileEvents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4CF4163A8A2898414A7D6B8D05A128C /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapboxMobileEvents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4EC4F6E6EB81A12015108DEE5829C0B /* MBRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MBRoute.swift; path = MapboxDirections/MBRoute.swift; sourceTree = "<group>"; };
 		B53D1FEAD5AA505D2FEDC423AADBA29F /* RippleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RippleView.swift; path = NTComponents/Miscellaneous/RippleView.swift; sourceTree = "<group>"; };
 		B5440F11246F65428E14DA5CF7C18408 /* NTCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTCollectionViewCell.swift; path = "NTComponents/UI Kit/Collection/Cells/NTCollectionViewCell.swift"; sourceTree = "<group>"; };
@@ -2226,7 +2226,7 @@
 		B854DE5CFAE1BCD555B328AA55118DDE /* Solar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Solar.xcconfig; sourceTree = "<group>"; };
 		B864BCFF4901084594479202A2B7F643 /* AWSFMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSFMDatabase.m; path = AWSCore/FMDB/AWSFMDatabase.m; sourceTree = "<group>"; };
 		B8C28CE8D1CC4B0BE726480804FAA3F1 /* Date.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Date.swift; path = MapboxCoreNavigation/Date.swift; sourceTree = "<group>"; };
-		B8C5CDEE6F1FE0BB95FAC1BA96E30D59 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-LightItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		B8C5CDEE6F1FE0BB95FAC1BA96E30D59 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-LightItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
 		B8CEBCDD7EBF00491141C121A6A9CC44 /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
 		B901D1234366F771EDAD62CBDA08B94D /* AWSSTSService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSTSService.h; path = AWSCore/STS/AWSSTSService.h; sourceTree = "<group>"; };
 		B9285E55AB37352CB381154793EC9449 /* PFOfflineQueryLogic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFOfflineQueryLogic.m; path = Parse/Internal/LocalDataStore/OfflineQueryLogic/PFOfflineQueryLogic.m; sourceTree = "<group>"; };
@@ -2238,7 +2238,7 @@
 		BAE1AA95F595C5451A7F3E09CF5F4B4D /* Abbreviations.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Abbreviations.plist; path = lt.lproj/Abbreviations.plist; sourceTree = "<group>"; };
 		BB4857339B619FB3192A34A94DA43885 /* PFDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDecoder.h; path = Parse/PFDecoder.h; sourceTree = "<group>"; };
 		BB90EFAC69F005BEB5C1720B140F0A3F /* AWSNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSNetworking.h; path = AWSCore/Networking/AWSNetworking.h; sourceTree = "<group>"; };
-		BBB13A751B4EF214FE2AF50C33510767 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = Parse/Resources/en.lproj; sourceTree = "<group>"; };
+		BBB13A751B4EF214FE2AF50C33510767 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = Parse/Resources/en.lproj; sourceTree = "<group>"; };
 		BBB2FA352ABFE4BC9AF2FE866D6AA830 /* PFHTTPRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFHTTPRequest.h; path = Parse/Internal/HTTPRequest/PFHTTPRequest.h; sourceTree = "<group>"; };
 		BBB5630CEC4A5B360D99ED62309343AD /* AWSServiceEnum.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSServiceEnum.h; path = AWSCore/Service/AWSServiceEnum.h; sourceTree = "<group>"; };
 		BBB627004C7A415DBB3DF9ACDBE80453 /* PFFileUploadResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFileUploadResult.h; path = Parse/PFFileUploadResult.h; sourceTree = "<group>"; };
@@ -2250,7 +2250,7 @@
 		BE1E5A21D7849C6917ABD37848FE2902 /* TSKLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TSKLog.h; path = vendor/TrustKit/TSKLog.h; sourceTree = "<group>"; };
 		BE54D7BBC7E0BABB4FFCED57F4268886 /* AWSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSLogging.h; path = AWSCore/Utility/AWSLogging.h; sourceTree = "<group>"; };
 		BE57A8DDDB3CCD5DC52310ECF49C47A4 /* Abbreviations.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Abbreviations.plist; path = nl.lproj/Abbreviations.plist; sourceTree = "<group>"; };
-		BE7E9243ED18D846AA53A40C4E055832 /* AWSPolly.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AWSPolly.modulemap; sourceTree = "<group>"; };
+		BE7E9243ED18D846AA53A40C4E055832 /* AWSPolly.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AWSPolly.modulemap; sourceTree = "<group>"; };
 		BE8DC8305B51128687D4416A3CEE363C /* UIButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WebCache.h"; path = "SDWebImage/UIButton+WebCache.h"; sourceTree = "<group>"; };
 		BEE860EB80E4CA2F9AD349A1E16AE99E /* PFGeoPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFGeoPoint.h; path = Parse/PFGeoPoint.h; sourceTree = "<group>"; };
 		BF040A5A6812972E035866A4C1A3355C /* PFLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLogging.h; path = Parse/Internal/PFLogging.h; sourceTree = "<group>"; };
@@ -2269,7 +2269,7 @@
 		C11C8FA0C9502B1DB52A2803C9C1BC29 /* PFSQLiteDatabaseResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSQLiteDatabaseResult.m; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseResult.m; sourceTree = "<group>"; };
 		C14B9644FF3EB0EC5CB393E46BF71DA3 /* PFKeyValueCache_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFKeyValueCache_Private.h; path = Parse/Internal/KeyValueCache/PFKeyValueCache_Private.h; sourceTree = "<group>"; };
 		C1524D2F66BC266EBB56DB3018F5B882 /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
-		C1DF491C02BA10FF66FDA39AEE1DBB83 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Regular.ttf"; path = "NTComponents/Assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		C1DF491C02BA10FF66FDA39AEE1DBB83 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "NTComponents/Assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		C1F67C9B85B64EB368B45F76BC17CCD5 /* configuration_utils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = configuration_utils.h; path = vendor/TrustKit/configuration_utils.h; sourceTree = "<group>"; };
 		C251A9208D46CC21ABF7848455F17459 /* NTCollectionDatasourceCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTCollectionDatasourceCell.swift; path = "NTComponents/UI Kit/Collection/Cells/NTCollectionDatasourceCell.swift"; sourceTree = "<group>"; };
 		C263B7FC82B5565406DE7079034B1D6D /* OSRMTextInstructions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OSRMTextInstructions-prefix.pch"; sourceTree = "<group>"; };
@@ -2278,17 +2278,17 @@
 		C30DDD2AFEB60C386A3E2B2C6C4342AF /* PFObjectEstimatedData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectEstimatedData.m; path = Parse/Internal/Object/EstimatedData/PFObjectEstimatedData.m; sourceTree = "<group>"; };
 		C353F90346D915170AB08A7C9D974372 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = Turf/Info.plist; sourceTree = "<group>"; };
 		C362552F5E7D933F6E5A7081EF58A03C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
-		C3B46A1DCE3CC0EBDD62B509943B9944 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-BoldItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C3B46A1DCE3CC0EBDD62B509943B9944 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-BoldItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		C3C5D202225D2BE7F56043D6348C912B /* MMELocationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMELocationManager.m; path = MapboxMobileEvents/MMELocationManager.m; sourceTree = "<group>"; };
 		C3D29C51876F8BC7FF8AECB19E3EF4C2 /* PFPropertyInfo_Runtime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPropertyInfo_Runtime.h; path = Parse/Internal/PropertyInfo/PFPropertyInfo_Runtime.h; sourceTree = "<group>"; };
 		C3DA91670E1C1100B3B73C4837824B42 /* PFSessionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSessionController.h; path = Parse/Internal/Session/Controller/PFSessionController.h; sourceTree = "<group>"; };
 		C3F6518B4689AE04234CDFFB37FD9A5C /* UIView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCache.m"; path = "SDWebImage/UIView+WebCache.m"; sourceTree = "<group>"; };
 		C409EEA8D490BF2AC2651A7192108D37 /* PFRESTFileCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTFileCommand.h; path = Parse/Internal/Commands/PFRESTFileCommand.h; sourceTree = "<group>"; };
-		C41A43349ACCC01C6F1941C8F69972CD /* BebasNeue.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = BebasNeue.otf; path = NTComponents/Assets/fonts/BebasNeue.otf; sourceTree = "<group>"; };
+		C41A43349ACCC01C6F1941C8F69972CD /* BebasNeue.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = BebasNeue.otf; path = NTComponents/Assets/fonts/BebasNeue.otf; sourceTree = "<group>"; };
 		C444F87E0B7AD5B744C6059271C6E39D /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
 		C48ADF8B2A23253AE0F77FD3C51B58AE /* NTActivityView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTActivityView.swift; path = "NTComponents/UI Kit/Views/NTActivityView.swift"; sourceTree = "<group>"; };
 		C4C10B523BF783996EAC59750278CC88 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C4E007FD73A7335D76FB06C00A8EB1D3 /* Polyline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Polyline.framework; path = Polyline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4E007FD73A7335D76FB06C00A8EB1D3 /* Polyline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Polyline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F12D6C09F7415B3403C631696C4560 /* PFAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAlertView.m; path = Parse/Internal/PFAlertView.m; sourceTree = "<group>"; };
 		C50FD2EE2E5DC6111C7F24C6A2B3AF43 /* MapboxCoreNavigation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MapboxCoreNavigation.h; path = MapboxCoreNavigation/MapboxCoreNavigation.h; sourceTree = "<group>"; };
 		C52305E3100622982E3A9A17F9330527 /* AWSSignature.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSSignature.m; path = AWSCore/Authentication/AWSSignature.m; sourceTree = "<group>"; };
@@ -2303,7 +2303,7 @@
 		C6C10B79133A20D65B6F5D7B37B62F16 /* PFPropertyInfo_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPropertyInfo_Private.h; path = Parse/Internal/PropertyInfo/PFPropertyInfo_Private.h; sourceTree = "<group>"; };
 		C6F332B42EB591BDB21ADF8D7716AF05 /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = sv.lproj/Instructions.plist; sourceTree = "<group>"; };
 		C710A69BB5836E9C04E51BA54DD65936 /* UIImage+ForceDecode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ForceDecode.m"; path = "SDWebImage/UIImage+ForceDecode.m"; sourceTree = "<group>"; };
-		C7915C64C94A7ED129B6790922E5ABE8 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AWSCore.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7915C64C94A7ED129B6790922E5ABE8 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79A176CF58E05C41934A97332544FF5 /* PFFileState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileState.m; path = Parse/Internal/File/State/PFFileState.m; sourceTree = "<group>"; };
 		C7CA379BB8BD01E697B87BE3150406E6 /* PFObjectState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectState.h; path = Parse/Internal/Object/State/PFObjectState.h; sourceTree = "<group>"; };
 		C7D7EA782C8B0ACBBD7583C1BD563DEB /* NextBannerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NextBannerView.swift; path = MapboxNavigation/NextBannerView.swift; sourceTree = "<group>"; };
@@ -2317,7 +2317,7 @@
 		CA2328E7CC45CA88C7EBB4BC34F0AB39 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = dynamic/Mapbox.framework; sourceTree = "<group>"; };
 		CA5403DA5B4BF843CCAF58F8B0E2C7D1 /* Pods-SafetyBeacon-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SafetyBeacon-resources.sh"; sourceTree = "<group>"; };
 		CB4C39687084E7BA9D183AFCDAFC53CD /* PFMutableQueryState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableQueryState.m; path = Parse/Internal/Query/State/PFMutableQueryState.m; sourceTree = "<group>"; };
-		CB8B137012F55906C95D068E014B77EA /* Roboto-Black.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Black.ttf"; path = "NTComponents/Assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		CB8B137012F55906C95D068E014B77EA /* Roboto-Black.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "NTComponents/Assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
 		CBAF2BCACF05779B394EF81556B51978 /* PFSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSession.m; path = Parse/PFSession.m; sourceTree = "<group>"; };
 		CBBBDBC6DF1039D01D532DB9F82FF689 /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StepCollectionViewFlowLayout.swift; path = Source/StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		CBF398DC07852DB79BAD4DD77543666F /* AWSFMDatabase+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AWSFMDatabase+Private.h"; path = "AWSCore/FMDB/AWSFMDatabase+Private.h"; sourceTree = "<group>"; };
@@ -2337,7 +2337,7 @@
 		CEA3E310745AC7C7185FF5E801456521 /* MBLaneIndication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBLaneIndication.h; path = MapboxDirections/MBLaneIndication.h; sourceTree = "<group>"; };
 		CEC26A862868DFEAFD6C3D37C4C86ED5 /* Abbreviations.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Abbreviations.plist; path = sv.lproj/Abbreviations.plist; sourceTree = "<group>"; };
 		CED418D0122105424F58F2549E938843 /* UIGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIGestureRecognizer.swift; path = MapboxNavigation/UIGestureRecognizer.swift; sourceTree = "<group>"; };
-		CF1269B474505AE8F688D4D94B5AEDD1 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-Thin.ttf"; path = "NTComponents/Assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		CF1269B474505AE8F688D4D94B5AEDD1 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-Thin.ttf"; path = "NTComponents/Assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		CF44522E9394302851ED7BBEADFD615D /* PFSQLiteDatabase_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSQLiteDatabase_Private.h; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabase_Private.h; sourceTree = "<group>"; };
 		D008368094C3A748B12F383B483FF0D9 /* PFJSONSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFJSONSerialization.m; path = Parse/Internal/PFJSONSerialization.m; sourceTree = "<group>"; };
 		D02ADD212EB42FCAB465B5601925DD4C /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
@@ -2352,7 +2352,7 @@
 		D1DB1E2D73885AD9BFF4F92E830F742F /* PFOfflineQueryController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFOfflineQueryController.h; path = Parse/Internal/Query/Controller/PFOfflineQueryController.h; sourceTree = "<group>"; };
 		D28DA0E92AF12967859CC85AF098C111 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		D2E08A80862A2F75E1108EB73AEE46B1 /* AWSDDTTYLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSDDTTYLogger.m; path = AWSCore/Logging/AWSDDTTYLogger.m; sourceTree = "<group>"; };
-		D2FCBD9169B141CA1D13A36D99DA09C5 /* MapboxMobileEvents.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MapboxMobileEvents.modulemap; sourceTree = "<group>"; };
+		D2FCBD9169B141CA1D13A36D99DA09C5 /* MapboxMobileEvents.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MapboxMobileEvents.modulemap; sourceTree = "<group>"; };
 		D3E4633E6D4DF4626E10BAD4CCA0DD51 /* DateTimePicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateTimePicker-umbrella.h"; sourceTree = "<group>"; };
 		D4088375E7655BC3548A91C60CB42B01 /* PFCommandCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCommandCache.m; path = Parse/Internal/PFCommandCache.m; sourceTree = "<group>"; };
 		D447B9075E7AC28BFF295311D8BE8306 /* PFFileDataStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileDataStream.m; path = Parse/Internal/File/FileDataStream/PFFileDataStream.m; sourceTree = "<group>"; };
@@ -2376,7 +2376,7 @@
 		D88005AA85560445BCED9937F7B93D60 /* NTSlideShowViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTSlideShowViewController.swift; path = "NTComponents/UI Kit/Other/NTSlideShowViewController.swift"; sourceTree = "<group>"; };
 		D8B7D508D80CC119DA4A6D113E2BCC29 /* PFMulticastDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMulticastDelegate.h; path = Parse/Internal/PFMulticastDelegate.h; sourceTree = "<group>"; };
 		D8D0DEADFE1B48FA5AEA169331428FDC /* Abbreviations.csv.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Abbreviations.csv.plist; path = ca.lproj/Abbreviations.csv.plist; sourceTree = "<group>"; };
-		D8F64FCD241E07BDA1614178244255CA /* NTComponents.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = NTComponents.modulemap; sourceTree = "<group>"; };
+		D8F64FCD241E07BDA1614178244255CA /* NTComponents.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = NTComponents.modulemap; sourceTree = "<group>"; };
 		D9128FE812DB789AEF0CBCA3ACB7C7D6 /* NTImagePickerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTImagePickerController.swift; path = "NTComponents/UI Kit/Camera/NTImagePickerController.swift"; sourceTree = "<group>"; };
 		D9253BCC76D2F8EB0D03529DBA5B98FF /* BFTaskCompletionSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTaskCompletionSource.h; path = Bolts/Common/BFTaskCompletionSource.h; sourceTree = "<group>"; };
 		D963C6E2CF3937574DF26803B59B85B1 /* PFDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDevice.h; path = Parse/Internal/PFDevice.h; sourceTree = "<group>"; };
@@ -2458,7 +2458,7 @@
 		EA5D4E9C30121504C13704819C2BF4BD /* AWSUICKeyChainStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSUICKeyChainStore.h; path = AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h; sourceTree = "<group>"; };
 		EA5F1E7100E112D4F318584E80DAC9AA /* PFCategoryLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCategoryLoader.m; path = Parse/Internal/PFCategoryLoader.m; sourceTree = "<group>"; };
 		EAA37C6C56449901EBFE848E9920DD8C /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
-		EAE03DAE64130A917623B04A65F3612D /* Solar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Solar.framework; path = Solar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAE03DAE64130A917623B04A65F3612D /* Solar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Solar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAED3131474E143B0BB2D13481A71C01 /* PFQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQuery.m; path = Parse/PFQuery.m; sourceTree = "<group>"; };
 		EB6094B8590A8ABDF7B6C98E8F7BFCAF /* PFObjectState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectState.m; path = Parse/Internal/Object/State/PFObjectState.m; sourceTree = "<group>"; };
 		EBD067EB795B66EE3EFB053E69D2F5A7 /* NTCollectionUserHeaderCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NTCollectionUserHeaderCell.swift; path = "NTComponents/UI Kit/Collection/Cells/NTCollectionUserHeaderCell.swift"; sourceTree = "<group>"; };
@@ -2473,11 +2473,11 @@
 		ED2629CFC359DFC6A34AA82E7B6B8A3E /* AWSDDASLLogCapture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSDDASLLogCapture.m; path = AWSCore/Logging/AWSDDASLLogCapture.m; sourceTree = "<group>"; };
 		ED3325E0174C119F70A08C68322B844E /* CLLocation+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CLLocation+Extensions.swift"; path = "ARKit+CoreLocation/Source/CLLocation+Extensions.swift"; sourceTree = "<group>"; };
 		ED4B3D14877208F899F3418C32236BD0 /* PFObjectBatchController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectBatchController.m; path = Parse/Internal/Object/BatchController/PFObjectBatchController.m; sourceTree = "<group>"; };
-		EDD9EDD08C58986996B3FC1EF05F0A2B /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Roboto-MediumItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		EDD9EDD08C58986996B3FC1EF05F0A2B /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Roboto-MediumItalic.ttf"; path = "NTComponents/Assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
 		EE3E212B510DA57B7C07499EC9B7D257 /* AWSEXTKeyPathCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSEXTKeyPathCoding.h; path = AWSCore/Mantle/extobjc/AWSEXTKeyPathCoding.h; sourceTree = "<group>"; };
 		EEC64D11DD63C64BECF91CFFFBF8D586 /* TSKTrustKitConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TSKTrustKitConfig.h; path = vendor/TrustKit/TSKTrustKitConfig.h; sourceTree = "<group>"; };
 		EF53F2DC7293D944635A0FF09EFC7CB0 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateCollectionViewCell.swift; path = Source/DateCollectionViewCell.swift; sourceTree = "<group>"; };
-		EFF255ECA70DEB56B80A3245F5FA1D34 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.ttf; path = NTComponents/Assets/fonts/FontAwesome.ttf; sourceTree = "<group>"; };
+		EFF255ECA70DEB56B80A3245F5FA1D34 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesome.ttf; path = NTComponents/Assets/fonts/FontAwesome.ttf; sourceTree = "<group>"; };
 		F004B12064BE28BF2EBB16DEFA0A441E /* Instructions.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = Base.lproj/Instructions.plist; sourceTree = "<group>"; };
 		F0169F75E24963B638599B6428E82309 /* PFSQLiteDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSQLiteDatabase.h; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabase.h; sourceTree = "<group>"; };
 		F084A26E884A2976BC4014ABA662AEE7 /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
@@ -2513,7 +2513,7 @@
 		F7F3B2476DCE4689547AE9DB898C43B8 /* AWSDDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSDDAbstractDatabaseLogger.m; path = AWSCore/Logging/AWSDDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
 		F83CBA422188CB804871DD30FB51AC71 /* ScreenCapture.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScreenCapture.swift; path = MapboxCoreNavigation/ScreenCapture.swift; sourceTree = "<group>"; };
 		F84690C03F9FAD82943270D3083E4A3F /* PFPin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPin.m; path = Parse/Internal/LocalDataStore/Pin/PFPin.m; sourceTree = "<group>"; };
-		F8BBA6DF83FC24DF3BADE84ADF2CC4DB /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8BBA6DF83FC24DF3BADE84ADF2CC4DB /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CDBEACD49DEDF441605FB9D43330B6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		F8D191C8B0672D1A0BA37BFD9E49B372 /* UIFont.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIFont.swift; path = MapboxNavigation/UIFont.swift; sourceTree = "<group>"; };
 		F8E6D75D526CA9BC5F1C55EE7B92DA75 /* PFFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFile.m; path = Parse/PFFile.m; sourceTree = "<group>"; };
@@ -2927,7 +2927,6 @@
 				A4181330F087B2F79434F2A3E6730C90 /* NSValueTransformer+AWSMTLPredefinedTransformerAdditions.m */,
 				EA5FEB0BF738B0A09338C6E0C24DAD36 /* Support Files */,
 			);
-			name = AWSCore;
 			path = AWSCore;
 			sourceTree = "<group>";
 		};
@@ -2960,7 +2959,6 @@
 				D7F443231D8D85DA926CC9EB400BC362 /* AWSPollySynthesizeSpeechURLBuilder.m */,
 				9BBDD17C26D513A81CFFB0465BC9E1FE /* Support Files */,
 			);
-			name = AWSPolly;
 			path = AWSPolly;
 			sourceTree = "<group>";
 		};
@@ -2971,7 +2969,6 @@
 				E11EEA27DEDD4B8E37940FD172A57C8E /* Fabric.h */,
 				1D789C30ED46811C54F1FAE406963050 /* Frameworks */,
 			);
-			name = Fabric;
 			path = Fabric;
 			sourceTree = "<group>";
 		};
@@ -2981,7 +2978,6 @@
 				41D2258268F4B4763B361DA26F1070CB /* Core */,
 				3EEEBE2BA2B5BACA0AA0503BF5CE0F3B /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -3023,7 +3019,6 @@
 				7F9181D73BD8ADFCB8DF9C9523CD8378 /* Polyline.swift */,
 				49E2450B1A53B6C561C71457392B047A /* Support Files */,
 			);
-			name = Polyline;
 			path = Polyline;
 			sourceTree = "<group>";
 		};
@@ -3051,7 +3046,6 @@
 				83A5FCAB531E0C75C4202B6022E26BE2 /* Support Files */,
 				6233EEE4850A57F31AB767DA158315E6 /* Tasks */,
 			);
-			name = Bolts;
 			path = Bolts;
 			sourceTree = "<group>";
 		};
@@ -3137,7 +3131,6 @@
 				7CE3E2BFEB3BE4170F451BC65AC66DCF /* Resources */,
 				C5F86DCE760633AEDB76852FD53C820C /* Support Files */,
 			);
-			name = OSRMTextInstructions;
 			path = OSRMTextInstructions;
 			sourceTree = "<group>";
 		};
@@ -3205,7 +3198,6 @@
 				65ACA13E90D2B6283B4E8FE7DB192BFD /* MBARAnchor.swift */,
 				39436941F48EB94F56A9A52A4CFB26B7 /* Support Files */,
 			);
-			name = MapboxARKit;
 			path = MapboxARKit;
 			sourceTree = "<group>";
 		};
@@ -3591,7 +3583,6 @@
 				695D89FA7811A968345416808FFA7274 /* Resources */,
 				5242FEC3F9EF52ED39C52D019C913C2F /* Support Files */,
 			);
-			name = Parse;
 			path = Parse;
 			sourceTree = "<group>";
 		};
@@ -3614,7 +3605,6 @@
 			children = (
 				29C6696A883304DF43A56E3CDBBA8AEE /* Frameworks */,
 			);
-			name = "Mapbox-iOS-SDK";
 			path = "Mapbox-iOS-SDK";
 			sourceTree = "<group>";
 		};
@@ -3627,7 +3617,6 @@
 				CBBBDBC6DF1039D01D532DB9F82FF689 /* StepCollectionViewFlowLayout.swift */,
 				8E627DBF14C5FBEAA128089A9D8A9B4B /* Support Files */,
 			);
-			name = DateTimePicker;
 			path = DateTimePicker;
 			sourceTree = "<group>";
 		};
@@ -3811,7 +3800,6 @@
 				AA2D64F487B4E687F7B5DDF87C13B638 /* VisualInstructionFormatter.swift */,
 				B70EAA32F683F554F6106ED771AEE342 /* Support Files */,
 			);
-			name = MapboxCoreNavigation;
 			path = MapboxCoreNavigation;
 			sourceTree = "<group>";
 		};
@@ -3909,7 +3897,6 @@
 				5DECF465A3F7FA8A9BD4835FE3B1C39E /* Resources */,
 				D359B2DB196F7EC300B8952C75586C13 /* Support Files */,
 			);
-			name = MapboxMobileEvents;
 			path = MapboxMobileEvents;
 			sourceTree = "<group>";
 		};
@@ -4100,7 +4087,6 @@
 				1DD7419291AEA570A079307E75322E06 /* Resources */,
 				7C4AA63963ECF7C0EF19B6F2ADD57B77 /* Support Files */,
 			);
-			name = NTComponents;
 			path = NTComponents;
 			sourceTree = "<group>";
 		};
@@ -4157,7 +4143,6 @@
 				10F0D9EB676CE2EBAB143E33A62C704C /* Resources */,
 				7F4C2DF12607209547DBC8A7AE7D281B /* Support Files */,
 			);
-			name = MapboxNavigation;
 			path = MapboxNavigation;
 			sourceTree = "<group>";
 		};
@@ -4172,7 +4157,6 @@
 				72A73784DEAE2E3E9F6C4A014362F47D /* Resources */,
 				3D095970940897373F35FB2FF0400483 /* Support Files */,
 			);
-			name = AcknowList;
 			path = AcknowList;
 			sourceTree = "<group>";
 		};
@@ -4182,7 +4166,6 @@
 				82DC71F13E5D42801F53096718810873 /* Solar.swift */,
 				39E59DF23FE070104C76F30556D42951 /* Support Files */,
 			);
-			name = Solar;
 			path = Solar;
 			sourceTree = "<group>";
 		};
@@ -4251,7 +4234,6 @@
 				1B2EABD9B4E3E2C18645ADC4F8B85A4D /* Crashlytics.h */,
 				34DB1FDF5A877DDC11ECFB1F4479BC1D /* Frameworks */,
 			);
-			name = Crashlytics;
 			path = Crashlytics;
 			sourceTree = "<group>";
 		};
@@ -4264,7 +4246,6 @@
 				10423C34C646446AABA327A10BDE85F6 /* Turf.swift */,
 				D09351DFE4F543452FE6EBB8AC85C3CD /* Support Files */,
 			);
-			name = Turf;
 			path = Turf;
 			sourceTree = "<group>";
 		};
@@ -4283,7 +4264,6 @@
 				C80CF26A61EF9FAAAF9572A42102E025 /* SCNVector3+Extensions.swift */,
 				05019CE1A14E7B742B35B6C8E9C39F17 /* Support Files */,
 			);
-			name = ARCL;
 			path = ARCL;
 			sourceTree = "<group>";
 		};
@@ -4314,7 +4294,6 @@
 				BFD1015B14E0B14B8C53C38BAE15B39A /* Resources */,
 				8FAAE617DFF27C32967D7F5A6624A84E /* Support Files */,
 			);
-			name = WhatsNew;
 			path = WhatsNew;
 			sourceTree = "<group>";
 		};
@@ -4370,7 +4349,6 @@
 				3F0B243A61884B34CE5416018D9847F3 /* MBWaypoint.swift */,
 				7BF5D7982B53059D1D0A8E4CAD3675F9 /* Support Files */,
 			);
-			name = MapboxDirections.swift;
 			path = MapboxDirections.swift;
 			sourceTree = "<group>";
 		};
@@ -5369,7 +5347,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0910;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -6625,6 +6603,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -6672,6 +6651,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
@@ -7210,6 +7190,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
