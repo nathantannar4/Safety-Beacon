@@ -80,4 +80,15 @@ extension MapViewController: MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
     }
+    
+    // Color and opacity of Safe Zone radius
+    func mapView(_ mapView: MGLMapView, alphaForShapeAnnotation annotation: MGLShape) -> CGFloat {
+        return 0.5
+    }
+    func mapView(_ mapView: MGLMapView, strokeColorForShapeAnnotation annotation: MGLShape) -> UIColor {
+        return .white
+    }
+    func mapView(_ mapView: MGLMapView, fillColorForPolygonAnnotation annotation: MGLPolygon) -> UIColor {
+        return UIColor(red: 59/255, green: 178/255, blue: 208/255, alpha: 1)
+    }
 }

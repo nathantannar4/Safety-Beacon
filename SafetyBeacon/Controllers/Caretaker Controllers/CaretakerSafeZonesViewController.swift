@@ -7,6 +7,8 @@
 //  Edited by:
 //      Josh Shercliffe
 //          - jshercli@sfu.ca
+//      Jason Tsang
+//          - jrtsang@sfu.ca
 //
 
 import AddressBookUI
@@ -118,7 +120,7 @@ class CaretakerSafeZonesViewController: UITableViewController {
             let location = MapViewController()
             location.title = safeZones[indexPath.row]["name"] as? String
             let address = safeZones[indexPath.row]["address"] as? String
-            //let radius = safeZones[indexPath.row]["radius"] as? Double ?? 0
+            let radius = safeZones[indexPath.row]["radius"] as? Double ?? 0
             var concatenatedAddressArr = address?.components(separatedBy: ", ")
             let originalStreet = concatenatedAddressArr![0] as String
             
@@ -129,21 +131,44 @@ class CaretakerSafeZonesViewController: UITableViewController {
                 }
                 let navigation = NTNavigationController(rootViewController: location)
                 self.present(navigation, animated: true, completion: {
+                    location.navigationItem.leftBarButtonItem = UIBarButtonItem(image: Icon.Delete?.scale(to: 30), style: .plain, target: self, action: #selector(self.closeView))
+                
+                    // Calcuate radius plot from polygon
+                    let degreesBetweenPoints = 8.0
+                    let numberOfPoints = floor(360.0 / degreesBetweenPoints)
+                    let distRadians: Double = radius / 6371000.0
+                    let centerLatRadians: Double = coordinate.latitude * .pi / 180
+                    let centerLonRadians: Double = coordinate.longitude * .pi / 180
+                    var coordinates = [CLLocationCoordinate2D]()
+                    
+                    for var index in 0..<Int(numberOfPoints) {
+                        let degrees: Double = Double(index) * Double(degreesBetweenPoints)
+                        let degreeRadians: Double = degrees * .pi / 180
+                        let pointLatRadians: Double = asin(sin(centerLatRadians) * cos(distRadians) + cos(centerLatRadians) * sin(distRadians) * cos(degreeRadians))
+                        let pointLonRadians: Double = centerLonRadians + atan2(sin(degreeRadians) * sin(distRadians) * cos(centerLatRadians), cos(distRadians) - sin(centerLatRadians) * sin(pointLatRadians))
+                        let pointLat: Double = pointLatRadians * 180 / .pi
+                        let pointLon: Double = pointLonRadians * 180 / .pi
+                        let point: CLLocationCoordinate2D = CLLocationCoordinate2DMake(pointLat, pointLon)
+                        coordinates.append(point)
+                    }
+                    // Create polygon from points above and plot
+                    let polygon = MGLPolygon(coordinates: &coordinates, count: UInt(coordinates.count))
+                    location.mapView.addAnnotation(polygon)
+                    
+                    // Create location marker
                     let locationMarker = MGLPointAnnotation()
                     locationMarker.coordinate = coordinate
                     locationMarker.title = originalStreet
-                    if let currentLocation = LocationManager.shared.currentLocation {
-                        // Return distance in Km
-                        locationMarker.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km Away"
-                    }
-                    location.navigationItem.leftBarButtonItem = UIBarButtonItem(image: Icon.Delete?.scale(to: 30), style: .plain, target: self, action: #selector(self.closeView))
                     location.mapView.addAnnotation(locationMarker)
-                    location.mapView.setCenter(coordinate, zoomLevel: 12, animated: true)
+                    
+                    // Set default zoom level
+                    location.mapView.setCenter(coordinate, zoomLevel: 18, animated: true)
                 })
             })
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
     @objc
     func closeView() {
         dismiss(animated: true, completion: nil)
