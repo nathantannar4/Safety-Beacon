@@ -33,6 +33,7 @@ class ARViewController: UIViewController {
     // app while facing North. If you do that, change this setting to false
     var automaticallyFindTrueNorth = true
     
+    // A label to broadcast messages to the user
     var cameraStateInfoLabel: UILabel = {
         let label = UILabel()
         label.textColor = .red
@@ -41,17 +42,22 @@ class ARViewController: UIViewController {
         return label
     }()
     
+    // The mapView a user can use as a referance
     lazy var mapView: MGLMapView = { [weak self] in
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL())
         mapView.showsUserLocation = true
+        mapView.layer.borderWidth = 5
+        mapView.layer.borderColor = UIColor.white.cgColor
         return mapView
     }()
     
+    // The view to place AR objects
     var sceneView: ARSCNView = {
         let view = ARSCNView()
         return view
     }()
     
+    // A view to hold the controls
     var controlsContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -68,6 +74,10 @@ class ARViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "AR Navigation"
+        navigationItem.prompt = "Tap and hold on the map to navigate"
+        view.backgroundColor = .white
         
         // Configure and style control and map views
         view.addSubview(sceneView)
@@ -98,6 +108,8 @@ class ARViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        checkForSimulator()
+        
         // Start the AR session
         startSession()
         if let location = LocationManager.shared.currentLocation {
@@ -110,6 +122,15 @@ class ARViewController: UIViewController {
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+    
+    // Simulators cant run AR so alert the user the feature is not available
+    func checkForSimulator() {
+        #if (arch(i386) || arch(x86_64))
+            let alert = UIAlertController(title: "Unsupported Device", message: "AR requires a physical device", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        #endif
     }
     
     // MARK: - Actions
