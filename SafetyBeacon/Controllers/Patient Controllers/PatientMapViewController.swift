@@ -41,6 +41,23 @@ class PatientMapViewController: MapViewController {
         return button
     }()
     
+    lazy var centerButton: NTButton = { [weak self] in
+        let button = NTButton()
+        button.backgroundColor = .logoGreen
+        button.titleColor = .white
+        button.trackTouchLocation = false
+        button.ripplePercent = 1
+        button.setTitleColor(UIColor.white.withAlpha(0.3), for: .highlighted)
+        button.setTitle("Center", for: .normal)
+        button.titleFont = Font.Default.Title.withSize(22)
+        button.addTarget(self, action: #selector(setCenter), for: .touchUpInside)
+        button.layer.cornerRadius = 40
+        button.layer.borderWidth = 4
+        button.layer.borderColor = UIColor.logoGreen.darker(by: 10).cgColor
+        button.setDefaultShadow()
+        return button
+        }()
+    
     // AR Mode button that switches to Augmented Reality Mode
     lazy var arModeButton: NTButton = { [weak self] in
         let button = NTButton()
@@ -67,7 +84,7 @@ class PatientMapViewController: MapViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Map"
-        // Start with getting home bookmark, and marking it on the patient's map
+        // Start with getting home bookmark, marking it on the patient's map, and calculating the route home
         self.getHomeBookmark()
     }
     
@@ -82,17 +99,19 @@ class PatientMapViewController: MapViewController {
         super.setupSubviews()
         view.addSubview(takeMeHomeButton)
         view.addSubview(arModeButton)
+        view.addSubview(centerButton)
     }
     
     override func setupConstraints() {
         super.setupConstraints()
         takeMeHomeButton.addConstraints(nil, left: nil, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 32, rightConstant: 32, widthConstant: 80, heightConstant: 80)
         arModeButton.addConstraints(nil, left: nil, bottom: takeMeHomeButton.topAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 16, rightConstant: 32, widthConstant: 80, heightConstant: 80)
+        centerButton.addConstraints(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: nil, topConstant: 0, leftConstant: 32, bottomConstant: 32, rightConstant: 0, widthConstant: 80, heightConstant: 80)
     }
     
     // MARK: - User Actions
     
-    // Get bookmarks from database, and choose home
+    // Get bookmarks from database, and choose home, then calculate the route home
     @objc
     func getHomeBookmark() {
         // Check that Caretaker is accessing this menu, not Patient
@@ -111,6 +130,13 @@ class PatientMapViewController: MapViewController {
             guard let home = self.bookmarks[0]["address"] as? String else { return }
             self.calculateRouteHome(Home: home)
         }
+    }
+    
+    //center the mapview on the user
+    @objc
+    func setCenter() {
+        guard let location = LocationManager.shared.currentLocation else { return }
+        mapView.setCenter(location, zoomLevel: 13, animated: true)
     }
     
     @objc
@@ -140,11 +166,12 @@ class PatientMapViewController: MapViewController {
             _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
                 guard let route = routes?.first else { return }
                 self.directionsRoute = route
-                self.drawRoute(route: self.directionsRoute!)
+                //self.drawRoute(route: self.directionsRoute!) //do not need to draw the route
             }
         })
     }
     
+    //this function is not used but is kept in case we would like to draw a route with a line
     func drawRoute(route: Route) {
         guard route.coordinateCount > 0 else { return }
         // Convert the route’s coordinates into a polyline.
