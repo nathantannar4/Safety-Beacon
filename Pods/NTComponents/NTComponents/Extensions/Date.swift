@@ -56,8 +56,8 @@ public extension Date {
         return dateFormatter.string(from: self)
     }
     
-    func timeElapsedDescription() -> String {
-        let seconds = Date().timeIntervalSince(self)
+    func timeElapsedDescription(from date: Date = Date()) -> String {
+        let seconds = date.timeIntervalSince(self)
         var elapsed: String
         if seconds < 60 {
             elapsed = "Just now"

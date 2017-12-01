@@ -9,6 +9,7 @@
 import UIKit
 import NTComponents
 import Parse
+import Mapbox
 
 class CaretakerReportViewController: NTTableViewController {
     
@@ -70,9 +71,10 @@ class CaretakerReportViewController: NTTableViewController {
                 if locations[key] == nil {
                     locations[key] = []
                 }
-                if let lat = object["lat"] as? Double, let long = object["long"] as? Double {
+                if object["address"] == nil, let lat = object["lat"] as? Double, let long = object["long"] as? Double {
                     getAddress(latitude: lat, longitude: long) { (address) in
                         object["address"] = address
+                        object.saveInBackground()
                     }
                 }
                 locations[key]?.append(object)
@@ -114,12 +116,46 @@ class CaretakerReportViewController: NTTableViewController {
         cell.isFinal = indexPath.row + 1 == self.tableView(tableView, numberOfRowsInSection: indexPath.section)
         
         cell.timeLabel.text = object.createdAt?.string(dateStyle: .none, timeStyle: .short)
+        cell.locationLabel.text = object["address"] as? String ?? "Loading Address"
+        cell.durationLabel.text = "1 minute" // Default
         
-        cell.durationLabel.text = "\(Int.random(min: 3, max: 15)) minutes"
-        cell.locationLabel.text = object["address"] as? String ?? "Unknown Address"
-        
+        if indexPath.row < self.tableView(tableView, numberOfRowsInSection: indexPath.section) - 1 {
+            // There is a cell after the current indexPath
+            let prevObject = locations(for: indexPath.section)[indexPath.row + 1]
+            if let createdAt = object.createdAt, let prevCreatedAt = prevObject.createdAt {
+                cell.durationLabel.text = prevCreatedAt.timeElapsed(from: createdAt)
+            }
+        }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        
+        let location = CaretakerLocationViewController()
+        let object = locations(for: indexPath.section)[indexPath.row]
+        
+        
+        if let lat = object["lat"] as? Double, let long = object["long"] as? Double {
+            location.title = object["address"] as? String
+            let navigation = NTNavigationController(rootViewController: location)
+            
+            // Present map view when selected
+            self.present(navigation, animated: true, completion: {
+                let coordinate = CLLocationCoordinate2DMake(lat, long)
+                let locationMarker = MGLPointAnnotation()
+                locationMarker.coordinate = coordinate
+                locationMarker.title = object["address"] as? String
+                if let currentLocation = LocationManager.shared.currentLocation {
+                    // Return distance in Km away from location
+                    locationMarker.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km from your location"
+                }
+                location.mapView.addAnnotation(locationMarker)
+                location.mapView.setCenter(coordinate, zoomLevel: 12, animated: true)
+            })
+        }
     }
     
     // Get address from coordinates
@@ -145,5 +181,31 @@ class CaretakerReportViewController: NTTableViewController {
                 completion(nil)
             }
         })
+    }
+}
+
+extension Date {
+    func timeElapsed(from date: Date = Date()) -> String {
+        let seconds = date.timeIntervalSince(self)
+        var elapsed: String
+        if seconds < 60 {
+            elapsed = "Just now"
+        }
+        else if seconds < 60 * 60 {
+            let minutes = Int(seconds / 60)
+            let suffix = (minutes > 1) ? "minutes" : "minute"
+            elapsed = "\(minutes) \(suffix)"
+        }
+        else if seconds < 24 * 60 * 60 {
+            let hours = Int(seconds / (60 * 60))
+            let suffix = (hours > 1) ? "hours" : "hour"
+            elapsed = "\(hours) \(suffix)"
+        }
+        else {
+            let days = Int(seconds / (24 * 60 * 60))
+            let suffix = (days > 1) ? "days" : "day"
+            elapsed = "\(days) \(suffix)"
+        }
+        return elapsed
     }
 }

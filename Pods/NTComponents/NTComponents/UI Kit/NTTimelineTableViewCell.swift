@@ -166,16 +166,16 @@ open class NTTimelineTableViewCell: UITableViewCell {
         addSubview(timeLabel)
         addSubview(titleLabel)
         addSubview(descriptionTextView)
-//        addSubview(thumbnailImageView)
+        addSubview(thumbnailImageView)
         
         timeLabel.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 15, leftConstant: 46, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 15)
         
         titleLabel.anchor(timeLabel.bottomAnchor, left: timeLabel.leftAnchor, bottom: descriptionTextView.topAnchor, right: nil, topConstant: 20, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 0)
         
-        descriptionTextView.anchor(titleLabel.bottomAnchor, left: timeLabel.leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 2, leftConstant: 0, bottomConstant: 8, rightConstant: 8, widthConstant: 0, heightConstant: 0)
+        descriptionTextView.anchor(titleLabel.bottomAnchor, left: timeLabel.leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 8, rightConstant: 8, widthConstant: 0, heightConstant: 0)
         
-//        thumbnailImageView.anchor(nil, left: timeLabel.rightAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 0, widthConstant: 36, heightConstant: 36)
-//        thumbnailImageView.centerYAnchor.constraint(equalTo: timeLabel.centerYAnchor, constant: 4).isActive = true
+        thumbnailImageView.anchor(nil, left: timeLabel.rightAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 0, widthConstant: 36, heightConstant: 36)
+        thumbnailImageView.centerYAnchor.constraint(equalTo: timeLabel.centerYAnchor, constant: 4).isActive = true
         
         selectionStyle = .none
         
@@ -188,15 +188,15 @@ open class NTTimelineTableViewCell: UITableViewCell {
         addSubview(locationLabel)
         
         descriptionTextView.removeAllConstraints()
-        descriptionTextView.anchor(titleLabel.bottomAnchor, left: timeLabel.leftAnchor, bottom: durationLabel.topAnchor, right: rightAnchor, topConstant: 2, leftConstant: 0, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 0)
+        descriptionTextView.anchor(titleLabel.bottomAnchor, left: timeLabel.leftAnchor, bottom: durationLabel.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 0)
         
-        durationIconView.anchor(descriptionTextView.bottomAnchor, left: timeLabel.leftAnchor, bottom: locationIconView.topAnchor, right: durationLabel.leftAnchor, topConstant: 2, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 0)
+        durationIconView.anchor(descriptionTextView.bottomAnchor, left: timeLabel.leftAnchor, bottom: locationIconView.topAnchor, right: durationLabel.leftAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 0)
         durationIconView.widthAnchor.constraint(lessThanOrEqualToConstant: 20).isActive = true
         durationIconView.anchorAspectRatio()
         
-        durationLabel.anchor(durationIconView.topAnchor, left: durationIconView.rightAnchor, bottom: locationLabel.topAnchor, right: descriptionTextView.rightAnchor, topConstant: 2, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        durationLabel.anchor(durationIconView.topAnchor, left: durationIconView.rightAnchor, bottom: locationLabel.topAnchor, right: descriptionTextView.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
-        locationIconView.anchor(durationIconView.bottomAnchor, left: durationIconView.leftAnchor, bottom: bottomAnchor, right: locationLabel.leftAnchor, topConstant: 2, leftConstant: 0, bottomConstant: 6, rightConstant: 8, widthConstant: 0, heightConstant: 0)
+        locationIconView.anchor(durationIconView.bottomAnchor, left: durationIconView.leftAnchor, bottom: bottomAnchor, right: locationLabel.leftAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 6, rightConstant: 8, widthConstant: 0, heightConstant: 0)
         locationIconView.widthAnchor.constraint(lessThanOrEqualToConstant: 20).isActive = true
         locationIconView.anchorAspectRatio()
         

@@ -141,7 +141,7 @@ class CaretakerSafeZonesViewController: UITableViewController {
                     let centerLonRadians: Double = coordinate.longitude * .pi / 180
                     var coordinates = [CLLocationCoordinate2D]()
                     
-                    for var index in 0..<Int(numberOfPoints) {
+                    for index in 0..<Int(numberOfPoints) {
                         let degrees: Double = Double(index) * Double(degreesBetweenPoints)
                         let degreeRadians: Double = degrees * .pi / 180
                         let pointLatRadians: Double = asin(sin(centerLatRadians) * cos(distRadians) + cos(centerLatRadians) * sin(distRadians) * cos(degreeRadians))
