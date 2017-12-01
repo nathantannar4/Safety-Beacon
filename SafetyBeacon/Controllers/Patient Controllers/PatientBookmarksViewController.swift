@@ -34,6 +34,10 @@ class PatientBookmarksViewController: UITableViewController {
         view.backgroundColor = Color.Default.Background.ViewController
         tableView.tableFooterView = UIView()
         refreshBookmarks()
+        let rc = UIRefreshControl()
+        rc.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        rc.addTarget(self, action: #selector(refreshBookmarks), for: .valueChanged)
+        tableView.refreshControl = rc
     }
     
     // Updating bookmarks from database

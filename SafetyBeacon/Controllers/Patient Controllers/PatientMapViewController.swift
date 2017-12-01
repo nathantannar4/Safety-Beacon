@@ -36,7 +36,25 @@ class PatientMapViewController: MapViewController {
         button.addTarget(self, action: #selector(presentNavigation), for: .touchUpInside)
         button.layer.cornerRadius = 40
         button.layer.borderWidth = 4
-        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderColor = UIColor.logoBlue.darker(by: 10).cgColor
+        button.setDefaultShadow()
+        return button
+    }()
+    
+    // AR Mode button that switches to Augmented Reality Mode
+    lazy var arModeButton: NTButton = { [weak self] in
+        let button = NTButton()
+        button.backgroundColor = .logoRed
+        button.titleColor = .white
+        button.trackTouchLocation = false
+        button.ripplePercent = 1
+        button.setTitleColor(UIColor.white.withAlpha(0.3), for: .highlighted)
+        button.setTitle("AR Mode", for: .normal)
+        button.titleFont = Font.Default.Title.withSize(16)
+        button.addTarget(self, action: #selector(presentARNavigation), for: .touchUpInside)
+        button.layer.cornerRadius = 40
+        button.layer.borderWidth = 4
+        button.layer.borderColor = UIColor.logoRed.darker(by: 10).cgColor
         button.setDefaultShadow()
         return button
     }()
@@ -63,11 +81,13 @@ class PatientMapViewController: MapViewController {
     override func setupSubviews() {
         super.setupSubviews()
         view.addSubview(takeMeHomeButton)
+        view.addSubview(arModeButton)
     }
     
     override func setupConstraints() {
         super.setupConstraints()
         takeMeHomeButton.addConstraints(nil, left: nil, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 32, rightConstant: 32, widthConstant: 80, heightConstant: 80)
+        arModeButton.addConstraints(nil, left: nil, bottom: takeMeHomeButton.topAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 16, rightConstant: 32, widthConstant: 80, heightConstant: 80)
     }
     
     // MARK: - User Actions
@@ -88,8 +108,8 @@ class PatientMapViewController: MapViewController {
             self.bookmarks = objects
             
             // TODO: Search for bookmark "Home", if not present, give error
-            let home = self.bookmarks[0]["address"] as? String
-            self.calculateRouteHome(Home: home!)
+            guard let home = self.bookmarks[0]["address"] as? String else { return }
+            self.calculateRouteHome(Home: home)
         }
     }
     
@@ -147,7 +167,16 @@ class PatientMapViewController: MapViewController {
     @objc
     func presentNavigation() {
         // TODO: If home bookmark missing (i.e. directionsRoute == nil) prompt error and ignore button action
-        let viewController = NavigationViewController(for: directionsRoute!)
+        guard let route = directionsRoute else { return }
+        let viewController = NavigationViewController(for: route)
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    // Present the augmented reality view controller
+    @objc
+    func presentARNavigation() {
+        let viewController = UINavigationController(rootViewController: ARViewController().addDismissalBarButtonItem())
+        viewController.navigationBar.isTranslucent = false
         self.present(viewController, animated: true, completion: nil)
     }
     

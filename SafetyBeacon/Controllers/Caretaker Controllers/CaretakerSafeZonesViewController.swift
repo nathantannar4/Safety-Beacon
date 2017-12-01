@@ -41,6 +41,7 @@ class CaretakerSafeZonesViewController: UITableViewController {
         refreshSafeZones()
         
         let rc = UIRefreshControl()
+        rc.attributedTitle = NSAttributedString(string: "Pull to Refresh")
         rc.addTarget(self, action: #selector(refreshSafeZones), for: .valueChanged)
         tableView.refreshControl = rc
     }

@@ -55,10 +55,10 @@ class ContentController: UINavigationController {
         
         // The major items that are new
         let items = [
-            WhatsNewItem.image(title: "Navigation", subtitle: "Turn-by-Turn navigation instructions", image: UIImage(named: "icons8-route")!.withRenderingMode(.alwaysTemplate)),
-            WhatsNewItem.image(title: "History", subtitle: "View the patients history and filter locations by date and time", image: UIImage(named: "icons8-clock")!.withRenderingMode(.alwaysTemplate)),
-            WhatsNewItem.image(title: "Battery Alerts", subtitle: "The caretaker is updated in the event that the patients battery is low", image: UIImage(named: "icons8-high_battery")!.withRenderingMode(.alwaysTemplate)),
-            WhatsNewItem.image(title: "Background Updates", subtitle: "The patients location will now be updated even when their app is closed.", image: UIImage(named: "icons8-refresh")!.withRenderingMode(.alwaysTemplate)),
+            WhatsNewItem.image(title: "AR", subtitle: "Augmented Reality Navigation", image: UIImage(named: "icons8-route")!.withRenderingMode(.alwaysTemplate)),
+            WhatsNewItem.image(title: "Analysis", subtitle: "View the patients visited loctions for the current day", image: UIImage(named: "icons8-chart")!.withRenderingMode(.alwaysTemplate)),
+            WhatsNewItem.image(title: "Safe Zones", subtitle: "Proximity alerts for patients entering/exiting zones", image: UIImage(named: "icons8-zone")!.withRenderingMode(.alwaysTemplate)),
+            WhatsNewItem.image(title: "Performance Updates", subtitle: "Offloaded some processing to the server for faster speends and longer battery life", image: UIImage(named: "icons8-dashboard")!.withRenderingMode(.alwaysTemplate)),
             ]
         
         // Present the WhatsNew controller

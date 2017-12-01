@@ -166,7 +166,7 @@ open class NTTimelineTableViewCell: UITableViewCell {
         addSubview(timeLabel)
         addSubview(titleLabel)
         addSubview(descriptionTextView)
-        addSubview(thumbnailImageView)
+//        addSubview(thumbnailImageView)
         
         timeLabel.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 15, leftConstant: 46, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 15)
         
@@ -174,8 +174,8 @@ open class NTTimelineTableViewCell: UITableViewCell {
         
         descriptionTextView.anchor(titleLabel.bottomAnchor, left: timeLabel.leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 2, leftConstant: 0, bottomConstant: 8, rightConstant: 8, widthConstant: 0, heightConstant: 0)
         
-        thumbnailImageView.anchor(nil, left: timeLabel.rightAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 0, widthConstant: 36, heightConstant: 36)
-        thumbnailImageView.centerYAnchor.constraint(equalTo: timeLabel.centerYAnchor, constant: 4).isActive = true
+//        thumbnailImageView.anchor(nil, left: timeLabel.rightAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 0, widthConstant: 36, heightConstant: 36)
+//        thumbnailImageView.centerYAnchor.constraint(equalTo: timeLabel.centerYAnchor, constant: 4).isActive = true
         
         selectionStyle = .none
         
