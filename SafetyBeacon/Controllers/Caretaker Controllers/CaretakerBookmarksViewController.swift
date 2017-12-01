@@ -437,12 +437,15 @@ extension CaretakerBookmarksViewController: UITextFieldDelegate {
         let count = textField.text?.count ?? 0
         let char = string.cString(using: String.Encoding.utf8)!
         let isBackSpace = strcmp(char, "\\b")
-
-        // Limit postal code input limit to 6, unless backspace is pressed
+        
+        // Limit postal code and radius input limit to 6, unless backspace is pressed
         if (isBackSpace == -92) {
             return true
         } else {
-            return count < 6
+            // Limit postal code to just numbers and letters
+            let allowedCharacters = CharacterSet.alphanumerics
+            let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+            return unwantedStr.count == 0 && count < 6
         }
     }
 }

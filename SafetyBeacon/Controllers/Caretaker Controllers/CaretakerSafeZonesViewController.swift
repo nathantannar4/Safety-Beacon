@@ -123,7 +123,6 @@ class CaretakerSafeZonesViewController: UITableViewController {
             let address = safeZones[indexPath.row]["address"] as? String
             let radius = safeZones[indexPath.row]["radius"] as? Double ?? 0
             var concatenatedAddressArr = address?.components(separatedBy: ", ")
-            let originalStreet = concatenatedAddressArr![0] as String
             
             self.getCoordinates(address: address!, completion: { (coordinate) in
                 guard let coordinate = coordinate else {
@@ -158,12 +157,13 @@ class CaretakerSafeZonesViewController: UITableViewController {
                     
                     // Create location marker
                     let locationMarker = MGLPointAnnotation()
+                    let radiusInt = self.safeZones[indexPath.row]["radius"] as? Int ?? 0
                     locationMarker.coordinate = coordinate
-                    locationMarker.title = originalStreet
+                    locationMarker.title = "Alert radius: " + String(radiusInt) + "m"
                     location.mapView.addAnnotation(locationMarker)
                     
                     // Set default zoom level
-                    location.mapView.setCenter(coordinate, zoomLevel: 18, animated: true)
+                    location.mapView.setCenter(coordinate, zoomLevel: 17, animated: true)
                 })
             })
         }
@@ -199,14 +199,14 @@ class CaretakerSafeZonesViewController: UITableViewController {
             
             // Get original bookmark
             let originalName = self.safeZones[indexPath.row]["name"] as? String
-            let radiusDouble = self.safeZones[indexPath.row]["radius"] as? Double ?? 0
+            let radiusInt = self.safeZones[indexPath.row]["radius"] as? Int ?? 0
             let concatenatedAddress = self.safeZones[indexPath.row]["address"] as? String
             var concatenatedAddressArr = concatenatedAddress?.components(separatedBy: ", ")
             let originalStreet = concatenatedAddressArr![0] as String
             let originalCity = concatenatedAddressArr![1] as String
             let originalProvince = concatenatedAddressArr![2] as String
             let originalPostal = concatenatedAddressArr![3] as String
-            let originalRadius = String(radiusDouble)
+            let originalRadius = String(radiusInt)
 
             // Text input placeholders
             alertController.addTextField { nameField in nameField.placeholder = "Safe Zone Name"
@@ -228,9 +228,10 @@ class CaretakerSafeZonesViewController: UITableViewController {
                 postalField.delegate = self
                 postalField.text = originalPostal
             }
-            alertController.addTextField { radiusField in radiusField.placeholder = "Radius"
+            alertController.addTextField { radiusField in radiusField.placeholder = "Radius (meters)"
                 radiusField.delegate = self
                 radiusField.text = originalRadius
+                radiusField.keyboardType = UIKeyboardType.numberPad
             }
             
             // Change button
@@ -353,7 +354,11 @@ class CaretakerSafeZonesViewController: UITableViewController {
             postalField.placeholder = "Postal Code (no space)"
             postalField.delegate = self
         }
-        alertController.addTextField { radiusField in radiusField.placeholder = "Radius Field" }
+        alertController.addTextField { radiusField in
+            radiusField.placeholder = "Radius (meters)"
+            radiusField.keyboardType = UIKeyboardType.numberPad
+            radiusField.delegate = self
+        }
         
         // Add button
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (_: UIAlertAction!) -> Void in
@@ -423,12 +428,15 @@ extension CaretakerSafeZonesViewController: UITextFieldDelegate {
         let count = textField.text?.count ?? 0
         let char = string.cString(using: String.Encoding.utf8)!
         let isBackSpace = strcmp(char, "\\b")
-        
-        // Limit postal code input limit to 6, unless backspace is pressed
+
+        // Limit postal code and radius input limit to 6, unless backspace is pressed
         if (isBackSpace == -92) {
             return true
         } else {
-            return count < 6
+            // Limit postal code to just numbers and letters
+            let allowedCharacters = CharacterSet.alphanumerics
+            let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+            return unwantedStr.count == 0 && count < 6
         }
     }
 }
