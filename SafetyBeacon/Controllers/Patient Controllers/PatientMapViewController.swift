@@ -126,9 +126,21 @@ class PatientMapViewController: MapViewController {
             }
             self.bookmarks = objects
             
-            // TODO: Search for bookmark "Home", if not present, give error
-            guard let home = self.bookmarks[0]["address"] as? String else { return }
-            self.calculateRouteHome(Home: home)
+            // Search for bookmark "Home", if not present, give error
+            var notpresent = true
+            for bookmark in self.bookmarks {
+                guard let name = bookmark["name"] as? String else { return }
+                if name == "Home" {
+                    guard let home = bookmark["address"] as? String else { return }
+                    self.calculateRouteHome(Home: home)
+                    notpresent = false
+                }
+            }
+            if notpresent == true {
+                let alert = UIAlertController(title: "Add Bookmark for Home", message: "Your caretaker must create a bookmark for your home address titled \"Home\"", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
