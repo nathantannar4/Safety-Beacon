@@ -9,6 +9,8 @@
 //           - ntannar@sfu.ca
 //      Youjung Kim
 //          - youjungk@sfu.ca
+//      Jason Tsang
+//          - jrtsang@sfu.ca
 //
 
 import CoreLocation
@@ -36,7 +38,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
     private lazy var coreLocationManager: CLLocationManager = { [weak self] in
         let manager = CLLocationManager()
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.desiredAccuracy = kCLLocationAccuracyBest // Highest accuracy
+        manager.distanceFilter = 10 // Minimum distance device moves in meters to generate an update
+        manager.pausesLocationUpdatesAutomatically = true // Automatically pause to save power
         return manager
     }()
     
@@ -45,6 +49,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
     private override init() {
         super.init()
         setupBatteryMonitor()
+        setupSafeZones()
     }
     
     /// Adds observers to monitor the devices battery level
@@ -127,16 +132,27 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
         Log.write(.error, "locationManagerDidFailWithError: \(error.localizedDescription)")
     }
     
+    func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
+        // DEBUG - Lists all the monitored regions to console
+        print("The monitored regions are: \(manager.monitoredRegions)")
+    }
+    
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         Log.write(.status, "locationManagerDidVisit: \(visit)")
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         Log.write(.status, "locationManagerDidEnterRegion: \(region)")
+        // Send push notification if patient enters monitored region
+        // Push notifications only accessible to paid developer membership (push notification certificate for App ID)
+        // Checked validaility by writing message to console running SafetyZonesTests
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         Log.write(.status, "locationManagerDidExitRegion: \(region)")
+        // Send push notification if patient exits monitored region
+        // Push notifications only accessible to paid developer membership (push notification certificate for App ID)
+        // Checked validaility by writing message to console running SafetyZonesTests
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -186,8 +202,75 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
             break
         }
     }
+    
+    // MARK: - Patient Safe Zones Processing Functions
+    
+    // Setup Safe Zones from database
+    @objc
+    func setupSafeZones() {
+        // Check that Patient is accessing this menu, not Caretaker
+        guard let currentUser = User.current(), currentUser.isPatient else { return }
+        
+        // Remove all previously cached Safe Zones regions to monitor
+        for object in coreLocationManager.monitoredRegions {
+            coreLocationManager.stopMonitoring(for: object)
+        }
+        
+        let query = PFQuery(className: "SafeZones")
+        query.whereKey("patient", equalTo: currentUser.object)
+        query.findObjectsInBackground { (objects, error) in
+            guard let objects = objects else {
+                Log.write(.error, error.debugDescription)
+                return
+            }
+            // Iterate through all the Safe Zones
+            for zone in objects {
+                let address = zone["address"] as! String
+                let radius = zone["radius"] as! Double
+                let identifier = zone["name"] as! String
+                self.getCoordinates(address: address, completion: { (coordinate) in
+                    guard let coordinate = coordinate else {
+                        NTPing(type: .isDanger, title: "Invalid Address").show(duration: 5)
+                        return
+                    }
+                    // Add to monitored regions
+                    self.addMonitoring(coordinate: coordinate, radius: radius, identifier: identifier)
+                })
+            }
+        }
+    }
+    
+    // Add Safe Zones to monitored regions automatically managed by iOS
+    func addMonitoring(coordinate: CLLocationCoordinate2D, radius: Double, identifier: String) {
+        // Set parameters
+        let radius: CLLocationDistance = CLLocationDistance(radius)
+        let region = CLCircularRegion(center: coordinate, radius: radius, identifier: identifier)
+        // Notify on both exit and enter
+        region.notifyOnEntry = true
+        region.notifyOnExit = true
+        // Add and refresh list
+        coreLocationManager.startMonitoring(for: region)
+        coreLocationManager.startUpdatingLocation()
+    }
+    
+    // Get coordinates from address
+    func getCoordinates(address: String, completion: @escaping (CLLocationCoordinate2D?) -> Void) {
+        CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
+            if error != nil {
+                Log.write(.error, error.debugDescription)
+                return
+            }
+            if placemarks?.count != nil {
+                let placemark = placemarks?[0]
+                let location = placemark?.location
+                let coordinate = location?.coordinate
+                completion(coordinate)
+            } else {
+                completion(nil)
+            }
+        })
+    }
 
 
 }
-
 

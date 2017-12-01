@@ -44,6 +44,7 @@
 		785FFDF79C7B992CF2941605 /* Pods_SafetyBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9324C7D4A6FA4E0E95079A40 /* Pods_SafetyBeacon.framework */; };
 		961FF6CF1FBD6E26006C7535 /* PatientBookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FF6CE1FBD6E26006C7535 /* PatientBookmarksViewController.swift */; };
 		96255D061FAE78990072F482 /* PatientLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96255D051FAE78990072F482 /* PatientLocationViewController.swift */; };
+		966251891FCE936200E6528E /* SafeZonesTest.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 966251881FCE936200E6528E /* SafeZonesTest.gpx */; };
 		968BCD111FC2446E00EAB598 /* CaretakerLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968BCD101FC2446E00EAB598 /* CaretakerLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +82,7 @@
 		38C890D41FAE6C2900723F0D /* DynamicTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarItem.swift; sourceTree = "<group>"; };
 		38F7C2521F736D92006C995A /* SafetyBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafetyBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7C2551F736D92006C995A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		38F7C2671F736D92006C995A /* SafetyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyTrackerTests.swift; sourceTree = "<group>"; };
+		38F7C2671F736D92006C995A /* SafetyZonesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyZonesTests.swift; sourceTree = "<group>"; };
 		38F7C2691F736D93006C995A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38F7C2781F736E36006C995A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38F7C2791F736E36006C995A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		9324C7D4A6FA4E0E95079A40 /* Pods_SafetyBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		961FF6CE1FBD6E26006C7535 /* PatientBookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientBookmarksViewController.swift; sourceTree = "<group>"; };
 		96255D051FAE78990072F482 /* PatientLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientLocationViewController.swift; sourceTree = "<group>"; };
+		966251881FCE936200E6528E /* SafeZonesTest.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = SafeZonesTest.gpx; sourceTree = "<group>"; };
 		968BCD101FC2446E00EAB598 /* CaretakerLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerLocationViewController.swift; sourceTree = "<group>"; };
 		F38440B137C4743245CE70BD /* Pods-SafetyBeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBeacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,8 +232,9 @@
 		38F7C2661F736D92006C995A /* SafetyBeaconTests */ = {
 			isa = PBXGroup;
 			children = (
-				38F7C2671F736D92006C995A /* SafetyTrackerTests.swift */,
+				38F7C2671F736D92006C995A /* SafetyZonesTests.swift */,
 				38F7C2691F736D93006C995A /* Info.plist */,
+				966251881FCE936200E6528E /* SafeZonesTest.gpx */,
 			);
 			path = SafetyBeaconTests;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				384756C91FCCE7D100FDA3E8 /* art.scnassets in Resources */,
 				38F7C27E1F736EC0006C995A /* LaunchScreen.storyboard in Resources */,
 				3869F55B1FA2B58F00DC3CDC /* Pods-SafetyBeacon-acknowledgements.plist in Resources */,
+				966251891FCE936200E6528E /* SafeZonesTest.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

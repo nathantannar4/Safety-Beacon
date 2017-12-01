@@ -7,6 +7,8 @@
 //  Edited by:
 //      Josh Shercliffe
 //          - jshercli@sfu.ca
+//      Jason Tsang
+//          - jrtsang@sfu.ca
 //
 
 import AddressBookUI
@@ -119,9 +121,8 @@ class CaretakerSafeZonesViewController: UITableViewController {
             let location = MapViewController()
             location.title = safeZones[indexPath.row]["name"] as? String
             let address = safeZones[indexPath.row]["address"] as? String
-            //let radius = safeZones[indexPath.row]["radius"] as? Double ?? 0
+            let radius = safeZones[indexPath.row]["radius"] as? Double ?? 0
             var concatenatedAddressArr = address?.components(separatedBy: ", ")
-            let originalStreet = concatenatedAddressArr![0] as String
             
             self.getCoordinates(address: address!, completion: { (coordinate) in
                 guard let coordinate = coordinate else {
@@ -130,21 +131,45 @@ class CaretakerSafeZonesViewController: UITableViewController {
                 }
                 let navigation = NTNavigationController(rootViewController: location)
                 self.present(navigation, animated: true, completion: {
-                    let locationMarker = MGLPointAnnotation()
-                    locationMarker.coordinate = coordinate
-                    locationMarker.title = originalStreet
-                    if let currentLocation = LocationManager.shared.currentLocation {
-                        // Return distance in Km
-                        locationMarker.subtitle = "\(String(format: "%.02f", Double(currentLocation.distance(to: coordinate)/1000))) Km Away"
-                    }
                     location.navigationItem.leftBarButtonItem = UIBarButtonItem(image: Icon.Delete?.scale(to: 30), style: .plain, target: self, action: #selector(self.closeView))
+                
+                    // Calcuate radius plot from polygon
+                    let degreesBetweenPoints = 8.0
+                    let numberOfPoints = floor(360.0 / degreesBetweenPoints)
+                    let distRadians: Double = radius / 6371000.0
+                    let centerLatRadians: Double = coordinate.latitude * .pi / 180
+                    let centerLonRadians: Double = coordinate.longitude * .pi / 180
+                    var coordinates = [CLLocationCoordinate2D]()
+                    
+                    for var index in 0..<Int(numberOfPoints) {
+                        let degrees: Double = Double(index) * Double(degreesBetweenPoints)
+                        let degreeRadians: Double = degrees * .pi / 180
+                        let pointLatRadians: Double = asin(sin(centerLatRadians) * cos(distRadians) + cos(centerLatRadians) * sin(distRadians) * cos(degreeRadians))
+                        let pointLonRadians: Double = centerLonRadians + atan2(sin(degreeRadians) * sin(distRadians) * cos(centerLatRadians), cos(distRadians) - sin(centerLatRadians) * sin(pointLatRadians))
+                        let pointLat: Double = pointLatRadians * 180 / .pi
+                        let pointLon: Double = pointLonRadians * 180 / .pi
+                        let point: CLLocationCoordinate2D = CLLocationCoordinate2DMake(pointLat, pointLon)
+                        coordinates.append(point)
+                    }
+                    // Create polygon from points above and plot
+                    let polygon = MGLPolygon(coordinates: &coordinates, count: UInt(coordinates.count))
+                    location.mapView.addAnnotation(polygon)
+                    
+                    // Create location marker
+                    let locationMarker = MGLPointAnnotation()
+                    let radiusInt = self.safeZones[indexPath.row]["radius"] as? Int ?? 0
+                    locationMarker.coordinate = coordinate
+                    locationMarker.title = "Alert radius: " + String(radiusInt) + "m"
                     location.mapView.addAnnotation(locationMarker)
-                    location.mapView.setCenter(coordinate, zoomLevel: 12, animated: true)
+                    
+                    // Set default zoom level
+                    location.mapView.setCenter(coordinate, zoomLevel: 17, animated: true)
                 })
             })
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
     @objc
     func closeView() {
         dismiss(animated: true, completion: nil)
@@ -174,14 +199,14 @@ class CaretakerSafeZonesViewController: UITableViewController {
             
             // Get original bookmark
             let originalName = self.safeZones[indexPath.row]["name"] as? String
-            let radiusDouble = self.safeZones[indexPath.row]["radius"] as? Double ?? 0
+            let radiusInt = self.safeZones[indexPath.row]["radius"] as? Int ?? 0
             let concatenatedAddress = self.safeZones[indexPath.row]["address"] as? String
             var concatenatedAddressArr = concatenatedAddress?.components(separatedBy: ", ")
             let originalStreet = concatenatedAddressArr![0] as String
             let originalCity = concatenatedAddressArr![1] as String
             let originalProvince = concatenatedAddressArr![2] as String
             let originalPostal = concatenatedAddressArr![3] as String
-            let originalRadius = String(radiusDouble)
+            let originalRadius = String(radiusInt)
 
             // Text input placeholders
             alertController.addTextField { nameField in nameField.placeholder = "Safe Zone Name"
@@ -203,9 +228,10 @@ class CaretakerSafeZonesViewController: UITableViewController {
                 postalField.delegate = self
                 postalField.text = originalPostal
             }
-            alertController.addTextField { radiusField in radiusField.placeholder = "Radius"
+            alertController.addTextField { radiusField in radiusField.placeholder = "Radius (meters)"
                 radiusField.delegate = self
                 radiusField.text = originalRadius
+                radiusField.keyboardType = UIKeyboardType.numberPad
             }
             
             // Change button
@@ -328,7 +354,11 @@ class CaretakerSafeZonesViewController: UITableViewController {
             postalField.placeholder = "Postal Code (no space)"
             postalField.delegate = self
         }
-        alertController.addTextField { radiusField in radiusField.placeholder = "Radius Field" }
+        alertController.addTextField { radiusField in
+            radiusField.placeholder = "Radius (meters)"
+            radiusField.keyboardType = UIKeyboardType.numberPad
+            radiusField.delegate = self
+        }
         
         // Add button
         let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (_: UIAlertAction!) -> Void in
@@ -398,12 +428,15 @@ extension CaretakerSafeZonesViewController: UITextFieldDelegate {
         let count = textField.text?.count ?? 0
         let char = string.cString(using: String.Encoding.utf8)!
         let isBackSpace = strcmp(char, "\\b")
-        
-        // Limit postal code input limit to 6, unless backspace is pressed
+
+        // Limit postal code and radius input limit to 6, unless backspace is pressed
         if (isBackSpace == -92) {
             return true
         } else {
-            return count < 6
+            // Limit postal code to just numbers and letters
+            let allowedCharacters = CharacterSet.alphanumerics
+            let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
+            return unwantedStr.count == 0 && count < 6
         }
     }
 }
