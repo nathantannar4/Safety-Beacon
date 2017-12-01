@@ -44,7 +44,6 @@
 		785FFDF79C7B992CF2941605 /* Pods_SafetyBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9324C7D4A6FA4E0E95079A40 /* Pods_SafetyBeacon.framework */; };
 		961FF6CF1FBD6E26006C7535 /* PatientBookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FF6CE1FBD6E26006C7535 /* PatientBookmarksViewController.swift */; };
 		96255D061FAE78990072F482 /* PatientLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96255D051FAE78990072F482 /* PatientLocationViewController.swift */; };
-		966251871FCE90FA00E6528E /* PatientSafeZonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966251861FCE90FA00E6528E /* PatientSafeZonesViewController.swift */; };
 		966251891FCE936200E6528E /* SafeZonesTest.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 966251881FCE936200E6528E /* SafeZonesTest.gpx */; };
 		968BCD111FC2446E00EAB598 /* CaretakerLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968BCD101FC2446E00EAB598 /* CaretakerLocationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -93,7 +92,6 @@
 		9324C7D4A6FA4E0E95079A40 /* Pods_SafetyBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafetyBeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		961FF6CE1FBD6E26006C7535 /* PatientBookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientBookmarksViewController.swift; sourceTree = "<group>"; };
 		96255D051FAE78990072F482 /* PatientLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientLocationViewController.swift; sourceTree = "<group>"; };
-		966251861FCE90FA00E6528E /* PatientSafeZonesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientSafeZonesViewController.swift; sourceTree = "<group>"; };
 		966251881FCE936200E6528E /* SafeZonesTest.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = SafeZonesTest.gpx; sourceTree = "<group>"; };
 		968BCD101FC2446E00EAB598 /* CaretakerLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretakerLocationViewController.swift; sourceTree = "<group>"; };
 		F38440B137C4743245CE70BD /* Pods-SafetyBeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafetyBeacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafetyBeacon/Pods-SafetyBeacon.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				961FF6CE1FBD6E26006C7535 /* PatientBookmarksViewController.swift */,
 				96255D051FAE78990072F482 /* PatientLocationViewController.swift */,
 				3810DA4B1F832A5300B5180E /* PatientMapViewController.swift */,
-				966251861FCE90FA00E6528E /* PatientSafeZonesViewController.swift */,
 			);
 			path = "Patient Controllers";
 			sourceTree = "<group>";
@@ -488,7 +485,6 @@
 				3847EEB01F79E08700305761 /* CaretakerHistoryViewController.swift in Sources */,
 				3892E9BC1F78539F002E3AC2 /* Secrets.swift in Sources */,
 				3869F5611FA2C00F00DC3CDC /* AccountSetupViewController.swift in Sources */,
-				966251871FCE90FA00E6528E /* PatientSafeZonesViewController.swift in Sources */,
 				3847EEAA1F79DFAF00305761 /* CaretakerBookmarksViewController.swift in Sources */,
 				3892E9C41F79B5ED002E3AC2 /* Log.swift in Sources */,
 				385BA3301F79BD38004B9061 /* LoginViewController.swift in Sources */,

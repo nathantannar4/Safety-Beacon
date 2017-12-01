@@ -100,7 +100,7 @@ class LoginViewController: NTLoginViewController, NTEmailAuthDelegate {
                 // Patient Views
                 
                 // This sets up how we want the DynamicTabBarController to look like
-                let viewControllers = [PatientMapViewController(), PatientBookmarksViewController(), PatientSafeZonesViewController()]
+                let viewControllers = [PatientMapViewController(), PatientBookmarksViewController()]
                 let tabBarController = DynamicTabBarController(viewControllers: viewControllers)
                 tabBarController.isScrollEnabled = false
                 tabBarController.tabBar.activeTintColor = .logoBlue
