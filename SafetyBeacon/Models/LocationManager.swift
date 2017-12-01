@@ -132,8 +132,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
         Log.write(.error, "locationManagerDidFailWithError: \(error.localizedDescription)")
     }
     
-    // DEBUG - Lists all the monitored regions
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
+        // DEBUG - Lists all the monitored regions to console
         print("The monitored regions are: \(manager.monitoredRegions)")
     }
     
@@ -143,10 +143,16 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         Log.write(.status, "locationManagerDidEnterRegion: \(region)")
+        // Send push notification if patient enters monitored region
+        // Push notifications only accessible to paid developer membership (push notification certificate for App ID)
+        // Checked validaility by writing message to console running SafetyZonesTests
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         Log.write(.status, "locationManagerDidExitRegion: \(region)")
+        // Send push notification if patient exits monitored region
+        // Push notifications only accessible to paid developer membership (push notification certificate for App ID)
+        // Checked validaility by writing message to console running SafetyZonesTests
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -197,7 +203,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
         }
     }
     
-    // MARK: - Processing Functions
+    // MARK: - Patient Safe Zones Processing Functions
     
     // Setup Safe Zones from database
     @objc
@@ -267,5 +273,4 @@ class LocationManager: NSObject, CLLocationManagerDelegate, UIApplicationDelegat
 
 
 }
-
 

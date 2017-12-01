@@ -82,7 +82,7 @@
 		38C890D41FAE6C2900723F0D /* DynamicTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarItem.swift; sourceTree = "<group>"; };
 		38F7C2521F736D92006C995A /* SafetyBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafetyBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7C2551F736D92006C995A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		38F7C2671F736D92006C995A /* SafetyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyTrackerTests.swift; sourceTree = "<group>"; };
+		38F7C2671F736D92006C995A /* SafetyZonesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyZonesTests.swift; sourceTree = "<group>"; };
 		38F7C2691F736D93006C995A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38F7C2781F736E36006C995A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38F7C2791F736E36006C995A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 		38F7C2661F736D92006C995A /* SafetyBeaconTests */ = {
 			isa = PBXGroup;
 			children = (
-				38F7C2671F736D92006C995A /* SafetyTrackerTests.swift */,
+				38F7C2671F736D92006C995A /* SafetyZonesTests.swift */,
 				38F7C2691F736D93006C995A /* Info.plist */,
 				966251881FCE936200E6528E /* SafeZonesTest.gpx */,
 			);
