@@ -46,8 +46,6 @@ class ARViewController: UIViewController {
     lazy var mapView: MGLMapView = { [weak self] in
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL())
         mapView.showsUserLocation = true
-        mapView.layer.borderWidth = 5
-        mapView.layer.borderColor = UIColor.white.cgColor
         return mapView
     }()
     
@@ -146,22 +144,9 @@ class ARViewController: UIViewController {
             mapView.removeAnnotations(existingAnnotations)
         }
         
-        // Add an annotation to the map view for the pressed point
-        let annotation = MGLPointAnnotation()
-        annotation.coordinate = coordinate
-        mapView.addAnnotation(annotation)
-        
         // When the gesture ends use the annotation location to initiate a query to the Mapbox Directions API
         if recognizer.state == .ended {
-            
-            // remove any previously rendered route
-            annotationManager.removeAllAnnotations()
-            resetShapeCollectionFeature(&waypointShapeCollectionFeature)
-            self.updateSource(identifer: "annotationSource", shape: self.waypointShapeCollectionFeature)
-            
-            // Create a CLLocation instance to represent the end location for the directions query
-            let annotationLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
-            queryDirections(with: annotationLocation)
+            guide(to: coordinate)
         }
     }
     
@@ -174,6 +159,23 @@ class ARViewController: UIViewController {
     }
     
     // MARK: - Directions
+    
+    /// Guides the user using AR to the coordinate point
+    func guide(to coordinate: CLLocationCoordinate2D) {
+        // Add an annotation to the map view for the pressed point
+        let annotation = MGLPointAnnotation()
+        annotation.coordinate = coordinate
+        mapView.addAnnotation(annotation)
+        
+        // remove any previously rendered route
+        annotationManager.removeAllAnnotations()
+        resetShapeCollectionFeature(&waypointShapeCollectionFeature)
+        self.updateSource(identifer: "annotationSource", shape: self.waypointShapeCollectionFeature)
+        
+        // Create a CLLocation instance to represent the end location for the directions query
+        let annotationLocation = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+        queryDirections(with: annotationLocation)
+    }
     
     // Query the directions endpoint with waypoints that are the current center location of the map
     // as the start and the passed in location as the end

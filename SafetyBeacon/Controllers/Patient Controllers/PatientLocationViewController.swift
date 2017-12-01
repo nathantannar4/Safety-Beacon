@@ -11,6 +11,7 @@
 
 import UIKit
 import NTComponents
+import Mapbox
 
 class PatientLocationViewController: MapViewController {
     
@@ -71,9 +72,19 @@ class PatientLocationViewController: MapViewController {
     // Present the augmented reality view controller
     @objc
     func presentARNavigation() {
-        let viewController = UINavigationController(rootViewController: ARViewController().addDismissalBarButtonItem())
+        
+        // THere should only be one coordinate, the bookmark
+        guard let coordinate = mapView.annotations?.first?.coordinate else {
+            return
+        }
+        
+        let arController = ARViewController().addDismissalBarButtonItem()
+        let viewController = UINavigationController(rootViewController: arController)
         viewController.navigationBar.isTranslucent = false
-        self.present(viewController, animated: true, completion: nil)
+        present(viewController, animated: true, completion: {
+            // Start directions to the bookmark
+            arController.guide(to: coordinate)
+        })
     }
 
     @objc
